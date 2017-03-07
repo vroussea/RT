@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene>
+	<cam_infos>
+		<!-- cam default values : res 1080 800 ; pos 400 0 50 ;
+		no rotation ; 1 spot at 400 0 100 -->
+		<resolution>1080 800</resolution>
+		<cam>
+			<pos>400 0 50</pos>
+			<rotation>0 0 0</rotation>
+		</cam>
+		<spots>
+			<pos>100 0 200</pos>
+			<pos>100 100 200</pos>
+			<pos>100 -100 200</pos>
+			<pos>200 0 50</pos>
+		</spots>
+	</cam_infos>
+	<objs>
+		<sphere>
+			<pos>100 0 0</pos>
+			<size>20</size>
+			<color>32 80 96</color>
+		</sphere>
+		<plane>
+			<rotation>0 90 0</rotation>
+			<high>-20</high>
+			<color>255 255 255</color>
+		</plane>
+		<cone>
+			<pos>50 20 0</pos>
+			<angle>10</angle>
+			<rotation>45 0 0</rotation>
+			<color>35 250 150</color>
+		</cone>
+		<cylinder>
+			<pos>0 -50 0</pos>
+			<rotation>-45 0 0</rotation>
+			<size>10</size>
+			<color>242 42 42</color>
+		</cylinder>
+	</objs>
+</scene>

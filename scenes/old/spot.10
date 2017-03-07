@@ -1,0 +1,12 @@
+res = 1080 800
+camera pos = 400 0 75 ; rotation = 0 0 0
+spot = 200 50 20
+spot = 100 0 100
+obj = plane ; high = 0 ; rotation = 0 0 0; color = FF FF FF
+obj = plane ; high = 200 ; rotation = 0 0 0 ; color = FF FF FF
+obj = plane ; high = -100 ; rotation = 90 0 0 ; color = FF FF FF
+obj = plane ; high = 100 ; rotation = 90 0 0 ; color = FF FF FF
+obj = plane ; high = 200 ; rotation = 0 90 0 ; color = FF FF FF
+obj = cone ; pos = 0 0 50 ; angle = 20 ; rotation = 45 0 45 ; color = BB A1 50
+obj = cylinder ; pos = -150 0 50 ; rotation = 110 0 -45 ; size = 20 ; color = AB FF 90
+obj = sphere ; pos = 100 -20 25 ; size = 30 ; color = 00 FF 90

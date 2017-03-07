@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene>
+	<cam_infos>
+		<cam>
+			<pos>200 0 50</pos>
+		</cam>
+		<spots>
+			<pos>0 100 40</pos>
+		</spots>
+	</cam_infos>
+	<objs>
+		<sphere>
+			<size>20</size>
+			<color>255 0 0</color>
+		</sphere>
+		<sphere>
+			<size>10</size>
+			<pos>0 30 0</pos>
+			<color>0 255 0</color>
+		</sphere>
+		<sphere>
+			<size>15</size>
+			<pos>-20 15 15</pos>
+			<color>0 0 255</color>
+		</sphere>
+		<plane>
+			<high>0</high>
+		</plane>
+	</objs>
+</scene>

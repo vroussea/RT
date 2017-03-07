@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene>
+	<cam_infos>
+		<resolution>800 800</resolution>
+		<cam>
+			<pos>300 0 100</pos>
+		</cam>
+		<spots>
+			<pos>100 100 50</pos>
+			<pos>100 -100 100</pos>
+		</spots>
+	</cam_infos>
+	<objs>
+		<cylinder>
+			<pos>0 0 0</pos>
+			<rotation>0 0 0</rotation>
+			<size>20 </size>
+			<color>255 0 0</color>
+		</cylinder>
+		<plane>
+			<high>0</high>
+			<color>255 255 255</color>
+		</plane>
+	</objs>
+</scene>

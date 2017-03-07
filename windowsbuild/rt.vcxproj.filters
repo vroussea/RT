@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+     <ClCompile Include="..\srcs\gui\hook.c">
+        <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\gui\graphiclib.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\gui\renderer.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\gui\loadingbar.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\gui\math.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\gui\buttons.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\gui\initgui.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\gui\colorutils.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\gui\api.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\rtv1.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\get_infos.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\maths.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\maths2.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\init_cam.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\check.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\convert_to_hex.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\init_default_values.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\init_final_infos.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\make_new_obj.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\obj_infos.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\init_spots.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\list_funct.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\draw_image.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\intersec_plane.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\intersec_sphere.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\intersec_cylinder.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\intersec_cone.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\vectors.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\luminosity.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\shadows.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\shadows_obj.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\libft.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     <ClCompile Include="..\srcs\get_next_line.c">
+            <Filter>Source Files</Filter>
+    </ClCompile>
+     
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\includes\libft.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\includes\rt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\includes\rtv1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

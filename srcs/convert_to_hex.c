@@ -6,13 +6,13 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/03 16:38:01 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/03 17:45:10 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/08 17:24:41 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <rtv1.h>
 
-int ft_abs(int nb)
+int		ft_abs(int nb)
 {
 	if (nb < 0)
 		return (-nb);

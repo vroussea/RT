@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 14:29:16 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/03 17:13:31 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/08 19:55:04 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void			abc_cone(double abc[3], double vec_ray[3], double base_pos[3], \
 double			intersec_cone(int xy[2], t_obj *cone)
 {
 	double		vec_ray[3];
-	double		distance;
 	double		abc[3];
 
 	get_vec_ray_cone(vec_ray, cone, xy);
@@ -51,9 +50,9 @@ double			intersec_cone(int xy[2], t_obj *cone)
 		- cone->pos_cam[2] * vec_ray[2] * pow(tan(cone->rad), 2));
 	abc[2] = pow(cone->pos_cam[0], 2) + pow(cone->pos_cam[1], 2) - \
 		pow(cone->pos_cam[2], 2) * pow(tan(cone->rad), 2);
-	distance = calc_2nd_degree_equation(abc);
-	if (distance != 2147483647)
+	cone->distance = calc_2nd_degree_equation(abc);
+	if (cone->distance != 2147483647)
 		calc_intersec_point(cone->intersec_point, \
-			distance, vec_ray, cone->pos_cam);
-	return (distance);
+			cone->distance, vec_ray, cone->pos_cam);
+	return (cone->distance);
 }

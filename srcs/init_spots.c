@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 17:31:07 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/03 17:51:13 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/08 17:26:47 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@ int		init_and_copy(double **list_spot, char *line, t_cam *cam)
 {
 	unsigned int i;
 
-	if ((list_spot = (double **)malloc(sizeof(double *) * cam->nb_spot)) == NULL)
+	if ((list_spot = (double **)malloc(sizeof(double *) * \
+					cam->nb_spot)) == NULL)
 		return (-1);
 	if ((list_spot[cam->nb_spot - 1] = \
 				(double *)malloc(sizeof(double) * 3)) == NULL)
 		return (-1);
-	if (init_3_values(list_spot[cam->nb_spot - 1], line ,"</pos>") == -1)
+	if (init_3_values(list_spot[cam->nb_spot - 1], line, "</pos>") == -1)
 		return (-1);
 	i = 0;
 	while (i < cam->nb_spot - 1)
@@ -37,7 +38,8 @@ int		init_and_copy(double **list_spot, char *line, t_cam *cam)
 int		init_one_spot(t_cam *cam, double **list_spot)
 {
 	cam->nb_spot = 1;
-	if ((list_spot = (double **)malloc(sizeof(double *) * cam->nb_spot)) == NULL)
+	if ((list_spot = (double **)malloc(sizeof(double *) * \
+					cam->nb_spot)) == NULL)
 		return (-1);
 	if ((list_spot[0] = (double *)malloc(sizeof(double) * 3)) == NULL)
 		return (-1);

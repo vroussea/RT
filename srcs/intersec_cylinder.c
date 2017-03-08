@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 14:29:16 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/03 17:14:10 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/08 19:55:15 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	abc_cylinder(double abc[3], double vec_ray[3], double base_pos[3], \
 double	intersec_cylinder(int xy[2], t_obj *cylinder)
 {
 	double		vec_ray[3];
-	double		distance;
 	double		abc[3];
 
 	get_vec_ray_cylinder(vec_ray, cylinder, xy);
@@ -49,9 +48,9 @@ double	intersec_cylinder(int xy[2], t_obj *cylinder)
 			cylinder->pos_cam[1] * vec_ray[1]);
 	abc[2] = pow(cylinder->pos_cam[0], 2) + pow(cylinder->pos_cam[1], 2) - \
 			pow(cylinder->size, 2);
-	distance = calc_2nd_degree_equation(abc);
-	if (distance != 2147483647)
+	cylinder->distance = calc_2nd_degree_equation(abc);
+	if (cylinder->distance != 2147483647)
 		calc_intersec_point(cylinder->intersec_point, \
-			distance, vec_ray, cylinder->pos_cam);
-	return (distance);
+			cylinder->distance, vec_ray, cylinder->pos_cam);
+	return (cylinder->distance);
 }

@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 17:34:08 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/02 14:59:32 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/08 17:24:16 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		check(char *line, t_obj *new_obj)
 {
 	if (strstr(line, "<pos>") != NULL && \
-			init_3_values(new_obj->pos/*_cam*/, line, "</pos>") == -1)
+			init_3_values(new_obj->pos, line, "</pos>") == -1)
 		return (-1);
 	else if (strstr(line, "<size>") != NULL && \
 			init_one_value(&(new_obj->size), line, "</size>") == -1)
@@ -32,5 +32,5 @@ int		check(char *line, t_obj *new_obj)
 	else if (strstr(line, "<high>") != NULL && \
 			init_one_value(&(new_obj->high), line, "</high>") == -1)
 		return (-1);
-	return(0);
+	return (0);
 }

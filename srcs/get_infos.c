@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 16:59:02 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/07 14:32:29 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/08 17:25:26 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,5 @@ void	get_infos(char *file_name, t_obj **objs, int is_aa)
 	free(line);
 	if (ret_gnl == 0 || (ret_gnl == 1 && init_scene(fd, *objs, is_aa) == -1))
 		write_and_exit();
-	close (fd);
+	close(fd);
 }

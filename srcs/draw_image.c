@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 17:15:59 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/03 17:52:53 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/08 20:00:07 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	draw_the_image(char **argv, t_obj *list, t_envgui *env)
 {
 	int		xy[2];
-	int 	xy2[2];
+	int		xy2[2];
 
 	xy[1] = 0;
 	if (env->aa)
@@ -54,7 +54,7 @@ int		calc_image(int xy[2], t_obj *begin_list)
 	nearest_point = 2147483647;
 	while (list != NULL)
 	{
-		if ((mem = get_intersec(xy, list)) < nearest_point)
+		if ((mem = list->intersect(xy, list)) < nearest_point)
 		{
 			nearest_point = mem;
 			nearest_obj = list;
@@ -69,6 +69,7 @@ int		calc_image(int xy[2], t_obj *begin_list)
 int		get_color_obj(t_obj *list, t_obj *nearest_obj, \
 		double nearest_point, int xy[2])
 {
+	//int	spot_color_tab[(int)list->nb_spot][3];
 	int	color;
 	int	color_tab[3];
 	int	i;
@@ -78,14 +79,13 @@ int		get_color_obj(t_obj *list, t_obj *nearest_obj, \
 	i = 0;
 	get_color_tab(color_tab, nearest_obj);
 	nb_spot = (int)list->nb_spot;
-	if (nb_spot > 0)
-		calc_luminosity(color_tab, nearest_obj, nb_spot);
+	calc_luminosity(color_tab, nearest_obj, nb_spot);
 	color = 0x0;
 	tot_shadows = 0;
 	while (nb_spot > 0)
 	{
 		nb_spot--;
-		tot_shadows += shadows(nearest_point, list, xy, nearest_obj, nb_spot);
+		tot_shadows += shadows(list, xy, nearest_obj, nb_spot);
 	}
 	nearest_point = (double)tot_shadows / (double)(list->nb_spot);
 	while (i < 3)
@@ -109,9 +109,4 @@ void	get_color_tab(int color[3], t_obj *list)
 		color_tab++;
 		i++;
 	}
-}
-
-double	get_intersec(int xy[2], t_obj *obj)
-{
-	return (obj->intersect(xy, obj));
 }

@@ -6,7 +6,7 @@
 /*   By: eduwer <eduwer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 14:32:56 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/06 18:21:18 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/08 19:58:58 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ typedef struct		s_obj
 	int				final_color[3];
 	int				color;
 	double			intersec_point[3];
+	double			distance;
 	double			base_pos_cam[3];
 	double			base_pos_pixel_base[3];
 	double			base_vec_down[3];
@@ -157,7 +158,7 @@ void				reflexion(double vec1[3], double norm[3], double ref[3]);
 
 void				ft_error(char *str, char **tab);
 
-int					shadows(double distance, t_obj *lst, int xy[2], \
+int					shadows(t_obj *lst, int xy[2], \
 						t_obj *obj, int nb);
 int					calc_shadow_obj(t_obj *list, double point[3], int nb);
 

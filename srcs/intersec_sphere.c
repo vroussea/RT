@@ -6,7 +6,7 @@
 /*   By: eduwer <eduwer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 15:31:59 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/03 18:57:40 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/08 19:55:45 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void		abc_sphere(double abc[3], double vec_ray[3], double base_pos[3], \
 double		intersec_sphere(int xy[2], t_obj *sphere)
 {
 	double		vec_ray[3];
-	double		distance;
 	double		abc[3];
 
 	get_vec_ray_sphere(vec_ray, sphere, xy);
@@ -49,11 +48,11 @@ double		intersec_sphere(int xy[2], t_obj *sphere)
 			vec_ray[1] + sphere->pos_cam[2] * vec_ray[2]);
 	abc[2] = pow(sphere->pos_cam[0], 2) + pow(sphere->pos_cam[1], 2) + \
 			pow(sphere->pos_cam[2], 2) - pow(sphere->size, 2);
-	distance = calc_2nd_degree_equation(abc);
-	if (distance != 2147483647)
+	sphere->distance = calc_2nd_degree_equation(abc);
+	if (sphere->distance != 2147483647)
 	{
 		calc_intersec_point(sphere->intersec_point, \
-			distance, vec_ray, sphere->pos_cam);
+			sphere->distance, vec_ray, sphere->pos_cam);
 	}
-	return (distance);
+	return (sphere->distance);
 }

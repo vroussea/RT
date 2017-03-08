@@ -6,13 +6,13 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 17:16:53 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/03 17:48:40 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/08 17:25:55 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <rtv1.h>
 
-int		init_tab_3(double tab[3], int color[3] , char *line)
+int		init_tab_3(double tab[3], int color[3], char *line)
 {
 	int	i;
 	int	indice_tab;
@@ -67,6 +67,5 @@ int		init_one_value(double *value, char *line, char *pattern)
 	*value = (double)atoi(&(line[i]));
 	if (strstr(line, pattern) == NULL)
 		return (-1);
-	return(0);
-
+	return (0);
 }

@@ -56,4 +56,10 @@ re: fclean all
 start:
 	./$(NAME)
 
+sdl:
+	brew install sdl2
+	brew install sdl2_ttf
+	cp ~/.brew/Cellar/sdl2_ttf/2.0.14/include/SDL2/SDL_ttf.h ~/.brew/Cellar/sdl2/2.0.5/include/SDL2/
+	cp ~/.brew/Cellar/sdl2_ttf/2.0.14/lib/* ~/.brew/Cellar/sdl2/2.0.5/lib/
+
 .PHONY: clean fclean all re $(NAME) start

@@ -66,13 +66,7 @@ static t_button	*retnext(t_button *button, t_envgui *env)
 
 void			mainrender(t_envgui *env, t_obj *lst, char **argv)
 {
-	t_button *button;
 
-	SDL_RenderClear(env->renderer);
-	SDL_BlitSurface(env->gui->bar, NULL, env->surface, NULL);
-	button = env->buttons;
-	while (button)
-		button = retnext(button, env);
 	if (env->redraw)
 	{
 		draw_the_image(argv, lst, env);
@@ -83,10 +77,36 @@ void			mainrender(t_envgui *env, t_obj *lst, char **argv)
 		calcaa(env);
 		env->aaupdated = 0;
 	}
-	SDL_LowerBlit(env->raysurface, env->rayrectin, env->surface, env->rayrect);
-	if (env->isloading)
-		drawloadingbardiscrete(env);
-	if (env->drawfps)
-		drawfps(env);
-	SDL_UpdateWindowSurface(env->win);
+
 }
+
+
+int pop(void *e)
+{
+
+	t_envgui *env = (t_envgui*)e;
+	while (1)
+	{
+		t_button *button;
+
+		SDL_RenderClear(env->renderer);
+		SDL_BlitSurface(env->gui->bar, NULL, env->surface, NULL);
+		button = env->buttons;
+		while (button)
+			button = retnext(button, env);
+
+		SDL_LowerBlit(env->raysurface, env->rayrectin, env->surface, env->rayrect);
+		if (env->isloading)
+			drawloadingbardiscrete(env);
+		if (env->drawfps)
+			drawfps(env);
+		SDL_UpdateWindowSurface(env->win);
+	}
+
+	return (1);
+}
+
+
+
+
+

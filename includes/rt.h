@@ -133,5 +133,5 @@ t_envgui			*initenv(void);
 void 				calcaa(t_envgui *env);
 void 				updatepixel(t_envgui *env, int x, int y, Uint32 color);
 void				checkread(char *s);
-int pop(void *e);
+int					threaddraw(void *e);
 #endif

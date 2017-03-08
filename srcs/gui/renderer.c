@@ -78,7 +78,7 @@ void			mainrender(t_envgui *env, t_obj *lst, char **argv)
 	}
 }
 
-int pop(void *e)
+int				threaddraw(void *e)
 {
 	t_envgui *env = (t_envgui*)e;
 	t_button *button;

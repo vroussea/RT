@@ -66,7 +66,6 @@ static t_button	*retnext(t_button *button, t_envgui *env)
 
 void			mainrender(t_envgui *env, t_obj *lst, char **argv)
 {
-
 	if (env->redraw)
 	{
 		draw_the_image(argv, lst, env);
@@ -77,32 +76,35 @@ void			mainrender(t_envgui *env, t_obj *lst, char **argv)
 		calcaa(env);
 		env->aaupdated = 0;
 	}
-
 }
-
 
 int pop(void *e)
 {
-
 	t_envgui *env = (t_envgui*)e;
+	t_button *button;
+	SDL_Event ev;
+	Uint32 startclock;
+	double current;
 	while (1)
 	{
-		t_button *button;
-
+		startclock = SDL_GetTicks();
+		while (SDL_PollEvent(&ev))
+			main_event(&ev, env);
 		SDL_RenderClear(env->renderer);
 		SDL_BlitSurface(env->gui->bar, NULL, env->surface, NULL);
 		button = env->buttons;
 		while (button)
 			button = retnext(button, env);
-
 		SDL_LowerBlit(env->raysurface, env->rayrectin, env->surface, env->rayrect);
 		if (env->isloading)
 			drawloadingbardiscrete(env);
 		if (env->drawfps)
 			drawfps(env);
 		SDL_UpdateWindowSurface(env->win);
+			current = (double)(SDL_GetTicks() - startclock) / (double)1000;
+		if (current < ((double)1 / (double)env->freq))
+			SDL_Delay((Uint32)((((double)1 / (double)env->freq) - current) * 1000));
 	}
-
 	return (1);
 }
 

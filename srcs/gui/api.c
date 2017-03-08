@@ -31,4 +31,5 @@ void	updatepixel(t_envgui *env, int x, int y, Uint32 color)
 	}
 	env->isloading = (nb != env->w * env->h);
 	env->loadingvalue = v;
+	env->drag = 0;
 }

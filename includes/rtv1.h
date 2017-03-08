@@ -6,7 +6,7 @@
 /*   By: eduwer <eduwer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 14:32:56 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/08 12:55:17 by gboudrie         ###   ########.fr       */
+/*   Updated: 2017/03/08 15:40:06 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ typedef struct		s_obj
 	double			(*intersect)(int*, struct s_obj*);
 	void			(*vector)(double*, double*, struct s_obj*, int);
 	int				(*shadow)(struct s_obj *, double *, int);
+	int				(*texturing)(t_obj obj);
 	SDL_Surface		*texture;
 	struct s_obj	*next;
 }					t_obj;

@@ -6,7 +6,7 @@
 /*   By: eduwer <eduwer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 14:32:56 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/06 18:21:18 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/08 12:46:07 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void	init_down_right(double vec_down[3], double vec_right[3], \
 			double rotation[3], int res[2]);
 void	init_functs_obj(t_obj *obj);
 void	convert_to_hex(int tab[3]);
-
+int		*texture(t_obj obj);
 
 void				draw_the_image(char **argv, t_obj *list, t_envgui *env);
 int					calc_image(int xy[2], t_obj *list);

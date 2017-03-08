@@ -37,6 +37,7 @@ zsh -c "$(curl -fsSL https://raw.githubusercontent.com/kube/42homebrew/master/in
 * Button lib
 * Cursor changing thing
 * using sdl
+* threaded rendering with cpu usage limit (60tick max on all threads ( main and renderer))
 
 
 ##Documentation
@@ -61,3 +62,13 @@ limite de x et y ->
 ```
 
 updatepixel va prendre automatiquement la bonne surface sur laquelle draw et dire au programe de l'afficher au prochain draw
+
+
+
+
+##Threads
+
+###Thread 0 -> handeling image redraws, on main thread for easier debuging and easier code managment for the team
+
+
+###Thread 1 -> pushing surface to the windows

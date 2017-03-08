@@ -1,0 +1,9 @@
+*.obj
+*.tlog
+windowsbuild/x64/Release/vc120.pdb
+*.log
+windowsbuild/rt.v12.suo
+*.sdf
+windowsbuild/rt.sdf
+*.opensdf
+windowsbuild/rt.sdf

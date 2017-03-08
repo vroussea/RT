@@ -15,106 +15,108 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-     <ClCompile Include="..\srcs\gui\hook.c">
-        <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\gui\hook.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\gui\graphiclib.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\gui\graphiclib.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\gui\renderer.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\gui\renderer.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\gui\loadingbar.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\gui\loadingbar.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\gui\math.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\gui\math.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\gui\buttons.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\gui\buttons.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\gui\initgui.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\gui\initgui.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\gui\colorutils.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\gui\colorutils.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\gui\api.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\gui\api.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\rtv1.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\rtv1.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\get_infos.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\get_infos.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\maths.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\maths.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\maths2.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\maths2.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\init_cam.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\init_cam.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\check.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\check.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\convert_to_hex.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\convert_to_hex.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\init_default_values.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\init_default_values.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\init_final_infos.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\init_final_infos.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\make_new_obj.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\make_new_obj.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\obj_infos.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\obj_infos.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\init_spots.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\init_spots.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\list_funct.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\list_funct.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\draw_image.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\draw_image.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\intersec_plane.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\intersec_plane.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\intersec_sphere.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\intersec_sphere.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\intersec_cylinder.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\intersec_cylinder.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\intersec_cone.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\intersec_cone.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\vectors.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\vectors.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\luminosity.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\luminosity.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\shadows.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\shadows.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\shadows_obj.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\shadows_obj.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\libft.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\libft.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     <ClCompile Include="..\srcs\get_next_line.c">
-            <Filter>Source Files</Filter>
+    <ClCompile Include="..\srcs\get_next_line.c">
+      <Filter>Source Files</Filter>
     </ClCompile>
-     
+    <ClCompile Include="..\srcs\utils\file.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\includes\libft.h">

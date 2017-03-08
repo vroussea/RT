@@ -13,6 +13,11 @@
 #include <sys/stat.h>
 #include <rtv1.h>
 
+#if defined(WIN32) || defined(WIN64)
+#define S_ISREG(m) (((m) & S_IFMT) == S_IFREG)
+#define S_ISDIR(m) (((m) & S_IFMT) == S_IFDIR)
+#endif
+
 static int			is_dir(const char *path)
 {
 	struct stat buf;

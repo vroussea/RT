@@ -169,6 +169,7 @@
     <ClCompile Include="..\srcs\intersec_sphere.c" />
     <ClCompile Include="..\srcs\intersec_cylinder.c" />
     <ClCompile Include="..\srcs\intersec_cone.c" />
+    <ClCompile Include="..\srcs\utils\file.c" />
     <ClCompile Include="..\srcs\vectors.c" />
     <ClCompile Include="..\srcs\luminosity.c" />
     <ClCompile Include="..\srcs\shadows.c" />

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rtv1.h"
+#include <rtv1.h>
 
 int		init_res(char *line, t_cam *cam, int is_aa)
 {

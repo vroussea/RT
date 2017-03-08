@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   obj_infos.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: pfichepo <pfichepo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 16:59:02 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/03 18:49:55 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/08 08:44:38 by pfichepo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rtv1.h"
+#include <rtv1.h>
 
 int	get_objs_infos(int fd, t_obj *objs, t_cam *cam)
 {

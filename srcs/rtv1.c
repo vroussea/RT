@@ -66,7 +66,7 @@ int			main(int argc, char **argv)
 		ft_error("Usage: ./rt <filename>\n", NULL);
 	checkread(argv[1]);
 	list = NULL;
-	SDL_Init(SDL_INIT_EVERYTHING);
+	SDL_Init(SDL_INIT_EVENTS|SDL_INIT_TIMER);
 	TTF_Init();
 	env = initenv();
 	initbuttons(env);

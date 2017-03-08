@@ -80,16 +80,15 @@ void			mainrender(t_envgui *env, t_obj *lst, char **argv)
 
 int				threaddraw(void *e)
 {
-	t_envgui *env = (t_envgui*)e;
-	t_button *button;
-	SDL_Event ev;
-	Uint32 startclock;
-	double current;
+	t_envgui	*env;
+	t_button	*button;
+	Uint32		startclock;
+	double		current;
+
+	env = (t_envgui*)e;
 	while (1)
 	{
 		startclock = SDL_GetTicks();
-		while (SDL_PollEvent(&ev))
-			main_event(&ev, env);
 		SDL_RenderClear(env->renderer);
 		SDL_BlitSurface(env->gui->bar, NULL, env->surface, NULL);
 		button = env->buttons;
@@ -101,14 +100,9 @@ int				threaddraw(void *e)
 		if (env->drawfps)
 			drawfps(env);
 		SDL_UpdateWindowSurface(env->win);
-			current = (double)(SDL_GetTicks() - startclock) / (double)1000;
+		current = (double)(SDL_GetTicks() - startclock) / (double)1000;
 		if (current < ((double)1 / (double)env->freq))
-			SDL_Delay((Uint32)((((double)1 / (double)env->freq) - current) * 1000));
+			SDL_Delay((Uint32)((1 / (double)env->freq) - current) * 1000);
 	}
 	return (1);
 }
-
-
-
-
-

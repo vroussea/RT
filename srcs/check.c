@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 17:34:08 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/02 14:59:32 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/08 18:49:39 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ int		check(char *line, t_obj *new_obj)
 		return (-1);
 	else if (strstr(line, "<high>") != NULL && \
 			init_one_value(&(new_obj->high), line, "</high>") == -1)
+		return (-1);
+	else if (strstr(line, "<texture>") != NULL && \
+			init_surface(&(new_obj->texture), line, "</texture>") == -1)
 		return (-1);
 	return(0);
 }

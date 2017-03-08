@@ -6,11 +6,12 @@
 /*   By: gboudrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 16:30:29 by gboudrie          #+#    #+#             */
-/*   Updated: 2017/03/08 17:30:26 by gboudrie         ###   ########.fr       */
+/*   Updated: 2017/03/08 17:36:50 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //unsigned int	getpixel(SDL_Surface *surface, int x, int y)
+//SDL_Surface* SDL_LoadBMP(const char* file)
 #include <rtv1.h>
 
 static int		texture_sphere(t_obj obj)

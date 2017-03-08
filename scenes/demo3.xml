@@ -8,9 +8,15 @@
 		<spots>
 			<pos>100 100 50</pos>
 			<pos>100 -100 100</pos>
+			<pos>160 300 160</pos>
 		</spots>
 	</cam_infos>
 	<objs>
+		<sphere>
+			<pos>0 150 150</pos>
+			<size>100</size>
+			<color>0 255 0</color>
+		</sphere>
 		<cylinder>
 			<pos>0 0 0</pos>
 			<rotation>0 0 0</rotation>
@@ -21,5 +27,11 @@
 			<high>0</high>
 			<color>255 255 255</color>
 		</plane>
+		<cylinder>
+			<pos>120 90 20</pos>
+			<rotation>42 45 42</rotation>
+			<size>20 </size>
+			<color>255 255 0</color>
+		</cylinder>
 	</objs>
 </scene>

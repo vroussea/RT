@@ -18,17 +18,9 @@ void	updatepixel(t_envgui *env, int x, int y, Uint32 color)
 	int		nb;
 
 	nb = y;
-	if (env->aa)
-	{
-		putpixel(env->raysurfaceaa, x, y, color);
-		env->aaupdated = 1;
-		v = math_remapsimple(nb, env->raysurfaceaa->h, 1);
-	}
-	else
-	{
-		putpixel(env->raysurface, x, y, color);
-		v = math_remapsimple(nb, env->raysurface->h, 1);
-	}
+	env->aaupdated = env->aa;
+	putpixel(env->raysurface[env->aa], x, y, color);
+	v = math_remapsimple(nb, env->raysurface[env->aa]->h, 1);
 	env->isloading = (nb != env->w * env->h);
 	env->loadingvalue = v;
 	env->drag = 0;

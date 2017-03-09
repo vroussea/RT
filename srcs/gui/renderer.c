@@ -94,7 +94,7 @@ int				threaddraw(void *e)
 		button = a->buttons;
 		while (button)
 			button = retnext(button, a);
-		SDL_LowerBlit(a->raysurface, a->rayrectin, a->surface, a->rayrect);
+		SDL_LowerBlit(a->raysurface[0], a->rayrectin, a->surface, a->rayrect);
 		if (a->isloading)
 			drawloadingbardiscrete(a);
 		if (a->drawfps)

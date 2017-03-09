@@ -29,7 +29,7 @@ static int		rala(t_envgui *env, t_button *self)
 
 static int		screen(t_envgui *env, t_button *self)
 {
-	SDL_SaveBMP(env->raysurface, "dada.bmp");
+	SDL_SaveBMP(env->raysurface[0], "dada.bmp");
 	self = (t_button*)self;
 	return (1);
 }
@@ -94,12 +94,13 @@ void			initgui(t_envgui *env)
 	env->gui->bar = SDL_CreateRGBSurfaceWithFormat(0, env->w, 32 \
 		+ 1 - 1, 32, SDL_PIXELFORMAT_RGB888);
 	SDL_FillRect(env->gui->bar, NULL, 0xff454545);
-	env->raysurface = SDL_CreateRGBSurfaceWithFormat(0, env->w, env->h \
+	env->raysurface = (SDL_Surface**)malloc(sizeof(SDL_Surface*)*2);
+	env->raysurface[0] = SDL_CreateRGBSurfaceWithFormat(0, env->w, env->h \
 		- 10 - env->gui->bar->h, 32, SDL_PIXELFORMAT_RGB888);
-	env->raysurfaceaa = SDL_CreateRGBSurfaceWithFormat(0, env->raysurface->w \
-	* AALEVEL, env->raysurface->h * AALEVEL, 32, SDL_PIXELFORMAT_RGB888);
-	env->rayrect = newrect(0, env->gui->bar->h, env->w, env->raysurface->h);
-	env->rayrectin = newrect(0, 0, env->w, env->raysurface->h);
+	env->raysurface[1] = SDL_CreateRGBSurfaceWithFormat(0, env->raysurface[0]->w \
+	* AALEVEL, env->raysurface[0]->h * AALEVEL, 32, SDL_PIXELFORMAT_RGB888);
+	env->rayrect = newrect(0, env->gui->bar->h, env->w, env->raysurface[0]->h);
+	env->rayrectin = newrect(0, 0, env->w, env->raysurface[0]->h);
 	env->gui->sans = TTF_OpenFont("res/Sans.ttf", 24);
 	env->gui->white.r = 255;
 	env->gui->white.g = 255;

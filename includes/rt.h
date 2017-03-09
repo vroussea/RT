@@ -27,7 +27,7 @@
 # include <rtv1.h>
 # define BUTTON_BOX 0
 # define BUTTON_SPHERE 1
-# define AALEVEL 8
+# define AALEVEL 2
 # define AANUM AALEVEL*AALEVEL
 
 typedef struct		s_envgui	t_envgui;
@@ -80,8 +80,7 @@ typedef struct		s_envgui
 	SDL_Window		*win;
 	SDL_Renderer	*renderer;
 	SDL_Surface		*surface;
-	SDL_Surface		*raysurface;
-	SDL_Surface		*raysurfaceaa;
+	SDL_Surface		**raysurface;
 	SDL_Rect		*rayrectin;
 	SDL_Rect		*rayrect;
 	t_button		*buttons;

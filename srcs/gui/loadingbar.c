@@ -52,10 +52,6 @@ void		drawloadingbar(t_envgui *env)
 	pos->x = x;
 	pos->y = y;
 	drawrect(env->surface, pos, 0xffffff);
-	drawline(env->surface, x - 1, y - 1, x + w + 2, y - 1);
-	drawline(env->surface, x - 1, y + h + 1, x + w + 2, y + h + 1);
-	drawline(env->surface, x - 1, y - 1, x - 1, y + h + 1);
-	drawline(env->surface, x + w + 1, y - 1, x + w + 1, y + h + 1);
 }
 
 void		drawloadingbardiscrete(t_envgui *env)

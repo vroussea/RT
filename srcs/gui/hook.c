@@ -26,23 +26,6 @@ static int		key_press(SDL_Event *e, t_envgui *env)
 	return (0);
 }
 
-static void		window_resized(SDL_Event *e, t_envgui *env)
-{
-	env->w = e->window.data1;
-	env->h = e->window.data2;
-	free(env->rayrect);
-	SDL_FreeSurface(env->surface);
-	SDL_FreeSurface(env->raysurface);
-	SDL_DestroyRenderer(env->renderer);
-	env->surface = SDL_GetWindowSurface(env->win);
-	env->renderer = SDL_CreateSoftwareRenderer(env->surface);
-	SDL_SetRenderDrawColor(env->renderer, 0, 0, 0, 255);
-	env->raysurface = SDL_CreateRGBSurfaceWithFormat(0, \
-	env->w, env->h - 10 - env->gui->bar->h, 32, SDL_PIXELFORMAT_RGB888);
-	env->rayrect = newrect(0, env->gui->bar->h, env->w, \
-	env->h - 10 - env->gui->bar->h);
-}
-
 static void		calccursor(t_envgui *env, int x, int y)
 {
 	t_button	*found;
@@ -102,9 +85,6 @@ int				main_event(SDL_Event *e, t_envgui *env)
 		events += key_press(e, env);
 	if (e->type == SDL_MOUSEMOTION)
 		mouse_move(e, env);
-	if (e->type == SDL_WINDOWEVENT)
-		if (e->window.event == SDL_WINDOWEVENT_RESIZED)
-			window_resized(e, env);
 	if (e->type == SDL_MOUSEBUTTONDOWN)
 		mouse_press(e, 1, env);
 	if (e->type == SDL_MOUSEBUTTONUP)

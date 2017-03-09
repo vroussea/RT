@@ -19,16 +19,10 @@ void	draw_the_image(char **argv, t_obj *list, t_envgui *env)
 	int		xy2[2];
 
 	xy[1] = 0;
-	if (env->aa)
-	{
-		xy2[0] = env->raysurfaceaa->w;
-		xy2[1] = env->raysurfaceaa->h;
-	}
-	else
-	{
-		xy2[0] = env->raysurface->w;
-		xy2[1] = env->raysurface->h;
-	}
+
+	xy2[0] = env->raysurface[env->aa]->w;
+	xy2[1] = env->raysurface[env->aa]->h;
+
 	get_infos(argv[1], &list, env->aa);
 	while (xy[1] < xy2[1])
 	{

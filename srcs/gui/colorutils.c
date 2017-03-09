@@ -48,7 +48,7 @@ static Uint32			getaapixel(t_envgui *env, int posx, int posy)
 		y = 0;
 		while (AALEVEL > y)
 		{
-			tbl[i] = getpixel(env->raysurfaceaa, posx + x, posy + y);
+			tbl[i] = getpixel(env->raysurface[1], posx + x, posy + y);
 			i++;
 			y++;
 		}
@@ -65,12 +65,12 @@ void					calcaa(t_envgui *env)
 	if (env->aa == 0)
 		return ;
 	x = 0;
-	while (x < env->raysurface->w)
+	while (x < env->raysurface[0]->w)
 	{
 		y = 0;
-		while (y < env->raysurface->h)
+		while (y < env->raysurface[0]->h)
 		{
-			putpixel(env->raysurface, x, y, \
+			putpixel(env->raysurface[0], x, y, \
 				getaapixel(env, x * AALEVEL, y * AALEVEL));
 			y++;
 		}

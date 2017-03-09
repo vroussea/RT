@@ -2,6 +2,7 @@ NAME = rt
 CC = clang
 CFLAGS = -Ofast -march=native  -msse -msse2 -msse3 -msse4 -Wall -Wextra -Werror -arch x86_64 -Wconversion -g0 -Wimplicit-function-declaration -I ./includes -I $(HOME)/.brew/Cellar/sdl2/2.0.5/include/SDL2
 SRCS = 	gui/hook.c \
+		gui/hook2.c \
 		gui/graphiclib.c \
 		gui/renderer.c \
 		gui/loadingbar.c \

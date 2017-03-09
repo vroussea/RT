@@ -86,38 +86,6 @@ static void		mouse_move(SDL_Event *e, t_envgui *env)
 		calccursor(env, e->motion.x, e->motion.y);
 }
 
-static void		mouse_press(SDL_Event *e, int press, t_envgui *env)
-{
-	t_button	*button;
-	int			x;
-	int			y;
-
-	x = e->button.x;
-	y = e->button.y;
-	if (press == 0 && env->lastpressed && (env->currentbutton != env->lastpressed))
-		env->lastpressed->pressed = 0;
-	if (env->currentbutton)
-	{
-		button = env->currentbutton;
-		if (press)
-		{
-			button->pressed = 1;
-			env->lastpressed = env->currentbutton;
-		}
-		else
-		{
-			if (env->currentbutton == env->lastpressed)
-				button->pressfunc(env, button);
-			button->pressed = 0;
-		}
-	}
-	else if (y < 33)
-	{
-		env->drag = press;
-		SDL_GetGlobalMouseState(&env->dragx, &env->dragy);
-	}
-}
-
 int				main_event(SDL_Event *e, t_envgui *env)
 {
 	int events;

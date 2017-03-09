@@ -17,7 +17,7 @@ void	updatepixel(t_envgui *env, int x, int y, Uint32 color)
 	double	v;
 	int		nb;
 
-	nb =  y;
+	nb = y;
 	if (env->aa)
 	{
 		putpixel(env->raysurfaceaa, x, y, color);

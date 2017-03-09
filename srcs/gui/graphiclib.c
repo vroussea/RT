@@ -50,25 +50,3 @@ SDL_Rect	*newrect(int x, int y, int w, int h)
 	ret->h = h;
 	return (ret);
 }
-
-void		drawline(SDL_Surface *screen, int x1, int y1, int x2, int y2)
-{
-	double x;
-	double y;
-	double length;
-	double i;
-
-	x = x2 - x1;
-	y = y2 - y1;
-	length = sqrt(x * x + y * y);
-	x = x1;
-	y = y1;
-	i = 0;
-	while (i < length)
-	{
-		putpixel(screen, (int)x, (int)y, 0xffffff);
-		x += (x / length);
-		y += (y / length);
-		i++;
-	}
-}

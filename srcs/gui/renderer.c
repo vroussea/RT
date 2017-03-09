@@ -80,29 +80,29 @@ void			mainrender(t_envgui *env, t_obj *lst, char **argv)
 
 int				threaddraw(void *e)
 {
-	t_envgui	*env;
+	t_envgui	*a;
 	t_button	*button;
 	Uint32		startclock;
 	double		current;
 
-	env = (t_envgui*)e;
-	while (1 && !env->threaddone)
+	a = (t_envgui*)e;
+	while (1 && !a->threaddone)
 	{
 		startclock = SDL_GetTicks();
-		SDL_RenderClear(env->renderer);
-		SDL_BlitSurface(env->gui->bar, NULL, env->surface, NULL);
-		button = env->buttons;
+		SDL_RenderClear(a->renderer);
+		SDL_BlitSurface(a->gui->bar, NULL, a->surface, NULL);
+		button = a->buttons;
 		while (button)
-			button = retnext(button, env);
-		SDL_LowerBlit(env->raysurface, env->rayrectin, env->surface, env->rayrect);
-		if (env->isloading)
-			drawloadingbardiscrete(env);
-		if (env->drawfps)
-			drawfps(env);
-		SDL_UpdateWindowSurface(env->win);
+			button = retnext(button, a);
+		SDL_LowerBlit(a->raysurface, a->rayrectin, a->surface, a->rayrect);
+		if (a->isloading)
+			drawloadingbardiscrete(a);
+		if (a->drawfps)
+			drawfps(a);
+		SDL_UpdateWindowSurface(a->win);
 		current = (double)(SDL_GetTicks() - startclock) / (double)1000;
-		if (current < ((double)1 / (double)env->freq))
-			SDL_Delay((Uint32)((1 / (double)env->freq) - current) * 1000);
+		if (current < ((double)1 / (double)a->freq))
+			SDL_Delay((Uint32)((1 / (double)a->freq) - current) * 1000);
 	}
 	return (1);
 }

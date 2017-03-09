@@ -116,7 +116,6 @@ int					main_event(SDL_Event *e, t_envgui *env);
 void				main_loop(t_envgui *env);
 void				mainrender(t_envgui *env, t_obj *lst, char **argv);
 SDL_Rect			*newrect(int x, int y, int w, int h);
-void 				drawline(SDL_Surface *screen, int x1, int y1, int x2, int y2);
 void				drawrect(SDL_Surface *surface, t_pos *pos, Uint32 color);
 void				drawloadingbar(t_envgui *env);
 void				drawloadingbardiscrete(t_envgui *env);
@@ -136,4 +135,5 @@ void 				calcaa(t_envgui *env);
 void 				updatepixel(t_envgui *env, int x, int y, Uint32 color);
 void				checkread(char *s);
 int					threaddraw(void *e);
+void				mouse_press(SDL_Event *e, int press, t_envgui *env);
 #endif

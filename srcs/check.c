@@ -6,11 +6,27 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 17:34:08 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/08 18:49:39 by gboudrie         ###   ########.fr       */
+/*   Updated: 2017/03/09 19:43:00 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <rtv1.h>
+
+char	*balise(char *line, t_obj *new_obj, char *start, char *end)
+{
+	size_t	size;
+	char	*ptr;
+
+	size = strlen(start);
+	if (!(line = strstr(line, start)))
+		return (NULL);
+	line += size;
+	if (!(ptr = strstr(line, end)))
+		return (NULL);
+	size = ptr - line;
+	line = strsub(line, 0, size);
+	return (line);
+}
 
 int		check(char *line, t_obj *new_obj)
 {
@@ -36,4 +52,5 @@ int		check(char *line, t_obj *new_obj)
 			init_surface(&(new_obj->texture), line, "</texture>") == -1)
 		return (-1);
 	return(0);
+	// need to free the new small lines and use balise funct
 }

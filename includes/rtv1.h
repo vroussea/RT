@@ -6,7 +6,7 @@
 /*   By: eduwer <eduwer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 14:32:56 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/08 19:58:58 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/09 16:56:11 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ typedef struct		s_cam
 	int			res[2];
 }					t_cam;
 
-//fonctions a ajouter/remplacer pour le parser
 void	get_infos(char *filename, t_obj **objs, int is_aa);
 int		init_scene(int fd, t_obj *objs, int is_aa);
 int		init_tab_3(double tab[3], int color[3], char *line);

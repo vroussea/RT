@@ -1,0 +1,23 @@
+<scene>
+	<cam_infos>
+		<spots>
+			<pos>-100 0 100</pos>
+			<pos>100 0 100</pos>
+		</spots>
+	</cam_infos>
+	<objs>
+		<cylinder>
+			<pos>0 0 20</pos>
+			<rotation>90 0 0</rotation>
+			<size>20</size>
+		</cylinder>
+		<plane>
+			<high>-20</high>
+		</plane>
+		<plane>
+			<high>-111</high>
+			<rotation>90 0 0</rotation>
+			<color>255 255 255</color>
+		</plane>
+	</objs>
+</scene>

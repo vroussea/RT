@@ -6,7 +6,7 @@
 /*   By: eduwer <eduwer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 14:32:56 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/09 16:56:11 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/09 20:31:02 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,11 +111,13 @@ void	init_down_right(double vec_down[3], double vec_right[3], \
 void	init_functs_obj(t_obj *obj);
 void	convert_to_hex(int tab[3]);
 
+double				calc_one_spot_luminosity(t_obj *obj, int nb);
+double				calc_one_spot_spec(t_obj *obj, int nb);
 
 void				draw_the_image(char **argv, t_obj *list, t_envgui *env);
 int					calc_image(int xy[2], t_obj *list);
 int					get_color_obj(t_obj *begin_list, t_obj *nearest_obj, \
-						double nearest_point, int xy[2]);
+						int xy[2]);
 void				get_color_tab(int color[3], t_obj *list);
 double				get_intersec(int xy[2], t_obj *list);
 

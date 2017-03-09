@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 17:28:27 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/06 18:22:30 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/09 20:07:10 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	init_default_cam_values(t_cam *cam, int is_aa)
 	cam->vec_cam[0] = -1;
 	cam->vec_cam[1] = 0;
 	cam->vec_cam[2] = 0;
-	cam->res[0] = 1080 + (1080 * is_aa * (AALEVEL - 1)) ;
-	cam->res[1] = 800 + (800 * is_aa * (AALEVEL - 1));
+	cam->res[0] = 1920 + (1920 * is_aa * (AALEVEL - 1));
+	cam->res[1] = 1038 + (1038 * is_aa * (AALEVEL - 1));
 	cam->vec_right[0] = 0;
 	cam->vec_right[1] = 100;
 	cam->vec_right[2] = 0;

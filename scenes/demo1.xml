@@ -2,10 +2,12 @@
 <scene>
 	<cam_infos>
 		<cam>
-			<pos>200 0 50</pos>
+			<pos>200 15 20</pos>
 		</cam>
 		<spots>
 			<pos>0 100 40</pos>
+			<pos>100 100 70</pos>
+			<pos>0 0 100</pos>
 		</spots>
 	</cam_infos>
 	<objs>

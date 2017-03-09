@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scene>
 	<cam_infos>
-		<!-- cam default values : res 1080 800 ; pos 400 0 50 ;
+		<!-- cam default values : resolution 1920 1038 ; pos 400 0 50 ;
 		no rotation ; 1 spot at 400 0 100 -->
-		<resolution>1080 800</resolution>
+		<resolution>1920 1038</resolution>
 		<cam>
 			<pos>400 0 50</pos>
 			<rotation>0 0 0</rotation>
 		</cam>
 		<spots>
-			<pos>100 0 200</pos>
+			<pos>200 0 0</pos>
 			<pos>100 100 200</pos>
 			<pos>100 -100 200</pos>
-			<pos>200 0 50</pos>
+			<pos>200 0 -50</pos>
 		</spots>
 	</cam_infos>
 	<objs>

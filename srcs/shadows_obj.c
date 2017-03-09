@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 15:50:27 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/07 15:22:34 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/09 22:57:36 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ int		shadow_sphere(t_obj *sphere, double point[3], int nb)
 	if ((delta = pow(abc[1], 2) - 4 * abc[0] * abc[2]) < 0)
 		return (1);
 	ans = (-abc[1] - sqrt(delta)) / (2 * abc[0]);
-	if (ans > 0.01 && ans < 0.99)
+	if (ans > 0.0001 && ans < 0.9999)
 		return (0);
 	ans = (-abc[1] + sqrt(delta)) / (2 * abc[0]);
-	if (ans > 0.01 && ans < 0.99)
+	if (ans > 0.0001 && ans < 0.9999)
 		return (0);
 	return (1);
 }
@@ -70,7 +70,7 @@ int		shadow_plane(t_obj *plane, double point[3], int nb)
 				plane->norm_vec[1] * obj_point[1] + \
 					plane->norm_vec[2] * obj_point[2] - plane->high;
 	result = (-ab[1]) / (ab[0]);
-	if (result > 0.01 && result < 0.99)
+	if (result > 0.0001 && result < 0.9999)
 		return (0);
 	return (1);
 }
@@ -91,10 +91,10 @@ int		shadow_cylinder(t_obj *cylinder, double point[3], int nb)
 	if ((delta = pow(abc[1], 2) - 4 * abc[0] * abc[2]) < 0)
 		return (1);
 	vec[0] = (-abc[1] - sqrt(delta)) / (2 * abc[0]);
-	if (vec[0] > 0.01 && vec[0] < 0.99)
+	if (vec[0] > 0.0001 && vec[0] < 0.9999)
 		return (0);
 	vec[0] = (-abc[1] + sqrt(delta)) / (2 * abc[0]);
-	if (vec[0] > 0.01 && vec[0] < 0.99)
+	if (vec[0] > 0.0001 && vec[0] < 0.9999)
 		return (0);
 	return (1);
 }
@@ -115,10 +115,10 @@ int		shadow_cone(t_obj *cone, double point[3], int nb)
 	if ((delta = pow(abc[1], 2) - 4 * abc[0] * abc[2]) < 0)
 		return (1);
 	vec[0] = (-abc[1] - sqrt(delta)) / (2 * abc[0]);
-	if (vec[0] > 0.01 && vec[0] < 0.99)
+	if (vec[0] > 0.0001 && vec[0] < 0.9999)
 		return (0);
 	vec[0] = (-abc[1] + sqrt(delta)) / (2 * abc[0]);
-	if (vec[0] > 0.01 && vec[0] < 0.99)
+	if (vec[0] > 0.0001 && vec[0] < 0.9999)
 		return (0);
 	return (1);
 }

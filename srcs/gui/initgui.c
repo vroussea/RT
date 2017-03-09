@@ -83,6 +83,7 @@ void			initbuttons(t_envgui *env)
 	button->type = BUTTON_BOX;
 	stackbutton(env, button);
 	initbuttons2(env);
+	env->threaddone = 0;
 }
 
 void			initgui(t_envgui *env)

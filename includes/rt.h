@@ -105,6 +105,8 @@ typedef struct		s_envgui
 	bool			aa;
 	bool			aaupdated;
 	bool			redraw;
+	SDL_Thread		*thread;
+	bool			threaddone;
 }					t_envgui;
 
 Uint32				rgba(Uint32 r, Uint32 g, Uint32 b);

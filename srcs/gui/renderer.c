@@ -86,7 +86,7 @@ int				threaddraw(void *e)
 	double		current;
 
 	env = (t_envgui*)e;
-	while (1)
+	while (1 && !env->threaddone)
 	{
 		startclock = SDL_GetTicks();
 		SDL_RenderClear(env->renderer);

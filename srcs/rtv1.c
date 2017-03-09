@@ -60,7 +60,7 @@ int			main(int argc, char **argv)
 	t_envgui		*env;
 	Uint32			startclock;
 	SDL_Event		e;
-	SDL_Thread *thread;
+
 
 	if (argc != 2)
 		ft_error("Usage: ./rt <filename>\n", NULL);
@@ -72,7 +72,7 @@ int			main(int argc, char **argv)
 	initbuttons(env);
 	startclock = SDL_GetTicks();
 	env->currentFPS = 0;
-	thread = SDL_CreateThread(threaddraw, "RenderingThread", (void*)env);
+	env->thread = SDL_CreateThread(threaddraw, "RenderingThread", (void*)env);
 	while (1)
 	{
 		startclock = SDL_GetTicks();

@@ -16,6 +16,8 @@ static int		key_press(SDL_Event *e, t_envgui *env)
 {
 	if (e->key.keysym.sym == SDLK_ESCAPE)
 	{
+		env->threaddone = 1;
+		SDL_WaitThread(env->thread, NULL);
 		SDL_DestroyRenderer(env->renderer);
 		SDL_DestroyWindow(env->win);
 		SDL_Quit();

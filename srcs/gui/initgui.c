@@ -94,10 +94,11 @@ void			initgui(t_envgui *env)
 	env->gui->bar = SDL_CreateRGBSurfaceWithFormat(0, env->w, 32 \
 		+ 1 - 1, 32, SDL_PIXELFORMAT_RGB888);
 	SDL_FillRect(env->gui->bar, NULL, 0xff454545);
-	env->raysurface = (SDL_Surface**)malloc(sizeof(SDL_Surface*)*2);
+	env->raysurface = (SDL_Surface**)malloc(sizeof(SDL_Surface*) * 2);
 	env->raysurface[0] = SDL_CreateRGBSurfaceWithFormat(0, env->w, env->h \
 		- 10 - env->gui->bar->h, 32, SDL_PIXELFORMAT_RGB888);
-	env->raysurface[1] = SDL_CreateRGBSurfaceWithFormat(0, env->raysurface[0]->w \
+	env->raysurface[1] = SDL_CreateRGBSurfaceWithFormat(0, \
+		env->raysurface[0]->w \
 	* AALEVEL, env->raysurface[0]->h * AALEVEL, 32, SDL_PIXELFORMAT_RGB888);
 	env->rayrect = newrect(0, env->gui->bar->h, env->w, env->raysurface[0]->h);
 	env->rayrectin = newrect(0, 0, env->w, env->raysurface[0]->h);
@@ -106,10 +107,6 @@ void			initgui(t_envgui *env)
 	env->gui->white.g = 255;
 	env->gui->white.b = 255;
 	env->gui->white.a = 255;
-	env->gui->black.r = 0;
-	env->gui->black.g = 0;
-	env->gui->black.b = 0;
-	env->gui->black.a = 255;
 	env->gui->fpsrect = newrect(50, 50, 24, 24);
 	env->gui->percentbox = (t_pos*)malloc(sizeof(t_pos));
 	env->currentbutton = NULL;

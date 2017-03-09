@@ -69,7 +69,6 @@ typedef struct 		s_gui
 	SDL_Surface		*fpsfont;
 	TTF_Font 		*sans;
 	SDL_Color		white;
-	SDL_Color		black;
 	SDL_Rect		*fpsrect;
 	char			*fpstext;
 	t_pos 			*percentbox;

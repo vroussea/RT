@@ -6,60 +6,60 @@
 /*   By: gboudrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 16:30:29 by gboudrie          #+#    #+#             */
-/*   Updated: 2017/03/08 17:36:50 by gboudrie         ###   ########.fr       */
+/*   Updated: 2017/03/10 16:00:04 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //unsigned int	getpixel(SDL_Surface *surface, int x, int y)
 //SDL_Surface* SDL_LoadBMP(const char* file)
 #include <rtv1.h>
+#include <math.h>
 
-static int		texture_sphere(t_obj obj)
+int		texture_sphere(t_obj obj)
 {
-	int		color;
+	unsigned int	color;
 
 	color = getpixel(obj.texture,
-					 arccos(obj.intersec_point[2] / obj.size) % obj.texture->w,
-					 arctan(obj.intersec_point[0] / obj.intersec_point[1])
-					 % obj.texture->w);
-	return (color);
+					 (int)acos(obj.intersec_point[2] / obj.size)
+					 % (int)obj.texture->w,
+					 (int)atan(obj.intersec_point[0] / obj.intersec_point[1])
+					 % (int)obj.texture->w);
+	return ((int)color);
 }
 
-static int		texture_cylinder(t_obj obj)
+int		texture_cylinder(t_obj obj)
 {
-	int		color;
-
-	color = getpixel(obj->texture,
-					 arctan(obj.intersec_point[1] / obj.intersec_point[0])
-					 % obj.texture->w,
-					 obj.intersec_point[2] % obj.texture->h);
-	return (color);
-}
-
-static int		texture_plane(t_obj obj)
-{
-	int		color;
+	unsigned int	color;
 
 	color = getpixel(obj.texture,
-					 obj.intersec_point[0] % obj.texture->w,
-					 obj.intersec_point[1] % obj.texture->h);
-	return (color);
+					 (int)atan(obj.intersec_point[1] / obj.intersec_point[0])
+					 % (int)obj.texture->w,
+					 (int)obj.intersec_point[2] % (int)obj.texture->h);
+	return ((int)color);
 }
 
-int				*texture(t_obj obj)
+int		texture_plane(t_obj obj)
+{
+	unsigned int	color;
+
+	color = getpixel(obj.texture,
+					 (int)obj.intersec_point[0] % (int)obj.texture->w,
+					 (int)obj.intersec_point[1] % (int)obj.texture->h);
+	return ((int)color);
+}
+
+void	texture(t_obj obj, int *color_tab[3])
 {
 	int		i;
 	int		color;
-	int		color_tab[3];
 	char	*ptr;
 
-	color = obj->texturing(obj);
+	color = obj.texturing(obj);
 	i = 1;
 	ptr = (char *)(&color);
 	while (i < 3)
 	{
-		color_tab[i - 1] = ptr[i];
+		(*color_tab)[i - 1] = ptr[i];
 		i++;
 	}
-	return (color_tab);
 }

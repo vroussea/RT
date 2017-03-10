@@ -6,7 +6,7 @@
 /*   By: eduwer <eduwer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 14:32:56 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/08 15:40:06 by gboudrie         ###   ########.fr       */
+/*   Updated: 2017/03/10 15:59:50 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ typedef struct		s_cam
 }					t_cam;
 
 //fonctions a ajouter/remplacer pour le parser
+char	*ft_strnew(size_t size);
+char	*strsub(char const *s, unsigned int start, size_t len);
 void	get_infos(char *filename, t_obj **objs, int is_aa);
 int		init_scene(int fd, t_obj *objs, int is_aa);
 int		init_tab_3(double tab[3], int color[3], char *line);
@@ -112,7 +114,11 @@ void	init_down_right(double vec_down[3], double vec_right[3], \
 			double rotation[3], int res[2]);
 void	init_functs_obj(t_obj *obj);
 void	convert_to_hex(int tab[3]);
-int		*texture(t_obj obj);
+int		init_surface(SDL_Surface **texture, char **line, char *pattern);
+void	texture(t_obj obj, int *color_tab[3]);
+int		texture_sphere(t_obj obj);
+int		texture_cylinder(t_obj obj);
+int		texture_plane(t_obj obj);
 
 void				draw_the_image(char **argv, t_obj *list, t_envgui *env);
 int					calc_image(int xy[2], t_obj *list);

@@ -19,7 +19,7 @@
 		<sphere>
 			<pos>100 0 0</pos>
 			<size>20</size>
-			<color>32 80 96</color>
+			<color>0 188 255</color>
 		</sphere>
 		<plane>
 			<rotation>0 90 0</rotation>

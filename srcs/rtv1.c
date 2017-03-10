@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 14:21:25 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/03 17:32:58 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/10 10:12:40 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,11 @@ int			main(int argc, char **argv)
 	Uint32			startclock;
 	SDL_Event		e;
 
-
 	if (argc != 2)
 		ft_error("Usage: ./rt <filename>\n", NULL);
 	checkread(argv[1]);
 	list = NULL;
-	SDL_Init(SDL_INIT_EVENTS|SDL_INIT_TIMER);
+	SDL_Init(SDL_INIT_EVENTS | SDL_INIT_TIMER);
 	TTF_Init();
 	env = initenv();
 	initbuttons(env);
@@ -79,7 +78,6 @@ int			main(int argc, char **argv)
 		while (SDL_PollEvent(&e))
 			main_event(&e, env);
 		mainrender(env, list, argv);
-
 		routine(env, SDL_GetTicks() - startclock, startclock);
 	}
 	return (0);

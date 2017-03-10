@@ -7,12 +7,13 @@
 		</cam>
 		<spots>
 			<pos>100 -100 50</pos>
+			<pos>100 50 100</pos>
 		</spots>
 	</cam_infos>
 	<objs>
 		<sphere>
-			<pos>500 150 150</pos>
-			<size>100</size>
+			<pos>-10 120 55</pos>
+			<size>50</size>
 			<color>0 255 0</color>
 		</sphere>
 		<cylinder>
@@ -26,12 +27,17 @@
 			<color>255 255 255</color>
 		</plane>
 		<plane>
-			<high>-200</high>
-			<rotation>-90 -90 90</rotation>
+			<high>100</high>
+			<rotation>90 90 90</rotation>
 			<color>255 0 255</color>
 		</plane>
+		<plane>
+			<high>-150</high>
+			<rotation>180 0 0</rotation>
+			<color>12 54 200</color>
+		</plane>
 		<cylinder>
-			<pos>1120 90 20</pos>
+			<pos>120 90 20</pos>
 			<rotation>42 45 42</rotation>
 			<size>20 </size>
 			<color>255 255 0</color>

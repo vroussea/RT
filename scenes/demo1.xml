@@ -5,9 +5,8 @@
 			<pos>200 15 20</pos>
 		</cam>
 		<spots>
-			<pos>0 100 40</pos>
-			<pos>100 100 70</pos>
-			<pos>0 0 100</pos>
+			<pos>100 100 40</pos>
+			<pos>100 0 20</pos>
 		</spots>
 	</cam_infos>
 	<objs>

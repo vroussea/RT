@@ -2,8 +2,13 @@
 <scene>
 	<cam_infos>
 		<resolution>1080 800</resolution>
+		<cam>
+			<pos>400 0 100</pos>
+			<rotation>0 -10 0</rotation>
+		</cam>
 		<spots>
-			<pos>100 -100 50</pos>
+			<pos>200 -20 100</pos>
+			<pos>20 -100 400</pos>
 		</spots>
 	</cam_infos>
 	<objs>
@@ -23,8 +28,7 @@
 			<color>255 255 255</color>
 		</plane>
 		<plane>
-			<high>0</high>
-			<pos>-120 90 20</pos>
+			<high>150</high>
 			<rotation>90 90 90</rotation>
 			<color>255 0 255</color>
 		</plane>

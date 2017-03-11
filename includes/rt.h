@@ -6,7 +6,7 @@
 /*   By: pfichepo <pfichepo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 09:56:34 by pfichepo          #+#    #+#             */
-/*   Updated: 2017/03/03 17:32:13 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/11 12:16:21 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,17 @@ typedef struct		s_color
 	Uint8			g;
 	Uint8			b;
 }					t_color;
+
+typedef struct		s_opencl
+{
+	cl_context			ctxt;
+	cl_device_id		dvic;
+	cl_program			prog;
+	cl_command_queue	queue;
+	cl_kernel			kernel;
+	size_t				nb_buff;
+	void				*mem_buff;
+}					t_opencl;
 
 typedef struct		s_button
 {

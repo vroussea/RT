@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 17:15:59 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/10 10:28:19 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/10 17:19:10 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,14 @@ void	draw_the_image(char **argv, t_obj *list, t_envgui *env)
 {
 	int		xy[2];
 	int		xy2[2];
+	int		*col;
 
-	xy[1] = 0;
 	xy2[0] = env->raysurface[env->aa]->w;
 	xy2[1] = env->raysurface[env->aa]->h;
 	get_infos(argv[1], &list, env->aa);
+	col = (int *)malloc(sizeof(int) * xy2[0] * xy2[1]);
+	col = opencl(list, xy2);
+	xy[1] = 0;
 	while (xy[1] < xy2[1])
 	{
 		xy[0] = 0;
@@ -32,9 +35,10 @@ void	draw_the_image(char **argv, t_obj *list, t_envgui *env)
 		}
 		xy[1]++;
 	}
+	free((void **)&col);
 }
 
-int		calc_image(int xy[2], t_obj *begin_list)
+/*int		calc_image(int xy[2], t_obj *begin_list)
 {
 	double	nearest_point;
 	double	mem;
@@ -56,7 +60,7 @@ int		calc_image(int xy[2], t_obj *begin_list)
 	if (nearest_obj == NULL)
 		return (0x000000);
 	return (get_color_obj(begin_list, nearest_obj, xy));
-}
+}*/
 
 void	finish_calc_lights(int color_tab[3], double luminosity, \
 		double specular)

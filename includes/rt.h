@@ -6,7 +6,7 @@
 /*   By: pfichepo <pfichepo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 09:56:34 by pfichepo          #+#    #+#             */
-/*   Updated: 2017/03/11 12:16:21 by vroussea         ###   ########.fr       */
+/*   Updated: 2017/03/11 17:47:27 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,15 @@
 # include <SDL.h>
 # include <SDL_ttf.h>
 # include <math.h>
-# if WIN32
-#	 include <stdint.h>
+# ifdef __APPLE__
+#  include <OpenCL/opencl.h>
 # else
-	 #include <unistd.h>
+#  include <cl.h>
+# endif
+# if WIN32
+#  include <stdint.h>
+# else
+#  include <unistd.h>
 # endif
 # include <time.h>
 # include <stdbool.h>

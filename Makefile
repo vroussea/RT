@@ -43,7 +43,7 @@ OBJS = $(addprefix $(SRCF), $(SRCS:.c=.o))
 all : $(NAME)
 
 $(NAME): $(OBJS)
-	@$(CC) -o $(NAME) $(OBJS)  -L $(HOME)/.brew/Cellar/sdl2/2.0.5/lib -lSDL2 -lSDL2_ttf
+	@$(CC) -o $(NAME) $(OBJS)  -L $(HOME)/.brew/Cellar/sdl2/2.0.5/lib -lSDL2 -lSDL2_ttf -framework opencl
 	@echo Compiling RT ...
 
 clean:
@@ -59,6 +59,7 @@ start:
 
 sdl:
 	brew install sdl2
+	brew link sdl2
 	brew install sdl2_ttf
 	cp ~/.brew/Cellar/sdl2_ttf/2.0.14/include/SDL2/SDL_ttf.h ~/.brew/Cellar/sdl2/2.0.5/include/SDL2/
 	cp ~/.brew/Cellar/sdl2_ttf/2.0.14/lib/* ~/.brew/Cellar/sdl2/2.0.5/lib/

@@ -6,21 +6,24 @@
 #    By: vroussea <vroussea@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/10 13:13:59 by vroussea          #+#    #+#              #
-#    Updated: 2017/03/10 17:20:28 by vroussea         ###   ########.fr        #
+#    Updated: 2017/03/11 14:28:54 by vroussea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #include "../../include/rt.h"
 
-__kernel void raytracer(__global int xy2[2], __global t_obj *begin_list, __global int *col)
+__kernel void raytracer(__global int x_max, __global t_obj *begin_list, __global int *col)
 {
 	double	nearest_point;
 	double	mem;
 	t_obj	*nearest_obj;
 	t_obj	*list;
 	int		id;
+	int		xy[2];
 
 	id = get_global_id(0);
+	xy[1] = id / x_max;
+	xy[0] = id % x_max;
 	list = begin_list;
 	nearest_obj = NULL;
 	nearest_point = 2147483647;
@@ -34,7 +37,7 @@ __kernel void raytracer(__global int xy2[2], __global t_obj *begin_list, __globa
 		list = list->next;
 	}
 	if (nearest_obj == NULL)
-		col = 0x000000;
+		col[id] = 0x000000;
 	else
-		col = get_color_obj(begin_list, nearest_obj, nearest_point, xy);
+		col[id] = get_color_obj(begin_list, nearest_obj, nearest_point, xy);
 }

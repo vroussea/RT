@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 17:15:59 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/10 17:19:10 by vroussea         ###   ########.fr       */
+/*   Updated: 2017/03/11 14:27:52 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ void	draw_the_image(char **argv, t_obj *list, t_envgui *env)
 	xy2[0] = env->raysurface[env->aa]->w;
 	xy2[1] = env->raysurface[env->aa]->h;
 	get_infos(argv[1], &list, env->aa);
-	col = (int *)malloc(sizeof(int) * xy2[0] * xy2[1]);
-	col = opencl(list, xy2);
+	col = opencl("./srcs/kernels/raytracer.cl", list, xy2);
 	xy[1] = 0;
 	while (xy[1] < xy2[1])
 	{

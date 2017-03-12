@@ -7,3 +7,5 @@ windowsbuild/rt.v12.suo
 windowsbuild/rt.sdf
 *.opensdf
 windowsbuild/rt.sdf
+*.sdf
+windowsbuild/rt.sdf

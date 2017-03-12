@@ -10,6 +10,7 @@ Preview :
 git clone -b beta --single-branch https://github.com/eloi-duwer/rtv1.git
 ```
 
+[OpenCL guide](http://kode-stuff.blogspot.fr/2012/11/setting-up-opencl-in-visual-studio_1.html)
 
 
 ##Install

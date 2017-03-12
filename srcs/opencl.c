@@ -60,18 +60,18 @@ static cl_mem	*create_buffers(int *col, int xy2[2], t_obj *list,
 	return (buff);
 }
 
-static voi			set_args(int *col, int xy2[2], t_obj *list,
+static void			set_args(int *col, int xy2[2], t_obj *list,
 		t_opencl ocl)
 {
-	cl_mem	buff[3];
+	cl_mem	*buff;
 	cl_int	errcode[3];
 
 	buff = create_buffers(col, xy2, list, ocl);
-	if (clSetKernelArg(kernel, 0, sizeof(cl_mem),
+	if (clSetKernelArg(ocl.kernel, 0, sizeof(cl_mem),
 				(void *)&(buff[0])) != CL_SUCCESS ||
-		clSetKernelArg(kernel, 1, sizeof(cl_mem),
+		clSetKernelArg(ocl.kernel, 1, sizeof(cl_mem),
 				(void *)&(buff[1])) != CL_SUCCESS ||
-		clSetKernelArg(kernel, 2, sizeof(cl_mem),
+		clSetKernelArg(ocl.kernel, 2, sizeof(cl_mem),
 				(void *)&(buff[2])) != CL_SUCCESS)
 		ft_error(NULL, "Error while setting a kernel argument");
 	return (buff[2]);
@@ -100,7 +100,7 @@ int					*opencl(char *kernel_path, t_obj *list, int	xy2[2])
 
 	col = (int *)malloc(sizeof(int) * xy2[0] * xy2[1]);
 	ocl = init_opencl(kernel_path);
-	set_args(col, xy2, list, ocl.kernel);
-	col = enqueue_task(ocl.queue, ocl.kern, xy2, col_buff);
+	set_args(col, xy2, list, ocl);
+	col = enqueue_task(ocl.queue, ocl.kernel, xy2, col_buff);
 	return (col);
 }

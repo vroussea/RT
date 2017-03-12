@@ -12,8 +12,15 @@
 
 #include "../includes/rt.h"
 #include <fcntl.h>
-#include <unistd.h>
+
+#if WIN32
+# include <stdint.h>
+#else
+# include <unistd.h>
+#endif
 #include <stdlib.h>
+
+#define SOURCE_SIZE 500000
 
 char				*load_source_code(char *kernel)
 {
@@ -69,7 +76,7 @@ cl_program			build_program(char *src, cl_context ctxt, cl_device_id dvic)
 		log = (char*)ft_strnew(size);
 		clGetProgramBuildInfo(prog, dvic,
 				CL_PROGRAM_BUILD_LOG, size + 1, log, NULL);
-		return (ft_error(log));
+		ft_error(log, NULL);
 		ft_strdel(&log);
 	}
 	ft_strdel(&src);
@@ -84,7 +91,7 @@ cl_kernel			init_kernel(cl_program prog)
 	kernel = NULL;
 	kernel = clCreateKernel(prog, "rt", &errcode);
 	if (errcode != CL_SUCCESS)
-		return (ft_error("Error while creating Kernel"));
+		ft_error("Error while creating Kernel", NULL);
 	return (kernel);
 }
 
@@ -96,6 +103,6 @@ cl_command_queue	init_queue(cl_context ctxt, cl_device_id dvic)
 	queue = NULL;
 	queue = clCreateCommandQueue(ctxt, dvic, 0, &errcode);
 	if (errcode != CL_SUCCESS)
-		return (ft_error("Error while creating command queue"));
+		ft_error("Error while creating command queue", NULL);
 	return (queue);
 }

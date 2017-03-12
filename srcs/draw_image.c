@@ -13,6 +13,9 @@
 #include <rtv1.h>
 #include <rt.h>
 
+
+
+
 void	draw_the_image(char **argv, t_obj *list, t_envgui *env)
 {
 	int		xy[2];
@@ -23,7 +26,7 @@ void	draw_the_image(char **argv, t_obj *list, t_envgui *env)
 	xy2[1] = env->raysurface[env->aa]->h;
 	get_infos(argv[1], &list, env->aa);
 	col = opencl("./srcs/kernels/raytracer.cl", list, xy2);
-	xy[1] = 0;
+	/*xy[1] = 0;
 	while (xy[1] < xy2[1])
 	{
 		xy[0] = 0;
@@ -33,7 +36,7 @@ void	draw_the_image(char **argv, t_obj *list, t_envgui *env)
 			xy[0]++;
 		}
 		xy[1]++;
-	}
+	}*/
 	free((void **)&col);
 }
 

@@ -105,6 +105,9 @@ typedef struct		s_envgui
 	bool			redraw;
 	SDL_Thread		*thread;
 	bool			threaddone;
+	double			mindist;
+	double			maxdist;
+	SDL_Surface		**zraysurface;
 }					t_envgui;
 
 Uint32				rgba(Uint32 r, Uint32 g, Uint32 b);

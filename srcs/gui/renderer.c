@@ -74,7 +74,9 @@ void			mainrender(t_envgui *env, t_obj *lst, char **argv)
 	if (env->aaupdated && env->aa == 1)
 	{
 		calcaa(env);
+
 		env->aaupdated = 0;
+
 	}
 }
 

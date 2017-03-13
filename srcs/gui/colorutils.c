@@ -62,7 +62,6 @@ void					calcaa(t_envgui *env)
 	int x;
 	int y;
 
-	SDL_BlitSurface(env->zraysurface[1], NULL, env->raysurface[1], NULL);
 	if (env->aa == 0)
 		return ;
 	x = 0;

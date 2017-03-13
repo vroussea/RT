@@ -47,14 +47,15 @@ static void		initbuttons2(t_envgui *env)
 	button->defaults2 = SDL_LoadBMP("res/aadef1.bmp");
 	button->press2 = SDL_LoadBMP("res/aapress1.bmp");
 	button->pressed = 0;
-	button->type = BUTTON_BOX;
+	button->type = BUTTON_SPHERE;
 	button->pressfunc = rala;
 	stackbutton(env, button);
 	button = newbutton("res/cameradeff.bmp", "res/camerapress.bmp", p5);
 	button->pressfunc = screen;
 	button->pressed = 0;
-	button->type = BUTTON_BOX;
+	button->type = BUTTON_SPHERE;
 	stackbutton(env, button);
+	initfog(env);
 }
 
 void			initbuttons(t_envgui *env)
@@ -75,12 +76,12 @@ void			initbuttons(t_envgui *env)
 	button = newbutton("res/reducedef.bmp", "res/reducepress.bmp", p2);
 	button->pressfunc = reducewinfunc;
 	button->pressed = 0;
-	button->type = BUTTON_BOX;
+	button->type = BUTTON_SPHERE;
 	stackbutton(env, button);
 	button = newbutton("res/fpsdef.bmp", "res/fpspress.bmp", p3);
 	button->pressfunc = togglefpsfunc;
 	button->pressed = 0;
-	button->type = BUTTON_BOX;
+	button->type = BUTTON_SPHERE;
 	stackbutton(env, button);
 	initbuttons2(env);
 	env->threaddone = 0;
@@ -113,10 +114,4 @@ void			initgui(t_envgui *env)
 	env->lastpressed = NULL;
 	env->maxdist = 0;
 	env->mindist = 5000;
-	env->zraysurface = (SDL_Surface**)malloc(sizeof(SDL_Surface*) * 2);
-	env->zraysurface[0] = SDL_CreateRGBSurfaceWithFormat(0, env->w, env->h \
-		- 10 - env->gui->bar->h, 32, SDL_PIXELFORMAT_RGBA32);
-	env->zraysurface[1] = SDL_CreateRGBSurfaceWithFormat(0, \
-		env->raysurface[0]->w \
-	* AALEVEL, env->raysurface[0]->h * AALEVEL, 32, SDL_PIXELFORMAT_RGBA32);
 }

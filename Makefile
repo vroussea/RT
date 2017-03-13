@@ -1,6 +1,6 @@
 NAME = rt
 CC = clang
-CFLAGS = -Ofast -march=native  -msse -msse2 -msse3 -msse4 -Wall -Wextra -Werror -arch x86_64 -Wconversion -g0 -Wimplicit-function-declaration -I ./includes -I $(HOME)/.brew/Cellar/sdl2/2.0.5/include/SDL2
+CFLAGS = -Ofast -march=native  -msse -msse2 -msse3 -msse4 -Wall -Wextra -Werror -arch x86_64 -Wconversion -g -Wimplicit-function-declaration -I ./includes -I $(HOME)/.brew/Cellar/sdl2/2.0.5/include/SDL2
 SRCS = 	gui/hook.c \
 		gui/hook2.c \
 		gui/graphiclib.c \
@@ -11,6 +11,7 @@ SRCS = 	gui/hook.c \
 		gui/initgui.c \
 		gui/colorutils.c \
 		gui/api.c \
+		gui/fog.c \
 		utils/file.c \
 		rtv1.c \
 		get_infos.c \

@@ -108,6 +108,8 @@ typedef struct		s_envgui
 	double			mindist;
 	double			maxdist;
 	SDL_Surface		**zraysurface;
+	bool			fog;
+	bool			oldfog;
 }					t_envgui;
 
 Uint32				rgba(Uint32 r, Uint32 g, Uint32 b);
@@ -137,4 +139,6 @@ void 				updatepixel(t_envgui *env, int x, int y, Uint32 color);
 void				checkread(char *s);
 int					threaddraw(void *e);
 void				mouse_press(SDL_Event *e, int press, t_envgui *env);
+Uint32				rgbafog(double	 dist);
+void 				initfog(t_envgui *env);
 #endif

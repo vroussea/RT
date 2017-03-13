@@ -25,7 +25,9 @@
 # define TYPE_SPHERE 0
 # define TYPE_CONE 3
 # define TYPE_CYLINDER 2
-# define MAXFOGDIST 4
+# define MINFOGDIST 2
+# define MAXFOGDIST 6
+# define FOGO MAXFOGDIST+MINFOGDIST
 
 typedef struct		s_envgui	t_envgui;
 typedef struct		s_obj 		t_obj;

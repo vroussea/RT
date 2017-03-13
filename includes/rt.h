@@ -27,7 +27,7 @@
 # include <rtv1.h>
 # define BUTTON_BOX 0
 # define BUTTON_SPHERE 1
-# define AALEVEL 2
+# define AALEVEL 8
 # define AANUM AALEVEL*AALEVEL
 
 typedef struct		s_envgui	t_envgui;
@@ -105,11 +105,8 @@ typedef struct		s_envgui
 	bool			redraw;
 	SDL_Thread		*thread;
 	bool			threaddone;
-	double			mindist;
-	double			maxdist;
 	SDL_Surface		**zraysurface;
 	bool			fog;
-	bool			oldfog;
 }					t_envgui;
 
 Uint32				rgba(Uint32 r, Uint32 g, Uint32 b);

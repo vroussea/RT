@@ -112,6 +112,4 @@ void			initgui(t_envgui *env)
 	env->gui->percentbox = (t_pos*)malloc(sizeof(t_pos));
 	env->currentbutton = NULL;
 	env->lastpressed = NULL;
-	env->maxdist = 0;
-	env->mindist = 5000;
 }

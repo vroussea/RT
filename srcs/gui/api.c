@@ -6,7 +6,7 @@
 /*   By: pfichepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/01 10:57:53 by pfichepo          #+#    #+#             */
-/*   Updated: 2017/02/01 10:57:54 by pfichepo         ###   ########.fr       */
+/*   Updated: 2017/03/13 13:30:39 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void *ft_memset(void *b, int c, size_t len)
 	bytes = 0;
 	while (bytes < len)
 	{
-		((char *)b)[bytes] = (unsigned char)c;
+		((unsigned char *)b)[bytes] = (unsigned char)c;
 		bytes++;
 	}
 	return (b);

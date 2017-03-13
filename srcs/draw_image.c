@@ -6,19 +6,16 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 17:15:59 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/11 14:27:52 by vroussea         ###   ########.fr       */
+/*   Updated: 2017/03/13 12:24:19 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <rtv1.h>
 #include <rt.h>
 
-
-
-
 void	draw_the_image(char **argv, t_obj *list, t_envgui *env)
 {
-	int		xy[2];
+//	int		xy[2];
 	int		xy2[2];
 	int		*col;
 

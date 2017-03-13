@@ -35,7 +35,9 @@ SRCS = 	gui/hook.c \
 		shadows.c \
 		shadows_obj.c \
 		libft.c \
-		get_next_line.c
+		get_next_line.c \
+		opencl.c \
+		opencl_init.c
 
 SRCF = ./srcs/
 OBJS = $(addprefix $(SRCF), $(SRCS:.c=.o))
@@ -59,7 +61,6 @@ start:
 
 sdl:
 	brew install sdl2
-	brew link sdl2
 	brew install sdl2_ttf
 	cp ~/.brew/Cellar/sdl2_ttf/2.0.14/include/SDL2/SDL_ttf.h ~/.brew/Cellar/sdl2/2.0.5/include/SDL2/
 	cp ~/.brew/Cellar/sdl2_ttf/2.0.14/lib/* ~/.brew/Cellar/sdl2/2.0.5/lib/

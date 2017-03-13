@@ -1,16 +1,4 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    raytracer.cl                                       :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: vroussea <vroussea@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/03/10 13:13:59 by vroussea          #+#    #+#              #
-#    Updated: 2017/03/11 14:28:54 by vroussea         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-#include "../../include/rt.h"
+#include "/Users/vroussea/travail/rt/github/includes/rt.h"
 
 __kernel void raytracer(__global int x_max, __global t_obj *begin_list, __global int *col)
 {

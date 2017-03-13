@@ -6,7 +6,7 @@
 /*   By: pfichepo <pfichepo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 09:56:34 by pfichepo          #+#    #+#             */
-/*   Updated: 2017/03/11 17:47:27 by vroussea         ###   ########.fr       */
+/*   Updated: 2017/03/13 13:32:23 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,4 +150,12 @@ void 				updatepixel(t_envgui *env, int x, int y, Uint32 color);
 void				checkread(char *s);
 int					threaddraw(void *e);
 void				mouse_press(SDL_Event *e, int press, t_envgui *env);
+int					*opencl(char *kernel_path, t_obj *list, int xy2[2]);
+cl_command_queue	init_queue(cl_context ctxt, cl_device_id dvic);
+cl_kernel			init_kernel(cl_program prog);
+cl_program			build_program(char *src, cl_context ctxt, cl_device_id dvic);
+cl_context			get_context(cl_device_id *dvic);
+char				*load_source_code(char *kernel);
+char				*ft_strnew(size_t size);
+char				*ft_putstr(char const *s);
 #endif

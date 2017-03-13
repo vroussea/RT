@@ -6,7 +6,7 @@
 /*   By: vroussea <vroussea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/02 17:52:40 by vroussea          #+#    #+#             */
-/*   Updated: 2017/03/08 18:24:36 by vroussea         ###   ########.fr       */
+/*   Updated: 2017/03/13 14:29:42 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ char				*load_source_code(char *kernel)
 	int		fd;
 
 	if ((fd = open(kernel, O_RDONLY)) == -1)
-		ft_error(NULL, "Error with file");
-	if (!(source = (char *)ft_memalloc(SOURCE_SIZE)))
-		ft_error(NULL, "Error while allocating to source string");
+		ft_error("Error with file", NULL);
+	if (!(source = (char *)malloc(SOURCE_SIZE)))
+		ft_error("Error while allocating to source string", NULL);
 	if ((read(fd, source, SOURCE_SIZE)) == -1)
-		ft_error(NULL, "Error while reading .cl source code");
+		ft_error("Error while reading .cl source code", NULL);
 	ft_putstr(source);
 	close(fd);
 	return (source);
@@ -47,13 +47,13 @@ cl_context			get_context(cl_device_id *dvic)
 	platform = NULL;
 	context = NULL;
 	if ((clGetPlatformIDs(1, &platform, NULL)) != CL_SUCCESS)
-		ft_error(NULL, "Error while retrieving platform informations");
+		ft_error("Error while retrieving platform informations", NULL);
 	if (clGetDeviceIDs(platform, CL_DEVICE_TYPE_GPU, 1, dvic, NULL)
 			!= CL_SUCCESS)
-		ft_error(NULL, "Error while retrieving device informations");
+		ft_error("Error while retrieving device informations", NULL);
 	context = clCreateContext(NULL, 1, &(*dvic), NULL, NULL, &err_code);
 	if (err_code != CL_SUCCESS)
-		ft_error(NULL, "Error while creating context");
+		ft_error("Error while creating context", NULL);
 	return (context);
 }
 
@@ -68,18 +68,18 @@ cl_program			build_program(char *src, cl_context ctxt, cl_device_id dvic)
 	prog = clCreateProgramWithSource(ctxt, 1, (const char **)&src,
 			NULL, &err_code);
 	if (err_code != CL_SUCCESS)
-		ft_error(NULL, "Error while creating program with source");
-	err_code = clBuildProgram(prog, 1, &dvic, NULL, NULL, NULL);
+		ft_error("Error while creating program with source", NULL);
+	err_code = clBuildProgram(prog, 1, &dvic, "-I ./includes/ -I /Users/vroussea/.brew/Cellar/sdl2/2.0.5/include/SDL2 -I /usr/include/", NULL, NULL);
 	if (err_code != CL_SUCCESS)
 	{
 		clGetProgramBuildInfo(prog, dvic, CL_PROGRAM_BUILD_LOG, 0, NULL, &size);
-		log = (char*)ft_strnew(size);
+		log = ft_strnew(size);
 		clGetProgramBuildInfo(prog, dvic,
 				CL_PROGRAM_BUILD_LOG, size + 1, log, NULL);
 		ft_error(log, NULL);
-		ft_strdel(&log);
+		free((void **)&log);
 	}
-	ft_strdel(&src);
+	free((void **)&src);
 	return (prog);
 }
 

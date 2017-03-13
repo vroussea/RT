@@ -6,7 +6,7 @@
 /*   By: vroussea <vroussea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/02 17:52:40 by vroussea          #+#    #+#             */
-/*   Updated: 2017/03/13 14:29:42 by vroussea         ###   ########.fr       */
+/*   Updated: 2017/03/13 15:19:50 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ cl_program			build_program(char *src, cl_context ctxt, cl_device_id dvic)
 			NULL, &err_code);
 	if (err_code != CL_SUCCESS)
 		ft_error("Error while creating program with source", NULL);
-	err_code = clBuildProgram(prog, 1, &dvic, "-I ./includes/ -I /Users/vroussea/.brew/Cellar/sdl2/2.0.5/include/SDL2 -I /usr/include/", NULL, NULL);
+	err_code = clBuildProgram(prog, 1, &dvic, "-I ./includes/", NULL, NULL);
 	if (err_code != CL_SUCCESS)
 	{
 		clGetProgramBuildInfo(prog, dvic, CL_PROGRAM_BUILD_LOG, 0, NULL, &size);

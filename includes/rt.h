@@ -6,7 +6,7 @@
 /*   By: pfichepo <pfichepo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 09:56:34 by pfichepo          #+#    #+#             */
-/*   Updated: 2017/03/13 13:32:23 by vroussea         ###   ########.fr       */
+/*   Updated: 2017/03/13 15:03:27 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,5 +157,5 @@ cl_program			build_program(char *src, cl_context ctxt, cl_device_id dvic);
 cl_context			get_context(cl_device_id *dvic);
 char				*load_source_code(char *kernel);
 char				*ft_strnew(size_t size);
-char				*ft_putstr(char const *s);
+void				ft_putstr(char const *s);
 #endif

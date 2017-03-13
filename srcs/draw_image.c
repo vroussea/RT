@@ -27,14 +27,14 @@ void	draw_the_image(char **argv, t_obj *list, t_envgui *env)
 		xy[0] = 0;
 		while (xy[0] < xy2[0])
 		{
-			updatepixel(env, xy[0], xy[1], (Uint32)calc_image(xy, list));
+			updatepixel(env, xy[0], xy[1], (Uint32)calc_image(xy, list, env));
 			xy[0]++;
 		}
 		xy[1]++;
 	}
 }
 
-int		calc_image(int xy[2], t_obj *begin_list)
+int		calc_image(int xy[2], t_obj *begin_list, t_envgui *env)
 {
 	double	nearest_point;
 	double	mem;
@@ -50,11 +50,15 @@ int		calc_image(int xy[2], t_obj *begin_list)
 		{
 			nearest_point = mem;
 			nearest_obj = list;
+			putpixel(env->zraysurface[env->aa], xy[0], xy[1], rgbafog(mem));
 		}
 		list = list->next;
 	}
 	if (nearest_obj == NULL)
+	{
+		putpixel(env->zraysurface[env->aa], xy[0], xy[1], rgbafog(FOGO));
 		return (0x000000);
+	}
 	return (get_color_obj(begin_list, nearest_obj, xy));
 }
 

@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 16:59:02 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/08 17:25:26 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/14 11:40:10 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,19 @@ void	init_functs_obj(t_obj *obj)
 		obj->vector = get_vector_cone;
 		obj->shadow = shadow_cone;
 	}
+}
+
+void	free_cam_spot(t_cam *cam)
+{
+	unsigned int i;
+
+	i = 0;
+	while (i < cam->nb_spot)
+	{
+		free(cam->spot[i]);
+		++i;
+	}
+	free(cam->spot);
 }
 
 int		init_scene(int fd, t_obj *objs, int is_aa)

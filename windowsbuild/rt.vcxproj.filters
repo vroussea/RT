@@ -117,6 +117,12 @@
     <ClCompile Include="..\srcs\utils\file.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\srcs\gui\hook2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\srcs\gui\fog.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\includes\libft.h">

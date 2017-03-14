@@ -125,7 +125,7 @@
       <AdditionalIncludeDirectories>./includes/;../includes/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Full</Optimization>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -142,8 +142,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\srcs\gui\fog.c" />
     <ClCompile Include="..\srcs\gui\hook.c" />
     <ClCompile Include="..\srcs\gui\graphiclib.c" />
+    <ClCompile Include="..\srcs\gui\hook2.c" />
     <ClCompile Include="..\srcs\gui\renderer.c" />
     <ClCompile Include="..\srcs\gui\loadingbar.c" />
     <ClCompile Include="..\srcs\gui\math.c" />

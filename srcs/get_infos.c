@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 16:59:02 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/14 11:40:10 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/14 11:44:32 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int		init_scene(int fd, t_obj *objs, int is_aa)
 			strstr(line, "</scene>") == NULL)
 		free(line);
 	free(line);
+	free_cam_spot(&cam);
 	if (ret_gnl == 1)
 		return (0);
 	return (-1);

@@ -1,0 +1,29 @@
+<scene>
+	<cam_infos>
+	</cam_infos>
+	<objs>
+		<plane>
+			<procedural>
+				<type>circles_z</type>
+				<color1>255 255 255</color1>
+				<color2>0 255 255</color2>
+			</procedural>
+			<high>-50</high>
+		</plane>
+		<cylinder>
+			<procedural>
+				<type>diagonal stripes</type>
+			</procedural>
+			<size>20</size>
+		</cylinder>
+		<sphere>
+			<pos>50 20 30</pos>
+			<size>50</size>
+			<procedural>
+				<type>circles_z</type>
+				<color1>255 0 0</color1>
+				<color2>0 0 255</color2>
+			</procedural>
+		</sphere>
+	</objs>
+</scene>

@@ -6,7 +6,7 @@
 /*   By: eduwer <eduwer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 14:32:56 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/14 12:28:56 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/14 16:45:09 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,12 @@
 # define MINFOGDIST 2
 # define MAXFOGDIST 6
 # define FOGO MAXFOGDIST+MINFOGDIST
-
+# define PROC_TEXT_CUBE 0
+# define PROC_TEXT_CIRCLE_X 1
+# define PROC_TEXT_CIRCLE_Y 2
+# define PROC_TEXT_CIRCLE_Z 3
+# define PROC_TEXT_STRAIGHT_STRIPES 4
+# define PROC_TEXT_DIAGONAL_STRIPES 5
 typedef struct		s_envgui	t_envgui;
 typedef struct		s_obj 		t_obj;
 
@@ -39,6 +44,15 @@ typedef struct		s_obj 		t_obj;
 ** 2:cylinder
 ** 3: cone
 */
+
+typedef struct		s_proc_text
+{
+	int		type;
+	int		color1[3];
+	int		color2[3];
+	double	size_xyz[3];
+	double	decal_xyz[3];
+}					t_proc_text;
 
 typedef struct		s_obj
 {
@@ -69,6 +83,7 @@ typedef struct		s_obj
 	double			(*intersect)(int*, struct s_obj*);
 	void			(*vector)(double*, double*, struct s_obj*, int);
 	int				(*shadow)(struct s_obj *, double *, int);
+	t_proc_text		*proc_texture;
 	struct s_obj	*next;
 }					t_obj;
 
@@ -106,7 +121,7 @@ int		init_plane(int fd, t_obj *objs, t_cam *cam);
 int		init_cylinder(int fd, t_obj *objs, t_cam *cam);
 int		init_cone(int fd, t_obj *objs, t_cam *cam);
 t_obj	*make_new_obj(t_obj *objs, int type);
-int		check(char *line, t_obj *new_obj);
+int		check(char *line, t_obj *new_obj, int fd);
 void		finish_init_obj(t_obj *obj, t_cam *cam);
 void	init_down_right(double vec_down[3], double vec_right[3], \
 			double rotation[3], int res[2]);
@@ -114,6 +129,10 @@ void	init_functs_obj(t_obj *obj);
 void	convert_to_hex(int tab[3]);
 void	verif_plane_norm_vec(t_obj *plane);
 int		init_one_spot(t_cam *cam);
+int		init_procedural_textures(t_obj *obj, int fd);
+int		init_procedural_type(t_obj *obj, char *line);
+int		check_procedural_texture(t_obj *obj, char *line);
+int		*get_proc_color(t_obj *obj);
 
 double				calc_one_spot_luminosity(t_obj *obj, int nb);
 double				calc_one_spot_spec(t_obj *obj, int nb);

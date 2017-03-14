@@ -6,7 +6,7 @@
 /*   By: pfichepo <pfichepo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 16:59:02 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/08 08:44:38 by pfichepo         ###   ########.fr       */
+/*   Updated: 2017/03/14 13:41:28 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	init_sphere(int fd, t_obj *objs, t_cam *cam)
 	while ((ret_gnl = get_next_line(fd, &line)) == 1 && strstr(line, \
 		"</sphere>") == NULL)
 	{
-		if (check(line, new_obj) == -1)
+		if (check(line, new_obj, fd) == -1)
 			return (-1);
 		free(line);
 	}
@@ -71,7 +71,7 @@ int	init_plane(int fd, t_obj *objs, t_cam *cam)
 	while ((ret_gnl = get_next_line(fd, &line)) == 1 && strstr(line, \
 		"</plane>") == NULL)
 	{
-		if (check(line, new_obj) == -1)
+		if (check(line, new_obj, fd) == -1)
 			return (-1);
 		free(line);
 	}
@@ -92,7 +92,7 @@ int	init_cylinder(int fd, t_obj *objs, t_cam *cam)
 	while ((ret_gnl = get_next_line(fd, &line)) == 1 && strstr(line, \
 		"</cylinder>") == NULL)
 	{
-		if (check(line, new_obj) == -1)
+		if (check(line, new_obj, fd) == -1)
 			return (-1);
 		free(line);
 	}
@@ -113,7 +113,7 @@ int	init_cone(int fd, t_obj *objs, t_cam *cam)
 	while ((ret_gnl = get_next_line(fd, &line)) == 1 && strstr(line, \
 		"</cone>") == NULL)
 	{
-		if (check(line, new_obj) == -1)
+		if (check(line, new_obj, fd) == -1)
 			return (-1);
 		free(line);
 	}

@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 16:59:02 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/14 11:44:32 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/14 11:47:50 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,6 @@ void	get_infos(char *file_name, t_obj **objs, int is_aa)
 	char	*line;
 	int		ret_gnl;
 
-	del_all_list(*objs);
 	if ((*objs = (t_obj *)malloc(sizeof(t_obj))) == NULL)
 		ft_error("malloc", NULL);
 	(*objs)->next = NULL;

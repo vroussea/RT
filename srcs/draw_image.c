@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 17:15:59 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/10 10:28:19 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/14 11:48:08 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	draw_the_image(char **argv, t_obj *list, t_envgui *env)
 		}
 		xy[1]++;
 	}
+	del_all_list(list);
 }
 
 int		calc_image(int xy[2], t_obj *begin_list, t_envgui *env)

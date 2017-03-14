@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 17:31:07 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/08 17:26:47 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/14 12:29:22 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,17 @@ int		init_and_copy(double **list_spot, char *line, t_cam *cam)
 	return (0);
 }
 
-int		init_one_spot(t_cam *cam, double **list_spot)
+int		init_one_spot(t_cam *cam)
 {
 	cam->nb_spot = 1;
-	if ((list_spot = (double **)malloc(sizeof(double *) * \
+	if ((cam->spot = (double **)malloc(sizeof(double *) * \
 					cam->nb_spot)) == NULL)
 		return (-1);
-	if ((list_spot[0] = (double *)malloc(sizeof(double) * 3)) == NULL)
+	if ((cam->spot[0] = (double *)malloc(sizeof(double) * 3)) == NULL)
 		return (-1);
-	list_spot[0][0] = (double)400;
-	list_spot[0][1] = (double)0;
-	list_spot[0][2] = (double)100;
+	cam->spot[0][0] = (double)400;
+	cam->spot[0][1] = (double)0;
+	cam->spot[0][2] = (double)100;
 	return (0);
 }
 
@@ -70,7 +70,5 @@ int		init_spots(int fd, t_cam *cam)
 	free(line);
 	if (ret_gnl != 1)
 		return (-1);
-	if (cam->nb_spot == 0)
-		return (init_one_spot(cam, list_spot));
 	return (0);
 }

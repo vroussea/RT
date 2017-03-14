@@ -6,7 +6,7 @@
 /*   By: eduwer <eduwer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 14:32:56 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/09 20:31:02 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/14 12:28:56 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,8 @@ void	init_down_right(double vec_down[3], double vec_right[3], \
 			double rotation[3], int res[2]);
 void	init_functs_obj(t_obj *obj);
 void	convert_to_hex(int tab[3]);
+void	verif_plane_norm_vec(t_obj *plane);
+int		init_one_spot(t_cam *cam);
 
 double				calc_one_spot_luminosity(t_obj *obj, int nb);
 double				calc_one_spot_spec(t_obj *obj, int nb);

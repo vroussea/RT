@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 17:15:59 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/14 11:48:08 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/14 12:44:01 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ int		get_color_obj(t_obj *list, t_obj *nearest_obj, int xy[2])
 }
 
 void	get_color_tab(int color[3], t_obj *list)
-{
+{/*
 	int	i;
 	int	*color_tab;
 
@@ -118,5 +118,18 @@ void	get_color_tab(int color[3], t_obj *list)
 		color[i] = *color_tab;
 		color_tab++;
 		i++;
+	}*/
+	unsigned int i;
+	i = (unsigned int)(list->intersec_point[0] / 10 + \
+		list->intersec_point[1] / 10 + \
+		list->intersec_point[2] / 10);
+	i %= 2;
+	color[0] = 0x00;
+	color[1] = 0x00;
+	color[2] = 0x00;
+	if (i == 1)
+	{
+		color[0] = 0xFF;
+		color[2] = 0xFF;
 	}
 }

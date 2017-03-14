@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 16:16:23 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/10 10:08:42 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/14 11:58:41 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,27 +93,6 @@ void	init_spot(t_obj *obj, t_cam *cam)
 			i++;
 		}
 		make_rotation(obj->spot[nb_spot], obj->rotation);
-	}
-}
-
-void	verif_plane_norm_vec(t_obj *plane)
-{
-	double	vec[3];
-	int		i;
-
-	i = 0;
-	while (plane->norm_vec[i] == 0.0)
-		i++;
-	vec[0] = plane->pos_cam[0];
-	vec[1] = plane->pos_cam[1];
-	vec[2] = plane->pos_cam[2];
-	vec[i] = plane->pos_cam[i] - \
-			(plane->high / plane->norm_vec[i]);
-	normalize_vec(vec);
-	if (dot_product(vec, plane->norm_vec) <= 0)
-	{
-		plane->norm_vec[2] = -1;
-		plane->high = -plane->high;
 	}
 }
 

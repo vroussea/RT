@@ -6,7 +6,7 @@
 /*   By: vroussea <vroussea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/10 11:22:55 by vroussea          #+#    #+#             */
-/*   Updated: 2017/03/13 13:22:18 by vroussea         ###   ########.fr       */
+/*   Updated: 2017/03/15 17:30:01 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,23 +36,14 @@ static cl_mem	*create_buffers(int *col, int xy2[2], t_obj *list,
 {
 	cl_mem	*buff;
 	cl_int	errcode;
-	int		nb_obj;
-	t_obj	*tmp;
 
-	nb_obj = 0;
-	tmp = list;
-	while (tmp != NULL)
-	{
-		tmp = tmp->next;
-		nb_obj++;
-	}
 	buff = (cl_mem *)malloc(sizeof(cl_mem) * 3);
 	buff[0] = clCreateBuffer(ocl.ctxt, CL_MEM_READ_ONLY,
 			sizeof(int), &(xy2[0]), &errcode);
 	if (errcode != CL_SUCCESS)
 		ft_error("Error while creating buffer 0", NULL);
 	buff[1] = clCreateBuffer(ocl.ctxt, CL_MEM_READ_ONLY,
-			sizeof(t_obj) * (size_t)nb_obj, list, &errcode);
+			sizeof(t_obj), list, &errcode);
 	if (errcode != CL_SUCCESS)
 		ft_error("Error while creating buffer 1", NULL);
 	buff[2] = clCreateBuffer(ocl.ctxt, CL_MEM_WRITE_ONLY,
@@ -69,8 +60,8 @@ static cl_mem		set_args(int *col, int xy2[2], t_obj *list,
 	cl_mem	col_buff;
 
 	buff = create_buffers(col, xy2, list, ocl);
-	if (clSetKernelArg(ocl.kernel, 0, sizeof(cl_mem),
-				(void *)&(buff[0])) != CL_SUCCESS ||
+	if (clSetKernelArg(ocl.kernel, 0, sizeof(int),
+				(void *)&(xy2[0])) != CL_SUCCESS ||
 		clSetKernelArg(ocl.kernel, 1, sizeof(cl_mem),
 				(void *)&(buff[1])) != CL_SUCCESS ||
 		clSetKernelArg(ocl.kernel, 2, sizeof(cl_mem),

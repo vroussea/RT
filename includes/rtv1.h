@@ -6,7 +6,7 @@
 /*   By: eduwer <eduwer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 14:32:56 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/10 15:59:50 by gboudrie         ###   ########.fr       */
+/*   Updated: 2017/03/15 15:28:35 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ void	init_down_right(double vec_down[3], double vec_right[3], \
 			double rotation[3], int res[2]);
 void	init_functs_obj(t_obj *obj);
 void	convert_to_hex(int tab[3]);
-int		init_surface(SDL_Surface **texture, char **line, char *pattern);
+int		init_surface(SDL_Surface **texture, char *line);
 void	texture(t_obj obj, int *color_tab[3]);
 int		texture_sphere(t_obj obj);
 int		texture_cylinder(t_obj obj);

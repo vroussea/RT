@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 17:16:53 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/10 17:17:19 by gboudrie         ###   ########.fr       */
+/*   Updated: 2017/03/15 15:02:18 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,13 +72,12 @@ int		init_one_value(double *value, char *line, char *pattern)
 
 }
 
-int		init_surface(SDL_Surface **texture, char **line)
+int		init_surface(SDL_Surface **texture, char *line)
 {
-	if ((*texture = SDL_LoadBMP(*line)) == NULL)
+	if ((*texture = SDL_LoadBMP(line)) == NULL)
 	{
-		printf("%s", *line);
+		printf("%s", line);
 		return (-1);
 	}
-	free(line);
 	return (0);
 }

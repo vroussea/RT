@@ -106,6 +106,7 @@ typedef struct		s_threaddata
 	t_obj			*data;
 	SDL_Surface		*image;
 	bool 			aa;
+	double 			*loading;
 }					t_threaddata;
 
 typedef struct 		s_parserdata

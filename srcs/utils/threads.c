@@ -18,25 +18,28 @@ static int threadthink(void *d)
 	t_threaddata 	*data;
 
 	int 			xy[2];
+	int 			ymax;
+	int 			xmax;
 
 	data = (t_threaddata*)d;
-
+	ymax = (WIN_HCAM + (WIN_HCAM * data->aa * (AALEVEL - 1)));
+	xmax = (WIN_W + (WIN_W * data->aa * (AALEVEL - 1)));
 	xy[0] = 0;
 	xy[1] = 0;
-	printf("%s, %i\n", "bite", data->threadid);
-	while (xy[0] < (WIN_W + (WIN_W * data->aa * (AALEVEL - 1))))
+	while (xy[0] < xmax)
 	{
 		xy[1] = 0;
-		while (xy[1] < (WIN_HCAM + (WIN_HCAM * data->aa * (AALEVEL - 1))))
+		while (xy[1] < ymax)
 		{
 			if (xy[0]%4 == data->threadid-1)
 			{
 				putpixel(data->image, xy[0], xy[1],(Uint32)calc_image(xy, data->data));
+				if (data->threadid == 1)
+					*(data->loading) = math_remapsimple(xy[0], xmax, 1);
 			}
 			xy[1]++;
 		}
 		xy[0]++;
-
 	}
 	return (data->threadid);
 }

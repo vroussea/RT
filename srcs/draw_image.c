@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 17:15:59 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/14 16:54:19 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/15 18:22:02 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,7 @@ void	get_color_tab(int color[3], t_obj *list)
 	int	*color_tab;
 
 	i = 0;
-	if (list->proc_texture == NULL)
+	if (list->is_proc_texture == 0)
 		color_tab = list->color_rgb;
 	else
 		color_tab = get_proc_color(list);
@@ -144,19 +144,4 @@ void	get_color_tab(int color[3], t_obj *list)
 		color_tab++;
 		i++;
 	}
-
-/*
-		unsigned int i;
-	i = (unsigned int)(nearbyint(list->intersec_point[0] / 10) + \
-		nearbyint(list->intersec_point[1] / 10) + \
-		nearbyint(list->intersec_point[2] / 10));
-	i %= 2;
-	color[0] = 0x00;
-	color[1] = 0x00;
-	color[2] = 0x00;
-	if (i == 1)
-	{
-		color[0] = 0xFF;
-		color[2] = 0xFF;
-	}*/
 }

@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/10 17:21:14 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/14 14:16:31 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/15 17:58:28 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void		del_all_list(t_obj *list)
 		while (--nb_spot >= 0)
 			free(list->spot[nb_spot]);
 		free(list->spot);
-		if (list->proc_texture != NULL)
-			free(list->proc_texture);
 		free(list);
 		list = mem;
 	}

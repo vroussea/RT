@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 17:34:08 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/14 16:45:13 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/15 19:42:31 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,13 @@ int		check_procedural_texture(t_obj *obj, char *line)
 			init_procedural_type(obj, line) == -1)
 		return (-1);
 	else if (strstr(line, "<color1>") != NULL  && \
-			init_colors(obj->proc_texture->color1, line) == -1)
+			init_colors(obj->color1, line) == -1)
 		return (-1);
 	else if (strstr(line, "<color2>") != NULL && \
-			init_colors(obj->proc_texture->color2, line) == -1)
-		return (-1);
-	else if (strstr(line, "<size>") != NULL && \
-			init_3_values(obj->proc_texture->size_xyz, line, "</size>") == -1)
+			init_colors(obj->color2, line) == -1)
 		return (-1);
 	else if (strstr(line, "<decal>") != NULL && \
-			init_3_values(obj->proc_texture->decal_xyz, line, "</decal>") == -1)
+			init_3_values(obj->decal_xyz, line, "</decal>") == -1)
 		return (-1);
 	return (0);
 }

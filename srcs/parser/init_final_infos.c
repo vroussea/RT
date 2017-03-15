@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 17:16:53 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/14 13:57:23 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/15 19:40:55 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,12 @@ int		init_3_values(double value[3], char *line, char *pattern)
 
 int		init_colors(int color[3], char *line)
 {
-	if (init_tab_3(NULL, color, line) == -1)
+	int i;
+
+	i = 0;
+	while (line[i] != '>')
+		i++;
+	if (init_tab_3(NULL, color, &(line[i])) == -1)
 		return (-1);
 	convert_to_hex(color);
 	if (strstr(line, "</color") == NULL)

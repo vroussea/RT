@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 17:28:27 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/15 16:42:14 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/15 17:58:00 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	init_default_sphere_values(t_cam *c, t_obj *o)
 	memcpy(o->vec_right, c->vec_right, sizeof(c->vec_right));
 	memcpy(o->vec_down, c->vec_down, sizeof(c->vec_down));
 	o->spot = NULL;
-	o->proc_texture = NULL;
+	o->is_proc_texture = 0;
 	o->nb_spot = c->nb_spot;
 }
 
@@ -88,7 +88,7 @@ void	init_default_plane_values(t_cam *c, t_obj *o)
 	memcpy(o->vec_right, c->vec_right, sizeof(c->vec_right));
 	memcpy(o->vec_down, c->vec_down, sizeof(c->vec_down));
 	o->spot = NULL;
-	o->proc_texture = NULL;
+	o->is_proc_texture = 0;
 	o->nb_spot = c->nb_spot;
 }
 
@@ -112,7 +112,7 @@ void	init_default_cylinder_values(t_cam *c, t_obj *o)
 	memcpy(o->vec_right, c->vec_right, sizeof(c->vec_right));
 	memcpy(o->vec_down, c->vec_down, sizeof(c->vec_down));
 	o->spot = NULL;
-	o->proc_texture = NULL;
+	o->is_proc_texture = 0;
 	o->nb_spot = c->nb_spot;
 }
 
@@ -136,6 +136,6 @@ void	init_default_cone_values(t_cam *c, t_obj *o)
 	memcpy(o->vec_right, c->vec_right, sizeof(c->vec_right));
 	memcpy(o->vec_down, c->vec_down, sizeof(c->vec_down));
 	o->spot = NULL;
-	o->proc_texture = NULL;
+	o->is_proc_texture = 0;
 	o->nb_spot = c->nb_spot;
 }

@@ -1,23 +1,50 @@
 <scene>
 	<cam_infos>
+		<spots>
+			<pos>200 200 200</pos>
+			<pos>400 0 0</pos>
+			<pos>200 -50 100</pos>
+		</spots>
 	</cam_infos>
 	<objs>
 		<plane>
 			<procedural>
-				<type>squares</type>
-				<color1>255 255 255</color1>
-				<color2>0 255 255</color2>
+				<type>circles_z</type>
+				<color1>0 0 0</color1>
+				<color2>255 255 255</color2>
+				<decal>0 0 0</decal>
 			</procedural>
 			<high>-50</high>
+			<rotation>0 90 0</rotation>
 		</plane>
 		<sphere>
-			<pos>50 20 30</pos>
+			<pos>20 80 30</pos>
 			<size>50</size>
+			<rotation>50 0 0</rotation>
 			<procedural>
-				<type>diagonal stripes</type>
+				<type>straight stripes</type>
+				<decal>0 0 0</decal>
 				<color1>255 0 0</color1>
-				<color2>0 0 255</color2>
+				<color2>255 165 0</color2>
 			</procedural>
 		</sphere>
+		<cone>
+			<angle>30</angle>
+			<pos>0 -50 0</pos>
+			<rotation>0 0 120</rotation>
+			<procedural>
+				<type>diagonal stripes</type>
+			</procedural>
+		</cone>
+		<cylinder>
+			<rotation>90 0 45</rotation>
+			<pos>20 0 -50</pos>
+			<procedural>
+				<type>cubes</type>
+				<color1>0 255 255</color1>
+				<color2>127 255 0</color2>
+			</procedural>
+			<size>20</size>
+		</cylinder>
 	</objs>
 </scene>

@@ -6,7 +6,7 @@
 /*   By: eduwer <eduwer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 14:32:56 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/14 16:45:09 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/15 18:16:16 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,6 @@ typedef struct		s_obj 		t_obj;
 ** 3: cone
 */
 
-typedef struct		s_proc_text
-{
-	int		type;
-	int		color1[3];
-	int		color2[3];
-	double	size_xyz[3];
-	double	decal_xyz[3];
-}					t_proc_text;
-
 typedef struct		s_obj
 {
 	int				type;
@@ -83,7 +74,11 @@ typedef struct		s_obj
 	double			(*intersect)(int*, struct s_obj*);
 	void			(*vector)(double*, double*, struct s_obj*, int);
 	int				(*shadow)(struct s_obj *, double *, int);
-	t_proc_text		*proc_texture;
+	int				proc_text_type;
+	int				is_proc_texture;
+	int				color1[3];
+	int				color2[3];
+	double			decal_xyz[3];
 	struct s_obj	*next;
 }					t_obj;
 

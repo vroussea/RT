@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 13:32:27 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/14 16:45:50 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/15 19:42:49 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,36 @@
 
 int		init_default_procedural(t_obj *obj)
 {
-	t_proc_text		*texture;
 	int				i;
 
-	if ((texture = (t_proc_text *)malloc(sizeof(t_proc_text))) == NULL)
-		ft_error("malloc", NULL);
-	texture->type = PROC_TEXT_CUBE;
+	obj->proc_text_type = PROC_TEXT_CUBE;
+	obj->is_proc_texture = 1;
 	i = 0;
 	while (i < 3)
 	{
-		texture->size_xyz[i] = 1;
-		texture->decal_xyz[i] = 0;
-		texture->color1[i] = 0x00;
-		texture->color2[i] = 0xFF;
+		obj->decal_xyz[i] = 0;
+		obj->color1[i] = 0x00;
+		obj->color2[i] = 0xFF;
 		++i;
 	}
-	texture->color2[1] = 0x00;
-	obj->proc_texture = texture;
+	obj->color2[1] = 0x00;
 	return (0);
 }
 
 int		init_procedural_type(t_obj *obj, char *line)
 {
 	if (strstr(line, "cubes") != NULL)
-		obj->proc_texture->type = PROC_TEXT_CUBE;
+		obj->proc_text_type = PROC_TEXT_CUBE;
 	else if (strstr(line, "circles_x") != NULL)
-		obj->proc_texture->type = PROC_TEXT_CIRCLE_X;
+		obj->proc_text_type = PROC_TEXT_CIRCLE_X;
 	else if (strstr(line, "circles_y") != NULL)
-		obj->proc_texture->type = PROC_TEXT_CIRCLE_Y;
+		obj->proc_text_type = PROC_TEXT_CIRCLE_Y;
 	else if (strstr(line, "circles_z") != NULL)
-		obj->proc_texture->type = PROC_TEXT_CIRCLE_Z;
+		obj->proc_text_type = PROC_TEXT_CIRCLE_Z;
 	else if (strstr(line, "straight stripes") != NULL)
-		obj->proc_texture->type = PROC_TEXT_STRAIGHT_STRIPES;
+		obj->proc_text_type = PROC_TEXT_STRAIGHT_STRIPES;
 	else if (strstr(line, "diagonal stripes") != NULL)
-		obj->proc_texture->type = PROC_TEXT_DIAGONAL_STRIPES;
+		obj->proc_text_type = PROC_TEXT_DIAGONAL_STRIPES;
 	return (0);
 }
 

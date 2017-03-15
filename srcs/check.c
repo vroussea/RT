@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 17:34:08 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/10 15:24:45 by gboudrie         ###   ########.fr       */
+/*   Updated: 2017/03/10 16:41:52 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int		check(char *line, t_obj *new_obj)
 			init_one_value(&(new_obj->high), line, "</high>") == -1)
 		return (-1);
 	else if ((str = balise(line, "<texture>", "</texture>")) != NULL &&	\
-			 init_surface(&(new_obj->texture), &str, "</texture>") == -1)
+			 init_surface(&(new_obj->texture), &str) == -1)
 		return (-1);
 	return(0);
 	// need to free the new small lines and use balise funct

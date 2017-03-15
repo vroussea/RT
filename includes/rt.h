@@ -28,7 +28,7 @@
 # include <rtv1.h>
 # define BUTTON_BOX 0
 # define BUTTON_SPHERE 1
-# define AALEVEL 8
+# define AALEVEL 2
 # define AANUM AALEVEL*AALEVEL
 
 typedef struct		s_envgui	t_envgui;

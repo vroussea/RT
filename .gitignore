@@ -8,3 +8,5 @@ windowsbuild/rt.sdf
 *.opensdf
 windowsbuild/rt.sdf
 *.o
+
+rt

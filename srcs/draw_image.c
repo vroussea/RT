@@ -31,6 +31,8 @@ t_threaddata *mallocit(Uint8 id, t_envgui *env)
 
 void	draw_the_image(char **argv, t_obj *list, t_envgui *env)
 {
+	Uint32 time = SDL_GetTicks();
+
 	int		xy[2];
 	int		xy2[2];
 	t_parserdata *data;
@@ -53,13 +55,14 @@ void	draw_the_image(char **argv, t_obj *list, t_envgui *env)
 	get_infos(argv[1], &(data->thread4->data), env->aa);
 	initthreads(data);
 
-	printf("%s\n", "Done!");
+
 
 	del_all_list(data->thread1->data);
 	del_all_list(data->thread2->data);
 	del_all_list(data->thread3->data);
 	del_all_list(data->thread4->data);
 	env->isloading = 0;
+	printf("%i\n", SDL_GetTicks()- time);
 }
 
 int		calc_image(int xy[2], t_obj *begin_list)

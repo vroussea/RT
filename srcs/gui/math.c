@@ -14,7 +14,7 @@
 
 double			math_remapsimple(double value, double to1, double to2)
 {
-	return (value * (to2 / to1) * 4);
+	return (value * (to2 / to1) );
 }
 
 /*

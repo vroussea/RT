@@ -12,7 +12,7 @@
 
 #include <rtv1.h>
 
-int		init_res(char *line, t_cam *cam, int is_aa)
+/*int		init_res(char *line, t_cam *cam, int is_aa)
 {
 	int		i;
 
@@ -33,7 +33,7 @@ int		init_res(char *line, t_cam *cam, int is_aa)
 	if (cam->res[0] <= 0 || cam->res[1] <= 0)
 		return (-1);
 	return (0);
-}
+}*/
 
 int		init_cam_pos_rotation(int fd, t_cam *cam)
 {
@@ -101,10 +101,10 @@ int		get_cam_infos(int fd, t_cam *cam, int is_aa)
 	while ((ret_gnl = get_next_line(fd, &line)) == 1 && \
 			strstr(line, "</cam_infos>") == NULL)
 	{
-		if (strstr(line, "<resolution>") != NULL && \
+		/*if (strstr(line, "<resolution>") != NULL && \
 				init_res(line, cam, is_aa) == -1)
 			return (-1);
-		else if (strstr(line, "<cam>") != NULL && \
+else*/	if (strstr(line, "<cam>") != NULL && \
 				init_cam_pos_rotation(fd, cam) == -1)
 			return (-1);
 		else if (strstr(line, "<spots>") != NULL && \

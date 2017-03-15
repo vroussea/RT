@@ -44,7 +44,6 @@ void	draw_the_image(char **argv, t_envgui *env)
 	get_infos(argv[1], &(data->thread3->data), env->aa);
 	get_infos(argv[1], &(data->thread4->data), env->aa);
 	initthreads(data);
-	SDL_SaveBMP(env->raysurface[1], "bite.bmp");
 
 	env->isloading = 0;
 }

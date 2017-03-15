@@ -139,4 +139,5 @@ int					threaddraw(void *e);
 void				mouse_press(SDL_Event *e, int press, t_envgui *env);
 Uint32				rgbafog(double	 dist);
 void 				initfog(t_envgui *env);
+int 				getmult(int aa);
 #endif

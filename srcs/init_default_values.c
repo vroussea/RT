@@ -22,8 +22,8 @@ void	init_default_cam_values(t_cam *cam, int is_aa)
 	cam->vec_cam[0] = -1;
 	cam->vec_cam[1] = 0;
 	cam->vec_cam[2] = 0;
-	cam->res[0] = 1920 + (1920 * is_aa * (AALEVEL - 1));
-	cam->res[1] = 1038 + (1038 * is_aa * (AALEVEL - 1));
+	cam->res[0] = WIN_W + (WIN_W * is_aa * (AALEVEL - 1));
+	cam->res[1] = WIN_HCAM + (WIN_HCAM * is_aa * (AALEVEL - 1));
 	cam->vec_right[0] = 0;
 	cam->vec_right[1] = 100;
 	cam->vec_right[2] = 0;

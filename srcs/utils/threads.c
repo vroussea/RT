@@ -33,7 +33,7 @@ static int gety(int id, bool aa)
 		return (WIN_HCAM)/2;
 }
 
-static int getmult(int aa)
+int 	getmult(int aa)
 {
 
 	if (aa)

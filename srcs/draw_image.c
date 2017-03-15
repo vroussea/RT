@@ -57,21 +57,21 @@ void	draw_the_image(char **argv, t_obj *list, t_envgui *env)
 
 
 
-	del_all_list(data->thread1->data);
-	del_all_list(data->thread2->data);
-	del_all_list(data->thread3->data);
-	del_all_list(data->thread4->data);
+
 	env->isloading = 0;
 	printf("%i\n", SDL_GetTicks()- time);
 }
 
-int		calc_image(int xy[2], t_obj *begin_list)
+int		calc_image(int x, int y, t_obj *begin_list)
 {
 	double	nearest_point;
 	double	mem;
 	t_obj	*nearest_obj;
 	t_obj	*list;
+	int		xy[2];
 
+	xy[0] = x;
+	xy[1] = y;
 	list = begin_list;
 	nearest_obj = NULL;
 	nearest_point = 2147483647;

@@ -158,7 +158,7 @@ double				calc_one_spot_luminosity(t_obj *obj, int nb);
 double				calc_one_spot_spec(t_obj *obj, int nb);
 
 void				draw_the_image(char **argv, t_obj *list, t_envgui *env);
-int					calc_image(int xy[2], t_obj *list);
+int					calc_image(int x, int y, t_obj *begin_list);
 int					get_color_obj(t_obj *begin_list, t_obj *nearest_obj, \
 						int xy[2]);
 void				get_color_tab(int color[3], t_obj *list);

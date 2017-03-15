@@ -33,47 +33,39 @@ static int gety(int id, bool aa)
 		return (WIN_HCAM)/2;
 }
 
+static int getmult(int aa)
+{
 
+	if (aa)
+		return(AALEVEL);
+	return (1);
+}
 
 static int threadthink(void *d)
 {
 	t_threaddata 	*data;
-
 	int 			xy[2];
-	int 			xy2[2];
 	int 			ymax;
 	int 			xmax;
 	int 			xoff;
 	int 			yoff;
-	int 			mult;
+	int 			i;
 
+	i = 0;
 	data = (t_threaddata*)d;
-	if (data->aa)
-		mult = AALEVEL;
-	else
-		mult = 1;
-	xmax = (WIN_W * mult)/2;
-	ymax = (WIN_HCAM * mult)/2;
+	xmax = (WIN_W * getmult(data->aa))/2;
+	ymax = (WIN_HCAM * getmult(data->aa))/2;
 	xoff = getx(data->threadid, data->aa);
 	yoff = gety(data->threadid, data->aa);
-	printf("Thread : %i with offsets -> X : %i  Y : %i\n", data->threadid, xoff, yoff);
 	xy[0] = 0;
-	xy[1] = 0;
-	int i = 0;
 	while (xy[0] < xmax)
 	{
 		xy[1] = 0;
 		while (xy[1] < ymax)
 		{
-			xy2[0] = xy[0]+xoff;
-			xy2[1] = xy[1]+yoff;
-			putpixel(data->image, xy2[0], xy2[1],(Uint32)calc_image(xy2, data->data));
+			putpixel(data->image, xy[0] + xoff, xy[1] + yoff, (Uint32)calc_image(xy[0] + xoff, xy[1] + yoff, data->data));
 			if (data->threadid == 1)
-			{
-				i++;
-				*(data->loading) = math_remapsimple(i, ymax * xmax, 1);
-			}
-
+				*(data->loading) = math_remapsimple(i++, ymax * xmax, 1);
 			xy[1]++;
 		}
 		xy[0]++;
@@ -90,14 +82,21 @@ void initthreads(t_parserdata *data)
 	SDL_Thread *thread3;
 	SDL_Thread *thread4;
 
-
 	thread1 = SDL_CreateThread(threadthink, "Thread1", (void*)(data->thread1));
 	thread2 = SDL_CreateThread(threadthink, "Thread2", (void*)(data->thread2));
 	thread3 = SDL_CreateThread(threadthink, "Thread3", (void*)(data->thread3));
 	thread4 = SDL_CreateThread(threadthink, "Thread4", (void*)(data->thread4));
-
 	SDL_WaitThread(thread1, NULL);
 	SDL_WaitThread(thread2, NULL);
 	SDL_WaitThread(thread3, NULL);
 	SDL_WaitThread(thread4, NULL);
+	del_all_list(data->thread1->data);
+	del_all_list(data->thread2->data);
+	del_all_list(data->thread3->data);
+	del_all_list(data->thread4->data);
+	free(data->thread1);
+	free(data->thread2);
+	free(data->thread3);
+	free(data->thread4);
+	free(data);
 }

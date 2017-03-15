@@ -29,7 +29,11 @@ static int		rala(t_envgui *env, t_button *self)
 
 static int		screen(t_envgui *env, t_button *self)
 {
-	SDL_SaveBMP(env->raysurface[0], "dada.bmp");
+	char buff[42];
+
+	sprintf(buff, "%d.bmp", (int)time(NULL));
+	printf(buff);
+	SDL_SaveBMP(env->raysurface[0],buff);
 	self = (t_button*)self;
 	return (1);
 }

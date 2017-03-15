@@ -15,17 +15,17 @@ SRCS = 	gui/hook.c \
 		utils/file.c \
 		utils/threads.c \
 		rtv1.c \
-		get_infos.c \
+		parser/get_infos.c \
 		maths.c \
 		maths2.c \
-		init_cam.c \
-		check.c \
-		convert_to_hex.c \
-		init_default_values.c \
-		init_final_infos.c \
-		make_new_obj.c \
-		obj_infos.c \
-		init_spots.c \
+		parser/init_cam.c \
+		parser/check.c \
+		parser/convert_to_hex.c \
+		parser/init_default_values.c \
+		parser/init_final_infos.c \
+		parser/make_new_obj.c \
+		parser/obj_infos.c \
+		parser/init_spots.c \
 		list_funct.c \
 		draw_image.c \
 		intersec_plane.c \
@@ -38,7 +38,7 @@ SRCS = 	gui/hook.c \
 		shadows_obj.c \
 		libft.c \
 		get_next_line.c \
-		init_procedural_textures.c \
+		parser/init_procedural_textures.c \
 		get_proc_color.c
 
 SRCF = ./srcs/

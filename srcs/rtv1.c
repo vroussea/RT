@@ -56,7 +56,6 @@ t_envgui	*initenv(void)
 
 int			main(int argc, char **argv)
 {
-	t_obj			*list;
 	t_envgui		*env;
 	Uint32			startclock;
 	SDL_Event		e;
@@ -64,7 +63,6 @@ int			main(int argc, char **argv)
 	if (argc != 2)
 		ft_error("Usage: ./rt <filename>\n", NULL);
 	checkread(argv[1]);
-	list = NULL;
 	SDL_Init(SDL_INIT_EVENTS | SDL_INIT_TIMER);
 	TTF_Init();
 	env = initenv();
@@ -77,7 +75,7 @@ int			main(int argc, char **argv)
 		startclock = SDL_GetTicks();
 		while (SDL_PollEvent(&e))
 			main_event(&e, env);
-		mainrender(env, list, argv);
+		mainrender(env, argv);
 		routine(env, SDL_GetTicks() - startclock, startclock);
 	}
 	return (0);

@@ -115,7 +115,7 @@ void				putpixel(SDL_Surface * surface, int x, int y, Uint32 color);
 Uint32				getpixel(SDL_Surface * surface, int x, int y);
 int					main_event(SDL_Event *e, t_envgui *env);
 void				main_loop(t_envgui *env);
-void				mainrender(t_envgui *env, t_obj *lst, char **argv);
+void				mainrender(t_envgui *env, char **argv);
 SDL_Rect			*newrect(int x, int y, int w, int h);
 void				drawrect(SDL_Surface *surface, t_pos *pos, Uint32 color);
 void				drawloadingbar(t_envgui *env);

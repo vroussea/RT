@@ -64,14 +64,14 @@ static t_button	*retnext(t_button *button, t_envgui *env)
 	return (button->next);
 }
 
-void			mainrender(t_envgui *env, t_obj *lst, char **argv)
+void			mainrender(t_envgui *env, char **argv)
 {
 	SDL_Surface *target;
 
 	target = env->zraysurface[env->aa];
 	if (env->redraw)
 	{
-		draw_the_image(argv, lst, env);
+		draw_the_image(argv, env);
 		env->redraw = 0;
 		if (env->fog)
 			SDL_BlitSurface(target, NULL, env->raysurface[env->aa], NULL);

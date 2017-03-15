@@ -21,7 +21,7 @@ t_threaddata *mallocit(Uint8 id, t_envgui *env)
 	ret = (t_threaddata*)malloc(sizeof(t_threaddata));
 	ret->threadid = id;
 	ret->aa = env->aa; 
-	ret->image =  env->raysurface[env->aa];
+	ret->image = env->raysurface[env->aa];
 	if (id == 1)
 		ret->loading = &(env->loadingvalue);
 	return (ret);
@@ -29,12 +29,8 @@ t_threaddata *mallocit(Uint8 id, t_envgui *env)
 
 
 
-void	draw_the_image(char **argv, t_obj *list, t_envgui *env)
+void	draw_the_image(char **argv, t_envgui *env)
 {
-	Uint32 time = SDL_GetTicks();
-
-	int		xy[2];
-	int		xy2[2];
 	t_parserdata *data;
 
 	data = (t_parserdata*)malloc(sizeof(t_parserdata));
@@ -42,24 +38,15 @@ void	draw_the_image(char **argv, t_obj *list, t_envgui *env)
 	data->thread2 = mallocit(2, env);
 	data->thread3 = mallocit(3, env);
 	data->thread4 = mallocit(4, env);
-
-
-	list = (t_obj*)list;
-	xy[1] = 0;
-	xy2[0] = env->raysurface[env->aa]->w;
-	xy2[1] = env->raysurface[env->aa]->h;
 	env->isloading = 1;
 	get_infos(argv[1], &(data->thread1->data), env->aa);
 	get_infos(argv[1], &(data->thread2->data), env->aa);
 	get_infos(argv[1], &(data->thread3->data), env->aa);
 	get_infos(argv[1], &(data->thread4->data), env->aa);
 	initthreads(data);
-
-
-
+	SDL_SaveBMP(env->raysurface[1], "bite.bmp");
 
 	env->isloading = 0;
-	printf("%i\n", SDL_GetTicks()- time);
 }
 
 int		calc_image(int x, int y, t_obj *begin_list)

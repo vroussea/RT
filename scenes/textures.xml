@@ -10,12 +10,6 @@
 			</procedural>
 			<high>-50</high>
 		</plane>
-		<cylinder>
-			<procedural>
-				<type>diagonal stripes</type>
-			</procedural>
-			<size>20</size>
-		</cylinder>
 		<sphere>
 			<pos>50 20 30</pos>
 			<size>50</size>

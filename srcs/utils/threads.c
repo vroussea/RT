@@ -6,14 +6,14 @@
 /*   By: pfichepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 09:13:25 by pfichepo          #+#    #+#             */
-/*   Updated: 2017/03/15 09:13:27 by pfichepo         ###   ########.fr       */
+/*   Updated: 2017/03/15 15:47:57 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <rt.h>
 #include <rtv1.h>
 
-static int getx(int id, bool aa)
+/*static int getx(int id, bool aa)
 {
 	if (id%2)
 		return (0);
@@ -40,30 +40,33 @@ int 	getmult(int aa)
 		return(AALEVEL);
 	return (1);
 }
-
+*/
 static int threadthink(void *d)
 {
 	t_threaddata 	*data;
 	int 			xy[2];
 	int 			ymax;
 	int 			xmax;
-	int 			xoff;
-	int 			yoff;
+	//int 			xoff;
+	//int 			yoff;
 	int 			i;
 
 	i = 0;
 	data = (t_threaddata*)d;
-	xmax = (WIN_W * getmult(data->aa))/2;
-	ymax = (WIN_HCAM * getmult(data->aa))/2;
-	xoff = getx(data->threadid, data->aa);
-	yoff = gety(data->threadid, data->aa);
-	xy[0] = 0;
+	xmax = (data->data->res[0] / 4) * data->threadid;/*(WIN_W * getmult(data->aa))/2;*/
+	ymax = data->data->res[1];/*(WIN_HCAM * getmult(data->aa))/2;*/
+	//xoff = getx(data->threadid, data->aa);
+	//yoff = gety(data->threadid, data->aa);
+	//printf ("xoff yoff %d, %d\n", xoff, yoff);
+	xy[0] = /*0;*/(data->data->res[0] / 4) * (data->threadid - 1);
+	printf ("thread number %d, xmax = %d, ymax = %d\n", data->threadid, xmax, ymax);
 	while (xy[0] < xmax)
 	{
 		xy[1] = 0;
 		while (xy[1] < ymax)
 		{
-			putpixel(data->image, xy[0] + xoff, xy[1] + yoff, (Uint32)calc_image(xy[0] + xoff, xy[1] + yoff, data->data));
+			putpixel(data->image, xy[0]/* + xoff*/, xy[1] /*+ yoff*/, \
+				(Uint32)calc_image(xy[0]/* + xoff*/, xy[1]/* + yoff*/, data->data));
 			if (data->threadid == 1)
 				*(data->loading) = math_remapsimple(i++, ymax * xmax, 1);
 			xy[1]++;

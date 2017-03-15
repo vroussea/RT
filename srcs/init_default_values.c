@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 17:28:27 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/14 13:54:09 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/15 16:42:14 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@ void	init_default_cam_values(t_cam *cam, int is_aa)
 {
 	int i;
 
-	cam->pos_cam[0] = 400;
+	cam->pos_cam[0] = 600;
 	cam->pos_cam[1] = 0;
 	cam->pos_cam[2] = 50;
 	cam->vec_cam[0] = -1;
 	cam->vec_cam[1] = 0;
 	cam->vec_cam[2] = 0;
-	cam->res[0] = WIN_W + (WIN_W * is_aa * (AALEVEL - 1));
-	cam->res[1] = WIN_HCAM + (WIN_HCAM * is_aa * (AALEVEL - 1));
+	cam->res[0] = 1920 + (1920 * is_aa * (AALEVEL - 1));
+	cam->res[1] = 1038 + (1038 * is_aa * (AALEVEL - 1));
 	cam->vec_right[0] = 0;
 	cam->vec_right[1] = 100;
 	cam->vec_right[2] = 0;
 	cam->vec_down[0] = 0;
 	cam->vec_down[1] = 0;
-	cam->vec_down[2] = -100.0 * (800.0 / 1080.0);
+	cam->vec_down[2] = -100.0 * (1038.0 / 1920.0);
 	i = -1;
 	while (++i < 3)
 	{

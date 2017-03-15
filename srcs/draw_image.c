@@ -22,6 +22,10 @@ t_threaddata *mallocit(Uint8 id, t_envgui *env)
 	ret->threadid = id;
 	ret->aa = env->aa; 
 	ret->image = env->raysurface[env->aa];
+	if (env->fog)
+		ret->fogmap = env->zraysurface[env->aa];
+	else
+		ret->fogmap = NULL;
 	if (id == 1)
 		ret->loading = &(env->loadingvalue);
 	return (ret);
@@ -48,7 +52,7 @@ void	draw_the_image(char **argv, t_envgui *env)
 	env->isloading = 0;
 }
 
-int		calc_image(int x, int y, t_obj *begin_list)
+int		calc_image(int x, int y, t_obj *begin_list, SDL_Surface *fogmap)
 {
 	double	nearest_point;
 	double	mem;
@@ -67,12 +71,18 @@ int		calc_image(int x, int y, t_obj *begin_list)
 		{
 			nearest_point = mem;
 			nearest_obj = list;
+			if (fogmap)
+				putpixel(fogmap, xy[0], xy[1], rgbafog(mem));
 		}
 		list = list->next;
 	}
 	if (nearest_obj == NULL)
+	{
+		if (fogmap)
+			putpixel(fogmap, xy[0], xy[1], rgbafog(FOGO));
 		return (0x000000);
-	return (get_color_obj(begin_list, nearest_obj, xy));
+	}
+		return (get_color_obj(begin_list, nearest_obj, xy));
 }
 
 void	finish_calc_lights(int color_tab[3], double luminosity, \

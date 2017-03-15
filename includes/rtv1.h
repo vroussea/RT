@@ -105,6 +105,7 @@ typedef struct		s_threaddata
 	Uint8			threadid;
 	t_obj			*data;
 	SDL_Surface		*image;
+	SDL_Surface		*fogmap;
 	bool 			aa;
 	double 			*loading;
 }					t_threaddata;
@@ -158,7 +159,7 @@ double				calc_one_spot_luminosity(t_obj *obj, int nb);
 double				calc_one_spot_spec(t_obj *obj, int nb);
 
 void				draw_the_image(char **argv, t_envgui *env);
-int					calc_image(int x, int y, t_obj *begin_list);
+int					calc_image(int x, int y, t_obj *begin_list, SDL_Surface *fogmap);
 int					get_color_obj(t_obj *begin_list, t_obj *nearest_obj, \
 						int xy[2]);
 void				get_color_tab(int color[3], t_obj *list);

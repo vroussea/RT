@@ -3,7 +3,7 @@
 	<cam_infos>
 		<resolution>1080 800</resolution>
 		<cam>
-			<pos>400 0 100</pos>
+			<pos>600 0 100</pos>
 			<rotation>0 -10 0</rotation>
 		</cam>
 		<spots>

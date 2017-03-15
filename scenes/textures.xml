@@ -4,7 +4,7 @@
 	<objs>
 		<plane>
 			<procedural>
-				<type>circles_z</type>
+				<type>squares</type>
 				<color1>255 255 255</color1>
 				<color2>0 255 255</color2>
 			</procedural>
@@ -14,7 +14,7 @@
 			<pos>50 20 30</pos>
 			<size>50</size>
 			<procedural>
-				<type>circles_z</type>
+				<type>diagonal stripes</type>
 				<color1>255 0 0</color1>
 				<color2>0 0 255</color2>
 			</procedural>

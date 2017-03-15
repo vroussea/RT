@@ -13,29 +13,56 @@
 #include <rtv1.h>
 #include <rt.h>
 
+
+t_threaddata *mallocit(Uint8 id, t_envgui *env)
+{
+	t_threaddata *ret;
+
+	ret = (t_threaddata*)malloc(sizeof(t_threaddata));
+	ret->threadid = id;
+	ret->aa = env->aa; 
+	return (ret);
+}
+
+
+
 void	draw_the_image(char **argv, t_obj *list, t_envgui *env)
 {
 	int		xy[2];
 	int		xy2[2];
+	t_parserdata *data;
 
+	data = (t_parserdata*)malloc(sizeof(t_parserdata));
+	data->thread1 = mallocit(1, env);
+	data->thread1->image = env->raysurface[0];
+
+	data->thread2 = mallocit(2, env);
+	data->thread3 = mallocit(3, env);
+	data->thread4 = mallocit(4, env);
+	data->thread2->image = env->raysurface[0];
+	data->thread3->image = env->raysurface[0];
+	data->thread4->image = env->raysurface[0];
+
+	list = (t_obj*)list;
 	xy[1] = 0;
 	xy2[0] = env->raysurface[env->aa]->w;
 	xy2[1] = env->raysurface[env->aa]->h;
-	get_infos(argv[1], &list, env->aa);
-	while (xy[1] < xy2[1])
-	{
-		xy[0] = 0;
-		while (xy[0] < xy2[0])
-		{
-			updatepixel(env, xy[0], xy[1], (Uint32)calc_image(xy, list, env));
-			xy[0]++;
-		}
-		xy[1]++;
-	}
-	del_all_list(list);
+
+	get_infos(argv[1], &(data->thread1->data), env->aa);
+	get_infos(argv[1], &(data->thread2->data), env->aa);
+	get_infos(argv[1], &(data->thread3->data), env->aa);
+	get_infos(argv[1], &(data->thread4->data), env->aa);
+	initthreads(data);
+
+	printf("%s\n", "Done!");
+
+	del_all_list(data->thread1->data);
+	del_all_list(data->thread2->data);
+	del_all_list(data->thread3->data);
+	del_all_list(data->thread4->data);
 }
 
-int		calc_image(int xy[2], t_obj *begin_list, t_envgui *env)
+int		calc_image(int xy[2], t_obj *begin_list)
 {
 	double	nearest_point;
 	double	mem;
@@ -51,15 +78,11 @@ int		calc_image(int xy[2], t_obj *begin_list, t_envgui *env)
 		{
 			nearest_point = mem;
 			nearest_obj = list;
-			putpixel(env->zraysurface[env->aa], xy[0], xy[1], rgbafog(mem));
 		}
 		list = list->next;
 	}
 	if (nearest_obj == NULL)
-	{
-		putpixel(env->zraysurface[env->aa], xy[0], xy[1], rgbafog(FOGO));
 		return (0x000000);
-	}
 	return (get_color_obj(begin_list, nearest_obj, xy));
 }
 

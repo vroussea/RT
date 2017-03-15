@@ -13,6 +13,7 @@ SRCS = 	gui/hook.c \
 		gui/api.c \
 		gui/fog.c \
 		utils/file.c \
+		utils/threads.c \
 		rtv1.c \
 		get_infos.c \
 		maths.c \

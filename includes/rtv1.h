@@ -87,7 +87,6 @@ typedef struct		s_obj
 	struct s_obj	*next;
 }					t_obj;
 
-
 typedef struct		s_cam
 {
 	double		pos_cam[3];
@@ -100,6 +99,26 @@ typedef struct		s_cam
 	double		**spot;
 	int			res[2];
 }					t_cam;
+
+typedef struct		s_threaddata
+{
+	Uint8			threadid;
+	t_obj			*data;
+	SDL_Surface		*image;
+	bool 			aa;
+}					t_threaddata;
+
+typedef struct 		s_parserdata
+{
+	t_threaddata *thread1;
+	t_threaddata *thread2;
+	t_threaddata *thread3;
+	t_threaddata *thread4;
+}					t_parserdata;
+
+
+
+
 
 void	get_infos(char *filename, t_obj **objs, int is_aa);
 int		init_scene(int fd, t_obj *objs, int is_aa);
@@ -138,7 +157,7 @@ double				calc_one_spot_luminosity(t_obj *obj, int nb);
 double				calc_one_spot_spec(t_obj *obj, int nb);
 
 void				draw_the_image(char **argv, t_obj *list, t_envgui *env);
-int					calc_image(int xy[2], t_obj *list, t_envgui *env);
+int					calc_image(int xy[2], t_obj *list);
 int					get_color_obj(t_obj *begin_list, t_obj *nearest_obj, \
 						int xy[2]);
 void				get_color_tab(int color[3], t_obj *list);
@@ -203,5 +222,6 @@ void				get_vector_cone(double norm_vec[3], double vec_light[3], \
 						t_obj *obj, int nb);
 void				cross_product(double norm_vector[3], double vec1[3], \
 						double vec2[3]);
+void initthreads(t_parserdata *data);
 
 #endif

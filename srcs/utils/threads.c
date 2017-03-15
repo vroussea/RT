@@ -6,7 +6,7 @@
 /*   By: pfichepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 09:13:25 by pfichepo          #+#    #+#             */
-/*   Updated: 2017/03/15 16:45:14 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/15 17:18:24 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,11 @@ static int threadthink(void *d)
 
 	i = 0;
 	data = (t_threaddata*)d;
-	xmax = (data->data->res[0] / 4) * data->threadid;
+	//xmax = (data->data->res[0] / 4) * data->threadid;
+	xmax = data->data->res[0];
 	ymax = data->data->res[1];
-	xy[0] = (data->data->res[0] / 4) * (data->threadid - 1);
+	//xy[0] = (data->data->res[0] / 4) * (data->threadid - 1);
+	xy[0] = data->threadid - 1;
 	while (xy[0] < xmax)
 	{
 		xy[1] = 0;
@@ -37,7 +39,7 @@ static int threadthink(void *d)
 				*(data->loading) = math_remapsimple(i++, ymax * xmax, 1);
 			xy[1]++;
 		}
-		xy[0]++;
+		xy[0] += 4;
 	}
 	return (data->threadid);
 }

@@ -6,21 +6,20 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 17:15:59 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/16 15:01:59 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/16 16:15:14 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <rtv1.h>
 #include <rt.h>
 
-
-t_threaddata *mallocit(Uint8 id, t_envgui *env)
+t_threaddata	*mallocit(Uint8 id, t_envgui *env)
 {
 	t_threaddata *ret;
 
 	ret = (t_threaddata*)malloc(sizeof(t_threaddata));
 	ret->threadid = id;
-	ret->aa = env->aa; 
+	ret->aa = env->aa;
 	ret->image = env->raysurface[env->aa];
 	if (env->fog)
 		ret->fogmap = env->zraysurface[env->aa];
@@ -31,11 +30,10 @@ t_threaddata *mallocit(Uint8 id, t_envgui *env)
 	return (ret);
 }
 
-
-
-void	draw_the_image(char **argv, t_envgui *env)
+void			draw_the_image(char **argv, t_envgui *env)
 {
 	t_parserdata *data;
+
 	SDL_SetCursor(env->wait);
 	data = (t_parserdata*)malloc(sizeof(t_parserdata));
 	data->thread1 = mallocit(1, env);
@@ -55,7 +53,7 @@ void	draw_the_image(char **argv, t_envgui *env)
 	SDL_SetCursor(env->arrow);
 }
 
-int		calc_image(int x, int y, t_obj *begin_list, SDL_Surface *fogmap)
+int				calc_image(int x, int y, t_obj *begin_list, SDL_Surface *fogmap)
 {
 	double	nearest_point;
 	double	mem;
@@ -85,19 +83,19 @@ int		calc_image(int x, int y, t_obj *begin_list, SDL_Surface *fogmap)
 			putpixel(fogmap, xy[0], xy[1], rgbafog(FOGO));
 		return (0x000000);
 	}
-		return (get_color_obj(begin_list, nearest_obj, xy));
+	return (get_color_obj(begin_list, nearest_obj, xy));
 }
 
-void	finish_calc_lights(int color_tab[3], double luminosity, \
-		double specular)
+void			finish_calc_lights(int color_tab[3], double luminosity, \
+					double specular)
 {
 	color_tab[0] = (int)fmin(color_tab[0] * luminosity + specular, 0xFF);
 	color_tab[1] = (int)fmin(color_tab[1] * luminosity + specular, 0xFF);
 	color_tab[2] = (int)fmin(color_tab[2] * luminosity + specular, 0xFF);
 }
 
-void	calc_lights(t_obj *list, t_obj *nearest_obj, int xy[2], \
-				int color_tab[3])
+void			calc_lights(t_obj *list, t_obj *nearest_obj, int xy[2], \
+					int color_tab[3])
 {
 	int		nb_spot;
 	double	global_specular;
@@ -119,7 +117,7 @@ void	calc_lights(t_obj *list, t_obj *nearest_obj, int xy[2], \
 		global_specular);
 }
 
-int		get_color_obj(t_obj *list, t_obj *nearest_obj, int xy[2])
+int				get_color_obj(t_obj *list, t_obj *nearest_obj, int xy[2])
 {
 	int		color_tab[3];
 
@@ -132,7 +130,7 @@ int		get_color_obj(t_obj *list, t_obj *nearest_obj, int xy[2])
 	return (color_tab[0] * 0x10000 + color_tab[1] * 0x100 + color_tab[2]);
 }
 
-void	get_color_tab(int color[3], t_obj *list)
+void			get_color_tab(int color[3], t_obj *list)
 {
 	int	i;
 	int	*color_tab;

@@ -6,7 +6,7 @@
 /*   By: pfichepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 09:13:25 by pfichepo          #+#    #+#             */
-/*   Updated: 2017/03/16 15:06:44 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/16 16:32:14 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,23 @@
 int			threadsavepic(void *adr)
 {
 	SDL_Surface	*image;
-	char 		*buff;
+	char		*buff;
 
 	image = (SDL_Surface*)adr;
-	buff = (char*)malloc(sizeof(char)*40);
+	buff = (char *)malloc(sizeof(char) * 40);
 	sprintf(buff, "%d.bmp", (int)time(NULL));
-	SDL_SaveBMP(image,buff);
+	SDL_SaveBMP(image, buff);
 	free(buff);
 	return (0);
 }
 
-static int threadthink(void *d)
+static int	threadthink(void *d)
 {
-	t_threaddata 	*data;
-	int 			xy[2];
-	int 			ymax;
-	int 			xmax;
-	int 			i;
+	t_threaddata	*data;
+	int				xy[2];
+	int				xmax;
+	int				ymax;
+	int				i;
 
 	i = 0;
 	data = (t_threaddata*)d;
@@ -48,7 +48,7 @@ static int threadthink(void *d)
 			putpixel(data->image, xy[0], xy[1], \
 				(Uint32)calc_image(xy[0], xy[1], data->data, data->fogmap));
 			if (data->threadid == 1)
-				*(data->loading) = math_remapsimple(i++*4, ymax * xmax, 1);
+				*(data->loading) = math_remapsimple(i++ * 4, ymax * xmax, 1);
 			xy[1]++;
 		}
 		xy[0] += 4;
@@ -58,9 +58,7 @@ static int threadthink(void *d)
 	return (data->threadid);
 }
 
-
-
-void initthreads(t_parserdata *data)
+void		initthreads(t_parserdata *data)
 {
 	SDL_Thread *thread1;
 	SDL_Thread *thread2;

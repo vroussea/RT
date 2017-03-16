@@ -6,7 +6,7 @@
 /*   By: eduwer <eduwer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 14:32:56 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/16 15:46:41 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/16 16:59:26 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ typedef struct		s_obj
 	bool			(*shadow)(struct s_obj *, double *, int);
 	int				proc_text_type;
 	bool			is_proc_texture;
-	double			waves;
+	bool			is_waves;
 	int				color1[3];
 	int				color2[3];
 	double			decal_xyz[3];

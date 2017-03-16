@@ -6,13 +6,13 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 16:59:02 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/16 14:45:57 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/16 16:17:13 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <rtv1.h>
 
-void	init_functs_obj(t_obj *obj)
+void		init_functs_obj(t_obj *obj)
 {
 	if (obj->type == TYPE_SPHERE || obj->type == TYPE_SPOT)
 	{
@@ -40,7 +40,7 @@ void	init_functs_obj(t_obj *obj)
 	}
 }
 
-void	free_cam_spot(t_cam *cam)
+void		free_cam_spot(t_cam *cam)
 {
 	unsigned int i;
 
@@ -82,13 +82,13 @@ static bool	init_scene(int fd, t_obj *objs, int is_aa)
 	return (true);
 }
 
-void	write_and_exit(void)
+void		write_and_exit(void)
 {
 	write(2, "Error: file not well formated\n", 30);
 	exit(-1);
 }
 
-void	get_infos(char *file_name, t_obj **objs, int is_aa)
+void		get_infos(char *file_name, t_obj **objs, int is_aa)
 {
 	int		fd;
 	char	*line;

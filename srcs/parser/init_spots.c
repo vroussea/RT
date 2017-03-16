@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 17:31:07 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/16 15:09:44 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/16 16:18:07 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ bool	init_one_spot(t_cam *cam)
 	return (false);
 }
 
-bool		init_spots(int fd, t_cam *cam)
+bool	init_spots(int fd, t_cam *cam)
 {
 	int		ret_gnl;
 	double	**list_spot;

@@ -17,7 +17,7 @@
 	</cam_infos>
 	<objs>
 		<sphere>
-			<waves>10</waves>
+			<waves/>
 			<pos>100 50 0</pos>
 			<size>20</size>
 			<color>0 188 255</color>
@@ -26,17 +26,17 @@
 			<rotation>0 90 0</rotation>
 			<high>-20</high>
 			<color>255 255 255</color>
-			<waves>2</waves>
+			<waves/>
 		</plane>
 		<cone>
-			<waves>2</waves>
+			<waves/>
 			<pos>50 20 0</pos>
 			<angle>10</angle>
 			<rotation>45 0 0</rotation>
 			<color>35 250 150</color>
 		</cone>
 		<cylinder>
-			<waves>2</waves>
+			<waves/>
 			<pos>0 -50 0</pos>
 			<rotation>-45 0 0</rotation>
 			<size>10</size>

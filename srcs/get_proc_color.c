@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 15:32:24 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/15 19:56:09 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/16 16:10:48 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		*get_proc_cube(t_obj *obj)
 {
-	double	i;
+	double			i;
 	unsigned int	result;
 
 	i = nearbyint((obj->intersec_point[0] + \
@@ -74,6 +74,7 @@ int		*get_proc_circle(t_obj *obj)
 		return (obj->color1);
 	return (obj->color2);
 }
+
 int		*get_proc_color(t_obj *obj)
 {
 	if (obj->proc_text_type >= PROC_TEXT_CIRCLE_X && \

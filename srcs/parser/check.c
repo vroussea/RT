@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 17:34:08 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/15 19:42:31 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/16 15:48:12 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ int		check(char *line, t_obj *new_obj, int fd)
 		return (true);
 	else if (strstr(line, "<procedural>") != NULL && \
 			init_procedural_textures(new_obj, fd) == true)
+		return (true);
+	else if (strstr(line, "<waves>") != NULL && \
+			init_one_value(&(new_obj->waves), line, "</waves>") == true)
 		return (true);
 	return (false);
 }

@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 16:16:23 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/14 13:51:47 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/16 15:48:51 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ t_obj	*make_new_obj(t_obj *objs, int type)
 	objs->next = new_obj;
 	new_obj->type = type;
 	new_obj->next = NULL;
+	new_obj->waves = 0;
 	return (new_obj);
 }
 

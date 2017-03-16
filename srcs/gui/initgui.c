@@ -29,10 +29,8 @@ static void		rala(t_envgui *env, t_button *self)
 
 static void		screen(t_envgui *env, t_button *self)
 {
-	char buff[42];
+	SDL_CreateThread(threadsavepic, "WriteImageThread", (void*)env->raysurface[0]);
 
-	sprintf(buff, "%d.bmp", (int)time(NULL));
-	SDL_SaveBMP(env->raysurface[0],buff);
 	self = (t_button*)self;
 }
 

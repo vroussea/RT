@@ -12,6 +12,20 @@
 
 #include <rt.h>
 #include <rtv1.h>
+#include <time.h>
+
+int			threadsavepic(void *adr)
+{
+	SDL_Surface	*image;
+	char 		*buff;
+
+	image = (SDL_Surface*)adr;
+	buff = (char*)malloc(sizeof(char)*40);
+	sprintf(buff, "%d.bmp", (int)time(NULL));
+	SDL_SaveBMP(image,buff);
+	free(buff);
+	return (0);
+}
 
 static int threadthink(void *d)
 {

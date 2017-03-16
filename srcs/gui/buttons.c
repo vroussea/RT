@@ -17,8 +17,10 @@ t_button	*newbutton(char *def, char *press, SDL_Rect *pos)
 	t_button *ret;
 
 	ret = (t_button*)malloc(sizeof(t_button));
-	ret->defaults = SDL_LoadBMP(def);
-	ret->press = SDL_LoadBMP(press);
+	if (!(ret->defaults = SDL_LoadBMP(def)))
+		perror("Cannot Load button texture");
+	if (!(ret->press = SDL_LoadBMP(press)))
+		perror("Cannot Load button texture");
 	ret->pos = pos;
 	ret->next = NULL;
 	return (ret);

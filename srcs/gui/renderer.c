@@ -104,7 +104,7 @@ int				threaddraw(void *e)
 		SDL_LowerBlit(a->raysurface[0], a->rayrectin, a->surface, a->rayrect);
 		if (a->isloading)
 			drawloadingbardiscrete(a);
-		if (a->drawfps)
+		if (a->drawfps && a->gui->sans)
 			drawfps(a);
 		SDL_UpdateWindowSurface(a->win);
 		current = (double)(SDL_GetTicks() - startclock) / (double)1000;

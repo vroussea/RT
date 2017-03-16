@@ -53,6 +53,8 @@ static int threadthink(void *d)
 		}
 		xy[0] += 4;
 	}
+	del_all_list(data->data);
+	free(data);
 	return (data->threadid);
 }
 
@@ -73,13 +75,4 @@ void initthreads(t_parserdata *data)
 	SDL_WaitThread(thread2, NULL);
 	SDL_WaitThread(thread3, NULL);
 	SDL_WaitThread(thread4, NULL);
-	del_all_list(data->thread1->data);
-	del_all_list(data->thread2->data);
-	del_all_list(data->thread3->data);
-	del_all_list(data->thread4->data);
-	free(data->thread1);
-	free(data->thread2);
-	free(data->thread3);
-	free(data->thread4);
-	free(data);
 }

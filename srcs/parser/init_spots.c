@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 17:31:07 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/14 12:29:22 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/16 15:09:44 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,29 @@ bool		init_spots(int fd, t_cam *cam)
 	if (ret_gnl != 1)
 		return (true);
 	return (false);
+}
+
+void	add_spots_to_scene(t_cam *cam, t_obj *objs)
+{
+	unsigned int	i;
+	t_obj			*spot;
+
+	i = 0;
+	while (i < cam->nb_spot)
+	{
+		if ((spot = make_new_obj(objs, TYPE_SPOT)) == NULL)
+			ft_error("malloc", NULL);
+		memcpy(spot->pos, (cam->spot)[i], sizeof(spot->pos));
+		spot->rotation[0] = 0;
+		spot->rotation[1] = 0;
+		spot->rotation[2] = 0;
+		spot->size = 5;
+		spot->is_proc_texture = false;
+		spot->nb_spot = 0;
+		spot->color_rgb[0] = 0xFF;
+		spot->color_rgb[1] = 0xFF;
+		spot->color_rgb[2] = 0xFF;
+		finish_init_obj(spot, cam);
+		i++;
+	}
 }

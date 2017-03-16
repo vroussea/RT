@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 17:15:59 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/15 18:22:02 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/16 15:01:59 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,8 @@ int		get_color_obj(t_obj *list, t_obj *nearest_obj, int xy[2])
 	color_tab[1] = 0x0;
 	color_tab[2] = 0x0;
 	get_color_tab(color_tab, nearest_obj);
-	calc_lights(list, nearest_obj, xy, color_tab);
+	if (nearest_obj->type != TYPE_SPOT)
+		calc_lights(list, nearest_obj, xy, color_tab);
 	return (color_tab[0] * 0x10000 + color_tab[1] * 0x100 + color_tab[2]);
 }
 

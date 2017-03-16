@@ -12,7 +12,7 @@
 
 #include <rtv1.h>
 
-int		init_default_procedural(t_obj *obj)
+bool		init_default_procedural(t_obj *obj)
 {
 	int				i;
 
@@ -27,10 +27,10 @@ int		init_default_procedural(t_obj *obj)
 		++i;
 	}
 	obj->color2[1] = 0x00;
-	return (0);
+	return (false);
 }
 
-int		init_procedural_type(t_obj *obj, char *line)
+bool		init_procedural_type(t_obj *obj, char *line)
 {
 	if (strstr(line, "cubes") != NULL)
 		obj->proc_text_type = PROC_TEXT_CUBE;
@@ -44,25 +44,25 @@ int		init_procedural_type(t_obj *obj, char *line)
 		obj->proc_text_type = PROC_TEXT_STRAIGHT_STRIPES;
 	else if (strstr(line, "diagonal stripes") != NULL)
 		obj->proc_text_type = PROC_TEXT_DIAGONAL_STRIPES;
-	return (0);
+	return (false);
 }
 
-int		init_procedural_textures(t_obj *obj, int fd)
+bool		init_procedural_textures(t_obj *obj, int fd)
 {
 	char	*line;
 	int		ret_gnl;
 
-	if (init_default_procedural(obj) == -1)
-		return (-1);
+	if (init_default_procedural(obj) == true)
+		return (true);
 	while ((ret_gnl = get_next_line(fd, &line)) == 1 && \
 			strstr(line, "</procedural>") == NULL)
 	{
 		if (check_procedural_texture(obj, line) == true)
-			return (-1);
+			return (true);
 		free(line);
 	}
 	free(line);
 	if (ret_gnl != 1)
-		return (-1);
-	return (0);
+		return (true);
+	return (false);
 }

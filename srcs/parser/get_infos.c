@@ -63,7 +63,7 @@ static bool	init_scene(int fd, t_obj *objs, int is_aa)
 			strstr(line, "<cam_infos>") == NULL)
 		free(line);
 	free(line);
-	if (get_cam_infos(fd, &cam, is_aa) == -1)
+	if (get_cam_infos(fd, &cam, is_aa) == true)
 		return (true);
 	while ((ret_gnl = get_next_line(fd, &line) == 1) && \
 			strstr(line, "<objs>") == NULL)

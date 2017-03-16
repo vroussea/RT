@@ -12,7 +12,7 @@
 
 #include <rtv1.h>
 
-int			init_cam_pos_rotation(int fd, t_cam *cam)
+static bool	init_cam_pos_rotation(int fd, t_cam *cam)
 {
 	int		ret_gnl;
 	char	*line;
@@ -22,16 +22,16 @@ int			init_cam_pos_rotation(int fd, t_cam *cam)
 	{
 		if (strstr(line, "<pos>") != NULL && \
 				init_3_values(cam->pos_cam, line, "</pos>") == true)
-			return (-1);
+			return (true);
 		else if (strstr(line, "<rotation>") != NULL && \
 				init_3_values(cam->rotation, line, "</rotation>") == true)
-			return (-1);
+			return (true);
 		free(line);
 	}
 	free(line);
 	if (ret_gnl != 1)
-		return (-1);
-	return (0);
+		return (true);
+	return (false);
 }
 
 void		init_down_right(double vec_down[3], double vec_right[3], \
@@ -79,7 +79,7 @@ bool		get_cam_infos(int fd, t_cam *cam, int is_aa)
 			strstr(line, "</cam_infos>") == NULL)
 	{
 		if (strstr(line, "<cam>") != NULL && \
-				init_cam_pos_rotation(fd, cam) == -1)
+				init_cam_pos_rotation(fd, cam) == true)
 			return (true);
 		else if (strstr(line, "<spots>") != NULL && \
 				init_spots(fd, cam) == true)

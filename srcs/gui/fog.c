@@ -27,7 +27,7 @@ Uint32			rgbafog(double dist)
 	return (Uint32)((a << 24) + (50 << 16) + (50 << 8) + (50));
 }
 
-static int		ralo(t_envgui *env, t_button *self)
+static void		ralo(t_envgui *env, t_button *self)
 {
 	SDL_Surface *tmp;
 
@@ -39,7 +39,6 @@ static int		ralo(t_envgui *env, t_button *self)
 	self->defaults = tmp;
 	env->fog = !env->fog;
 	env->redraw = 1;
-	return (1);
 }
 
 void			initfog(t_envgui *env)

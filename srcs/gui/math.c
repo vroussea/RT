@@ -21,7 +21,7 @@ inline double			math_remapsimple(double value, double to1, double to2)
 **le y42 est uniquement là pour la norme
 */
 
-inline int				isinbutton(t_button *button, int x, int y)
+inline bool				isinbutton(t_button *button, int x, int y)
 {
 	int			x2;
 	int			y2;
@@ -41,7 +41,7 @@ inline int				isinbutton(t_button *button, int x, int y)
 	{
 		distance = sqrt(pow((x2 - x), 2) + pow((y2 - y), 2));
 		if (distance <= bpos->w / 2)
-			return (1);
+			return (true);
 	}
-	return (0);
+	return (false);
 }

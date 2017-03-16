@@ -15,44 +15,44 @@
 int		check(char *line, t_obj *new_obj, int fd)
 {
 	if (strstr(line, "<pos>") != NULL && new_obj->type != TYPE_PLANE && \
-			init_3_values(new_obj->pos, line, "</pos>") == -1)
-		return (-1);
+			init_3_values(new_obj->pos, line, "</pos>") == true)
+		return (true);
 	else if (strstr(line, "<size>") != NULL && \
 			init_one_value(&(new_obj->size), line, "</size>") == -1)
-		return (-1);
+		return (true);
 	else if (strstr(line, "<color>") != NULL && \
 			init_colors(new_obj->color_rgb, line) == -1)
-		return (-1);
+		return (true);
 	else if (strstr(line, "<rotation>") != NULL && \
-			init_3_values(new_obj->rotation, line, "</rotation>") == -1)
-		return (-1);
+			init_3_values(new_obj->rotation, line, "</rotation>") == true)
+		return (true);
 	else if (strstr(line, "<angle>") != NULL && \
 			init_one_value(&(new_obj->angle), line, "</angle>") == -1)
-		return (-1);
+		return (true);
 	else if (strstr(line, "<high>") != NULL && \
 			init_one_value(&(new_obj->high), line, "</high>") == -1)
-		return (-1);
+		return (true);
 	else if (strstr(line, "<procedural>") != NULL && \
 			init_procedural_textures(new_obj, fd) == -1)
-		return (-1);
-	return (0);
+		return (true);
+	return (false);
 }
 
-int		check_procedural_texture(t_obj *obj, char *line)
+bool		check_procedural_texture(t_obj *obj, char *line)
 {
 	if (strstr(line, "<type>") != NULL && \
 			init_procedural_type(obj, line) == -1)
-		return (-1);
+		return (true);
 	else if (strstr(line, "<color1>") != NULL  && \
 			init_colors(obj->color1, line) == -1)
-		return (-1);
+		return (true);
 	else if (strstr(line, "<color2>") != NULL && \
 			init_colors(obj->color2, line) == -1)
-		return (-1);
+		return (true);
 	else if (strstr(line, "<decal>") != NULL && \
-			init_3_values(obj->decal_xyz, line, "</decal>") == -1)
-		return (-1);
-	return (0);
+			init_3_values(obj->decal_xyz, line, "</decal>") == true)
+		return (true);
+	return (false);
 }
 
 void	verif_plane_norm_vec(t_obj *plane)

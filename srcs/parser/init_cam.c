@@ -21,10 +21,10 @@ int		init_cam_pos_rotation(int fd, t_cam *cam)
 			strstr(line, "</cam>") == NULL)
 	{
 		if (strstr(line, "<pos>") != NULL && \
-				init_3_values(cam->pos_cam, line, "</pos>") == -1)
+				init_3_values(cam->pos_cam, line, "</pos>") == true)
 			return (-1);
 		else if (strstr(line, "<rotation>") != NULL && \
-				init_3_values(cam->rotation, line, "</rotation>") == -1)
+				init_3_values(cam->rotation, line, "</rotation>") == true)
 			return (-1);
 		free(line);
 	}

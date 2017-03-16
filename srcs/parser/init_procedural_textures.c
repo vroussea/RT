@@ -57,7 +57,7 @@ int		init_procedural_textures(t_obj *obj, int fd)
 	while ((ret_gnl = get_next_line(fd, &line)) == 1 && \
 			strstr(line, "</procedural>") == NULL)
 	{
-		if (check_procedural_texture(obj, line) == -1)
+		if (check_procedural_texture(obj, line) == true)
 			return (-1);
 		free(line);
 	}

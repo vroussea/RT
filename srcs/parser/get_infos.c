@@ -53,7 +53,7 @@ void	free_cam_spot(t_cam *cam)
 	free(cam->spot);
 }
 
-int		init_scene(int fd, t_obj *objs, int is_aa)
+static bool	init_scene(int fd, t_obj *objs, int is_aa)
 {
 	int		ret_gnl;
 	t_cam	cam;
@@ -64,21 +64,21 @@ int		init_scene(int fd, t_obj *objs, int is_aa)
 		free(line);
 	free(line);
 	if (get_cam_infos(fd, &cam, is_aa) == -1)
-		return (-1);
+		return (true);
 	while ((ret_gnl = get_next_line(fd, &line) == 1) && \
 			strstr(line, "<objs>") == NULL)
 		free(line);
 	free(line);
-	if (get_objs_infos(fd, objs, &cam) == -1)
-		return (-1);
+	if (get_objs_infos(fd, objs, &cam) == true)
+		return (true);
 	while ((ret_gnl = get_next_line(fd, &line) == 1) && \
 			strstr(line, "</scene>") == NULL)
 		free(line);
 	free(line);
 	free_cam_spot(&cam);
 	if (ret_gnl == 1)
-		return (0);
-	return (-1);
+		return (false);
+	return (true);
 }
 
 void	write_and_exit(void)
@@ -103,7 +103,7 @@ void	get_infos(char *file_name, t_obj **objs, int is_aa)
 			strstr(line, "<scene>") == NULL)
 		free(line);
 	free(line);
-	if (ret_gnl == 0 || (ret_gnl == 1 && init_scene(fd, *objs, is_aa) == -1))
+	if (ret_gnl == 0 || (ret_gnl == 1 && init_scene(fd, *objs, is_aa) == true))
 		write_and_exit();
 	close(fd);
 }

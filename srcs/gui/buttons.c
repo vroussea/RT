@@ -26,7 +26,7 @@ t_button	*newbutton(char *def, char *press, SDL_Rect *pos)
 	return (ret);
 }
 
-int			closewinfunc(t_envgui *env, t_button *self)
+void		closewinfunc(t_envgui *env, t_button *self)
 {
 	self = (t_button*)self;
 	SDL_DestroyRenderer(env->renderer);
@@ -35,18 +35,16 @@ int			closewinfunc(t_envgui *env, t_button *self)
 	exit(0);
 }
 
-int			reducewinfunc(t_envgui *env, t_button *self)
+void		reducewinfunc(t_envgui *env, t_button *self)
 {
 	self = (t_button*)self;
 	SDL_MinimizeWindow(env->win);
-	return (1);
 }
 
-int			togglefpsfunc(t_envgui *env, t_button *self)
+void		togglefpsfunc(t_envgui *env, t_button *self)
 {
 	self = (t_button*)self;
 	env->drawfps = !env->drawfps;
-	return (1);
 }
 
 void		stackbutton(t_envgui *env, t_button *button)

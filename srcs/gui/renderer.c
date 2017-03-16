@@ -85,7 +85,7 @@ void			mainrender(t_envgui *env, char **argv)
 	}
 }
 
-int				threaddraw(void *e)
+int			threaddraw(void *e)
 {
 	t_envgui	*a;
 	t_button	*button;
@@ -111,5 +111,5 @@ int				threaddraw(void *e)
 		if (current < ((double)1 / (double)a->freq))
 			SDL_Delay((Uint32)((1 / (double)a->freq) - current) * 1000);
 	}
-	return (1);
+	return (0);
 }

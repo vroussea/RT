@@ -18,12 +18,12 @@ int				remalloc_the_line(char **line, int size)
 
 	size = (int)strlen(*line) + size + 1;
 	if ((buff = (char *)malloc((size_t)size)) == NULL)
-		return (-1);
+		return (true);
 	memset(buff, 0, (size_t)size);
 	strcpy(buff, *line);
 	free(*line);
 	*line = buff;
-	return (0);
+	return (false);
 }
 
 int				size_to_add(char *line)
@@ -40,7 +40,7 @@ int				ft_empty_the_buffer(char **line, char *buff, int i)
 {
 	int j;
 
-	if (remalloc_the_line(line, size_to_add(buff)) == -1)
+	if (remalloc_the_line(line, size_to_add(buff)) == true)
 		return (-1);
 	j = 0;
 	while (buff[j] != '\n' && buff[j] != '\0')

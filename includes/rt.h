@@ -59,7 +59,7 @@ typedef struct		s_button
 	bool			togglable;
 	bool			pressed;
 	int 			type;
-	int				(*pressfunc)(t_envgui *, struct s_button *);
+	void			(*pressfunc)(t_envgui *, struct s_button *);
 	struct s_button	*next;
 }					t_button;
 
@@ -125,13 +125,13 @@ double				math_remapsimple(double value, double to1, double to2);
 char				*ft_itoa(int n);
 void				initgui(t_envgui *env);
 void 				initbuttons(t_envgui *env);
-int 				isinbutton(t_button *button, int x, int y);
+bool				isinbutton(t_button *button, int x, int y);
 void				routine(t_envgui *env, Uint32 deltaclock, Uint32 startclock);
 void				stackbutton(t_envgui *env, t_button *button);
 t_button 			*newbutton(char *def, char* press, SDL_Rect *pos);
-int					closewinfunc(t_envgui *env, t_button *self);
-int					reducewinfunc(t_envgui *env, t_button *self);
-int					togglefpsfunc(t_envgui *env, t_button *self);
+void				closewinfunc(t_envgui *env, t_button *self);
+void				reducewinfunc(t_envgui *env, t_button *self);
+void				togglefpsfunc(t_envgui *env, t_button *self);
 t_envgui			*initenv(void);
 void 				calcaa(t_envgui *env);
 void 				updatepixel(t_envgui *env, int x, int y, Uint32 color);

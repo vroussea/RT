@@ -38,13 +38,13 @@ int		init_tab_3(double tab[3], int color[3], char *line)
 	return (0);
 }
 
-int		init_3_values(double value[3], char *line, char *pattern)
+bool	init_3_values(double value[3], char *line, char *pattern)
 {
-	if (init_tab_3(value, NULL, line) == -1)
-		return (-1);
+	if (init_tab_3(value, NULL, line) == true)
+		return (true);
 	if (strstr(line, pattern) == NULL)
-		return (-1);
-	return (0);
+		return (true);
+	return (false);
 }
 
 int		init_colors(int color[3], char *line)

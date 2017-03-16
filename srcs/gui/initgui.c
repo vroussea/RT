@@ -12,7 +12,7 @@
 
 #include <rt.h>
 
-static int		rala(t_envgui *env, t_button *self)
+static void		rala(t_envgui *env, t_button *self)
 {
 	SDL_Surface *tmp;
 
@@ -24,17 +24,16 @@ static int		rala(t_envgui *env, t_button *self)
 	self->defaults = tmp;
 	env->aa = !env->aa;
 	env->redraw = 1;
-	return (1);
+	return ;
 }
 
-static int		screen(t_envgui *env, t_button *self)
+static void		screen(t_envgui *env, t_button *self)
 {
 	char buff[42];
 
 	sprintf(buff, "%d.bmp", (int)time(NULL));
 	SDL_SaveBMP(env->raysurface[0],buff);
 	self = (t_button*)self;
-	return (1);
 }
 
 static void		initbuttons2(t_envgui *env)

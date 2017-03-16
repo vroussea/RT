@@ -12,7 +12,7 @@
 
 #include <rt.h>
 
-double			math_remapsimple(double value, double to1, double to2)
+inline double			math_remapsimple(double value, double to1, double to2)
 {
 	return (value * (to2 / to1) );
 }
@@ -21,7 +21,7 @@ double			math_remapsimple(double value, double to1, double to2)
 **le y42 est uniquement là pour la norme
 */
 
-int				isinbutton(t_button *button, int x, int y)
+inline int				isinbutton(t_button *button, int x, int y)
 {
 	int			x2;
 	int			y2;

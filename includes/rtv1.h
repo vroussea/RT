@@ -34,6 +34,7 @@
 # define PROC_TEXT_CIRCLE_Z 3
 # define PROC_TEXT_STRAIGHT_STRIPES 4
 # define PROC_TEXT_DIAGONAL_STRIPES 5
+# define G_LUM 0
 typedef struct		s_envgui	t_envgui;
 typedef struct		s_obj 		t_obj;
 

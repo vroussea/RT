@@ -14,7 +14,7 @@
 # define RT_H
 # define WIN_W 1920
 # define WIN_H 1080
-# define WIN_HCAM WIN_H-42
+# define WIN_HCAM (WIN_H - 42)
 # include <SDL.h>
 # include <SDL_ttf.h>
 # include <math.h>
@@ -28,7 +28,7 @@
 # include <rtv1.h>
 # define BUTTON_BOX 0
 # define BUTTON_SPHERE 1
-# define AALEVEL 8
+# define AALEVEL 4
 # define AANUM AALEVEL*AALEVEL
 
 typedef struct		s_envgui	t_envgui;

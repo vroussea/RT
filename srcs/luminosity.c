@@ -44,7 +44,7 @@ double	calc_one_spot_luminosity(t_obj *nearest_obj, int nb)
 	double		vec_light[3];
 
 	nearest_obj->vector(norm_vector, vec_light, nearest_obj, nb);
-	return (fmax(dot_product(norm_vector, vec_light), 0));
+	return (fmax(dot_product(norm_vector, vec_light) + G_LUM, 0) );
 }
 
 double	calc_one_spot_spec(t_obj *nearest_obj, int nb)

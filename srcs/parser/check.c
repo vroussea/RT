@@ -18,22 +18,22 @@ int		check(char *line, t_obj *new_obj, int fd)
 			init_3_values(new_obj->pos, line, "</pos>") == true)
 		return (true);
 	else if (strstr(line, "<size>") != NULL && \
-			init_one_value(&(new_obj->size), line, "</size>") == -1)
+			init_one_value(&(new_obj->size), line, "</size>") == true)
 		return (true);
 	else if (strstr(line, "<color>") != NULL && \
-			init_colors(new_obj->color_rgb, line) == -1)
+			init_colors(new_obj->color_rgb, line) == true)
 		return (true);
 	else if (strstr(line, "<rotation>") != NULL && \
 			init_3_values(new_obj->rotation, line, "</rotation>") == true)
 		return (true);
 	else if (strstr(line, "<angle>") != NULL && \
-			init_one_value(&(new_obj->angle), line, "</angle>") == -1)
+			init_one_value(&(new_obj->angle), line, "</angle>") == true)
 		return (true);
 	else if (strstr(line, "<high>") != NULL && \
-			init_one_value(&(new_obj->high), line, "</high>") == -1)
+			init_one_value(&(new_obj->high), line, "</high>") == true)
 		return (true);
 	else if (strstr(line, "<procedural>") != NULL && \
-			init_procedural_textures(new_obj, fd) == -1)
+			init_procedural_textures(new_obj, fd) == true)
 		return (true);
 	return (false);
 }
@@ -41,13 +41,13 @@ int		check(char *line, t_obj *new_obj, int fd)
 bool		check_procedural_texture(t_obj *obj, char *line)
 {
 	if (strstr(line, "<type>") != NULL && \
-			init_procedural_type(obj, line) == -1)
+			init_procedural_type(obj, line) == true)
 		return (true);
 	else if (strstr(line, "<color1>") != NULL  && \
-			init_colors(obj->color1, line) == -1)
+			init_colors(obj->color1, line) == true)
 		return (true);
 	else if (strstr(line, "<color2>") != NULL && \
-			init_colors(obj->color2, line) == -1)
+			init_colors(obj->color2, line) == true)
 		return (true);
 	else if (strstr(line, "<decal>") != NULL && \
 			init_3_values(obj->decal_xyz, line, "</decal>") == true)

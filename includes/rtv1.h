@@ -120,18 +120,17 @@ typedef struct 		s_parserdata
 
 
 void	get_infos(char *filename, t_obj **objs, int is_aa);
-int		init_tab_3(double tab[3], int color[3], char *line);
-bool		init_3_values(double pos[3], char *line, char *pattern);
-int		init_colors(int color[3], char *line);
-int		init_res(char *line, t_cam *cam, int is_aa);
-int		init_one_value(double *value, char *line, char *pattern);
+bool	init_tab_3(double tab[3], int color[3], char *line);
+bool	init_3_values(double pos[3], char *line, char *pattern);
+bool	init_colors(int color[3], char *line);
+bool	init_one_value(double *value, char *line, char *pattern);
 void	init_default_cam_values(t_cam *cam, int is_aa);
 void	init_default_sphere_values(t_cam *cam, t_obj *objs);
 void	init_default_plane_values(t_cam *cam, t_obj *objs);
 void	init_default_cylinder_values(t_cam *cam, t_obj *objs);
 void	init_default_cone_values(t_cam *cam, t_obj *objs);
-int		get_cam_infos(int fd, t_cam *cam, int is_aa);
-int		init_spots(int fd, t_cam *cam);
+bool	get_cam_infos(int fd, t_cam *cam, int is_aa);
+bool	init_spots(int fd, t_cam *cam);
 bool		get_objs_infos(int fd, t_obj *objs, t_cam *cam);
 bool	init_sphere(int fd, t_obj *objs, t_cam *cam);
 bool	init_plane(int fd, t_obj *objs, t_cam *cam);
@@ -145,9 +144,9 @@ void	init_down_right(double vec_down[3], double vec_right[3], \
 void	init_functs_obj(t_obj *obj);
 void	convert_to_hex(int tab[3]);
 void	verif_plane_norm_vec(t_obj *plane);
-int		init_one_spot(t_cam *cam);
-int		init_procedural_textures(t_obj *obj, int fd);
-int		init_procedural_type(t_obj *obj, char *line);
+bool	init_one_spot(t_cam *cam);
+bool	init_procedural_textures(t_obj *obj, int fd);
+bool	init_procedural_type(t_obj *obj, char *line);
 bool	check_procedural_texture(t_obj *obj, char *line);
 int		*get_proc_color(t_obj *obj);
 

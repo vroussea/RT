@@ -12,7 +12,7 @@
 
 #include <rtv1.h>
 
-int		init_cam_pos_rotation(int fd, t_cam *cam)
+int			init_cam_pos_rotation(int fd, t_cam *cam)
 {
 	int		ret_gnl;
 	char	*line;
@@ -34,7 +34,7 @@ int		init_cam_pos_rotation(int fd, t_cam *cam)
 	return (0);
 }
 
-void	init_down_right(double vec_down[3], double vec_right[3], \
+void		init_down_right(double vec_down[3], double vec_right[3], \
 			double rotation[3], int res[2])
 {
 	vec_right[0] = 0;
@@ -47,7 +47,7 @@ void	init_down_right(double vec_down[3], double vec_right[3], \
 	make_rotation(vec_down, rotation);
 }
 
-int		finish_init_cam(t_cam *cam)
+static bool	finish_init_cam(t_cam *cam)
 {
 	int		i;
 
@@ -64,10 +64,10 @@ int		finish_init_cam(t_cam *cam)
 	}
 	if (cam->nb_spot == 0)
 		return(init_one_spot(cam));
-	return (0);
+	return (false);
 }
 
-int		get_cam_infos(int fd, t_cam *cam, int is_aa)
+bool		get_cam_infos(int fd, t_cam *cam, int is_aa)
 {
 	int		ret_gnl;
 	char	*line;
@@ -80,14 +80,14 @@ int		get_cam_infos(int fd, t_cam *cam, int is_aa)
 	{
 		if (strstr(line, "<cam>") != NULL && \
 				init_cam_pos_rotation(fd, cam) == -1)
-			return (-1);
+			return (true);
 		else if (strstr(line, "<spots>") != NULL && \
-				init_spots(fd, cam) == -1)
-			return (-1);
+				init_spots(fd, cam) == true)
+			return (true);
 		free(line);
 	}
 	free(line);
 	if (ret_gnl != 1)
-		return (-1);
+		return (true);
 	return (finish_init_cam(cam));
 }

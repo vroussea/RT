@@ -12,7 +12,7 @@
 
 #include <rtv1.h>
 
-int		init_tab_3(double tab[3], int color[3], char *line)
+bool	init_tab_3(double tab[3], int color[3], char *line)
 {
 	int	i;
 	int	indice_tab;
@@ -34,8 +34,8 @@ int		init_tab_3(double tab[3], int color[3], char *line)
 			++i;
 	}
 	if (indice_tab < 3)
-		return (-1);
-	return (0);
+		return (true);
+	return (false);
 }
 
 bool	init_3_values(double value[3], char *line, char *pattern)
@@ -47,22 +47,22 @@ bool	init_3_values(double value[3], char *line, char *pattern)
 	return (false);
 }
 
-int		init_colors(int color[3], char *line)
+bool	init_colors(int color[3], char *line)
 {
 	int i;
 
 	i = 0;
 	while (line[i] != '>')
 		i++;
-	if (init_tab_3(NULL, color, &(line[i])) == -1)
-		return (-1);
+	if (init_tab_3(NULL, color, &(line[i])) == true)
+		return (true);
 	convert_to_hex(color);
 	if (strstr(line, "</color") == NULL)
-		return (-1);
-	return (0);
+		return (true);
+	return (false);
 }
 
-int		init_one_value(double *value, char *line, char *pattern)
+bool	init_one_value(double *value, char *line, char *pattern)
 {
 	int i;
 
@@ -71,6 +71,6 @@ int		init_one_value(double *value, char *line, char *pattern)
 		++i;
 	*value = (double)atoi(&(line[i]));
 	if (strstr(line, pattern) == NULL)
-		return (-1);
-	return (0);
+		return (true);
+	return (false);
 }

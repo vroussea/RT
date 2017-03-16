@@ -17,6 +17,7 @@
 #if !WIN32
 # include <unistd.h>
 #endif
+#include <stdbool.h>
 #define BUFF_SIZE 1000
 
 typedef struct s_list t_list;
@@ -29,7 +30,7 @@ typedef struct      s_list
 
 char			**ft_strsplit(char const *s, char c);
 int				get_next_line(const int fd, char **line);
-int				ft_isdigit(int c);
+bool			ft_isdigit(int c);
 char			*ft_strcpy(char *dst, const char *src);
 
 #endif

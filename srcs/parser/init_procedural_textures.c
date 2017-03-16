@@ -17,7 +17,7 @@ int		init_default_procedural(t_obj *obj)
 	int				i;
 
 	obj->proc_text_type = PROC_TEXT_CUBE;
-	obj->is_proc_texture = 1;
+	obj->is_proc_texture = true;
 	i = 0;
 	while (i < 3)
 	{

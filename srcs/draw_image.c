@@ -108,7 +108,7 @@ void	calc_lights(t_obj *list, t_obj *nearest_obj, int xy[2], \
 	global_luminosity = 0;
 	while (--nb_spot >= 0)
 	{
-		if (shadows(list, xy, nearest_obj, nb_spot) == 1)
+		if (shadows(list, xy, nearest_obj, nb_spot) == true)
 		{
 			global_luminosity += calc_one_spot_luminosity(nearest_obj, nb_spot);
 			global_specular = fmax(global_specular, \
@@ -137,7 +137,7 @@ void	get_color_tab(int color[3], t_obj *list)
 	int	*color_tab;
 
 	i = 0;
-	if (list->is_proc_texture == 0)
+	if (list->is_proc_texture == false)
 		color_tab = list->color_rgb;
 	else
 		color_tab = get_proc_color(list);

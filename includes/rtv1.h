@@ -12,6 +12,7 @@
 
 #ifndef RTV1_H
 # define RTV1_H
+# include <stdbool.h>
 # include <math.h>
 # include <fcntl.h>
 # include <rt.h>
@@ -74,9 +75,9 @@ typedef struct		s_obj
 	double			base_vec_right[3];
 	double			(*intersect)(int*, struct s_obj*);
 	void			(*vector)(double*, double*, struct s_obj*, int);
-	int				(*shadow)(struct s_obj *, double *, int);
+	bool			(*shadow)(struct s_obj *, double *, int);
 	int				proc_text_type;
-	int				is_proc_texture;
+	bool				is_proc_texture;
 	int				color1[3];
 	int				color2[3];
 	double			decal_xyz[3];
@@ -199,14 +200,14 @@ void				reflexion(double vec1[3], double norm[3], double ref[3]);
 
 void				ft_error(char *str, char **tab);
 
-int					shadows(t_obj *lst, int xy[2], \
+bool				shadows(t_obj *lst, int xy[2], \
 						t_obj *obj, int nb);
 int					calc_shadow_obj(t_obj *list, double point[3], int nb);
 
-int					shadow_sphere(t_obj *sphere, double point[3], int nb);
-int					shadow_plane(t_obj *plane, double point[3], int nb);
-int					shadow_cylinder(t_obj *cylinder, double point[3], int nb);
-int					shadow_cone(t_obj *cone, double point[3], int nb);
+bool				shadow_sphere(t_obj *sphere, double point[3], int nb);
+bool				shadow_plane(t_obj *plane, double point[3], int nb);
+bool				shadow_cylinder(t_obj *cylinder, double point[3], int nb);
+bool				shadow_cone(t_obj *cone, double point[3], int nb);
 void				get_new_pos(double point[3], double pos_obj[3], \
 						double rotation[3]);
 

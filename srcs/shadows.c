@@ -12,7 +12,7 @@
 
 #include <rtv1.h>
 
-int		shadows(t_obj *list, int xy[2], t_obj *obj, int nb)
+bool		shadows(t_obj *list, int xy[2], t_obj *obj, int nb)
 {
 	double	point[3];
 	double	vec[3];
@@ -33,8 +33,8 @@ int		shadows(t_obj *list, int xy[2], t_obj *obj, int nb)
 	while (list != NULL)
 	{
 		if (obj != list && list->shadow(list, point, nb) == 0)
-			return (0);
+			return (false);
 		list = list->next;
 	}
-	return (1);
+	return (true);
 }

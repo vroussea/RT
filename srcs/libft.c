@@ -13,11 +13,11 @@
 #include <libft.h>
 #include <stdlib.h>
 
-int				ft_isdigit(int c)
+bool				ft_isdigit(int c)
 {
 	if (c >= 48 && c <= 57)
-		return (1);
-	return (0);
+		return (true);
+	return (false);
 }
 
 char	*ft_strcpy(char *dst, const char *src)

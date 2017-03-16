@@ -61,7 +61,7 @@ void	init_default_sphere_values(t_cam *c, t_obj *o)
 	memcpy(o->vec_right, c->vec_right, sizeof(c->vec_right));
 	memcpy(o->vec_down, c->vec_down, sizeof(c->vec_down));
 	o->spot = NULL;
-	o->is_proc_texture = 0;
+	o->is_proc_texture = false;
 	o->nb_spot = c->nb_spot;
 }
 
@@ -88,7 +88,7 @@ void	init_default_plane_values(t_cam *c, t_obj *o)
 	memcpy(o->vec_right, c->vec_right, sizeof(c->vec_right));
 	memcpy(o->vec_down, c->vec_down, sizeof(c->vec_down));
 	o->spot = NULL;
-	o->is_proc_texture = 0;
+	o->is_proc_texture = false;
 	o->nb_spot = c->nb_spot;
 }
 
@@ -112,7 +112,7 @@ void	init_default_cylinder_values(t_cam *c, t_obj *o)
 	memcpy(o->vec_right, c->vec_right, sizeof(c->vec_right));
 	memcpy(o->vec_down, c->vec_down, sizeof(c->vec_down));
 	o->spot = NULL;
-	o->is_proc_texture = 0;
+	o->is_proc_texture = false;
 	o->nb_spot = c->nb_spot;
 }
 
@@ -136,6 +136,6 @@ void	init_default_cone_values(t_cam *c, t_obj *o)
 	memcpy(o->vec_right, c->vec_right, sizeof(c->vec_right));
 	memcpy(o->vec_down, c->vec_down, sizeof(c->vec_down));
 	o->spot = NULL;
-	o->is_proc_texture = 0;
+	o->is_proc_texture = false;
 	o->nb_spot = c->nb_spot;
 }

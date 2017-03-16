@@ -36,14 +36,14 @@ t_envgui	*initenv(void)
 	env->h = WIN_H;
 	env->freq = 60;
 	env->win = SDL_CreateWindow("rt", SDL_WINDOWPOS_CENTERED, \
-	SDL_WINDOWPOS_CENTERED, env->w, env->h, SDL_WINDOW_BORDERLESS);
-	SDL_SetWindowMinimumSize(env->win, 800, 800);
+	SDL_WINDOWPOS_CENTERED, env->w, env->h, SDL_WINDOW_BORDERLESS | SDL_WINDOW_ALLOW_HIGHDPI | SDL_WINDOW_OPENGL );
 	env->surface = SDL_GetWindowSurface(env->win);
 	env->renderer = SDL_CreateSoftwareRenderer(env->surface);
 	SDL_SetRenderDrawColor(env->renderer, 0, 0, 0, 255);
 	initgui(env);
 	env->arrow = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_ARROW);
 	env->hand = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_HAND);
+	env->wait = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_WAIT);
 	env->isloading = 0;
 	env->loadingvalue = 0;
 	env->drag = 0;

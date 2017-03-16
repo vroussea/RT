@@ -72,7 +72,8 @@ static void		mouse_move(SDL_Event *e, t_envgui *env)
 int				main_event(SDL_Event *e, t_envgui *env)
 {
 	int events;
-
+	if (env->isloading)
+		return (0);
 	events = 0;
 	if (e->type == SDL_QUIT)
 	{

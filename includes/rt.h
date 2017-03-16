@@ -12,8 +12,8 @@
 
 #ifndef RT_H
 # define RT_H
-# define WIN_W 1920
-# define WIN_H 1080
+# define WIN_W 2300
+# define WIN_H 1240
 # define WIN_HCAM (WIN_H - 42)
 # include <SDL.h>
 # include <SDL_ttf.h>
@@ -28,7 +28,7 @@
 # include <rtv1.h>
 # define BUTTON_BOX 0
 # define BUTTON_SPHERE 1
-# define AALEVEL 4
+# define AALEVEL 2
 # define AANUM AALEVEL*AALEVEL
 
 typedef struct		s_envgui	t_envgui;
@@ -101,6 +101,7 @@ typedef struct		s_envgui
 	SDL_Rect 		*surbox;
 	SDL_Cursor		*arrow;
 	SDL_Cursor		*hand;
+	SDL_Cursor		*wait;
 	bool			aa;
 	bool			aaupdated;
 	bool			redraw;

@@ -36,7 +36,7 @@ t_threaddata *mallocit(Uint8 id, t_envgui *env)
 void	draw_the_image(char **argv, t_envgui *env)
 {
 	t_parserdata *data;
-
+	SDL_SetCursor(env->wait);
 	data = (t_parserdata*)malloc(sizeof(t_parserdata));
 	data->thread1 = mallocit(1, env);
 	data->thread2 = mallocit(2, env);
@@ -52,6 +52,7 @@ void	draw_the_image(char **argv, t_envgui *env)
 		env->aaupdated = 1;
 	env->drag = 0;
 	env->isloading = 0;
+	SDL_SetCursor(env->arrow);
 }
 
 int		calc_image(int x, int y, t_obj *begin_list, SDL_Surface *fogmap)

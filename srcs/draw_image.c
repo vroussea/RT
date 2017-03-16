@@ -48,7 +48,9 @@ void	draw_the_image(char **argv, t_envgui *env)
 	get_infos(argv[1], &(data->thread3->data), env->aa);
 	get_infos(argv[1], &(data->thread4->data), env->aa);
 	initthreads(data);
-
+	if (env->aa)
+		env->aaupdated = 1;
+	env->drag = 0;
 	env->isloading = 0;
 }
 

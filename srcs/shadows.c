@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 15:15:05 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/16 14:39:50 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/17 15:12:37 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ bool		shadows(t_obj *list, int xy[2], t_obj *obj, int nb)
 	}
 	while (list != NULL)
 	{
-		if (obj != list && list->type != TYPE_SPOT && \
-			list->shadow(list, point, nb) == 0)
+		if (obj != list && list->shadow(list, point, nb) == 0)
 			return (false);
 		list = list->next;
 	}

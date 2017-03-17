@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/10 17:21:14 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/16 14:33:12 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/17 15:30:28 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,9 @@ void		del_all_list(t_obj *list)
 	{
 		mem = list->next;
 		nb_spot = (int)(list->nb_spot);
-		while (--nb_spot >= 0 && list->type != TYPE_SPOT)
+		while (--nb_spot >= 0)
 			free(list->spot[nb_spot]);
-		if (list->type != TYPE_SPOT)
-			free(list->spot);
+		free(list->spot);
 		free(list);
 		list = mem;
 	}

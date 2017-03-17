@@ -45,6 +45,7 @@
 				<color2>127 255 0</color2>
 			</procedural>
 			<size>20</size>
+			<waves/>
 		</cylinder>
 	</objs>
 </scene>

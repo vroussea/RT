@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 16:59:02 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/17 14:55:59 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/17 15:22:54 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		init_functs_obj(t_obj *obj)
 {
-	if (obj->type == TYPE_SPHERE || obj->type == TYPE_SPOT)
+	if (obj->type == TYPE_SPHERE)
 	{
 		obj->intersect = intersec_sphere;
 		obj->vector = get_vector_sphere;
@@ -40,17 +40,17 @@ void		init_functs_obj(t_obj *obj)
 	}
 }
 
-void		free_cam_spot(t_cam *cam)
+void		free_spots(t_obj *obj)
 {
 	unsigned int i;
 
 	i = 0;
-	while (i < cam->nb_spot)
+	while (i < obj->nb_spot)
 	{
-		free(cam->spot[i]);
+		free(obj->spot[i]);
 		++i;
 	}
-	free(cam->spot);
+	free(obj->spot);
 }
 
 static bool	init_scene(int fd, t_obj *objs, int is_aa)
@@ -75,8 +75,6 @@ static bool	init_scene(int fd, t_obj *objs, int is_aa)
 			strstr(line, "</scene>") == NULL)
 		free(line);
 	free(line);
-	add_spots_to_scene(&cam, objs);
-	free_cam_spot(&cam);
 	if (ret_gnl == 1)
 		return (false);
 	return (true);

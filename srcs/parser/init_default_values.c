@@ -54,6 +54,7 @@ void	init_default_sphere_values(t_cam *c, t_obj *o)
 	o->color_rgb[2] = 0;
 	o->type = 0;
 	o->size = 10;
+	o->is_waves = false; 
 	memcpy(o->pos_cam, c->pos_cam, sizeof(c->pos_cam));
 	memcpy(o->res, c->res, sizeof(c->res));
 	memcpy(o->pos_pixel_base, c->pos_pixel_base, \

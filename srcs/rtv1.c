@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 14:21:25 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/10 10:12:40 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/16 16:18:34 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ t_envgui	*initenv(void)
 	env->h = WIN_H;
 	env->freq = 60;
 	env->win = SDL_CreateWindow("rt", SDL_WINDOWPOS_CENTERED, \
-	SDL_WINDOWPOS_CENTERED, env->w, env->h, SDL_WINDOW_BORDERLESS | SDL_WINDOW_ALLOW_HIGHDPI | SDL_WINDOW_OPENGL );
+	SDL_WINDOWPOS_CENTERED, env->w, env->h, SDL_WINDOW_BORDERLESS | \
+		SDL_WINDOW_ALLOW_HIGHDPI | SDL_WINDOW_OPENGL);
 	env->surface = SDL_GetWindowSurface(env->win);
 	env->renderer = SDL_CreateSoftwareRenderer(env->surface);
 	SDL_SetRenderDrawColor(env->renderer, 0, 0, 0, 255);

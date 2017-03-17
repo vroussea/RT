@@ -6,7 +6,7 @@
 /*   By: eduwer <eduwer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 14:32:56 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/15 18:16:16 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/16 16:59:26 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define TYPE_SPHERE 0
 # define TYPE_CONE 3
 # define TYPE_CYLINDER 2
+# define TYPE_SPOT 4
 # define MINFOGDIST 2
 # define MAXFOGDIST 6
 # define FOGO MAXFOGDIST+MINFOGDIST
@@ -77,7 +78,8 @@ typedef struct		s_obj
 	void			(*vector)(double*, double*, struct s_obj*, int);
 	bool			(*shadow)(struct s_obj *, double *, int);
 	int				proc_text_type;
-	bool				is_proc_texture;
+	bool			is_proc_texture;
+	bool			is_waves;
 	int				color1[3];
 	int				color2[3];
 	double			decal_xyz[3];
@@ -149,6 +151,7 @@ bool	init_procedural_textures(t_obj *obj, int fd);
 bool	init_procedural_type(t_obj *obj, char *line);
 bool	check_procedural_texture(t_obj *obj, char *line);
 int		*get_proc_color(t_obj *obj);
+void	add_spots_to_scene(t_cam *cam, t_obj *objs);
 
 double				calc_one_spot_luminosity(t_obj *obj, int nb);
 double				calc_one_spot_spec(t_obj *obj, int nb);

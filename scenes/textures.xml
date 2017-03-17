@@ -37,7 +37,7 @@
 			</procedural>
 		</cone>
 		<cylinder>
-			<rotation>90 0 45</rotation>
+			<rotation>90 0 -45</rotation>
 			<pos>20 0 -50</pos>
 			<procedural>
 				<type>cubes</type>

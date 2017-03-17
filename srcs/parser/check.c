@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 17:34:08 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/15 19:42:31 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/16 16:58:54 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,17 @@ int		check(char *line, t_obj *new_obj, int fd)
 	else if (strstr(line, "<procedural>") != NULL && \
 			init_procedural_textures(new_obj, fd) == true)
 		return (true);
+	else if (strstr(line, "<waves/>") != NULL)
+		new_obj->is_waves = true;
 	return (false);
 }
 
-bool		check_procedural_texture(t_obj *obj, char *line)
+bool	check_procedural_texture(t_obj *obj, char *line)
 {
 	if (strstr(line, "<type>") != NULL && \
 			init_procedural_type(obj, line) == true)
 		return (true);
-	else if (strstr(line, "<color1>") != NULL  && \
+	else if (strstr(line, "<color1>") != NULL && \
 			init_colors(obj->color1, line) == true)
 		return (true);
 	else if (strstr(line, "<color2>") != NULL && \
@@ -67,7 +69,7 @@ void	verif_plane_norm_vec(t_obj *plane)
 	vec[1] = plane->pos_cam[1];
 	vec[2] = plane->pos_cam[2];
 	vec[i] = plane->pos_cam[i] - \
-			 (plane->high / plane->norm_vec[i]);
+			(plane->high / plane->norm_vec[i]);
 	normalize_vec(vec);
 	if (dot_product(vec, plane->norm_vec) <= 0)
 	{
@@ -75,4 +77,3 @@ void	verif_plane_norm_vec(t_obj *plane)
 		plane->high = -plane->high;
 	}
 }
-

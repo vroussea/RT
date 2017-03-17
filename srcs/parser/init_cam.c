@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 17:32:14 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/15 16:27:06 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/16 16:17:33 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static bool	finish_init_cam(t_cam *cam)
 		i++;
 	}
 	if (cam->nb_spot == 0)
-		return(init_one_spot(cam));
+		return (init_one_spot(cam));
 	return (false);
 }
 

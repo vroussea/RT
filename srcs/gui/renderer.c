@@ -6,7 +6,7 @@
 /*   By: pfichepo <pfichepo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 11:09:54 by pfichepo          #+#    #+#             */
-/*   Updated: 2017/03/03 17:20:18 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/16 16:14:22 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void			mainrender(t_envgui *env, char **argv)
 	}
 }
 
-int			threaddraw(void *e)
+int				threaddraw(void *e)
 {
 	t_envgui	*a;
 	t_button	*button;

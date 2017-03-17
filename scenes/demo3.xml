@@ -3,7 +3,8 @@
 	<cam_infos>
 		<resolution>1080 800</resolution>
 		<cam>
-			<pos>300 0 100</pos>
+			<pos>500 0 100</pos>
+			<rotation>0 0 10</rotation>
 		</cam>
 		<spots>
 			<pos>100 -100 50</pos>
@@ -28,11 +29,16 @@
 		<plane>
 			<high>0</high>
 			<color>255 255 255</color>
+			<texture>
+				<type>circles_z</type>
+				<color1>
 		</plane>
 		<plane>
 			<high>100</high>
 			<rotation>90 90 90</rotation>
 			<color>255 0 255</color>
+			<procedural>
+			</procedural>
 		</plane>
 		<plane>
 			<high>-150</high>

@@ -6,7 +6,7 @@
 /*   By: pfichepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 11:33:03 by pfichepo          #+#    #+#             */
-/*   Updated: 2017/02/08 11:33:06 by pfichepo         ###   ########.fr       */
+/*   Updated: 2017/03/16 16:13:44 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ static void		rala(t_envgui *env, t_button *self)
 
 static void		screen(t_envgui *env, t_button *self)
 {
-	SDL_CreateThread(threadsavepic, "WriteImageThread", (void*)env->raysurface[0]);
-
+	SDL_CreateThread(threadsavepic, "WriteImageThread", \
+		(void*)env->raysurface[0]);
 	self = (t_button*)self;
 }
 

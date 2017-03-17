@@ -6,7 +6,7 @@
 /*   By: pfichepo <pfichepo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/11 12:33:54 by pfichepo          #+#    #+#             */
-/*   Updated: 2017/01/25 11:59:21 by pfichepo         ###   ########.fr       */
+/*   Updated: 2017/03/16 16:15:27 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,11 @@ static void		mouse_move(SDL_Event *e, t_envgui *env)
 
 int				main_event(SDL_Event *e, t_envgui *env)
 {
+<<<<<<< HEAD
+=======
+	int events;
+
+>>>>>>> origin/eloi
 	if (env->isloading)
 		return (0);
 	if (e->type == SDL_QUIT)

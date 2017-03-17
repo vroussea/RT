@@ -93,7 +93,7 @@ bool	init_cylinder(int fd, t_obj *objs, t_cam *cam)
 		"</cylinder>") == NULL)
 	{
 		if (check(line, new_obj, fd) == true)
-			return (false);
+			return (true);
 		free(line);
 	}
 	free(line);

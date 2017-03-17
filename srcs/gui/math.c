@@ -6,22 +6,22 @@
 /*   By: pfichepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 12:27:45 by pfichepo          #+#    #+#             */
-/*   Updated: 2017/03/15 17:37:41 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/16 16:13:26 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <rt.h>
 
-inline double			math_remapsimple(double value, double to1, double to2)
+double			math_remapsimple(double value, double to1, double to2)
 {
-	return (value * (to2 / to1) );
+	return (value * (to2 / to1));
 }
 
 /*
 **le y42 est uniquement là pour la norme
 */
 
-inline bool				isinbutton(t_button *button, int x, int y)
+bool				isinbutton(t_button *button, int x, int y)
 {
 	int			x2;
 	int			y2;

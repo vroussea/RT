@@ -1,0 +1,570 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"SDL",
+				"SDL_GetTicks"
+			],
+			[
+				"Uint",
+				"Uint8"
+			],
+			[
+				"Ui",
+				"Uint8"
+			],
+			[
+				"WIN_",
+				"WIN_W"
+			],
+			[
+				"thread",
+				"threadid"
+			],
+			[
+				"thr",
+				"threadid"
+			],
+			[
+				"t",
+				"t_parserdata"
+			],
+			[
+				"t_",
+				"t_parserdata"
+			],
+			[
+				"WIN",
+				"WIN_H"
+			],
+			[
+				"SDL_Lo",
+				"SDL_TryLockMutex"
+			],
+			[
+				"retu",
+				"threadReturnValue"
+			],
+			[
+				"shadow",
+				"shadow_sphere"
+			],
+			[
+				"list",
+				"begin_list"
+			],
+			[
+				"ray",
+				"raysurfaceaa"
+			],
+			[
+				"g",
+				"g"
+			],
+			[
+				"press",
+				"pressfunc"
+			],
+			[
+				"size",
+				"size_t"
+			],
+			[
+				"SDL_Des",
+				"SDL_DestroyRenderer"
+			],
+			[
+				"SDL_D",
+				"SDL_DestroyWindow"
+			],
+			[
+				"SDL_Re",
+				"SDL_Rect"
+			],
+			[
+				"per",
+				"percent"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					""
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					"Clean"
+				]
+			],
+			[
+				"Packages/Makefile/Make.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"markd",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"INSTALL\t",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 476.0
+	},
+	"console":
+	{
+		"height": 349.0,
+		"history":
+		[
+			"clr",
+			"clear"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/pfichepo/RT/srcs/parser/check.c",
+		"/Users/pfichepo/RT/srcs/get_next_line.c",
+		"/Users/pfichepo/RT/srcs/intersec_sphere.c",
+		"/Users/pfichepo/RT/srcs/rtv1.c",
+		"/Users/pfichepo/RT/srcs/vectors.c",
+		"/Users/pfichepo/RT/srcs/shadows.c",
+		"/Users/pfichepo/RT/srcs/shadows_obj.c",
+		"/Users/pfichepo/RT/RT.sublime-project",
+		"/Users/pfichepo/RT/RT.sublime-project",
+		"/Users/pfichepo/RT/srcs/parser/init_default_values.c",
+		"/Users/pfichepo/RT/srcs/parser/make_new_obj.c",
+		"/Users/pfichepo/RT/srcs/draw_image.c",
+		"/Users/pfichepo/RT/includes/rt.h",
+		"/Users/pfichepo/RT/.clang_complete",
+		"/Users/pfichepo/RT/srcs/gui/graphiclib.c",
+		"/Users/pfichepo/RT/srcs/gui/fog.c",
+		"/Users/pfichepo/RT/scenes/demo3.xml",
+		"/Users/pfichepo/RT/includes/rtv1.h",
+		"/Users/pfichepo/RT/srcs/utils/threads.c",
+		"/Users/pfichepo/RT/srcs/gui/hook.c",
+		"/Users/pfichepo/RT/srcs/parser/init_spots.c",
+		"/Users/pfichepo/RT/srcs/gui/initgui.c",
+		"/Users/pfichepo/RT/srcs/parser/init_procedural_textures.c",
+		"/Users/pfichepo/RT/srcs/gui/renderer.c",
+		"/Users/pfichepo/RT/srcs/parser/init_cam.c",
+		"/Users/pfichepo/RT/srcs/parser/get_infos.c",
+		"/Users/pfichepo/RT/srcs/parser/init_final_infos.c",
+		"/Users/pfichepo/RT/srcs/gui/math.c",
+		"/Users/pfichepo/RT/Makefile",
+		"/Users/pfichepo/RT/README.md",
+		"/Users/pfichepo/RT/srcs/luminosity.c",
+		"/Users/pfichepo/RT/includes/libft.h",
+		"/Users/pfichepo/RT/scenes/textures.xml",
+		"/Users/pfichepo/RT/srcs/parser/obj_infos.c",
+		"/Users/pfichepo/RT/srcs/gui/buttons.c",
+		"/Users/pfichepo/RT/srcs/libft.c",
+		"/Users/pfichepo/RT/srcs/get_infos.c",
+		"/Users/pfichepo/RT/includes/threads.h",
+		"/Users/pfichepo/RT/scenes/test.xml",
+		"/Users/pfichepo/RT/srcs/init_cam.c",
+		"/Users/pfichepo/RT/srcs/init_default_values.c",
+		"/Users/pfichepo/RT/srcs/make_new_obj.c",
+		"/Users/pfichepo/RT/windowsbuild/includes/SDL_clipboard.h",
+		"/Users/pfichepo/RT/srcs/maths.c",
+		"/Users/pfichepo/RT/srcs/maths2.c",
+		"/Users/pfichepo/RT/srcs/gui/api.c",
+		"/Users/pfichepo/RT/srcs/gui/loadingbar.c",
+		"/Users/pfichepo/RT/windowsbuild/includes/SDL_test_common.h",
+		"/Users/pfichepo/RT/windowsbuild/includes/SDL_test_fuzzer.h",
+		"/Users/pfichepo/RT/windowsbuild/includes/SDL_video.h",
+		"/Users/pfichepo/RT/srcs/gui/colorutils.c",
+		"/Users/pfichepo/RT/srcs/utils/file.c",
+		"/Users/pfichepo/RT/srcs/gui/hook2.c",
+		"/Users/pfichepo/RT/scenes/demo2.xml",
+		"/Users/pfichepo/RT/srcs/check.c",
+		"/Users/pfichepo/RT/srcs/convert_to_hex.c",
+		"/Users/pfichepo/RT/srcs/init_final_infos.c",
+		"/Users/pfichepo/RT/srcs/init_spots.c",
+		"/Users/pfichepo/RT/srcs/obj_infos.c",
+		"/Users/pfichepo/rtv1/srcs/shadows_obj.c",
+		"/Users/pfichepo/rtv1/srcs/shadows.c",
+		"/Users/pfichepo/rtv1/includes/rtv1.h",
+		"/Users/pfichepo/rtv1/srcs/get_next_line.c",
+		"/Users/pfichepo/rtv1/srcs/libft.c",
+		"/Users/pfichepo/rtv1/untitled.sublime-project",
+		"/Users/pfichepo/rtv1/includes/libft.h",
+		"/Users/pfichepo/rtv1/srcs/make_new_obj.c",
+		"/Users/pfichepo/rtv1/rt",
+		"/Users/pfichepo/rtv1/srcs/init_cam.c",
+		"/Users/pfichepo/rtv1/srcs/init_final_infos.c",
+		"/Users/pfichepo/rtv1/srcs/init_default_values.c",
+		"/Users/pfichepo/rtv1/srcs/obj_infos.c",
+		"/Users/pfichepo/rtv1/srcs/init_spots.c",
+		"/Users/pfichepo/rtv1/srcs/check.c",
+		"/Users/pfichepo/rtv1/srcs/get_infos.c",
+		"/Users/pfichepo/rtv1/includes/rt.h",
+		"/Users/pfichepo/rtv1/srcs/rtv1.c",
+		"/Users/pfichepo/rtv1/srcs/gui/renderer.c",
+		"/Users/pfichepo/rtv1/srcs/gui/graphiclib.c",
+		"/Users/pfichepo/rtv1/Makefile",
+		"/Users/pfichepo/rtv1/srcs/draw_image.c",
+		"/Users/pfichepo/rtv1/srcs/list_funct.c",
+		"/Users/pfichepo/rtv1/srcs/init_camera.c",
+		"/Users/pfichepo/rtv1/srcs/init_cone.c",
+		"/Users/pfichepo/rtv1/srcs/init_cylinder.c",
+		"/Users/pfichepo/rtv1/srcs/init_plane.c",
+		"/Users/pfichepo/rtv1/srcs/init_sphere.c",
+		"/Users/pfichepo/rtv1/srcs/init_spot.c",
+		"/Users/pfichepo/rtv1/srcs/intersec_cone.c",
+		"/Users/pfichepo/rtv1/srcs/intersec_cylinder.c",
+		"/Users/pfichepo/rtv1/srcs/intersec_plane.c",
+		"/Users/pfichepo/rtv1/srcs/intersec_sphere.c",
+		"/Users/pfichepo/rtv1/srcs/luminosity.c",
+		"/Users/pfichepo/rtv1/srcs/vectors.c",
+		"/Users/pfichepo/rtv1/srcs/renderer.c",
+		"/Users/pfichepo/rtv1/rt.sublime-project",
+		"/Users/pfichepo/rtv1/srcs/graphiclib.c",
+		"/Users/pfichepo/sorted_unique_cf.txt",
+		"/Users/pfichepo/rtv1/srcs/colorutils.c",
+		"/Users/pfichepo/rtv1/README.md",
+		"/Users/pfichepo/rtv1/srcs/loadingbar.c",
+		"/Users/pfichepo/rtv1/srcs/hook.c",
+		"/Users/pfichepo/rtv1/srcs/initgui.c",
+		"/Users/pfichepo/rtv1/libft/ft_strlen.c",
+		"/Users/pfichepo/rtv1/libft/ft_memset.c",
+		"/Users/pfichepo/rtv1/srcs/main.c",
+		"/Users/pfichepo/rtv1/rendu/rtv1.c",
+		"/Users/pfichepo/rt/Makefile",
+		"/Users/pfichepo/rtv1/srcs/get_coords_colors.c",
+		"/Users/pfichepo/rtv1/srcs/maths.c",
+		"/Users/pfichepo/rtv1/srcs/maths2.c",
+		"/Users/pfichepo/rt/includes/rt.h",
+		"/Users/pfichepo/rt/srcs/hook.c",
+		"/Users/pfichepo/rt/srcs/api.c",
+		"/Users/pfichepo/rt/srcs/renderer.c",
+		"/Users/pfichepo/rt/install.txt",
+		"/Users/pfichepo/rt/README.md",
+		"/Users/pfichepo/rt/srcs/main.c",
+		"/Users/pfichepo/rt/srcs/math.c",
+		"/Users/pfichepo/rt/srcs/initgui.c",
+		"/Users/pfichepo/rt/srcs/loadingbar.c",
+		"/Users/pfichepo/rt/srcs/colorutils.c",
+		"/Users/pfichepo/rt/srcs/graphiclib.c",
+		"/Users/pfichepo/rt/rt.sublime-project",
+		"/Users/pfichepo/rasterrain-code/Vect.h",
+		"/Users/pfichepo/rasterrain-code/Sphere.h",
+		"/Users/pfichepo/rasterrain-code/Source.h",
+		"/Users/pfichepo/rasterrain-code/Ray.h"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"type = 0",
+			"->is_waves",
+			"wave",
+			"type = 0",
+			"->is_waves",
+			"waves",
+			"->is_waves ",
+			"waves",
+			"vague",
+			"wave",
+			"rgba",
+			"rgbafog",
+			"rgba",
+			"rgbafog",
+			"get_color_obj",
+			"finish",
+			"get_color_obj",
+			"->size",
+			"distance",
+			"size",
+			"->intersect = ",
+			"->intersec",
+			"->size",
+			"drag",
+			"routine",
+			"init_procedural_textures",
+			"init_cam_pos_rotation",
+			"== -1",
+			"(0)",
+			"finish_init_cam",
+			"finish_init_ca",
+			"finish_init_cam",
+			"finish",
+			"init_one_spot",
+			"get_cam_infos",
+			"== -1",
+			"init_res",
+			"init_3_values",
+			"check_procedural_texture",
+			"init_scene",
+			"get_objs_infos",
+			"(0)",
+			"init_procedural_type",
+			"check_procedural_texture",
+			"(0)",
+			"init",
+			"check",
+			"(0)",
+			"(1)",
+			"isinbutton",
+			"(1)",
+			"threaddraw",
+			"(1)",
+			"shadow",
+			"dhadow",
+			"shadow",
+			"(1)",
+			"shadows",
+			"is_proc_texture",
+			"init_3_values",
+			"3_",
+			"arrow",
+			"cu",
+			"SDL_SetWindowMinimumSize",
+			"min",
+			"1038",
+			"init_3_values",
+			"calcaa",
+			"PROC_TEXT_CIRCLE_Z",
+			"aaupdated",
+			"WIN_HCAm",
+			"->res",
+			"res->",
+			"obj",
+			"aa",
+			"20118",
+			"calc_image",
+			"isloading",
+			"env->isloading",
+			"initthreads",
+			"draw_the_image",
+			"data",
+			"threaddata",
+			"->res",
+			"init_res",
+			"->res",
+			"1038",
+			"get_cam_infos",
+			"argv",
+			"t_color",
+			"double",
+			"fog",
+			"redraw",
+			"initbuttons",
+			"stackbutton",
+			"zray",
+			"dist",
+			"black",
+			"white",
+			"percentbox",
+			"percentbox ",
+			"raysurfac",
+			"env",
+			"detach",
+			"routine",
+			"(t_obj *)",
+			"t_obj",
+			"(t_obj",
+			"ft_",
+			"ft_strcpy",
+			"ft_atoi",
+			"mem",
+			"ft_memcpy",
+			"ft_memset",
+			"ft_strcpy",
+			"ft_strlen",
+			"ft_strstr",
+			"ft_memcpy",
+			"ft",
+			"ft_",
+			"cam",
+			"t_cam",
+			"init_default_cam_values",
+			"values",
+			"init",
+			"get_infos",
+			"sphere",
+			"t_obj *"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"1038",
+			"long double",
+			"e",
+			"atoi",
+			"memcpy",
+			"memset",
+			"strcpy",
+			"strlen",
+			"strstr",
+			"memcpy",
+			"",
+			"t_obj",
+			"",
+			"t_obj",
+			", t_obj",
+			"(t_obj",
+			"x2",
+			"y2",
+			"y1",
+			"x1",
+			"#include <rtv1.h>",
+			"t_envgui ",
+			"SDL_LowerBlit"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 285.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/Makefile/Make.sublime-build",
+	"project": "RT.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 127.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

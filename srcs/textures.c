@@ -6,7 +6,7 @@
 /*   By: gboudrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 16:30:29 by gboudrie          #+#    #+#             */
-/*   Updated: 2017/03/10 16:00:04 by gboudrie         ###   ########.fr       */
+/*   Updated: 2017/03/17 14:50:54 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 //SDL_Surface* SDL_LoadBMP(const char* file)
 #include <rtv1.h>
 #include <math.h>
+#include <stdlib.h>
 
 int		texture_sphere(t_obj obj)
 {
@@ -48,18 +49,23 @@ int		texture_plane(t_obj obj)
 	return ((int)color);
 }
 
-void	texture(t_obj obj, int *color_tab[3])
+void	texture(t_obj obj, int **color_tab)
 {
 	int		i;
 	int		color;
-	char	*ptr;
+	unsigned char	*ptr;
 
+	printf("sexe1\n");
 	color = obj.texturing(obj);
-	i = 1;
-	ptr = (char *)(&color);
+	printf("sexe2\n");
+	i = 0;
+	ptr = (unsigned char *)(&color);
+	printf("sexe3\n");
 	while (i < 3)
 	{
-		(*color_tab)[i - 1] = ptr[i];
+		printf("sexe4\n");
+		*color_tab[i] = (int)(ptr[i]);
+		printf("sexe5\n");
 		i++;
 	}
 }

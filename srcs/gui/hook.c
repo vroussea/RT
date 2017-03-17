@@ -71,19 +71,15 @@ static void		mouse_move(SDL_Event *e, t_envgui *env)
 
 int				main_event(SDL_Event *e, t_envgui *env)
 {
-	int events;
 	if (env->isloading)
 		return (0);
-	events = 0;
 	if (e->type == SDL_QUIT)
 	{
-		SDL_DestroyRenderer(env->renderer);
-		SDL_DestroyWindow(env->win);
 		SDL_Quit();
 		exit(0);
 	}
 	if (e->type == SDL_KEYDOWN)
-		events += key_press(e, env);
+		key_press(e, env);
 	if (e->type == SDL_MOUSEMOTION)
 		mouse_move(e, env);
 	if (e->type == SDL_MOUSEBUTTONDOWN)

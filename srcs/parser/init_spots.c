@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 17:31:07 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/16 16:18:07 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/17 14:21:05 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	add_spots_to_scene(t_cam *cam, t_obj *objs)
 		spot->rotation[0] = 0;
 		spot->rotation[1] = 0;
 		spot->rotation[2] = 0;
-		spot->size = 5;
+		spot->size = 1;
 		spot->is_proc_texture = false;
 		spot->nb_spot = 0;
 		spot->color_rgb[0] = 0xFF;

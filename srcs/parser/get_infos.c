@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 16:59:02 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/17 15:22:54 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/18 17:00:37 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,17 @@ void		init_functs_obj(t_obj *obj)
 	}
 }
 
-void		free_spots(t_obj *obj)
+void		free_spots(t_cam *cam)
 {
 	unsigned int i;
 
 	i = 0;
-	while (i < obj->nb_spot)
+	while (i < cam->nb_spot)
 	{
-		free(obj->spot[i]);
+		free(cam->spot[i]);
 		++i;
 	}
-	free(obj->spot);
+	free(cam->spot);
 }
 
 static bool	init_scene(int fd, t_obj *objs, int is_aa)
@@ -75,6 +75,8 @@ static bool	init_scene(int fd, t_obj *objs, int is_aa)
 			strstr(line, "</scene>") == NULL)
 		free(line);
 	free(line);
+	init_recap_spots(objs, &cam);
+	free_spots(&cam);
 	if (ret_gnl == 1)
 		return (false);
 	return (true);

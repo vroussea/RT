@@ -1,18 +1,17 @@
 <scene>
 	<cam_infos>
+		<cam>
+			<pos>600 0 0</pos>
+			<rotation>0 0 0</rotation>
+		</cam>
 		<spots>
-			<pos>20 20 0</pos>
-			<pos>20 -20 0</pos>
-			<pos>20 0 20</pos>
-			<pos>20 0 -20</pos>
+			<pos>0 0 162</pos>
 		</spots>
 	</cam_infos>
 	<objs>
 		<sphere>
+			<pos>0 0 162</pos>
+			<size>1</size>
 		</sphere>
-		<plane>
-			<rotation>0 90 0</rotation>
-			<high>-50</high>
-		</plane>
 	</objs>
 </scene>

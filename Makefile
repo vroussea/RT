@@ -39,7 +39,8 @@ SRCS = 	gui/hook.c \
 		libft.c \
 		get_next_line.c \
 		parser/init_procedural_textures.c \
-		get_proc_color.c
+		get_proc_color.c \
+		parser/init_recap_spots.c
 
 SRCF = ./srcs/
 OBJS = $(addprefix $(SRCF), $(SRCS:.c=.o))

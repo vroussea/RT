@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene>
+	<cam_infos>
+		<cam>
+			<pos>800 0 100</pos>
+			<rotation>0 0 0</rotation>
+		</cam>
+		<spots>
+			<pos>500 -50 100</pos>
+			<pos>100 0 200</pos>
+			<pos>500 120 100</pos>
+		</spots>
+	</cam_infos>
+	<objs>
+		<sphere>
+			<pos>220 220 150</pos>
+			<rotation>45 0 0</rotation>
+			<size>120</size>
+			<procedural>
+				<type>straight stripes</type>
+				<color1>255 0 0</color1>
+			</procedural>
+			<waves/>
+		</sphere>
+		<cylinder>
+			<pos>30 0 150</pos>
+			<rotation>-45 0 0</rotation>
+			<size>20 </size>
+			<procedural>
+				<color1>0 0 0</color1>
+				<color2>255 132 0</color2>
+			</procedural>
+			<color>255 0 0</color>
+		</cylinder>
+		<plane>
+			<high>1</high>
+			<procedural>
+				<color1>255 255 255</color1>
+				<color2>255 162 0</color2>
+				<type>circles_z</type>
+				<decal>-300 150 0</decal>
+			</procedural>
+		</plane>
+		<plane>
+			<high>150</high>
+			<rotation>90 90 100</rotation>
+			<color>120 42 42</color>
+			<waves/>
+		</plane>
+		<cylinder>
+			<pos>120 90 20</pos>
+			<rotation>60 0 -40</rotation>
+			<procedural>
+				<type>circles_x</type>
+				<color1>255 255 255</color1>
+				<color2>255 55 55</color2>
+				<decal>0 0 -80</decal>
+			</procedural>
+			<size>20</size>
+		</cylinder>
+		<cone>
+			<pos>0 -150 100</pos>
+			<rotation>20 0 0</rotation>
+			<procedural>
+				<type>diagonal stripes</type>
+			</procedural>
+			<angle>30</angle>
+		</cone>
+		<sphere>
+			<pos>300 0 10</pos>
+			<size>50</size>
+			<procedural>
+				<color2>255 255 255</color2>
+				<type>circles_x</type>
+			</procedural>
+		</sphere>
+		<cylinder>
+			<pos>0 -200 50</pos>
+			<rotation>0 90 10</rotation>
+			<size>20</size>
+			<color>255 255 255</color>
+		</cylinder>
+		<plane>
+			<high>220</high>
+			<procedural>
+			</procedural>
+		</plane>
+		<plane>
+			<rotation>20 0 0</rotation>
+			<high>0</high>
+			<procedural>
+				<type>diagonal stripes</type>
+				<color1>255 0 0</color1>
+				<color2>200 150 0</color2>
+			</procedural>
+			<waves/>
+		</plane>
+		<cone>
+			<angle>45</angle>
+			<pos>-30 20 120</pos>
+			<rotation>0 0 90</rotation>
+			<procedural>
+				<color2>255 0 0</color2>
+				<type>straight stripes</type>
+			</procedural>
+			<waves/>
+		</cone>
+		<sphere>
+			<pos>10 -150 0</pos>
+			<size>50</size>
+			<procedural>
+			</procedural>
+		</sphere>
+		<sphere>
+			<pos>100 100 45</pos>
+			<size>25</size>
+		</sphere>
+		<sphere>
+			<pos>500 100 30</pos>
+			<size>40</size>
+		</sphere>
+		<cylinder>
+			<pos>300 0 25</pos>
+			<size>15</size>
+			<rotation>-90 0 0</rotation>
+			<procedural>
+			</procedural>
+		</cylinder>
+	</objs>
+</scene>

@@ -6,7 +6,7 @@
 /*   By: eduwer <eduwer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 14:32:56 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/18 16:53:46 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/19 16:43:34 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,13 @@
 # define PROC_TEXT_DIAGONAL_STRIPES 5
 # define G_LUM 0
 typedef struct		s_envgui	t_envgui;
-typedef struct		s_obj 		t_obj;
+typedef struct		s_obj		t_obj;
 
 /*
-** list of type for s_obj :
-** 0: sphere
-** 1: plane
-** 2:cylinder
-** 3: cone
+** order of numbers for recap_spots in t_obj : 
+** recap_spots[n][0] & [1] : position of the spot on the screen
+** recap_spots[n][2] : distance from the cam to the spot
+** from recap_spots[n][3] to [5] : position of the spot in the space
 */
 
 typedef struct		s_obj
@@ -64,6 +63,7 @@ typedef struct		s_obj
 	double			vec_down[3];
 	double			**spot;
 	Uint32			nb_spot;
+	Uint32			nb_spots_on_screen;
 	double			**recap_spots;
 	int				color_rgb[3];
 	int				final_color[3];
@@ -109,17 +109,13 @@ typedef struct		s_threaddata
 	double 			*loading;
 }					t_threaddata;
 
-typedef struct 		s_parserdata
+typedef struct		s_parserdata
 {
-	t_threaddata *thread1;
-	t_threaddata *thread2;
-	t_threaddata *thread3;
-	t_threaddata *thread4;
+	t_threaddata	*thread1;
+	t_threaddata	*thread2;
+	t_threaddata	*thread3;
+	t_threaddata	*thread4;
 }					t_parserdata;
-
-
-
-
 
 void	get_infos(char *filename, t_obj **objs, int is_aa);
 bool	init_tab_3(double tab[3], int color[3], char *line);
@@ -223,6 +219,6 @@ void				get_vector_cone(double norm_vec[3], double vec_light[3], \
 						t_obj *obj, int nb);
 void				cross_product(double norm_vector[3], double vec1[3], \
 						double vec2[3]);
-void initthreads(t_parserdata *data);
+void				initthreads(t_parserdata *data);
 
 #endif

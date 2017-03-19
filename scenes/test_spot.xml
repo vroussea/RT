@@ -5,13 +5,14 @@
 			<rotation>0 0 0</rotation>
 		</cam>
 		<spots>
-			<pos>0 0 162</pos>
+			<pos>0 0 0</pos>
+			<pos>700 0 0</pos>
 		</spots>
 	</cam_infos>
 	<objs>
 		<sphere>
-			<pos>0 0 162</pos>
-			<size>1</size>
+			<pos>0 0 100</pos>
+			<size>50</size>
 		</sphere>
 	</objs>
 </scene>

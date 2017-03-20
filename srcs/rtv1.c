@@ -12,6 +12,7 @@
 
 #include <rtv1.h>
 #include <rt.h>
+#include <SDL_image.h>
 
 void		ft_error(char *str, char **tab)
 {
@@ -66,6 +67,12 @@ int			main(int argc, char **argv)
 	checkread(argv[1]);
 	SDL_Init(SDL_INIT_EVENTS | SDL_INIT_TIMER);
 	TTF_Init();
+	int flags=IMG_INIT_PNG;
+	int initted=IMG_Init(flags);
+	if((initted&flags) != flags) {
+	    printf("IMG_Init: %s\n", IMG_GetError());
+	    // handle error
+}
 	env = initenv();
 	initbuttons(env);
 	startclock = SDL_GetTicks();

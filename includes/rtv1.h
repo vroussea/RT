@@ -220,5 +220,7 @@ void				get_vector_cone(double norm_vec[3], double vec_light[3], \
 void				cross_product(double norm_vector[3], double vec1[3], \
 						double vec2[3]);
 void				initthreads(t_parserdata *data);
+bool				flarecheck( double **list, int max, int x, int y);
+void 				processflares(SDL_Surface *target, t_obj *blist, SDL_Surface *flare);
 
 #endif

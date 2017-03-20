@@ -73,6 +73,8 @@ void			mainrender(t_envgui *env, char **argv)
 	{
 		draw_the_image(argv, env);
 		env->redraw = 0;
+		SDL_BlitSurface(env->fraysurface[env->aa], NULL, env->raysurface[env->aa], NULL);
+		
 		if (env->fog)
 			SDL_BlitSurface(target, NULL, env->raysurface[env->aa], NULL);
 	}
@@ -80,6 +82,7 @@ void			mainrender(t_envgui *env, char **argv)
 	{
 		calcaa(env);
 		env->aaupdated = 0;
+		SDL_BlitSurface(env->fraysurface[env->aa], NULL, env->raysurface[env->aa], NULL);
 		if (env->fog)
 			SDL_BlitSurface(target, NULL, env->raysurface[env->aa], NULL);
 	}

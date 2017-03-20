@@ -12,6 +12,7 @@
 
 #include <rtv1.h>
 #include <rt.h>
+#include <SDL_image.h>
 
 t_threaddata	*mallocit(Uint8 id, t_envgui *env)
 {
@@ -33,8 +34,11 @@ t_threaddata	*mallocit(Uint8 id, t_envgui *env)
 void			draw_the_image(char **argv, t_envgui *env)
 {
 	t_parserdata *data;
+	t_obj *begin_list;
 
 	SDL_SetCursor(env->wait);
+	get_infos(argv[1], &begin_list, env->aa);
+	processflares(env->fraysurface[env->aa], begin_list, env->flare);
 	data = (t_parserdata*)malloc(sizeof(t_parserdata));
 	data->thread1 = mallocit(1, env);
 	data->thread2 = mallocit(2, env);

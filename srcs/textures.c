@@ -6,7 +6,7 @@
 /*   By: gboudrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 16:30:29 by gboudrie          #+#    #+#             */
-/*   Updated: 2017/03/20 15:00:52 by gboudrie         ###   ########.fr       */
+/*   Updated: 2017/03/20 16:28:07 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int		texture_sphere(t_obj obj)
 {
 	unsigned int	color;
 
+	printf("x : %lf, y : %lf\n", acos(obj.intersec_point[2] / obj.size), atan(obj.intersec_point[0] / obj.intersec_point[1]));
 	color = getpixel(obj.texture,
 					 abs((int)acos(obj.intersec_point[2] / obj.size)
 						 % (int)obj.texture->w),
@@ -61,7 +62,7 @@ void	texture(t_obj obj, int color_tab[3])
 	ptr = (unsigned char *)(&color);
 	while (i < 3)
 	{
-		tmp = ptr[i + 1];
+		tmp = ptr[3 - i];
 		color_tab[i] = (int)tmp;
 		i++;
 	}

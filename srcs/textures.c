@@ -6,7 +6,7 @@
 /*   By: gboudrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 16:30:29 by gboudrie          #+#    #+#             */
-/*   Updated: 2017/03/17 14:50:54 by gboudrie         ###   ########.fr       */
+/*   Updated: 2017/03/20 13:43:02 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,11 @@ int		texture_plane(t_obj obj)
 	return ((int)color);
 }
 
-void	texture(t_obj obj, int **color_tab)
+void	texture(t_obj obj, int color_tab[3])
 {
-	int		i;
-	int		color;
+	int				i;
+	int				color;
+	unsigned char	tmp;
 	unsigned char	*ptr;
 
 	printf("sexe1\n");
@@ -64,7 +65,8 @@ void	texture(t_obj obj, int **color_tab)
 	while (i < 3)
 	{
 		printf("sexe4\n");
-		*color_tab[i] = (int)(ptr[i]);
+		tmp = ptr[i + 1];
+		color_tab[i] = (int)tmp;
 		printf("sexe5\n");
 		i++;
 	}

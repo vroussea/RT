@@ -79,6 +79,7 @@ void processflares(SDL_Surface *target, t_obj *blist, SDL_Surface *flare)
 	double **list;
 	Uint32 i;
 	int xy[2];
+	double dist;
 
 	xy[0] = 0;
 	while (xy[0] < target->w)
@@ -92,6 +93,7 @@ void processflares(SDL_Surface *target, t_obj *blist, SDL_Surface *flare)
 			{
 				if (spotvisible(xy, list[i], blist))
 				{
+					dist = 1 + ( realdist(list[i][2]) - 0) * (0 - 1) / (40 - 0);
 					SDL_Rect rect;
 					rect.w = flare->w;
 					rect.h = flare->h;

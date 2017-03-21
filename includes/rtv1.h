@@ -6,7 +6,7 @@
 /*   By: eduwer <eduwer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 14:32:56 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/20 13:37:00 by gboudrie         ###   ########.fr       */
+/*   Updated: 2017/03/21 19:04:27 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # define TYPE_SPHERE 0
 # define TYPE_CONE 3
 # define TYPE_CYLINDER 2
+#define PI 3.1415926535
 
 
 typedef struct		s_envgui	t_envgui;

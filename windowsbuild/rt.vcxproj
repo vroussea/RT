@@ -140,7 +140,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>./includes/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -177,6 +177,7 @@
     <ClCompile Include="..\srcs\intersec_cylinder.c" />
     <ClCompile Include="..\srcs\intersec_cone.c" />
     <ClCompile Include="..\srcs\utils\file.c" />
+    <ClCompile Include="..\srcs\utils\flares.c" />
     <ClCompile Include="..\srcs\utils\threads.c" />
     <ClCompile Include="..\srcs\vectors.c" />
     <ClCompile Include="..\srcs\luminosity.c" />

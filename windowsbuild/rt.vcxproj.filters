@@ -132,6 +132,9 @@
     <ClCompile Include="..\srcs\parser\get_infos.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\srcs\parser\init_recap_spots.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\includes\libft.h">

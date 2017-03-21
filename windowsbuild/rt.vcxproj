@@ -163,6 +163,7 @@
     <ClCompile Include="..\srcs\parser\init_default_values.c" />
     <ClCompile Include="..\srcs\parser\init_final_infos.c" />
     <ClCompile Include="..\srcs\parser\init_procedural_textures.c" />
+    <ClCompile Include="..\srcs\parser\init_recap_spots.c" />
     <ClCompile Include="..\srcs\parser\init_spots.c" />
     <ClCompile Include="..\srcs\parser\make_new_obj.c" />
     <ClCompile Include="..\srcs\parser\obj_infos.c" />

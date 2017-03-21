@@ -83,33 +83,24 @@ void processflares(SDL_Surface *target, t_obj *blist, SDL_Surface *flare, int aa
 	double dist;
 	SDL_Surface *tmp;
 
-	xy[0] = 0;
-	while (xy[0] < target->w)
+	i = 0;
+	list = blist->recap_spots;
+	while (i < blist->nb_spots_on_screen)
 	{
-		xy[1] = 0;
-		while (xy[1] < target->h)
+		if (spotvisible(xy, list[i], blist))
 		{
-			i = 0;
-			list = blist->recap_spots;
-			while (i < blist->nb_spots_on_screen)
-			{
-				if (spotvisible(xy, list[i], blist))
-				{
-					dist = 1 + ( realdist(list[i][2]) - 0) * (0 - 1) / (40 - 0);
-					tmp = rotozoomSurface(flare,rand()%360,(dist/6.5)*aa,1);
-					SDL_Rect rect;
-					rect.w = tmp->w;
-					rect.h = tmp->h;
-					rect.x = xy[0] - (tmp->w)/2;
-					rect.y = xy[1] - (tmp->h)/2;
-					SDL_BlitSurface(tmp, NULL, target, &rect);
-					SDL_FreeSurface(tmp);
-				}
-				i++;
-			}
-			xy[1]++;
+			printf("%i %i \n", xy[0], xy[1]);
+			dist = 1 + (realdist(list[i][2]) - 0) * (0 - 1) / (40 - 0);
+			tmp = rotozoomSurface(flare, rand() % 360, (dist / 6.5)*aa, 1);
+			SDL_Rect rect;
+			rect.w = tmp->w;
+			rect.h = tmp->h;
+			rect.x = xy[0] - (tmp->w) / 2;
+			rect.y = xy[1] - (tmp->h) / 2;
+			SDL_BlitSurface(tmp, NULL, target, &rect);
+			SDL_FreeSurface(tmp);
 		}
-		xy[0]++;
+		i++;
 	}
 }
 

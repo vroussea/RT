@@ -13,6 +13,7 @@
 #include <rtv1.h>
 #include <rt.h>
 #include <SDL_image.h>
+#include <SDL2_rotozoom.h>
 
 
 
@@ -80,6 +81,7 @@ void processflares(SDL_Surface *target, t_obj *blist, SDL_Surface *flare)
 	Uint32 i;
 	int xy[2];
 	double dist;
+	SDL_Surface *tmp;
 
 	xy[0] = 0;
 	while (xy[0] < target->w)
@@ -94,15 +96,15 @@ void processflares(SDL_Surface *target, t_obj *blist, SDL_Surface *flare)
 				if (spotvisible(xy, list[i], blist))
 				{
 					dist = 1 + ( realdist(list[i][2]) - 0) * (0 - 1) / (40 - 0);
+					tmp = rotozoomSurface(flare,rand()%360,dist/6.5,1);
 					SDL_Rect rect;
-					rect.w = flare->w;
-					rect.h = flare->h;
-					rect.x = xy[0] - (rect.w)/2;
-					rect.y = xy[1] - (rect.h)/2;
-					SDL_BlitSurface(flare, NULL, target, &rect);
-
+					rect.w = tmp->w;
+					rect.h = tmp->h;
+					rect.x = xy[0] - (tmp->w)/2;
+					rect.y = xy[1] - (tmp->h)/2;
+					SDL_BlitSurface(tmp, NULL, target, &rect);
+					SDL_FreeSurface(tmp);
 				}
-
 				i++;
 			}
 			xy[1]++;

@@ -108,7 +108,9 @@ typedef struct		s_envgui
 	SDL_Thread		*thread;
 	bool			threaddone;
 	SDL_Surface		**zraysurface;
+	SDL_Surface		**fraysurface;
 	bool			fog;
+	SDL_Surface 	*flare;
 }					t_envgui;
 
 Uint32				rgba(Uint32 r, Uint32 g, Uint32 b);

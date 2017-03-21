@@ -75,7 +75,7 @@ bool		spotvisible(int *xy, double *spot, t_obj *blist)
 	return (false);
 }
 
-void processflares(SDL_Surface *target, t_obj *blist, SDL_Surface *flare)
+void processflares(SDL_Surface *target, t_obj *blist, SDL_Surface *flare, int aa)
 {
 	double **list;
 	Uint32 i;
@@ -96,7 +96,7 @@ void processflares(SDL_Surface *target, t_obj *blist, SDL_Surface *flare)
 				if (spotvisible(xy, list[i], blist))
 				{
 					dist = 1 + ( realdist(list[i][2]) - 0) * (0 - 1) / (40 - 0);
-					tmp = rotozoomSurface(flare,rand()%360,dist/6.5,1);
+					tmp = rotozoomSurface(flare,rand()%360,(dist/6.5)*aa,1);
 					SDL_Rect rect;
 					rect.w = tmp->w;
 					rect.h = tmp->h;

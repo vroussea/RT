@@ -38,7 +38,10 @@ void			draw_the_image(char **argv, t_envgui *env)
 
 	SDL_SetCursor(env->wait);
 	get_infos(argv[1], &begin_list, env->aa);
-	processflares(env->fraysurface[env->aa], begin_list, env->flare);
+	if (env->aa)
+		processflares(env->fraysurface[env->aa], begin_list, env->flare, AALEVEL);
+	else
+		processflares(env->fraysurface[env->aa], begin_list, env->flare, 1);
 	data = (t_parserdata*)malloc(sizeof(t_parserdata));
 	data->thread1 = mallocit(1, env);
 	data->thread2 = mallocit(2, env);

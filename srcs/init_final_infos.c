@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 17:16:53 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/08 17:25:55 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/22 15:06:02 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,13 @@ int		init_one_value(double *value, char *line, char *pattern)
 		++i;
 	*value = (double)atoi(&(line[i]));
 	if (strstr(line, pattern) == NULL)
+		return (-1);
+	return (0);
+}
+
+int		init_surface(SDL_Surface **texture, char *line)
+{
+	if ((*texture = SDL_LoadBMP(line)) == NULL)
 		return (-1);
 	return (0);
 }

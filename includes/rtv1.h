@@ -6,7 +6,7 @@
 /*   By: eduwer <eduwer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 14:32:56 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/09 20:31:02 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/22 15:00:03 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define MINFOGDIST 2
 # define MAXFOGDIST 6
 # define FOGO MAXFOGDIST+MINFOGDIST
+#define PI 3.1415926535
 
 typedef struct		s_envgui	t_envgui;
 typedef struct		s_obj 		t_obj;
@@ -69,6 +70,8 @@ typedef struct		s_obj
 	double			(*intersect)(int*, struct s_obj*);
 	void			(*vector)(double*, double*, struct s_obj*, int);
 	int				(*shadow)(struct s_obj *, double *, int);
+	int				(*texturing)(t_obj obj);
+	SDL_Surface		*texture;
 	struct s_obj	*next;
 }					t_obj;
 
@@ -86,6 +89,9 @@ typedef struct		s_cam
 	int			res[2];
 }					t_cam;
 
+//fonctions a ajouter/remplacer pour le parser
+char	*ft_strnew(size_t size);
+char	*strsub(char const *s, unsigned int start, size_t len);
 void	get_infos(char *filename, t_obj **objs, int is_aa);
 int		init_scene(int fd, t_obj *objs, int is_aa);
 int		init_tab_3(double tab[3], int color[3], char *line);
@@ -115,6 +121,11 @@ void	convert_to_hex(int tab[3]);
 
 double				calc_one_spot_luminosity(t_obj *obj, int nb);
 double				calc_one_spot_spec(t_obj *obj, int nb);
+int		init_surface(SDL_Surface **texture, char *line);
+void	texture(t_obj obj, int color_tab[3]);
+int		texture_sphere(t_obj obj);
+int		texture_cylinder(t_obj obj);
+int		texture_plane(t_obj obj);
 
 void				draw_the_image(char **argv, t_obj *list, t_envgui *env);
 int					calc_image(int xy[2], t_obj *list, t_envgui *env);

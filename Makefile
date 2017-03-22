@@ -36,7 +36,8 @@ SRCS = 	gui/hook.c \
 		shadows.c \
 		shadows_obj.c \
 		libft.c \
-		get_next_line.c
+		get_next_line.c \
+		textures.c
 
 SRCF = ./srcs/
 OBJS = $(addprefix $(SRCF), $(SRCS:.c=.o))

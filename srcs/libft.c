@@ -6,12 +6,36 @@
 /*   By: pfichepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/17 10:10:49 by pfichepo          #+#    #+#             */
-/*   Updated: 2017/03/03 18:18:49 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/10 16:34:10 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include <rtv1.h>
 #include <stdlib.h>
+
+char	*ft_strnew(size_t size)
+{
+	char	*ptr;
+
+	if ((ptr = (char *)malloc(size + 1)) != NULL)
+	{
+		bzero(ptr, size);
+		return (ptr);
+	}
+	return (NULL);
+}
+
+char	*strsub(char const *s, unsigned int start, size_t len)
+{
+	char	*s2;
+
+	if ((s2 = ft_strnew(len)) != NULL)
+	{
+		strncpy(s2, &(s[start]), len);
+		return (s2);
+	}
+	return (NULL);
+}
 
 int				ft_isdigit(int c)
 {

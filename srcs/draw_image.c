@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 17:15:59 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/14 11:48:08 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/22 15:03:16 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,11 +112,17 @@ void	get_color_tab(int color[3], t_obj *list)
 	int	*color_tab;
 
 	i = 0;
-	color_tab = list->color_rgb;
-	while (i < 3)
+	color_tab = NULL;
+	if (list->texture)
+		texture(*list, color);
+	else
 	{
-		color[i] = *color_tab;
-		color_tab++;
-		i++;
+		color_tab = list->color_rgb;
+		while (i < 3)
+		{
+			color[i] = *color_tab;
+			color_tab++;
+			i++;
+		}
 	}
 }

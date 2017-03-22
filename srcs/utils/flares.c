@@ -44,7 +44,29 @@ bool	spotvisible(int *xy, double *spot, t_obj *blist)
 	return (false);
 }
 
-void	processflares(SDL_Surface *t, t_obj *b, SDL_Surface *f, int aa)
+static double getgoodsize(double *tab, int aa)
+{
+	double centerdist;
+	int x;
+	int y;
+	double fact;
+
+	x = 1920;
+	y = 1038;
+	if (aa > 1)
+	{
+		x *= AALEVEL;
+		y *= AALEVEL;
+	}
+	centerdist = sqrt(pow((x/2 - tab[0]), 2) + pow((y/2 - tab[1]), 2));
+	fact = 1 + (realdist(tab[2]) - 0) * (0 - 1) / (40 - 0);
+	if (centerdist < (200*aa))
+		fact *= (5 + (centerdist - 0) * (0 - 5) / (200*aa));
+	return (fact);
+}
+
+
+void	processflares(SDL_Surface *t, t_obj *b, SDL_Surface *f, int aalevel)
 {
 	Uint32		i;
 	int			xy[2];
@@ -59,9 +81,8 @@ void	processflares(SDL_Surface *t, t_obj *b, SDL_Surface *f, int aa)
 		xy[1] = b->recap_spots[i][1];
 		if (spotvisible(xy, b->recap_spots[i], b))
 		{
-			dist = 1 + (realdist(b->recap_spots[i][2]) - 0) * \
-			(0 - 1) / (40 - 0);
-			tmp = rotozoomSurface(f, rand() % 360, (dist / 6.5) * aa, 1);
+			dist = getgoodsize(b->recap_spots[i], aalevel);
+			tmp = rotozoomSurface(f, rand() % 360, (dist / 6.5) * aalevel, 1);
 			rect.w = tmp->w;
 			rect.h = tmp->h;
 			rect.x = xy[0] - (tmp->w) / 2;

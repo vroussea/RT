@@ -20,7 +20,6 @@
 				<type>straight stripes</type>
 				<color1>255 0 0</color1>
 			</procedural>
-
 		</sphere>
 		<cylinder>
 			<pos>30 0 150</pos>

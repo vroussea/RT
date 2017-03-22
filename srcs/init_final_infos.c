@@ -6,12 +6,11 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 17:16:53 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/15 15:02:18 by gboudrie         ###   ########.fr       */
+/*   Updated: 2017/03/16 12:00:23 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <rtv1.h>
-#include <stdlib.h>
 
 int		init_tab_3(double tab[3], int color[3] , char *line)
 {
@@ -75,9 +74,6 @@ int		init_one_value(double *value, char *line, char *pattern)
 int		init_surface(SDL_Surface **texture, char *line)
 {
 	if ((*texture = SDL_LoadBMP(line)) == NULL)
-	{
-		printf("%s", line);
 		return (-1);
-	}
 	return (0);
 }

@@ -61,11 +61,11 @@ int		check(char *line, t_obj *new_obj, int fd)
 	{
 		if (init_surface(&(new_obj->texture), str) == true)
 		{
-			free(&str);
+			free(str);
 			return (true);
 		}
 		else
-			free(&str);
+			free(str);
 	}
 	return (false);
 }

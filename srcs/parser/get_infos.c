@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_infos.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 16:59:02 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/18 17:00:37 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/22 16:11:22 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,28 @@ void		init_functs_obj(t_obj *obj)
 		obj->intersect = intersec_sphere;
 		obj->vector = get_vector_sphere;
 		obj->shadow = shadow_sphere;
+		obj->texturing = texture_sphere;
 	}
 	else if (obj->type == TYPE_PLANE)
 	{
 		obj->intersect = intersec_plane;
 		obj->vector = get_vector_plane;
 		obj->shadow = shadow_plane;
+		obj->texturing = texture_plane;
 	}
 	else if (obj->type == TYPE_CYLINDER)
 	{
 		obj->intersect = intersec_cylinder;
 		obj->vector = get_vector_cylinder;
 		obj->shadow = shadow_cylinder;
+		obj->texturing = texture_cylinder;
 	}
 	else if (obj->type == TYPE_CONE)
 	{
 		obj->intersect = intersec_cone;
 		obj->vector = get_vector_cone;
 		obj->shadow = shadow_cone;
+		obj->texturing = texture_cylinder;
 	}
 }
 

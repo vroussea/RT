@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rtv1.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduwer <eduwer@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 14:32:56 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/19 16:43:34 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/22 16:13:18 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@
 # define PROC_TEXT_STRAIGHT_STRIPES 4
 # define PROC_TEXT_DIAGONAL_STRIPES 5
 # define G_LUM 0
+# define PI 3.1415926535
 typedef struct		s_envgui	t_envgui;
 typedef struct		s_obj		t_obj;
 
@@ -83,6 +84,8 @@ typedef struct		s_obj
 	int				color1[3];
 	int				color2[3];
 	double			decal_xyz[3];
+	int				(*texturing)(t_obj obj);
+	SDL_Surface		*texture;
 	struct s_obj	*next;
 }					t_obj;
 
@@ -117,6 +120,8 @@ typedef struct		s_parserdata
 	t_threaddata	*thread4;
 }					t_parserdata;
 
+char	*ft_strnew(size_t size);
+char	*strsub(char const *s, unsigned int start, size_t len);
 void	get_infos(char *filename, t_obj **objs, int is_aa);
 bool	init_tab_3(double tab[3], int color[3], char *line);
 bool	init_3_values(double pos[3], char *line, char *pattern);
@@ -222,5 +227,11 @@ void				cross_product(double norm_vector[3], double vec1[3], \
 void				initthreads(t_parserdata *data);
 bool				flarecheck( double **list, int max, int x, int y);
 void 				processflares(SDL_Surface *target, t_obj *blist, SDL_Surface *flare, int aa);
+bool				init_surface(SDL_Surface **texture, char *line);
+void				texture(t_obj obj, int color_tab[3]);
+int					texture_sphere(t_obj obj);
+int					texture_cylinder(t_obj obj);
+int					texture_plane(t_obj obj);
+
 
 #endif

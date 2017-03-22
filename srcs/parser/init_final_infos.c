@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_final_infos.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 17:16:53 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/15 19:40:55 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/22 16:13:07 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,13 @@ bool	init_one_value(double *value, char *line, char *pattern)
 		++i;
 	*value = (double)atoi(&(line[i]));
 	if (strstr(line, pattern) == NULL)
+		return (true);
+	return (false);
+}
+
+bool		init_surface(SDL_Surface **texture, char *line)
+{
+	if ((*texture = SDL_LoadBMP(line)) == NULL)
 		return (true);
 	return (false);
 }

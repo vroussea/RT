@@ -3,17 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 17:34:08 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/16 16:58:54 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/22 16:13:29 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <rtv1.h>
 
+char	*balise(char *line, char *start, char *end)
+{
+	size_t	size;
+	char	*ptr;
+
+	size = strlen(start);
+	if (!(line = strstr(line, start)))
+		return (NULL);
+	line += size;
+	if (!(ptr = strstr(line, end)))
+		return (NULL);
+	size = (size_t)((long)ptr - (long)line);
+	line = strsub(line, 0, size);
+	line[size] = '\0';
+	return (line);
+}
+
+
 int		check(char *line, t_obj *new_obj, int fd)
 {
+	char	*str;
+
 	if (strstr(line, "<pos>") != NULL && new_obj->type != TYPE_PLANE && \
 			init_3_values(new_obj->pos, line, "</pos>") == true)
 		return (true);
@@ -37,6 +57,16 @@ int		check(char *line, t_obj *new_obj, int fd)
 		return (true);
 	else if (strstr(line, "<waves/>") != NULL)
 		new_obj->is_waves = true;
+	else if ((str = balise(line, "<texture>", "</texture>")) != NULL)
+	{
+		if (init_surface(&(new_obj->texture), str) == true)
+		{
+			free(&str);
+			return (true);
+		}
+		else
+			free(&str);
+	}
 	return (false);
 }
 

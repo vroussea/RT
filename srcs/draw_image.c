@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_image.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 17:15:59 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/17 15:12:21 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/22 16:10:36 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,12 @@ void			get_color_tab(int color[3], t_obj *list)
 	int	*color_tab;
 
 	i = 0;
+	color_tab = NULL;
+	if (list->texture)
+	{
+		texture(*list, color);
+		return ;
+	}
 	if (list->is_proc_texture == false)
 		color_tab = list->color_rgb;
 	else

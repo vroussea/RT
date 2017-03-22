@@ -3,21 +3,57 @@
 /*                                                        :::      ::::::::   */
 /*   libft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pfichepo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/17 10:10:49 by pfichepo          #+#    #+#             */
-/*   Updated: 2017/03/03 18:18:49 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/22 16:14:06 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 #include <stdlib.h>
+#include <rtv1.h>
+
+
+static void	bzero(void *s, size_t n)
+{
+	char *c;
+
+	c = s;
+	if (n)
+		while (n--)
+			*c++ = 0;
+}
 
 bool				ft_isdigit(int c)
 {
 	if (c >= 48 && c <= 57)
 		return (true);
 	return (false);
+}
+
+char	*ft_strnew(size_t size)
+{
+	char	*ptr;
+
+	if ((ptr = (char *)malloc(size + 1)) != NULL)
+	{
+		bzero(ptr, size);
+		return (ptr);
+	}
+	return (NULL);
+}
+
+char	*strsub(char const *s, unsigned int start, size_t len)
+{
+	char	*s2;
+
+	if ((s2 = ft_strnew(len)) != NULL)
+	{
+		strncpy(s2, &(s[start]), len);
+		return (s2);
+	}
+	return (NULL);
 }
 
 char	*ft_strcpy(char *dst, const char *src)

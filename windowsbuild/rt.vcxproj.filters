@@ -138,6 +138,9 @@
     <ClCompile Include="..\srcs\utils\flares.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\srcs\textures.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\includes\libft.h">

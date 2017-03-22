@@ -45,37 +45,10 @@
     <ClCompile Include="..\srcs\rtv1.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\srcs\get_infos.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\srcs\maths.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\srcs\maths2.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\srcs\init_cam.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\srcs\check.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\srcs\convert_to_hex.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\srcs\init_default_values.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\srcs\init_final_infos.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\srcs\make_new_obj.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\srcs\obj_infos.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\srcs\init_spots.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\srcs\list_funct.c">
@@ -121,6 +94,51 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\srcs\gui\fog.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\srcs\utils\threads.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\srcs\get_proc_color.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\srcs\parser\init_cam.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\srcs\parser\init_default_values.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\srcs\parser\init_final_infos.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\srcs\parser\init_procedural_textures.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\srcs\parser\init_spots.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\srcs\parser\make_new_obj.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\srcs\parser\obj_infos.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\srcs\parser\check.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\srcs\parser\convert_to_hex.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\srcs\parser\get_infos.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\srcs\parser\init_recap_spots.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\srcs\utils\flares.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\srcs\textures.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

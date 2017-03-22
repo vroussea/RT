@@ -3,14 +3,14 @@
 	<cam_infos>
 		<resolution>1080 800</resolution>
 		<cam>
-			<pos>300 0 100</pos>
+			<pos>500 0 100</pos>
+			<rotation>0 0 10</rotation>
 		</cam>
 		<spots>
 			<pos>100 -100 50</pos>
 			<pos>100 50 100</pos>
 			<pos>-1001 50 100</pos>
 			<pos>-2001 -500 100</pos>
-
 		</spots>
 	</cam_infos>
 	<objs>
@@ -42,7 +42,7 @@
 		<cylinder>
 			<pos>120 90 20</pos>
 			<rotation>42 45 42</rotation>
-			<size>20 </size>
+			<size>20</size>
 			<color>255 255 0</color>
 		</cylinder>
 	</objs>

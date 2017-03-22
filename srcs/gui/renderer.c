@@ -6,7 +6,7 @@
 /*   By: pfichepo <pfichepo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 11:09:54 by pfichepo          #+#    #+#             */
-/*   Updated: 2017/03/03 17:20:18 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/16 16:14:22 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,17 @@ static t_button	*retnext(t_button *button, t_envgui *env)
 	return (button->next);
 }
 
-void			mainrender(t_envgui *env, t_obj *lst, char **argv)
+void			mainrender(t_envgui *env, char **argv)
 {
 	SDL_Surface *target;
 
 	target = env->zraysurface[env->aa];
 	if (env->redraw)
 	{
-		draw_the_image(argv, lst, env);
+		draw_the_image(argv, env);
 		env->redraw = 0;
+		SDL_BlitSurface(env->fraysurface[env->aa], NULL, env->raysurface[env->aa], NULL);
+		
 		if (env->fog)
 			SDL_BlitSurface(target, NULL, env->raysurface[env->aa], NULL);
 	}
@@ -80,6 +82,7 @@ void			mainrender(t_envgui *env, t_obj *lst, char **argv)
 	{
 		calcaa(env);
 		env->aaupdated = 0;
+		SDL_BlitSurface(env->fraysurface[env->aa], NULL, env->raysurface[env->aa], NULL);
 		if (env->fog)
 			SDL_BlitSurface(target, NULL, env->raysurface[env->aa], NULL);
 	}
@@ -104,12 +107,12 @@ int				threaddraw(void *e)
 		SDL_LowerBlit(a->raysurface[0], a->rayrectin, a->surface, a->rayrect);
 		if (a->isloading)
 			drawloadingbardiscrete(a);
-		if (a->drawfps)
+		if (a->drawfps && a->gui->sans)
 			drawfps(a);
 		SDL_UpdateWindowSurface(a->win);
 		current = (double)(SDL_GetTicks() - startclock) / (double)1000;
 		if (current < ((double)1 / (double)a->freq))
 			SDL_Delay((Uint32)((1 / (double)a->freq) - current) * 1000);
 	}
-	return (1);
+	return (0);
 }

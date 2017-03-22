@@ -17,7 +17,7 @@
 	</cam_infos>
 	<objs>
 		<sphere>
-			<pos>100 0 0</pos>
+			<pos>100 50 0</pos>
 			<size>20</size>
 			<color>0 188 255</color>
 		</sphere>

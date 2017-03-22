@@ -7,3 +7,9 @@ windowsbuild/rt.v12.suo
 windowsbuild/rt.sdf
 *.opensdf
 windowsbuild/rt.sdf
+*.o
+
+rt
+
+bite.bmp
+*.bmp

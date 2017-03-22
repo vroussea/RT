@@ -1,6 +1,6 @@
 NAME = rt
 CC = clang
-CFLAGS = -Ofast -march=native  -msse -msse2 -msse3 -msse4 -Wall -Wextra -Werror -arch x86_64 -Wconversion -g -Wimplicit-function-declaration -I ./includes -I $(HOME)/.brew/Cellar/sdl2/2.0.5/include/SDL2
+CFLAGS = -Ofast -march=native -Wall -Wextra -Werror -arch x86_64 -g -Wimplicit-function-declaration -I ./includes -I $(HOME)/.brew/Cellar/sdl2/2.0.5/include/SDL2 -I $(HOME)/.brew/Cellar/sdl2_ttf/2.0.14/include/SDL2 -I $(HOME)/.brew/Cellar/sdl2_image/2.0.1_2/include/SDL2 -I $(HOME)/.brew/Cellar/sdl2_gfx/1.0.1/include/SDL2
 SRCS = 	gui/hook.c \
 		gui/hook2.c \
 		gui/graphiclib.c \
@@ -13,18 +13,22 @@ SRCS = 	gui/hook.c \
 		gui/api.c \
 		gui/fog.c \
 		utils/file.c \
+		utils/threads.c \
+		utils/flares.c \
+		parser/get_infos.c \
+		parser/init_cam.c \
+		parser/check.c \
+		parser/convert_to_hex.c \
+		parser/init_default_values.c \
+		parser/init_final_infos.c \
+		parser/make_new_obj.c \
+		parser/obj_infos.c \
+		parser/init_spots.c \
+		parser/init_recap_spots.c \
+		parser/init_procedural_textures.c \
 		rtv1.c \
-		get_infos.c \
 		maths.c \
 		maths2.c \
-		init_cam.c \
-		check.c \
-		convert_to_hex.c \
-		init_default_values.c \
-		init_final_infos.c \
-		make_new_obj.c \
-		obj_infos.c \
-		init_spots.c \
 		list_funct.c \
 		draw_image.c \
 		intersec_plane.c \
@@ -37,7 +41,10 @@ SRCS = 	gui/hook.c \
 		shadows_obj.c \
 		libft.c \
 		get_next_line.c \
+		get_proc_color.c \
+		get_next_line.c \
 		textures.c
+
 
 SRCF = ./srcs/
 OBJS = $(addprefix $(SRCF), $(SRCS:.c=.o))
@@ -45,7 +52,7 @@ OBJS = $(addprefix $(SRCF), $(SRCS:.c=.o))
 all : $(NAME)
 
 $(NAME): $(OBJS)
-	@$(CC) -o $(NAME) $(OBJS)  -L $(HOME)/.brew/Cellar/sdl2/2.0.5/lib -lSDL2 -lSDL2_ttf
+	@$(CC) -o $(NAME) $(OBJS)  -L $(HOME)/.brew/Cellar/sdl2/2.0.5/lib -lSDL2 -L $(HOME)/.brew/Cellar/sdl2_ttf/2.0.14/lib/ -lSDL2_ttf -L $(HOME)/.brew/Cellar/sdl2_image/2.0.1_2/lib -lSDL2_image  -L $(HOME)/.brew/Cellar/libpng/1.6.29/lib -lpng16 -lpng -lpng16.16  -L $(HOME)/.brew/Cellar/sdl2_gfx/1.0.1/lib -lSDL2_gfx
 	@echo Compiling RT ...
 
 clean:
@@ -62,7 +69,10 @@ start:
 sdl:
 	brew install sdl2
 	brew install sdl2_ttf
-	cp ~/.brew/Cellar/sdl2_ttf/2.0.14/include/SDL2/SDL_ttf.h ~/.brew/Cellar/sdl2/2.0.5/include/SDL2/
-	cp ~/.brew/Cellar/sdl2_ttf/2.0.14/lib/* ~/.brew/Cellar/sdl2/2.0.5/lib/
+	brew install sdl2_image
+	brew install libpng
+	brew install sdl2_gfx
+
+
 
 .PHONY: clean fclean all re $(NAME) start

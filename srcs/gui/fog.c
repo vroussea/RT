@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <rt.h>
+#include <SDL_image.h>
 
 Uint32			rgbafog(double dist)
 {
@@ -27,7 +28,7 @@ Uint32			rgbafog(double dist)
 	return (Uint32)((a << 24) + (50 << 16) + (50 << 8) + (50));
 }
 
-static int		ralo(t_envgui *env, t_button *self)
+static void		ralo(t_envgui *env, t_button *self)
 {
 	SDL_Surface *tmp;
 
@@ -39,7 +40,6 @@ static int		ralo(t_envgui *env, t_button *self)
 	self->defaults = tmp;
 	env->fog = !env->fog;
 	env->redraw = 1;
-	return (1);
 }
 
 void			initfog(t_envgui *env)
@@ -47,7 +47,13 @@ void			initfog(t_envgui *env)
 	t_button *button;
 	SDL_Rect *p4;
 
+	env->fraysurface = (SDL_Surface**)malloc(sizeof(SDL_Surface*) * 2);
 	env->zraysurface = (SDL_Surface**)malloc(sizeof(SDL_Surface*) * 2);
+	env->fraysurface[0] = SDL_CreateRGBSurfaceWithFormat(0, env->w, env->h \
+		- 10 - env->gui->bar->h, 32, SDL_PIXELFORMAT_RGBA32);
+	env->fraysurface[1] = SDL_CreateRGBSurfaceWithFormat(0, \
+		env->raysurface[0]->w \
+	* AALEVEL, env->raysurface[0]->h * AALEVEL, 32, SDL_PIXELFORMAT_RGBA32);
 	env->zraysurface[0] = SDL_CreateRGBSurfaceWithFormat(0, env->w, env->h \
 		- 10 - env->gui->bar->h, 32, SDL_PIXELFORMAT_RGBA32);
 	env->zraysurface[1] = SDL_CreateRGBSurfaceWithFormat(0, \
@@ -55,6 +61,7 @@ void			initfog(t_envgui *env)
 	* AALEVEL, env->raysurface[0]->h * AALEVEL, 32, SDL_PIXELFORMAT_RGBA32);
 	env->fog = 0;
 	p4 = newrect(env->w - 275, 0, 32, 32);
+	env->flare = IMG_Load("res/lens.png");
 	button = newbutton("res/fogdef0.bmp", "res/fogdef1.bmp", p4);
 	button->togglable = 1;
 	button->defaults2 = SDL_LoadBMP("res/fogpress0.bmp");

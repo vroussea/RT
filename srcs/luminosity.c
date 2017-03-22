@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 14:36:58 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/10 10:11:36 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/16 16:15:40 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ double	calc_one_spot_luminosity(t_obj *nearest_obj, int nb)
 	double		vec_light[3];
 
 	nearest_obj->vector(norm_vector, vec_light, nearest_obj, nb);
-	return (fmax(dot_product(norm_vector, vec_light), 0));
+	return (fmax(dot_product(norm_vector, vec_light) + G_LUM, 0));
 }
 
 double	calc_one_spot_spec(t_obj *nearest_obj, int nb)

@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 16:16:23 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/10 10:08:42 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/17 15:32:34 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_obj	*make_new_obj(t_obj *objs, int type)
 	if (objs->type == -1)
 	{
 		objs->type = type;
+		objs->is_waves = false;
 		objs->next = NULL;
 		return (objs);
 	}
@@ -29,6 +30,7 @@ t_obj	*make_new_obj(t_obj *objs, int type)
 	objs->next = new_obj;
 	new_obj->type = type;
 	new_obj->next = NULL;
+	new_obj->is_waves = false;
 	return (new_obj);
 }
 
@@ -87,33 +89,12 @@ void	init_spot(t_obj *obj, t_cam *cam)
 		if ((obj->spot[nb_spot] = malloc(sizeof(double) * 3)) == NULL)
 			ft_error("malloc", NULL);
 		while (i < 3)
-		{
+	{
 			obj->spot[nb_spot][i] = cam->spot[nb_spot][i];
 			obj->spot[nb_spot][i] -= obj->pos[i];
 			i++;
 		}
 		make_rotation(obj->spot[nb_spot], obj->rotation);
-	}
-}
-
-void	verif_plane_norm_vec(t_obj *plane)
-{
-	double	vec[3];
-	int		i;
-
-	i = 0;
-	while (plane->norm_vec[i] == 0.0)
-		i++;
-	vec[0] = plane->pos_cam[0];
-	vec[1] = plane->pos_cam[1];
-	vec[2] = plane->pos_cam[2];
-	vec[i] = plane->pos_cam[i] - \
-			(plane->high / plane->norm_vec[i]);
-	normalize_vec(vec);
-	if (dot_product(vec, plane->norm_vec) <= 0)
-	{
-		plane->norm_vec[2] = -1;
-		plane->high = -plane->high;
 	}
 }
 

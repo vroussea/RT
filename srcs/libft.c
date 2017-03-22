@@ -3,15 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   libft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pfichepo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/17 10:10:49 by pfichepo          #+#    #+#             */
-/*   Updated: 2017/03/10 16:34:10 by gboudrie         ###   ########.fr       */
+/*   Updated: 2017/03/22 16:14:06 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <rtv1.h>
+#include <libft.h>
 #include <stdlib.h>
+#include <rtv1.h>
+
+
+bool				ft_isdigit(int c)
+{
+	if (c >= 48 && c <= 57)
+		return (true);
+	return (false);
+}
 
 char	*ft_strnew(size_t size)
 {
@@ -19,7 +28,7 @@ char	*ft_strnew(size_t size)
 
 	if ((ptr = (char *)malloc(size + 1)) != NULL)
 	{
-		bzero(ptr, size);
+		memset(ptr, '\0', size);
 		return (ptr);
 	}
 	return (NULL);
@@ -35,13 +44,6 @@ char	*strsub(char const *s, unsigned int start, size_t len)
 		return (s2);
 	}
 	return (NULL);
-}
-
-int				ft_isdigit(int c)
-{
-	if (c >= 48 && c <= 57)
-		return (1);
-	return (0);
 }
 
 char	*ft_strcpy(char *dst, const char *src)

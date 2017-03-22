@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   init_final_infos.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 17:16:53 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/22 15:06:02 by gboudrie         ###   ########.fr       */
+/*   Updated: 2017/03/22 16:13:07 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <rtv1.h>
 
-int		init_tab_3(double tab[3], int color[3], char *line)
+bool	init_tab_3(double tab[3], int color[3], char *line)
 {
 	int	i;
 	int	indice_tab;
@@ -34,30 +34,35 @@ int		init_tab_3(double tab[3], int color[3], char *line)
 			++i;
 	}
 	if (indice_tab < 3)
-		return (-1);
-	return (0);
+		return (true);
+	return (false);
 }
 
-int		init_3_values(double value[3], char *line, char *pattern)
+bool	init_3_values(double value[3], char *line, char *pattern)
 {
-	if (init_tab_3(value, NULL, line) == -1)
-		return (-1);
+	if (init_tab_3(value, NULL, line) == true)
+		return (true);
 	if (strstr(line, pattern) == NULL)
-		return (-1);
-	return (0);
+		return (true);
+	return (false);
 }
 
-int		init_colors(int color[3], char *line)
+bool	init_colors(int color[3], char *line)
 {
-	if (init_tab_3(NULL, color, line) == -1)
-		return (-1);
+	int i;
+
+	i = 0;
+	while (line[i] != '>')
+		i++;
+	if (init_tab_3(NULL, color, &(line[i])) == true)
+		return (true);
 	convert_to_hex(color);
-	if (strstr(line, "</color>") == NULL)
-		return (-1);
-	return (0);
+	if (strstr(line, "</color") == NULL)
+		return (true);
+	return (false);
 }
 
-int		init_one_value(double *value, char *line, char *pattern)
+bool	init_one_value(double *value, char *line, char *pattern)
 {
 	int i;
 
@@ -66,13 +71,13 @@ int		init_one_value(double *value, char *line, char *pattern)
 		++i;
 	*value = (double)atoi(&(line[i]));
 	if (strstr(line, pattern) == NULL)
-		return (-1);
-	return (0);
+		return (true);
+	return (false);
 }
 
-int		init_surface(SDL_Surface **texture, char *line)
+bool		init_surface(SDL_Surface **texture, char *line)
 {
 	if ((*texture = SDL_LoadBMP(line)) == NULL)
-		return (-1);
-	return (0);
+		return (true);
+	return (false);
 }

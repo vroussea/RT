@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 16:03:12 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/03 17:55:17 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/16 17:15:48 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void	get_vector_sphere(double norm_vector[3], \
 	}
 	normalize_vec(norm_vector);
 	normalize_vec(vec_light);
+	if (sphere->is_waves == true)
+		rotation_x(norm_vector, 10.0 * cos(sphere->intersec_point[0]));
 }
 
 void	get_vector_plane(double norm_vector[3], \
@@ -42,6 +44,8 @@ void	get_vector_plane(double norm_vector[3], \
 	}
 	normalize_vec(norm_vector);
 	normalize_vec(vec_light);
+	if (plane->is_waves == true)
+		rotation_y(norm_vector, 2.0 * cos(plane->intersec_point[1]));
 }
 
 void	get_vector_cylinder(double norm_vector[3], \
@@ -59,6 +63,8 @@ void	get_vector_cylinder(double norm_vector[3], \
 	norm_vector[2] = 0;
 	normalize_vec(norm_vector);
 	normalize_vec(vec_light);
+	if (cylinder->is_waves == true)
+		rotation_z(norm_vector, 2.0 * cos(cylinder->intersec_point[2]));
 }
 
 void	cross_product(double norm_vector[3], double vec1[3], double vec2[3])
@@ -95,4 +101,6 @@ void	get_vector_cone(double norm_vector[3], double vec_light[3], \
 	cross_product(norm_vector, vec1, vec2);
 	normalize_vec(norm_vector);
 	normalize_vec(vec_light);
+	if (cone->is_waves == true)
+		rotation_z(norm_vector, 1.5 * cos(cone->intersec_point[2]));
 }

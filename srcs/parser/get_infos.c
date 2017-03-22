@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_infos.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 16:59:02 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/22 15:04:25 by gboudrie         ###   ########.fr       */
+/*   Updated: 2017/03/22 16:11:22 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <rtv1.h>
 
-void	init_functs_obj(t_obj *obj)
+void		init_functs_obj(t_obj *obj)
 {
 	if (obj->type == TYPE_SPHERE)
 	{
@@ -44,7 +44,7 @@ void	init_functs_obj(t_obj *obj)
 	}
 }
 
-void	free_cam_spot(t_cam *cam)
+void		free_spots(t_cam *cam)
 {
 	unsigned int i;
 
@@ -57,7 +57,7 @@ void	free_cam_spot(t_cam *cam)
 	free(cam->spot);
 }
 
-int		init_scene(int fd, t_obj *objs, int is_aa)
+static bool	init_scene(int fd, t_obj *objs, int is_aa)
 {
 	int		ret_gnl;
 	t_cam	cam;
@@ -67,31 +67,32 @@ int		init_scene(int fd, t_obj *objs, int is_aa)
 			strstr(line, "<cam_infos>") == NULL)
 		free(line);
 	free(line);
-	if (get_cam_infos(fd, &cam, is_aa) == -1)
-		return (-1);
+	if (get_cam_infos(fd, &cam, is_aa) == true)
+		return (true);
 	while ((ret_gnl = get_next_line(fd, &line) == 1) && \
 			strstr(line, "<objs>") == NULL)
 		free(line);
 	free(line);
-	if (get_objs_infos(fd, objs, &cam) == -1)
-		return (-1);
+	if (get_objs_infos(fd, objs, &cam) == true)
+		return (true);
 	while ((ret_gnl = get_next_line(fd, &line) == 1) && \
 			strstr(line, "</scene>") == NULL)
 		free(line);
 	free(line);
-	free_cam_spot(&cam);
+	init_recap_spots(objs, &cam);
+	free_spots(&cam);
 	if (ret_gnl == 1)
-		return (0);
-	return (-1);
+		return (false);
+	return (true);
 }
 
-void	write_and_exit(void)
+void		write_and_exit(void)
 {
 	write(2, "Error: file not well formated\n", 30);
 	exit(-1);
 }
 
-void	get_infos(char *file_name, t_obj **objs, int is_aa)
+void		get_infos(char *file_name, t_obj **objs, int is_aa)
 {
 	int		fd;
 	char	*line;
@@ -107,7 +108,7 @@ void	get_infos(char *file_name, t_obj **objs, int is_aa)
 			strstr(line, "<scene>") == NULL)
 		free(line);
 	free(line);
-	if (ret_gnl == 0 || (ret_gnl == 1 && init_scene(fd, *objs, is_aa) == -1))
+	if (ret_gnl == 0 || (ret_gnl == 1 && init_scene(fd, *objs, is_aa) == true))
 		write_and_exit();
 	close(fd);
 }

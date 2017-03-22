@@ -38,37 +38,16 @@ zsh -c "$(curl -fsSL https://raw.githubusercontent.com/kube/42homebrew/master/in
 * Cursor changing thing
 * using sdl
 * threaded rendering with cpu usage limit (60tick max on all threads ( main and renderer))
-
-
-##Documentation
-
-```C
-void updatepixel(t_envgui *env, int x, int y, Uint32 color)
-```
-
-
-color int : 0x rr gg bb 
-ex -> 0xffffff = 255 255 255 = blanc 
-
-
-```
-limite de x et y ->
-		si env->aa = 1 alors
-			xmax = env->raysurfaceaa->w
-			ymax = env->raysurfaceaa->y 
-		si env->aa = 0 alors
-			xmax = env->raysurface->w
-			ymax = env->raysurface->y 
-```
-
-updatepixel va prendre automatiquement la bonne surface sur laquelle draw et dire au programe de l'afficher au prochain draw
-
-
-
+* threaded raytracing (4 threads)
+* volumetric fog (no godrays)
+* procedural textures
 
 ##Threads
 
-###Thread 0 -> handeling image redraws, on main thread for easier debuging and easier code managment for the team
+###Thread 0 -> handeling image redraws, parsing and events on main thread for easier debuging and easier code managment for the team
 
 
-###Thread 1 -> pushing surface to the windows
+###Thread 1 -> pushing surface to the window (so the loading bar does not freeze)
+
+
+###Thread [2-6] -> Raytracing calc

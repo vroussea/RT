@@ -25,7 +25,7 @@ void	get_new_pos(double point[3], double pos_obj[3], double rotation[3])
 	make_rotation(point, rotation);
 }
 
-int		shadow_sphere(t_obj *sphere, double point[3], int nb)
+bool	shadow_sphere(t_obj *sphere, double point[3], int nb)
 {
 	double	point_sphere[3];
 	double	vec[3];
@@ -40,17 +40,17 @@ int		shadow_sphere(t_obj *sphere, double point[3], int nb)
 	vec[2] = (sphere->spot)[nb][2] - point_sphere[2];
 	abc_sphere(abc, vec, point_sphere, sphere->size);
 	if ((delta = pow(abc[1], 2) - 4 * abc[0] * abc[2]) < 0)
-		return (1);
+		return (true);
 	ans = (-abc[1] - sqrt(delta)) / (2 * abc[0]);
 	if (ans > 0.0001 && ans < 0.9999)
-		return (0);
+		return (false);
 	ans = (-abc[1] + sqrt(delta)) / (2 * abc[0]);
 	if (ans > 0.0001 && ans < 0.9999)
-		return (0);
-	return (1);
+		return (false);
+	return (true);
 }
 
-int		shadow_plane(t_obj *plane, double point[3], int nb)
+bool	shadow_plane(t_obj *plane, double point[3], int nb)
 {
 	double vec[3];
 	double ab[2];
@@ -65,17 +65,17 @@ int		shadow_plane(t_obj *plane, double point[3], int nb)
 	ab[0] = plane->norm_vec[0] * vec[0] + plane->norm_vec[1] * vec[1] + \
 			plane->norm_vec[2] * vec[2];
 	if (ab[0] == 0)
-		return (1);
+		return (true);
 	ab[1] = plane->norm_vec[0] * obj_point[0] + \
 				plane->norm_vec[1] * obj_point[1] + \
 					plane->norm_vec[2] * obj_point[2] - plane->high;
 	result = (-ab[1]) / (ab[0]);
 	if (result > 0.0001 && result < 0.9999)
-		return (0);
-	return (1);
+		return (false);
+	return (true);
 }
 
-int		shadow_cylinder(t_obj *cylinder, double point[3], int nb)
+bool	shadow_cylinder(t_obj *cylinder, double point[3], int nb)
 {
 	double	vec[3];
 	double	abc[3];
@@ -89,17 +89,17 @@ int		shadow_cylinder(t_obj *cylinder, double point[3], int nb)
 	vec[2] = (cylinder->spot)[nb][2] - obj_point[2];
 	abc_cylinder(abc, vec, obj_point, cylinder->size);
 	if ((delta = pow(abc[1], 2) - 4 * abc[0] * abc[2]) < 0)
-		return (1);
+		return (true);
 	vec[0] = (-abc[1] - sqrt(delta)) / (2 * abc[0]);
 	if (vec[0] > 0.0001 && vec[0] < 0.9999)
-		return (0);
+		return (false);
 	vec[0] = (-abc[1] + sqrt(delta)) / (2 * abc[0]);
 	if (vec[0] > 0.0001 && vec[0] < 0.9999)
-		return (0);
-	return (1);
+		return (false);
+	return (true);
 }
 
-int		shadow_cone(t_obj *cone, double point[3], int nb)
+bool	shadow_cone(t_obj *cone, double point[3], int nb)
 {
 	double	vec[3];
 	double	abc[3];
@@ -113,12 +113,12 @@ int		shadow_cone(t_obj *cone, double point[3], int nb)
 	vec[2] = (cone->spot)[nb][2] - obj_point[2];
 	abc_cone(abc, vec, obj_point, cone->rad);
 	if ((delta = pow(abc[1], 2) - 4 * abc[0] * abc[2]) < 0)
-		return (1);
+		return (true);
 	vec[0] = (-abc[1] - sqrt(delta)) / (2 * abc[0]);
 	if (vec[0] > 0.0001 && vec[0] < 0.9999)
-		return (0);
+		return (false);
 	vec[0] = (-abc[1] + sqrt(delta)) / (2 * abc[0]);
 	if (vec[0] > 0.0001 && vec[0] < 0.9999)
-		return (0);
-	return (1);
+		return (false);
+	return (true);
 }

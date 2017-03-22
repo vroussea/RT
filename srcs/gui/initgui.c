@@ -6,13 +6,13 @@
 /*   By: pfichepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 11:33:03 by pfichepo          #+#    #+#             */
-/*   Updated: 2017/02/08 11:33:06 by pfichepo         ###   ########.fr       */
+/*   Updated: 2017/03/16 16:13:44 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <rt.h>
 
-static int		rala(t_envgui *env, t_button *self)
+static void		rala(t_envgui *env, t_button *self)
 {
 	SDL_Surface *tmp;
 
@@ -24,14 +24,14 @@ static int		rala(t_envgui *env, t_button *self)
 	self->defaults = tmp;
 	env->aa = !env->aa;
 	env->redraw = 1;
-	return (1);
+	return ;
 }
 
-static int		screen(t_envgui *env, t_button *self)
+static void		screen(t_envgui *env, t_button *self)
 {
-	SDL_SaveBMP(env->raysurface[0], "dada.bmp");
+	SDL_CreateThread(threadsavepic, "WriteImageThread", \
+		(void*)env->raysurface[0]);
 	self = (t_button*)self;
-	return (1);
 }
 
 static void		initbuttons2(t_envgui *env)
@@ -44,8 +44,10 @@ static void		initbuttons2(t_envgui *env)
 	p5 = newrect(env->w - 230, 0, 32, 32);
 	button = newbutton("res/aadef0.bmp", "res/aapress0.bmp", p4);
 	button->togglable = 1;
-	button->defaults2 = SDL_LoadBMP("res/aadef1.bmp");
-	button->press2 = SDL_LoadBMP("res/aapress1.bmp");
+	if (!(button->defaults2 = SDL_LoadBMP("res/aadef1.bmp")))
+		perror("Cannot Load button texture");
+	if (!(button->press2 = SDL_LoadBMP("res/aapress1.bmp")))
+		perror("Cannot Load button texture");
 	button->pressed = 0;
 	button->type = BUTTON_SPHERE;
 	button->pressfunc = rala;
@@ -103,7 +105,8 @@ void			initgui(t_envgui *env)
 	* AALEVEL, env->raysurface[0]->h * AALEVEL, 32, SDL_PIXELFORMAT_RGB888);
 	env->rayrect = newrect(0, env->gui->bar->h, env->w, env->raysurface[0]->h);
 	env->rayrectin = newrect(0, 0, env->w, env->raysurface[0]->h);
-	env->gui->sans = TTF_OpenFont("res/Sans.ttf", 24);
+	if (!(env->gui->sans = TTF_OpenFont("res/Sans.ttf", 24)))
+		perror("Cannot load FPS font");
 	env->gui->white.r = 255;
 	env->gui->white.g = 255;
 	env->gui->white.b = 255;

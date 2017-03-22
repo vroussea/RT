@@ -6,36 +6,13 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 17:32:14 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/06 18:16:30 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/18 17:19:58 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <rtv1.h>
 
-int		init_res(char *line, t_cam *cam, int is_aa)
-{
-	int		i;
-
-	i = 0;
-	while (line[i] != '>' && line[i] != '\0')
-		i++;
-	cam->res[0] = atoi(&(line[i + 1]));
-	while (line[i] != ' ' && line[i] != '\0')
-		i++;
-	cam->res[1] = atoi(&(line[i + 1]));
-	if (strstr(line, "</resolution>") == NULL)
-		return (-1);
-	if (is_aa)
-	{
-		cam->res[0] *= AALEVEL;
-		cam->res[1] *= AALEVEL;
-	}
-	if (cam->res[0] <= 0 || cam->res[1] <= 0)
-		return (-1);
-	return (0);
-}
-
-int		init_cam_pos_rotation(int fd, t_cam *cam)
+static bool	init_cam_pos_rotation(int fd, t_cam *cam)
 {
 	int		ret_gnl;
 	char	*line;
@@ -44,20 +21,20 @@ int		init_cam_pos_rotation(int fd, t_cam *cam)
 			strstr(line, "</cam>") == NULL)
 	{
 		if (strstr(line, "<pos>") != NULL && \
-				init_3_values(cam->pos_cam, line, "</pos>") == -1)
-			return (-1);
+				init_3_values(cam->pos_cam, line, "</pos>") == true)
+			return (true);
 		else if (strstr(line, "<rotation>") != NULL && \
-				init_3_values(cam->rotation, line, "</rotation>") == -1)
-			return (-1);
+				init_3_values(cam->rotation, line, "</rotation>") == true)
+			return (true);
 		free(line);
 	}
 	free(line);
 	if (ret_gnl != 1)
-		return (-1);
-	return (0);
+		return (true);
+	return (false);
 }
 
-void	init_down_right(double vec_down[3], double vec_right[3], \
+void		init_down_right(double vec_down[3], double vec_right[3], \
 			double rotation[3], int res[2])
 {
 	vec_right[0] = 0;
@@ -70,7 +47,7 @@ void	init_down_right(double vec_down[3], double vec_right[3], \
 	make_rotation(vec_down, rotation);
 }
 
-int		finish_init_cam(t_cam *cam)
+static bool	finish_init_cam(t_cam *cam)
 {
 	int		i;
 
@@ -85,10 +62,12 @@ int		finish_init_cam(t_cam *cam)
 		cam->vec_down[i] /= cam->res[1];
 		i++;
 	}
-	return (0);
+	if (cam->nb_spot == 0)
+		return (init_one_spot(cam));
+	return (false);
 }
 
-int		get_cam_infos(int fd, t_cam *cam, int is_aa)
+bool		get_cam_infos(int fd, t_cam *cam, int is_aa)
 {
 	int		ret_gnl;
 	char	*line;
@@ -99,19 +78,16 @@ int		get_cam_infos(int fd, t_cam *cam, int is_aa)
 	while ((ret_gnl = get_next_line(fd, &line)) == 1 && \
 			strstr(line, "</cam_infos>") == NULL)
 	{
-		if (strstr(line, "<resolution>") != NULL && \
-				init_res(line, cam, is_aa) == -1)
-			return (-1);
-		else if (strstr(line, "<cam>") != NULL && \
-				init_cam_pos_rotation(fd, cam) == -1)
-			return (-1);
+		if (strstr(line, "<cam>") != NULL && \
+				init_cam_pos_rotation(fd, cam) == true)
+			return (true);
 		else if (strstr(line, "<spots>") != NULL && \
-				init_spots(fd, cam) == -1)
-			return (-1);
+				init_spots(fd, cam) == true)
+			return (true);
 		free(line);
 	}
 	free(line);
 	if (ret_gnl != 1)
-		return (-1);
+		return (true);
 	return (finish_init_cam(cam));
 }

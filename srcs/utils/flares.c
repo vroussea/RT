@@ -15,42 +15,12 @@
 #include <SDL_image.h>
 #include <SDL2_rotozoom.h>
 
-
-
-void drawflare(SDL_Surface *target, int x, int y, double distance)
+double	realdist(double dist)
 {
-	int x1;
-	int y1;
-	double dist;
-
-	distance = 1 + (distance - 0) * (0 - 1) / (40 - 0);
-	printf("%f\n",distance*10 );
-	x1 = 0;
-	y1 = 0;
-	while (x1 < target->w)
-	{
-		y1 = 0;
-		while (y1 < target->h)
-		{
-			dist = sqrt(pow((x1 - x), 2) + pow((y1 - y), 2));
-			if (dist < distance*10)
-			{
-				putpixel(target, x1, y1,(Uint32)(( 255 << 24) + (255 << 16) + (255 << 8) + (255)));
-			}
-			y1++;
-		}
-		x1++;
-	}
+	return (math_remapsimple(dist, 701.783442, 7));
 }
 
-
-static double realdist(double dist)
-{
-	return math_remapsimple(dist, 701.783442,7);
-}
-
-
-bool		spotvisible(int *xy, double *spot, t_obj *blist)
+bool	spotvisible(int *xy, double *spot, t_obj *blist)
 {
 	double	nearest_point;
 	double	mem;
@@ -74,46 +44,31 @@ bool		spotvisible(int *xy, double *spot, t_obj *blist)
 	return (false);
 }
 
-void processflares(SDL_Surface *target, t_obj *blist, SDL_Surface *flare, int aa)
+void	processflares(SDL_Surface *t, t_obj *b, SDL_Surface *f, int aa)
 {
-	double **list;
-	Uint32 i;
-	int xy[2];
-	double dist;
-	SDL_Surface *tmp;
+	Uint32		i;
+	int			xy[2];
+	double		dist;
+	SDL_Surface	*tmp;
+	SDL_Rect	rect;
 
 	i = 0;
-	list = blist->recap_spots;
-	while (i < blist->nb_spots_on_screen)
+	while (i < b->nb_spots_on_screen)
 	{
-		xy[0] = list[i][0];
-		xy[1] = list[i][1];
-		if (spotvisible(xy, list[i], blist))
+		xy[0] = b->recap_spots[i][0];
+		xy[1] = b->recap_spots[i][1];
+		if (spotvisible(xy, b->recap_spots[i], b))
 		{
-			dist = 1 + ( realdist(list[i][2]) - 0) * (0 - 1) / (40 - 0);
-			tmp = rotozoomSurface(flare,rand()%360,(dist/6.5)*aa,1);
-			SDL_Rect rect;
+			dist = 1 + (realdist(b->recap_spots[i][2]) - 0) * \
+			(0 - 1) / (40 - 0);
+			tmp = rotozoomSurface(f, rand() % 360, (dist / 6.5) * aa, 1);
 			rect.w = tmp->w;
 			rect.h = tmp->h;
-			rect.x = xy[0] - (tmp->w)/2;
-			rect.y = xy[1] - (tmp->h)/2;
-			SDL_BlitSurface(tmp, NULL, target, &rect);
+			rect.x = xy[0] - (tmp->w) / 2;
+			rect.y = xy[1] - (tmp->h) / 2;
+			SDL_BlitSurface(tmp, NULL, t, &rect);
 			SDL_FreeSurface(tmp);
 		}
 		i++;
-		
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

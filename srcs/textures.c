@@ -14,20 +14,6 @@
 #include <math.h>
 #include <stdlib.h>
 
-Uint32 		convert(Uint32 color)
-{
-	Uint8 a;
-	Uint8 r;
-	Uint8 g;
-	Uint8 b;
-
-	a = 255;
-	b = (color >> 16 & 0xff);
-	g = (color >> 8 & 0xff);
-	r = (color >> 0 & 0xff);
-	return ( (b << 24) + (g << 16) + (r << 8));
-}
-
 Uint32		texture_sphere(t_obj obj)
 {
 	Uint32			color;
@@ -68,9 +54,8 @@ Uint32	texture_plane(t_obj obj)
 
 	x = abs((int)(obj.intersec_point[0] * 16));
 	y = abs((int)(obj.intersec_point[1] * 16));
-	color = convert(getpixel(obj.texture, \
-		x % obj.texture->w, y % obj.texture->h));
-	//printf("0x%08x\n", color);  // gives 0x000007
+	color = getpixel(obj.texture, \
+		x % obj.texture->w, y % obj.texture->h);
 	return (color);
 }
 

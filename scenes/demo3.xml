@@ -18,17 +18,19 @@
 			<pos>-10 120 55</pos>
 			<size>50</size>
 			<color>0 255 0</color>
+			<texture>res/cheekibreeki.bmp</texture>
 		</sphere>
 		<cylinder>
 			<pos>0 0 0</pos>
 			<rotation>0 0 0</rotation>
 			<size>20 </size>
 			<color>255 0 0</color>
+			<texture>res/cheekibreeki.bmp</texture>
 		</cylinder>
 		<plane>
 			<high>0</high>
 			<color>255 255 255</color>
-
+			<texture>res/cheekibreeki.bmp</texture>
 		</plane>
 		<plane>
 			<high>100</high>
@@ -40,12 +42,14 @@
 			<high>-150</high>
 			<rotation>180 0 0</rotation>
 			<color>12 54 200</color>
+			<texture>res/cheekibreeki.bmp</texture>
 		</plane>
 		<cylinder>
 			<pos>120 90 20</pos>
 			<rotation>42 45 42</rotation>
 			<size>20</size>
 			<color>255 255 0</color>
+			<texture>res/cheekibreeki.bmp</texture>
 		</cylinder>
 	</objs>
 </scene>

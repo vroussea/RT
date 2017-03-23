@@ -15,6 +15,7 @@ SRCS = 	gui/hook.c \
 		utils/file.c \
 		utils/threads.c \
 		utils/flares.c \
+		utils/colors.c \
 		parser/get_infos.c \
 		parser/init_cam.c \
 		parser/check.c \

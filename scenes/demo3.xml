@@ -41,7 +41,6 @@
 		<plane>
 			<high>-150</high>
 			<rotation>180 0 0</rotation>
-			<color>12 54 200</color>
 			<texture>res/cheekibreeki.bmp</texture>
 		</plane>
 		<cylinder>

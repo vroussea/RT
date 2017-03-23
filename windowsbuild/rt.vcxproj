@@ -144,6 +144,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\srcs\calcs.c" />
     <ClCompile Include="..\srcs\get_proc_color.c" />
     <ClCompile Include="..\srcs\gui\fog.c" />
     <ClCompile Include="..\srcs\gui\hook.c" />
@@ -156,6 +157,7 @@
     <ClCompile Include="..\srcs\gui\initgui.c" />
     <ClCompile Include="..\srcs\gui\colorutils.c" />
     <ClCompile Include="..\srcs\gui\api.c" />
+    <ClCompile Include="..\srcs\libft2.c" />
     <ClCompile Include="..\srcs\parser\check.c" />
     <ClCompile Include="..\srcs\parser\convert_to_hex.c" />
     <ClCompile Include="..\srcs\parser\get_infos.c" />
@@ -177,6 +179,7 @@
     <ClCompile Include="..\srcs\intersec_cylinder.c" />
     <ClCompile Include="..\srcs\intersec_cone.c" />
     <ClCompile Include="..\srcs\textures.c" />
+    <ClCompile Include="..\srcs\utils\colors.c" />
     <ClCompile Include="..\srcs\utils\file.c" />
     <ClCompile Include="..\srcs\utils\flares.c" />
     <ClCompile Include="..\srcs\utils\threads.c" />

@@ -2,14 +2,6 @@
 *.tlog
 windowsbuild/x64/Release/vc120.pdb
 *.log
-windowsbuild/rt.v12.suo
+windowsbuild/rt.opensdf
 *.sdf
-windowsbuild/rt.sdf
-*.opensdf
-windowsbuild/rt.sdf
-*.o
-
-rt
-
-bite.bmp
-*.bmp
+windowsbuild/rt.v12.suo

@@ -76,7 +76,7 @@ bool	init_one_value(double *value, char *line, char *pattern)
 	return (false);
 }
 
-bool		init_surface(SDL_Surface **texture, char *line)
+bool	init_surface(SDL_Surface **texture, char *line)
 {
 	if ((*texture = IMG_Load(line)) == NULL)
 		return (true);

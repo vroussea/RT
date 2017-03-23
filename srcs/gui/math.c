@@ -12,7 +12,7 @@
 
 #include <rt.h>
 
-double			math_remapsimple(double value, double to1, double to2)
+double				math_remapsimple(double value, double to1, double to2)
 {
 	return (value * (to2 / to1));
 }

@@ -15,12 +15,12 @@
 #include <SDL_image.h>
 #include <SDL2_rotozoom.h>
 
-double	realdist(double dist)
+double			realdist(double dist)
 {
 	return (math_remapsimple(dist, 701.783442, 7));
 }
 
-bool	spotvisible(int *xy, double *spot, t_obj *blist)
+bool			spotvisible(int *xy, double *spot, t_obj *blist)
 {
 	double	nearest_point;
 	double	mem;
@@ -44,12 +44,12 @@ bool	spotvisible(int *xy, double *spot, t_obj *blist)
 	return (false);
 }
 
-static double getgoodsize(double *tab, int aa)
+static double	getgoodsize(double *tab, int aa)
 {
-	double centerdist;
-	int x;
-	int y;
-	double fact;
+	double	centerdist;
+	int		x;
+	int		y;
+	double	fact;
 
 	x = 1920;
 	y = 1038;
@@ -58,15 +58,14 @@ static double getgoodsize(double *tab, int aa)
 		x *= AALEVEL;
 		y *= AALEVEL;
 	}
-	centerdist = sqrt(pow((x/2 - tab[0]), 2) + pow((y/2 - tab[1]), 2));
+	centerdist = sqrt(pow((x / 2 - tab[0]), 2) + pow((y / 2 - tab[1]), 2));
 	fact = 1 + (realdist(tab[2]) - 0) * (0 - 1) / (40 - 0);
-	if (centerdist < (200*aa))
-		fact *= (5 + (centerdist - 0) * (0 - 5) / (200*aa));
+	if (centerdist < (200 * aa))
+		fact *= (5 + (centerdist - 0) * (0 - 5) / (200 * aa));
 	return (fact);
 }
 
-
-void	processflares(SDL_Surface *t, t_obj *b, SDL_Surface *f, int aalevel)
+void			processflares(SDL_Surface *t, t_obj *b, SDL_Surface *f, int a)
 {
 	Uint32		i;
 	int			xy[2];
@@ -81,8 +80,8 @@ void	processflares(SDL_Surface *t, t_obj *b, SDL_Surface *f, int aalevel)
 		xy[1] = b->recap_spots[i][1];
 		if (spotvisible(xy, b->recap_spots[i], b))
 		{
-			dist = getgoodsize(b->recap_spots[i], aalevel);
-			tmp = rotozoomSurface(f, rand() % 360, (dist / 6.5) * aalevel, 1);
+			dist = getgoodsize(b->recap_spots[i], a);
+			tmp = rotozoomSurface(f, rand() % 360, (dist / 6.5) * a, 1);
 			rect.w = tmp->w;
 			rect.h = tmp->h;
 			rect.x = xy[0] - (tmp->w) / 2;

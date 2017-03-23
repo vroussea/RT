@@ -27,6 +27,13 @@ int			threadsavepic(void *adr)
 	return (0);
 }
 
+static int	ret(t_threaddata *data)
+{
+	del_all_list(data->data);
+	free(data);
+	return (data->threadid);
+}
+
 static int	threadthink(void *d)
 {
 	t_threaddata	*data;
@@ -53,9 +60,7 @@ static int	threadthink(void *d)
 		}
 		xy[0] += 4;
 	}
-	del_all_list(data->data);
-	free(data);
-	return (data->threadid);
+	return (ret(data));
 }
 
 void		initthreads(t_parserdata *data)

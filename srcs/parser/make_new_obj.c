@@ -89,7 +89,7 @@ void	init_spot(t_obj *obj, t_cam *cam)
 		if ((obj->spot[nb_spot] = malloc(sizeof(double) * 3)) == NULL)
 			ft_error("malloc", NULL);
 		while (i < 3)
-	{
+		{
 			obj->spot[nb_spot][i] = cam->spot[nb_spot][i];
 			obj->spot[nb_spot][i] -= obj->pos[i];
 			i++;

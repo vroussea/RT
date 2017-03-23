@@ -31,6 +31,7 @@ SRCS = 	gui/hook.c \
 		maths2.c \
 		list_funct.c \
 		draw_image.c \
+		calcs.c \
 		intersec_plane.c \
 		intersec_sphere.c \
 		intersec_cylinder.c \
@@ -40,6 +41,7 @@ SRCS = 	gui/hook.c \
 		shadows.c \
 		shadows_obj.c \
 		libft.c \
+		libft2.c \
 		get_next_line.c \
 		get_proc_color.c \
 		textures.c

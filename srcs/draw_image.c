@@ -33,15 +33,15 @@ t_threaddata	*mallocit(Uint8 id, t_envgui *env)
 
 void			draw_the_image(char **argv, t_envgui *env)
 {
-	t_parserdata *data;
-	t_obj *begin_list;
+	t_parserdata	*data;
+	t_obj			*belst;
 
 	SDL_SetCursor(env->wait);
-	get_infos(argv[1], &begin_list, env->aa);
+	get_infos(argv[1], &belst, env->aa);
 	if (env->aa)
-		processflares(env->fraysurface[env->aa], begin_list, env->flare, AALEVEL);
+		processflares(env->fraysurface[env->aa], belst, env->flare, AALEVEL);
 	else
-		processflares(env->fraysurface[env->aa], begin_list, env->flare, 1);
+		processflares(env->fraysurface[env->aa], belst, env->flare, 1);
 	data = (t_parserdata*)malloc(sizeof(t_parserdata));
 	data->thread1 = mallocit(1, env);
 	data->thread2 = mallocit(2, env);
@@ -91,71 +91,4 @@ int				calc_image(int x, int y, t_obj *begin_list, SDL_Surface *fogmap)
 		return (0x000000);
 	}
 	return (get_color_obj(begin_list, nearest_obj, xy));
-}
-
-void			finish_calc_lights(int color_tab[3], double luminosity, \
-					double specular)
-{
-	color_tab[0] = (int)fmin(color_tab[0] * luminosity + specular, 0xFF);
-	color_tab[1] = (int)fmin(color_tab[1] * luminosity + specular, 0xFF);
-	color_tab[2] = (int)fmin(color_tab[2] * luminosity + specular, 0xFF);
-}
-
-void			calc_lights(t_obj *list, t_obj *nearest_obj, int xy[2], \
-					int color_tab[3])
-{
-	int		nb_spot;
-	double	global_specular;
-	double	global_luminosity;
-
-	nb_spot = (int)list->nb_spot;
-	global_specular = 0;
-	global_luminosity = 0;
-	while (--nb_spot >= 0)
-	{
-		if (shadows(list, xy, nearest_obj, nb_spot) == true)
-		{
-			global_luminosity += calc_one_spot_luminosity(nearest_obj, nb_spot);
-			global_specular = fmax(global_specular, \
-				calc_one_spot_spec(nearest_obj, nb_spot));
-		}
-	}
-	finish_calc_lights(color_tab, global_luminosity / (double)list->nb_spot, \
-		global_specular);
-}
-
-int				get_color_obj(t_obj *list, t_obj *nearest_obj, int xy[2])
-{
-	int		color_tab[3];
-
-	color_tab[0] = 0x0;
-	color_tab[1] = 0x0;
-	color_tab[2] = 0x0;
-	get_color_tab(color_tab, nearest_obj);
-	calc_lights(list, nearest_obj, xy, color_tab);
-	return (color_tab[0] * 0x10000 + color_tab[1] * 0x100 + color_tab[2]);
-}
-
-void			get_color_tab(int color[3], t_obj *list)
-{
-	int	i;
-	int	*color_tab;
-
-	i = 0;
-	color_tab = NULL;
-	if (list->texture)
-	{
-		texture(*list, color);
-		return ;
-	}
-	if (list->is_proc_texture == false)
-		color_tab = list->color_rgb;
-	else
-		color_tab = get_proc_color(list);
-	while (i < 3)
-	{
-		color[i] = *color_tab;
-		color_tab++;
-		i++;
-	}
 }

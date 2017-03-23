@@ -14,55 +14,6 @@
 #include <stdlib.h>
 #include <rtv1.h>
 
-
-bool				ft_isdigit(int c)
-{
-	if (c >= 48 && c <= 57)
-		return (true);
-	return (false);
-}
-
-char	*ft_strnew(size_t size)
-{
-	char	*ptr;
-
-	if ((ptr = (char *)malloc(size + 1)) != NULL)
-	{
-		memset(ptr, '\0', size);
-		return (ptr);
-	}
-	return (NULL);
-}
-
-char	*strsub(char const *s, unsigned int start, size_t len)
-{
-	char	*s2;
-
-	if ((s2 = ft_strnew(len)) != NULL)
-	{
-		strncpy(s2, &(s[start]), len);
-		return (s2);
-	}
-	return (NULL);
-}
-
-char	*ft_strcpy(char *dst, const char *src)
-{
-	char *pt_src;
-	char *pt_dst;
-
-	pt_src = (char *)src;
-	pt_dst = dst;
-	while (*pt_src != '\0')
-	{
-		*pt_dst = *pt_src;
-		pt_src++;
-		pt_dst++;
-	}
-	*pt_dst = '\0';
-	return (dst);
-}
-
 static size_t	count_words(char *s, char c)
 {
 	size_t nb_words;
@@ -110,7 +61,7 @@ static char		*create_and_fill(char **newtab, int i, char *pt_s, char c)
 	return (pt_s);
 }
 
-char					**ft_strsplit(const char *s, char c)
+char			**ft_strsplit(const char *s, char c)
 {
 	char	**newtab;
 	char	*pt_s;

@@ -12,7 +12,7 @@
 
 #include <rtv1.h>
 
-char	*balise(char *line, char *start, char *end)
+char		*balise(char *line, char *start, char *end)
 {
 	size_t	size;
 	char	*ptr;
@@ -29,11 +29,27 @@ char	*balise(char *line, char *start, char *end)
 	return (line);
 }
 
-
-int		check(char *line, t_obj *new_obj, int fd)
+static bool	checktext(char *line, t_obj *new_obj)
 {
 	char	*str;
 
+	if (strstr(line, "<waves/>") != NULL)
+		new_obj->is_waves = true;
+	if ((str = balise(line, "<texture>", "</texture>")) != NULL)
+	{
+		if (init_surface(&(new_obj->texture), str) == true)
+		{
+			free(str);
+			return (true);
+		}
+		else
+			free(str);
+	}
+	return (false);
+}
+
+int			check(char *line, t_obj *new_obj, int fd)
+{
 	if (strstr(line, "<pos>") != NULL && new_obj->type != TYPE_PLANE && \
 			init_3_values(new_obj->pos, line, "</pos>") == true)
 		return (true);
@@ -55,22 +71,10 @@ int		check(char *line, t_obj *new_obj, int fd)
 	else if (strstr(line, "<procedural>") != NULL && \
 			init_procedural_textures(new_obj, fd) == true)
 		return (true);
-	else if (strstr(line, "<waves/>") != NULL)
-		new_obj->is_waves = true;
-	else if ((str = balise(line, "<texture>", "</texture>")) != NULL)
-	{
-		if (init_surface(&(new_obj->texture), str) == true)
-		{
-			free(str);
-			return (true);
-		}
-		else
-			free(str);
-	}
-	return (false);
+	return (checktext(line, new_obj));
 }
 
-bool	check_procedural_texture(t_obj *obj, char *line)
+bool		check_procedural_texture(t_obj *obj, char *line)
 {
 	if (strstr(line, "<type>") != NULL && \
 			init_procedural_type(obj, line) == true)
@@ -87,7 +91,7 @@ bool	check_procedural_texture(t_obj *obj, char *line)
 	return (false);
 }
 
-void	verif_plane_norm_vec(t_obj *plane)
+void		verif_plane_norm_vec(t_obj *plane)
 {
 	double	vec[3];
 	int		i;

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <rt.h>
+#include <SDL_image.h>
 
 static void		rala(t_envgui *env, t_button *self)
 {
@@ -57,6 +58,7 @@ static void		initbuttons2(t_envgui *env)
 	button->pressed = 0;
 	button->type = BUTTON_SPHERE;
 	stackbutton(env, button);
+	env->flare = IMG_Load("res/lens.png");
 	initfog(env);
 }
 

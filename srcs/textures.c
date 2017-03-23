@@ -26,9 +26,8 @@ int		texture_sphere(t_obj obj)
 	t = PI + atan(obj.intersec_point[0] / obj.intersec_point[1]);
 	x = (int)((obj.texture->w * p * 6) / 2 * PI);
 	y = (int)((obj.texture->h * t * 6) / 2 * PI);
-	color = getpixel(obj.texture,
-					 abs(x % (int)obj.texture->w),
-					 abs(y % (int)obj.texture->h));
+	color = getpixel(obj.texture, \
+		abs(x % (int)obj.texture->w), abs(y % (int)obj.texture->h));
 	return ((int)color);
 }
 
@@ -42,23 +41,21 @@ int		texture_cylinder(t_obj obj)
 	t = PI + atan(obj.intersec_point[1] / obj.intersec_point[0]);
 	z = obj.intersec_point[2];
 	x = (int)((obj.texture->h * t * 6) / 2 * PI);
-	color = getpixel(obj.texture,
-					 abs(x % (int)obj.texture->w),
-					 abs((int)z % (int)obj.texture->h));
+	color = getpixel(obj.texture, \
+		abs(x % (int)obj.texture->w), abs((int)z % (int)obj.texture->h));
 	return ((int)color);
 }
 
 int		texture_plane(t_obj obj)
 {
 	unsigned int	color;
-	int	x;
-	int	y;
+	int				x;
+	int				y;
 
 	x = abs((int)(obj.intersec_point[0] * 16));
 	y = abs((int)(obj.intersec_point[1] * 16));
-	color = getpixel(obj.texture,
-					 x % (int)obj.texture->w,
-					 y % (int)obj.texture->h);
+	color = getpixel(obj.texture, \
+		x % (int)obj.texture->w, y % (int)obj.texture->h);
 	return ((int)color);
 }
 

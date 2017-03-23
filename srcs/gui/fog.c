@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <rt.h>
-#include <SDL_image.h>
 
 Uint32			rgbafog(double dist)
 {
@@ -61,7 +60,6 @@ void			initfog(t_envgui *env)
 	* AALEVEL, env->raysurface[0]->h * AALEVEL, 32, SDL_PIXELFORMAT_RGBA32);
 	env->fog = 0;
 	p4 = newrect(env->w - 275, 0, 32, 32);
-	env->flare = IMG_Load("res/lens.png");
 	button = newbutton("res/fogdef0.bmp", "res/fogdef1.bmp", p4);
 	button->togglable = 1;
 	button->defaults2 = SDL_LoadBMP("res/fogpress0.bmp");

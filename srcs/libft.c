@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/17 10:10:49 by pfichepo          #+#    #+#             */
-/*   Updated: 2017/03/22 16:14:06 by anonymous        ###   ########.fr       */
+/*   Updated: 2017/03/23 14:55:06 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <rtv1.h>
 
-
+/*
 static void	bzero(void *s, size_t n)
 {
 	char *c;
@@ -23,7 +23,7 @@ static void	bzero(void *s, size_t n)
 	if (n)
 		while (n--)
 			*c++ = 0;
-}
+}*/
 
 bool				ft_isdigit(int c)
 {

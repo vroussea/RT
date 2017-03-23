@@ -27,7 +27,7 @@
 		</sphere>
 		<plane>
 			<high>0</high>
-			<texture>./res/error.bmp</texture>
+			<texture>./res/fogdef1.bmp</texture>
 		</plane>
 	</objs>
 </scene>

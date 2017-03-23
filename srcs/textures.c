@@ -24,8 +24,8 @@ Uint32		texture_sphere(t_obj obj)
 
 	p = PI + acos(obj.intersec_point[2] / obj.size);
 	t = PI + atan(obj.intersec_point[0] / obj.intersec_point[1]);
-	x = (int)((obj.texture->w * p * 6) / 2 * PI);
-	y = (int)((obj.texture->h * t * 6) / 2 * PI);
+	x = (int)((obj.texture->w * p * 1) / 2 * PI);
+	y = (int)((obj.texture->h * t * 1) / 2 * PI);
 	color = getpixel(obj.texture, \
 		abs(x % (int)obj.texture->w), abs(y % (int)obj.texture->h));
 	return (color);
@@ -40,7 +40,7 @@ Uint32		texture_cylinder(t_obj obj)
 
 	t = PI + atan(obj.intersec_point[1] / obj.intersec_point[0]);
 	z = obj.intersec_point[2];
-	x = (int)((obj.texture->h * t * 6) / 2 * PI);
+	x = (int)((obj.texture->h * t * 1) / 2 * PI);
 	color = getpixel(obj.texture, \
 		abs(x % obj.texture->w), abs((int)z % (int)obj.texture->h));
 	return (color);

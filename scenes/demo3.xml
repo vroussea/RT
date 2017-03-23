@@ -30,13 +30,13 @@
 		<plane>
 			<high>0</high>
 			<color>255 255 255</color>
-			<texture>res/cheekibreeki.bmp</texture>
+			<texture>res/chado.bmp</texture>
 		</plane>
 		<plane>
 			<high>100</high>
 			<rotation>360 90 90</rotation>
 			<color>255 0 255</color>
-			<texture>res/cheekibreeki.bmp</texture>
+			<texture>res/cleaning_master.bmp</texture>
 		</plane>
 		<plane>
 			<high>-150</high>

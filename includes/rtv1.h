@@ -229,9 +229,9 @@ bool				flarecheck( double **list, int max, int x, int y);
 void 				processflares(SDL_Surface *target, t_obj *blist, SDL_Surface *flare, int aa);
 bool				init_surface(SDL_Surface **texture, char *line);
 void				texture(t_obj obj, int color_tab[3]);
-int					texture_sphere(t_obj obj);
-int					texture_cylinder(t_obj obj);
-int					texture_plane(t_obj obj);
+Uint32				texture_sphere(t_obj obj);
+Uint32				texture_cylinder(t_obj obj);
+Uint32				texture_plane(t_obj obj);
 
 
 #endif

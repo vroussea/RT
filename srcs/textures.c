@@ -14,9 +14,23 @@
 #include <math.h>
 #include <stdlib.h>
 
-int		texture_sphere(t_obj obj)
+Uint32 		convert(Uint32 color)
 {
-	unsigned int	color;
+	Uint8 a;
+	Uint8 r;
+	Uint8 g;
+	Uint8 b;
+
+	a = 255;
+	b = (color >> 16 & 0xff);
+	g = (color >> 8 & 0xff);
+	r = (color >> 0 & 0xff);
+	return ( (b << 24) + (g << 16) + (r << 8));
+}
+
+Uint32		texture_sphere(t_obj obj)
+{
+	Uint32			color;
 	double			p;
 	double			t;
 	int				x;
@@ -28,12 +42,12 @@ int		texture_sphere(t_obj obj)
 	y = (int)((obj.texture->h * t * 6) / 2 * PI);
 	color = getpixel(obj.texture, \
 		abs(x % (int)obj.texture->w), abs(y % (int)obj.texture->h));
-	return ((int)color);
+	return (color);
 }
 
-int		texture_cylinder(t_obj obj)
+Uint32		texture_cylinder(t_obj obj)
 {
-	unsigned int	color;
+	Uint32			color;
 	double			t;
 	double			z;
 	int				x;
@@ -42,27 +56,28 @@ int		texture_cylinder(t_obj obj)
 	z = obj.intersec_point[2];
 	x = (int)((obj.texture->h * t * 6) / 2 * PI);
 	color = getpixel(obj.texture, \
-		abs(x % (int)obj.texture->w), abs((int)z % (int)obj.texture->h));
-	return ((int)color);
+		abs(x % obj.texture->w), abs((int)z % (int)obj.texture->h));
+	return (color);
 }
 
-int		texture_plane(t_obj obj)
+Uint32	texture_plane(t_obj obj)
 {
-	unsigned int	color;
+	Uint32			color;
 	int				x;
 	int				y;
 
 	x = abs((int)(obj.intersec_point[0] * 16));
 	y = abs((int)(obj.intersec_point[1] * 16));
-	color = getpixel(obj.texture, \
-		x % (int)obj.texture->w, y % (int)obj.texture->h);
-	return ((int)color);
+	color = convert(getpixel(obj.texture, \
+		x % obj.texture->w, y % obj.texture->h));
+	//printf("0x%08x\n", color);  // gives 0x000007
+	return (color);
 }
 
 void	texture(t_obj obj, int color_tab[3])
 {
 	int				i;
-	int				color;
+	Uint32			color;
 	unsigned char	tmp;
 	unsigned char	*ptr;
 
@@ -72,7 +87,7 @@ void	texture(t_obj obj, int color_tab[3])
 	while (i < 3)
 	{
 		tmp = ptr[3 - i];
-		color_tab[i] = (int)tmp;
+		color_tab[i] = tmp;
 		i++;
 	}
 }

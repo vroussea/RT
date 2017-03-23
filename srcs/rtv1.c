@@ -13,6 +13,13 @@
 #include <rtv1.h>
 #include <rt.h>
 #include <SDL_image.h>
+#if WIN32
+# pragma comment (lib, "sdl2.lib")
+# pragma comment (lib, "sdl2main.lib")
+# pragma comment (lib, "SDL2_ttf.lib")
+# pragma comment (lib, "SDL2_image.lib")
+# pragma comment (lib, "SDL2_gfx.lib")
+#endif
 
 void		ft_error(char *str, char **tab)
 {
@@ -22,15 +29,6 @@ void		ft_error(char *str, char **tab)
 		perror(str);
 	exit(-1);
 }
-
-#if WIN32
-# pragma comment (lib, "sdl2.lib")
-# pragma comment (lib, "sdl2main.lib")
-# pragma comment (lib, "SDL2_ttf.lib")
-# pragma comment (lib, "SDL2_image.lib")
-# pragma comment (lib, "SDL2_gfx.lib")
-
-#endif
 
 t_envgui	*initenv(void)
 {
@@ -71,7 +69,7 @@ int			main(int argc, char **argv)
 	checkread(argv[1]);
 	SDL_Init(SDL_INIT_EVENTS | SDL_INIT_TIMER);
 	TTF_Init();
-	IMG_Init(IMG_INIT_PNG);
+	IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG);
 	env = initenv();
 	initbuttons(env);
 	startclock = SDL_GetTicks();

@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//unsigned int	getpixel(SDL_Surface *surface, int x, int y)
-//SDL_Surface* SDL_LoadBMP(const char* file)
 #include <rtv1.h>
 #include <math.h>
 #include <stdlib.h>

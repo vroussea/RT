@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <rtv1.h>
+#include <SDL_image.h>
 
 bool	init_tab_3(double tab[3], int color[3], char *line)
 {
@@ -77,7 +78,7 @@ bool	init_one_value(double *value, char *line, char *pattern)
 
 bool		init_surface(SDL_Surface **texture, char *line)
 {
-	if ((*texture = SDL_LoadBMP(line)) == NULL)
+	if ((*texture = IMG_Load(line)) == NULL)
 		return (true);
 	return (false);
 }

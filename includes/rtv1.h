@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 14:32:56 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/24 18:09:33 by vroussea         ###   ########.fr       */
+/*   Updated: 2017/03/24 18:42:12 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -203,8 +203,7 @@ void				make_rotation(double vec[3], double rotation[3]);
 
 void				normalize_vec(double vec[3]);
 double				calc_2nd_degree_equation(double abc[3]);
-void				calc_intersec_point(double pos[3], double distance, \
-						double vec_ray[3], double origin[3]);
+void				calc_intersec_point(t_obj *obj, double vec_ray[3]);
 double				dot_product(double vec1[3], double vec2[3]);
 void				reflection(double vec1[3], double norm[3], double ref[3]);
 void				refraction(double vec1[3], double norm[3], double ref[3], t_obj *obj);

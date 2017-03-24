@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 14:29:16 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/08 19:55:15 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/24 18:56:40 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ void	get_vec_ray_cylinder(double vec_ray[3], t_obj *cylinder, int xy[2])
 		vec_ray[i] += xy[0] * cylinder->vec_right[i] + \
 						xy[1] * cylinder->vec_down[i];
 		vec_ray[i] -= cylinder->pos_cam[i];
+		cylinder->base_vec_ray[i] = cylinder->base_pos_pixel_base[i];
+		cylinder->base_vec_ray[i] += xy[0] * cylinder->base_vec_right[i] + \
+			xy[1] * cylinder->base_vec_down[i];
+		cylinder->base_vec_ray[i] -= cylinder->base_pos_cam[i];
 		i++;
 	}
 }
@@ -50,7 +54,6 @@ double	intersec_cylinder(int xy[2], t_obj *cylinder)
 			pow(cylinder->size, 2);
 	cylinder->distance = calc_2nd_degree_equation(abc);
 	if (cylinder->distance != 2147483647)
-		calc_intersec_point(cylinder->intersec_point, \
-			cylinder->distance, vec_ray, cylinder->pos_cam);
+		calc_intersec_point(cylinder, vec_ray);
 	return (cylinder->distance);
 }

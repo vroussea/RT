@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 17:34:08 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/22 16:13:29 by anonymous        ###   ########.fr       */
+/*   Updated: 2017/03/24 19:25:25 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,12 @@ static bool	checktext(char *line, t_obj *new_obj)
 		else
 			free(str);
 	}
+	if (strstr(line, "<reflection>") != NULL && \
+		init_ref(&(new_obj->reflection_id), line, "</reflection") == true)
+		return (true);
+	if (strstr(line, "<refraction>") != NULL && \
+		init_ref(&(new_obj->refraction_id), line, "</refraction") == true)
+		return (true);
 	return (false);
 }
 

@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 14:32:56 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/22 16:13:18 by anonymous        ###   ########.fr       */
+/*   Updated: 2017/03/24 17:21:28 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ typedef struct		s_obj
 	double			base_pos_pixel_base[3];
 	double			base_vec_down[3];
 	double			base_vec_right[3];
+	double			base_vec_ray[3];
+	double			base_intersec_point[3];
 	double			(*intersect)(int*, struct s_obj*);
 	void			(*vector)(double*, double*, struct s_obj*, int);
 	bool			(*shadow)(struct s_obj *, double *, int);

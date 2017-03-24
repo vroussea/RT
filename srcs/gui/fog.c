@@ -41,10 +41,29 @@ static void		ralo(t_envgui *env, t_button *self)
 	env->redraw = 1;
 }
 
-void			initfog(t_envgui *env)
+
+static void buttonfog(t_envgui *env)
 {
 	t_button *button;
 	SDL_Rect *p4;
+
+	p4 = newrect(env->w - 275, 0, 32, 32);
+	button = newbutton("res/fogdef0.bmp", "res/fogdef1.bmp", p4);
+	button->togglable = 1;
+	button->defaults2 = SDL_LoadBMP("res/fogpress0.bmp");
+	button->press2 = SDL_LoadBMP("res/fogpress1.bmp");
+	if (!button->press2 || !button->defaults2)
+		ft_error("Cannot Load button texture", NULL);
+	button->pressed = 0;
+	button->type = BUTTON_SPHERE;
+	button->pressfunc = ralo;
+	stackbutton(env, button);
+}
+
+
+void			initfog(t_envgui *env)
+{
+
 
 	env->fraysurface = (SDL_Surface**)malloc(sizeof(SDL_Surface*) * 2);
 	env->zraysurface = (SDL_Surface**)malloc(sizeof(SDL_Surface*) * 2);
@@ -59,13 +78,5 @@ void			initfog(t_envgui *env)
 		env->raysurface[0]->w \
 	* AALEVEL, env->raysurface[0]->h * AALEVEL, 32, SDL_PIXELFORMAT_RGBA32);
 	env->fog = 0;
-	p4 = newrect(env->w - 275, 0, 32, 32);
-	button = newbutton("res/fogdef0.bmp", "res/fogdef1.bmp", p4);
-	button->togglable = 1;
-	button->defaults2 = SDL_LoadBMP("res/fogpress0.bmp");
-	button->press2 = SDL_LoadBMP("res/fogpress1.bmp");
-	button->pressed = 0;
-	button->type = BUTTON_SPHERE;
-	button->pressfunc = ralo;
-	stackbutton(env, button);
+	buttonfog(env);
 }

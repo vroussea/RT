@@ -58,7 +58,8 @@ static void		initbuttons2(t_envgui *env)
 	button->pressed = 0;
 	button->type = BUTTON_SPHERE;
 	stackbutton(env, button);
-	env->flare = IMG_Load("res/lens.png");
+	if (!(env->flare = IMG_Load("res/lens.png")))
+		ft_error("Cannot Load lens texture", NULL);
 	initfog(env);
 }
 

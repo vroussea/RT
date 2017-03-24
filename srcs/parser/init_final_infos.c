@@ -78,8 +78,16 @@ bool	init_one_value(double *value, char *line, char *pattern)
 
 bool	init_surface(SDL_Surface **texture, char *line)
 {
+	char *buff;
+
+	buff = (char*)malloc(sizeof(char)* (23 + SDL_strlen(line)+1));
 	if ((*texture = SDL_LoadBMP(line)) == NULL)
-		return (true);
+	{
+		sprintf(buff, "Cannot load texture : %s\n", line);
+		write(1, buff, strlen(buff));
+		free(buff);
+		exit(-1);
+	}
 	if (texture[0]->format->Amask == 0xff000000)
 		convertsurface(*texture);
 	return (false);

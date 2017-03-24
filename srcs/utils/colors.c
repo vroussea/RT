@@ -15,12 +15,10 @@
 
 Uint32 		convert(Uint32 color)
 {
-	Uint8 a;
 	Uint8 r;
 	Uint8 g;
 	Uint8 b;
 
-	a = 255;
 	b = (color >> 16 & 0xff);
 	g = (color >> 8 & 0xff);
 	r = (color >> 0 & 0xff);

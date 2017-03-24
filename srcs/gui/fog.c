@@ -41,8 +41,7 @@ static void		ralo(t_envgui *env, t_button *self)
 	env->redraw = 1;
 }
 
-
-static void buttonfog(t_envgui *env)
+static void		buttonfog(t_envgui *env)
 {
 	t_button *button;
 	SDL_Rect *p4;
@@ -60,11 +59,8 @@ static void buttonfog(t_envgui *env)
 	stackbutton(env, button);
 }
 
-
 void			initfog(t_envgui *env)
 {
-
-
 	env->fraysurface = (SDL_Surface**)malloc(sizeof(SDL_Surface*) * 2);
 	env->zraysurface = (SDL_Surface**)malloc(sizeof(SDL_Surface*) * 2);
 	env->fraysurface[0] = SDL_CreateRGBSurfaceWithFormat(0, env->w, env->h \

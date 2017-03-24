@@ -84,7 +84,7 @@ typedef struct		s_obj
 	int				color1[3];
 	int				color2[3];
 	double			decal_xyz[3];
-	Uint32			(*texturing)(t_obj obj);
+	Uint32			(*texturing)(t_obj *obj);
 	SDL_Surface		*texture;
 	struct s_obj	*next;
 }					t_obj;
@@ -228,10 +228,10 @@ void				initthreads(t_parserdata *data);
 bool				flarecheck( double **list, int max, int x, int y);
 void 				processflares(SDL_Surface *target, t_obj *blist, SDL_Surface *flare, int aa);
 bool				init_surface(SDL_Surface **texture, char *line);
-void				texture(t_obj obj, int color_tab[3]);
-Uint32				texture_sphere(t_obj obj);
-Uint32				texture_cylinder(t_obj obj);
-Uint32				texture_plane(t_obj obj);
+void				texture(t_obj *obj, int color_tab[3]);
+Uint32				texture_sphere(t_obj *obj);
+Uint32				texture_cylinder(t_obj *obj);
+Uint32				texture_plane(t_obj *obj);
 Uint32 				convert(Uint32 color);
 void 				convertsurface(SDL_Surface *sur);
 

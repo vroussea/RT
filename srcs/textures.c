@@ -14,7 +14,7 @@
 #include <math.h>
 #include <stdlib.h>
 
-Uint32		texture_sphere(t_obj obj)
+Uint32		texture_sphere(t_obj *obj)
 {
 	Uint32			color;
 	double			p;
@@ -22,51 +22,51 @@ Uint32		texture_sphere(t_obj obj)
 	int				x;
 	int				y;
 
-	p = PI + acos(obj.intersec_point[2] / obj.size);
-	t = PI + atan(obj.intersec_point[0] / obj.intersec_point[1]);
-	x = (int)((obj.texture->w * p * 1) / 2 * PI);
-	y = (int)((obj.texture->h * t * 1) / 2 * PI);
-	color = getpixel(obj.texture, \
-		abs(x % (int)obj.texture->w), abs(y % (int)obj.texture->h));
+	p = PI + acos(obj->intersec_point[2] / obj->size);
+	t = PI + atan(obj->intersec_point[0] / obj->intersec_point[1]);
+	x = (int)((obj->texture->w * p * 1) / 2 * PI);
+	y = (int)((obj->texture->h * t * 1) / 2 * PI);
+	color = getpixel(obj->texture, \
+		abs(x % (int)obj->texture->w), abs(y % (int)obj->texture->h));
 	return (color);
 }
 
-Uint32		texture_cylinder(t_obj obj)
+Uint32		texture_cylinder(t_obj *obj)
 {
 	Uint32			color;
 	double			t;
 	double			z;
 	int				x;
 
-	t = PI + atan(obj.intersec_point[1] / obj.intersec_point[0]);
-	z = obj.intersec_point[2];
-	x = (int)((obj.texture->h * t * 1) / 2 * PI);
-	color = getpixel(obj.texture, \
-		abs(x % obj.texture->w), abs((int)z % (int)obj.texture->h));
+	t = PI + atan(obj->intersec_point[1] / obj->intersec_point[0]);
+	z = obj->intersec_point[2];
+	x = (int)((obj->texture->h * t * 1) / 2 * PI);
+	color = getpixel(obj->texture, \
+		abs(x % obj->texture->w), abs((int)z % (int)obj->texture->h));
 	return (color);
 }
 
-Uint32	texture_plane(t_obj obj)
+Uint32		texture_plane(t_obj *obj)
 {
 	Uint32			color;
 	int				x;
 	int				y;
 
-	x = abs((int)(obj.intersec_point[0] * 16));
-	y = abs((int)(obj.intersec_point[1] * 16));
-	color = getpixel(obj.texture, \
-		x % obj.texture->w, y % obj.texture->h);
+	x = abs((int)(obj->intersec_point[0] * 16));
+	y = abs((int)(obj->intersec_point[1] * 16));
+	color = getpixel(obj->texture, \
+		x % obj->texture->w, y % obj->texture->h);
 	return (color);
 }
 
-void	texture(t_obj obj, int color_tab[3])
+void		texture(t_obj *obj, int color_tab[3])
 {
 	int				i;
 	Uint32			color;
 	unsigned char	tmp;
 	unsigned char	*ptr;
 
-	color = obj.texturing(obj);
+	color = obj->texturing(obj);
 	i = 0;
 	ptr = (unsigned char *)(&color);
 	while (i < 3)

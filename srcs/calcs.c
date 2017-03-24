@@ -64,7 +64,7 @@ void			get_color_tab(int color[3], t_obj *list)
 	color_tab = NULL;
 	if (list->texture)
 	{
-		texture(*list, color);
+		texture(list, color);
 		return ;
 	}
 	if (list->is_proc_texture == false)

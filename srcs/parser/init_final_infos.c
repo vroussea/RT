@@ -80,9 +80,10 @@ bool	init_surface(SDL_Surface **texture, char *line)
 {
 	char *buff;
 
-	buff = (char*)malloc(sizeof(char)* (23 + SDL_strlen(line)+1));
+	
 	if ((*texture = IMG_Load(line)) == NULL)
 	{
+		buff = (char*)malloc(sizeof(char) * (23 + SDL_strlen(line) + 1));
 		sprintf(buff, "Cannot load texture : %s\n", line);
 		write(1, buff, strlen(buff));
 		free(buff);

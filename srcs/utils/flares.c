@@ -81,7 +81,7 @@ void			processflares(SDL_Surface *t, t_obj *b, SDL_Surface *f, int a)
 		if (spotvisible(xy, b->recap_spots[i], b))
 		{
 			dist = getgoodsize(b->recap_spots[i], a);
-			tmp = rotozoomSurface(f, (i*49) % 360, (dist / 6.5) * a, 1);
+			tmp = rotozoomSurface(f, (i * 49) % 360, (dist / 6.5) * a, 1);
 			rect.w = tmp->w;
 			rect.h = tmp->h;
 			rect.x = xy[0] - (tmp->w) / 2;

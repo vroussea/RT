@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene>
+	<cam_infos>
+		<resolution>1080 800</resolution>
+		<cam>
+			<pos>00 -500 100</pos>
+			<rotation>0 0 90</rotation>
+		</cam>
+		<spots>
+			<pos>00 0 20</pos>
+			<pos>300 0 20</pos>
+			<pos>-300 0 20</pos>
+		</spots>
+	</cam_infos>
+	<objs>
+		<plane>
+			<high>0</high>
+			<color>255 255 255</color>
+		</plane>
+		<plane>
+			<high>100</high>
+			<rotation>250 90 90</rotation>
+			<color>255 0 255</color>
+			<texture>res/ct1cha.bmp</texture>
+		</plane>
+	</objs>
+</scene>

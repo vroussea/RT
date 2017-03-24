@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 14:36:58 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/24 18:28:39 by vroussea         ###   ########.fr       */
+/*   Updated: 2017/03/24 18:45:03 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,12 @@ double	calc_one_spot_luminosity(t_obj *nearest_obj, int nb)
 double	calc_one_spot_spec(t_obj *nearest_obj, int nb)
 {
 	double	reflected_ray[3];
-	double	refracted_ray[3];
 	double	vec_from_cam_to_point[3];
 	double	norm_vector[3];
 	double	vec_light[3];
 
 	nearest_obj->vector(norm_vector, vec_light, nearest_obj, nb);
 	reflection(vec_light, norm_vector, reflected_ray);
-	refraction(vec_light, norm_vector, refracted_ray, nearest_obj);
 	getthegoodvector(nearest_obj, vec_from_cam_to_point);
 	return (get_specular(refracted_ray, vec_from_cam_to_point));
 }

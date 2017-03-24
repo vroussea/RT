@@ -84,7 +84,7 @@ typedef struct		s_obj
 	int				color1[3];
 	int				color2[3];
 	double			decal_xyz[3];
-	int				(*texturing)(t_obj obj);
+	Uint32			(*texturing)(t_obj obj);
 	SDL_Surface		*texture;
 	struct s_obj	*next;
 }					t_obj;

@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 16:30:29 by gboudrie          #+#    #+#             */
-/*   Updated: 2017/03/22 16:14:40 by anonymous        ###   ########.fr       */
+/*   Updated: 2017/03/24 16:17:35 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,13 @@ Uint32		texture_plane(t_obj *obj)
 	int				x;
 	int				y;
 
-	x = abs((int)(obj->intersec_point[0] * 16));
-	y = abs((int)(obj->intersec_point[1] * 16));
-	color = getpixel(obj->texture, \
-		x % obj->texture->w, y % obj->texture->h);
+	x = ((int)(obj->intersec_point[0] * 16)) % obj->texture->w;
+	y = ((int)(obj->intersec_point[1] * 16)) % obj->texture->h;
+	if (x < 0)
+		x += obj->texture->w;
+	if (y < 0)
+		y += obj->texture->h;
+	color = getpixel(obj->texture, x, y);
 	return (color);
 }
 

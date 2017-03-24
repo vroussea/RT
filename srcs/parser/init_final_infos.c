@@ -80,6 +80,7 @@ bool	init_surface(SDL_Surface **texture, char *line)
 {
 	if ((*texture = SDL_LoadBMP(line)) == NULL)
 		return (true);
-	convertsurface(texture[0]);
+	if (texture[0]->format->Amask == 0xff000000)
+		convertsurface(*texture);
 	return (false);
 }

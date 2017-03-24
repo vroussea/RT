@@ -13,7 +13,7 @@
 		<sphere>
 			<size>20</size>
 			<color>255 0 0</color>
-			<texture>res/error.png</texture>
+			<texture>res/error.bmp</texture>
 		</sphere>
 		<sphere>
 			<size>10</size>

@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 14:32:56 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/24 17:21:28 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/24 18:09:33 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,10 @@ typedef struct		s_obj
 	int				proc_text_type;
 	bool			is_proc_texture;
 	bool			is_waves;
+	double			reflection_id;
+	double			refraction_id;
+	double			original_refraction;
+	double			new_refraction;
 	int				color1[3];
 	int				color2[3];
 	double			decal_xyz[3];
@@ -152,6 +156,7 @@ void	verif_plane_norm_vec(t_obj *plane);
 bool	init_one_spot(t_cam *cam);
 bool	init_procedural_textures(t_obj *obj, int fd);
 bool	init_procedural_type(t_obj *obj, char *line);
+void	init_obj_values(t_obj *obj);
 bool	check_procedural_texture(t_obj *obj, char *line);
 int		*get_proc_color(t_obj *obj);
 void	free_spots(t_cam *cam);
@@ -201,7 +206,8 @@ double				calc_2nd_degree_equation(double abc[3]);
 void				calc_intersec_point(double pos[3], double distance, \
 						double vec_ray[3], double origin[3]);
 double				dot_product(double vec1[3], double vec2[3]);
-void				reflexion(double vec1[3], double norm[3], double ref[3]);
+void				reflection(double vec1[3], double norm[3], double ref[3]);
+void				refraction(double vec1[3], double norm[3], double ref[3], t_obj *obj);
 
 void				ft_error(char *str, char **tab);
 

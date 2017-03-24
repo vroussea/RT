@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 16:32:01 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/06 18:04:59 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/24 18:13:02 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ double	dot_product(double vec1[3], double vec2[3])
 	return (vec1[0] * vec2[0] + vec1[1] * vec2[1] + vec1[2] * vec2[2]);
 }
 
-void	reflexion(double base_vec[3], double normal[3], double reflected_ray[3])
+void	reflection(double base_vec[3], double normal[3], double reflected_ray[3])
 {
 	int		i;
 	double	d_product;
@@ -83,6 +83,27 @@ void	reflexion(double base_vec[3], double normal[3], double reflected_ray[3])
 	while (i < 3)
 	{
 		reflected_ray[i] = 2 * d_product * normal[i] - base_vec[i];
+		i++;
+	}
+}
+
+void	refraction(double base_vec[3], double normal[3], double refracted_ray[3], t_obj *obj)
+{
+	int		i;
+	double	d_product;
+	double	d_product2;
+	double	prod_refra;
+
+	normalize_vec(base_vec);
+	normalize_vec(normal);
+	d_product = -dot_product(base_vec, normal);
+	prod_refra = obj->original_refraction / obj->new_refraction;
+	d_product2 = sqrt(1 - pow(prod_refra, 2) * (1 - pow(d_product, 2)));
+	i = 0;
+	while (i < 3)
+	{
+		refracted_ray[i] = prod_refra * base_vec[i];
+		refracted_ray[i] += (prod_refra * d_product - d_product2) * normal[i];
 		i++;
 	}
 }

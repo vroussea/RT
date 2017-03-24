@@ -27,6 +27,7 @@ SRCS = 	gui/hook.c \
 		parser/init_spots.c \
 		parser/init_recap_spots.c \
 		parser/init_procedural_textures.c \
+		parser/init_obj_values.c \
 		rtv1.c \
 		maths.c \
 		maths2.c \

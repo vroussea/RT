@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 16:16:23 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/17 15:32:34 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/24 17:47:04 by vroussea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_obj	*make_new_obj(t_obj *objs, int type)
 		objs->type = type;
 		objs->is_waves = false;
 		objs->next = NULL;
+		init_obj_values(objs);
 		return (objs);
 	}
 	if ((new_obj = (t_obj *)malloc(sizeof(t_obj))) == NULL)
@@ -31,6 +32,7 @@ t_obj	*make_new_obj(t_obj *objs, int type)
 	new_obj->type = type;
 	new_obj->next = NULL;
 	new_obj->is_waves = false;
+	init_obj_values(new_obj);
 	return (new_obj);
 }
 

@@ -5,3 +5,4 @@ windowsbuild/x64/Release/vc120.pdb
 windowsbuild/rt.opensdf
 *.sdf
 windowsbuild/rt.v12.suo
+*.o

@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 14:32:56 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/24 18:42:12 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/24 21:13:28 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ typedef struct		s_obj
 	double			base_vec_right[3];
 	double			base_vec_ray[3];
 	double			base_intersec_point[3];
+	double			base_norm_vector[3];
 	double			(*intersect)(int*, struct s_obj*);
 	void			(*vector)(double*, double*, struct s_obj*, int);
 	bool			(*shadow)(struct s_obj *, double *, int);
@@ -93,6 +94,7 @@ typedef struct		s_obj
 	Uint32			(*texturing)(t_obj *obj);
 	SDL_Surface		*texture;
 	struct s_obj	*next;
+	double			DEBUG[3];
 }					t_obj;
 
 typedef struct		s_cam

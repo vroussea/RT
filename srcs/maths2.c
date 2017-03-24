@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 16:32:01 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/24 18:13:02 by vroussea         ###   ########.fr       */
+/*   Updated: 2017/03/24 19:01:01 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,16 @@ double	calc_2nd_degree_equation(double abc[3])
 	return (2147483647);
 }
 
-void	calc_intersec_point(double pos[3], double distance, double vec_ray[3], \
-			double origin[3])
+void	calc_intersec_point(t_obj *obj, double vec_ray[3])
 {
 	int	i;
 
 	i = 0;
 	while (i < 3)
 	{
-		pos[i] = origin[i] + vec_ray[i] * distance;
+		obj->intersec_point[i] = obj->pos_cam[i] + vec_ray[i] * obj->distance;
+		obj->base_intersec_point[i] = obj->base_pos_cam[i] + \
+			obj->base_vec_ray[i] * obj->distance;
 		i++;
 	}
 }

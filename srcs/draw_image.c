@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 17:15:59 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/24 21:19:02 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/25 16:27:14 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,16 +89,6 @@ int				calc_image(int x, int y, t_obj *begin_list, SDL_Surface *fogmap)
 		if (fogmap)
 			putpixel(fogmap, xy[0], xy[1], rgbafog(FOGO));
 		return (0x000000);
-	}
-	if (xy[0] == 1920 / 2 && xy[1] == 1038 / 2)
-	{
-		t_obj *o;
-		o = nearest_obj;
-		printf ("type = %d\n", o->type);
-		printf ("norm_vec = %f, %f, %f\n", o->base_norm_vector[0], o->base_norm_vector[1], o->base_norm_vector[2]);
-		printf ("DEBUG %f, %f, %f\n", o->DEBUG[0], o->DEBUG[1], o->DEBUG[2]);
-		printf ("intersect_point = %f, %f, %2f\n", o->intersec_point[0], o->intersec_point[1], o->intersec_point[2]);
-		printf ("base %f, %f, %f\n", o->base_intersec_point[0], o->base_intersec_point[1], o->base_intersec_point[2]);
 	}
 	return (get_color_obj(begin_list, nearest_obj, xy));
 }

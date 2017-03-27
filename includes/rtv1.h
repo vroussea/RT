@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 14:32:56 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/24 21:13:28 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/25 17:15:02 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct		s_obj		t_obj;
 ** recap_spots[n][2] : distance from the cam to the spot
 ** from recap_spots[n][3] to [5] : position of the spot in the space
 */
+
 
 typedef struct		s_obj
 {
@@ -94,7 +95,6 @@ typedef struct		s_obj
 	Uint32			(*texturing)(t_obj *obj);
 	SDL_Surface		*texture;
 	struct s_obj	*next;
-	double			DEBUG[3];
 }					t_obj;
 
 typedef struct		s_cam

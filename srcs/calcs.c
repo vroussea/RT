@@ -6,7 +6,7 @@
 /*   By: pfichepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/23 09:36:57 by pfichepo          #+#    #+#             */
-/*   Updated: 2017/03/23 09:37:02 by pfichepo         ###   ########.fr       */
+/*   Updated: 2017/03/25 17:33:11 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ int				get_color_obj(t_obj *list, t_obj *nearest_obj, int xy[2])
 	color_tab[2] = 0x0;
 	get_color_tab(color_tab, nearest_obj);
 	calc_lights(list, nearest_obj, xy, color_tab);
+	if (obj->reflexion_id != 0 || obj->refraction_id != 0)
+		calc_reflexion_refraction(list, nearest_obj, color_tab);
 	return (color_tab[0] * 0x10000 + color_tab[1] * 0x100 + color_tab[2]);
 }
 

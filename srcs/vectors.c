@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 16:03:12 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/24 21:24:33 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/25 16:27:44 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	get_vector_sphere(double norm_vector[3], \
 	if (sphere->is_waves == true)
 		rotation_x(norm_vector, 10.0 * cos(sphere->intersec_point[0]));
 	memcpy(sphere->base_norm_vector, norm_vector, sizeof(double[3]));
-	memcpy(sphere->DEBUG, norm_vector, sizeof(double[3]));
 	rotation_y(sphere->base_norm_vector, -(sphere->rotation[1]));
 	rotation_x(sphere->base_norm_vector, -(sphere->rotation[0]));
 	rotation_z(sphere->base_norm_vector, -(sphere->rotation[2]));

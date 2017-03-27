@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/10 17:21:14 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/19 16:53:38 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/27 17:33:38 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,36 @@ void		del_all_list(t_obj *list)
 		free(list);
 		list = mem;
 	}
+}
+
+t_obj		*copy_the_list(t_obj *list, t_obj *obj, double ray[3])
+{
+	t_obj *new_list;
+	t_obj *new_elem;
+	t_obj *mem;
+
+	new_list = NULL;
+	mem = NULL;
+	while (list != NULL)
+	{
+		if (mem != NULL)
+			mem = new_elem;
+		if ((new_elem = (t_obj *)malloc(sizeof(t_obj))) == NULL)
+			ft_error("malloc", NULL);
+		if (new_list == NULL)
+			new_list = new_elem;
+		if (mem != NULL)
+			mem->next = new_elem;
+		mem = new_elem;
+		new_elem->next = NULL;
+		memcpy(new_elem, list, sizeof(t_obj));
+		new_elem->pos_cam[0] = obj->base_intersec_point[0];
+		new_elem->pos_cam[1] = obj->base_intersec_point[1];
+		new_elem->pos_cam[2] = obj->base_intersec_point[2];
+		new_elem->pos_pixel_base[0] = obj->base_intersec_point[0] + ray[0];
+		new_elem->pos_pixel_base[1] = obj->base_intersec_point[1] + ray[1];
+		new_elem->pos_pixel_base[2] = obj->base_intersec_point[2] + ray[2];
+		list = list->next;
+	}
+	return (new_list);
 }

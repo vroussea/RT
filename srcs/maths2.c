@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 16:32:01 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/25 16:25:47 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/27 14:26:00 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,8 @@ double	dot_product(double vec1[3], double vec2[3])
 	return (vec1[0] * vec2[0] + vec1[1] * vec2[1] + vec1[2] * vec2[2]);
 }
 
-void	reflection(double base_vec[3], double normal[3], double reflected_ray[3])
+void	reflection(double base_vec[3], double normal[3], \
+		double reflected_ray[3])
 {
 	int		i;
 	double	d_product;
@@ -88,7 +89,8 @@ void	reflection(double base_vec[3], double normal[3], double reflected_ray[3])
 	}
 }
 
-void	refraction(double base_vec[3], double normal[3], double refracted_ray[3], t_obj *obj)
+void	refraction(double base_vec[3], double normal[3], \
+		double refracted_ray[3], t_obj *obj)
 {
 	int		i;
 	double	d_product;

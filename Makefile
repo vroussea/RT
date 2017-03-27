@@ -46,7 +46,9 @@ SRCS = 	gui/hook.c \
 		libft2.c \
 		get_next_line.c \
 		get_proc_color.c \
-		textures.c
+		textures.c \
+		parser/init_ref.c \
+		recursive_ray.c
 
 
 SRCF = ./srcs/

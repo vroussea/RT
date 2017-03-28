@@ -6,7 +6,7 @@
 /*   By: eduwer <eduwer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/17 13:35:41 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/24 18:49:55 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/28 21:06:07 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ double			intersec_plane(int xy[2], t_obj *plane)
 		plane->norm_vec[1] * plane->pos_cam[1] + \
 			plane->norm_vec[2] * plane->pos_cam[2] - plane->high;
 	plane->distance = (-ab[1]) / (ab[0]);
-	if (plane->distance > 0)
+	if (plane->distance > 0.01)
 	{
 		calc_intersec_point(plane, vec_ray);
 		return (plane->distance);

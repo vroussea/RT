@@ -5,22 +5,18 @@
 			<rotation>0 0 0</rotation>
 		</cam>
 		<spots>
-			<pos>200 0 200</pos>
+			<pos>100 100 100</pos>
 		</spots>
 	</cam_infos>
 	<objs>
 		<sphere>
-			<pos>0 0 0</pos>
-			<reflection>50</reflection>
-			<size>150</size>
+			<pos>0 0 50</pos>
+			<size>20</size>
+			<rotation>0 180 0</rotation>
+			<procedural>
+			</procedural>
 		</sphere>
 		<plane>
-			<reflection>50</reflection>
-		</plane>
-		<plane>
-			<high>-50</high>
-			<rotation>0 90 0</rotation>
-			<color>0 255 255</color>
 		</plane>
 	</objs>
 </scene>

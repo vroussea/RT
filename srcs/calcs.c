@@ -6,7 +6,7 @@
 /*   By: pfichepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/23 09:36:57 by pfichepo          #+#    #+#             */
-/*   Updated: 2017/03/27 17:05:13 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/28 20:51:56 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,11 @@ void			get_color_tab(int color[3], t_obj *list)
 		color_tab++;
 		i++;
 	}
+}
+
+void	neg(double origin_tab[3], double new_tab[3])
+{
+	new_tab[0] = -origin_tab[0];
+	new_tab[1] = -origin_tab[1];
+	new_tab[2] = -origin_tab[2];
 }

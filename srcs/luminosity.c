@@ -6,7 +6,7 @@
 /*   By: vroussea <vroussea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 19:24:28 by vroussea          #+#    #+#             */
-/*   Updated: 2017/03/25 17:27:38 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/28 18:19:43 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,12 @@
 
 double	get_specular(double reflected_ray[3], double vec_light[3])
 {
-	double	tab[3];
 	double	d_product;
 
-	tab[0] = -vec_light[0];
-	tab[1] = -vec_light[1];
-	tab[2] = -vec_light[2];
 	normalize_vec(reflected_ray);
-	normalize_vec(tab);
-	d_product = fmax(0, dot_product(tab, reflected_ray));
-	return (0xFF * pow(d_product, 200));
+	normalize_vec(vec_light);
+	d_product = fmax(0, dot_product(vec_light, reflected_ray));
+	return (0xFF * pow(d_product, 500));
 }
 
 void	getthegoodvector(t_obj *obj, double tab[3])

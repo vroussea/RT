@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 14:32:56 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/27 17:08:18 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/28 20:50:43 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,6 +166,8 @@ void	init_recap_spots(t_obj *obj, t_cam *cam);
 void	calc_reflection_refraction(t_obj *list, t_obj *obj, int color[3]);
 bool	init_ref(double *ref, char *line, char *balise);
 t_obj	*copy_the_list(t_obj *list, t_obj *obj, double ray[3]);
+void	free_copied_list(t_obj *list);
+void	neg(double new_tab[3], double origin_tab[3]);
 
 double				calc_one_spot_luminosity(t_obj *obj, int nb);
 double				calc_one_spot_spec(t_obj *obj, int nb);

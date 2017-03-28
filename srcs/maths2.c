@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 16:32:01 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/27 14:26:00 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/28 21:11:45 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ double	calc_2nd_degree_equation(double abc[3])
 		if (ans > 0)
 			return (ans);
 		ans = (-abc[1] + sqrt(delta)) / (2 * abc[0]);
-		if (ans > 0)
+		if (ans > 0.01)
 			return (ans);
 	}
 	return (2147483647);
@@ -77,14 +77,18 @@ void	reflection(double base_vec[3], double normal[3], \
 {
 	int		i;
 	double	d_product;
+	double	new_base_vec[3];
 
 	normalize_vec(base_vec);
 	normalize_vec(normal);
-	d_product = dot_product(base_vec, normal);
+	new_base_vec[0] = -base_vec[0];
+	new_base_vec[1] = -base_vec[1];
+	new_base_vec[2] = -base_vec[2];
+	d_product = dot_product(normal, new_base_vec);
 	i = 0;
 	while (i < 3)
 	{
-		reflected_ray[i] = 2 * d_product * normal[i] - base_vec[i];
+		reflected_ray[i] = base_vec[i] + ((2 * d_product) * normal[i]);
 		i++;
 	}
 }

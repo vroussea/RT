@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 14:32:56 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/29 17:29:08 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/29 19:44:26 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ typedef struct		s_obj
 	int				proc_text_type;
 	bool			is_proc_texture;
 	bool			is_waves;
+	int				nb_ref;
 	double			reflection_id;
 	double			refraction_id;
 	double			original_refraction;
@@ -167,7 +168,6 @@ void	calc_reflection_refraction(t_obj *list, t_obj *obj, int color[3]);
 bool	init_ref(double *ref, char *line, char *balise);
 t_obj	*copy_the_list(t_obj *list, t_obj *obj, double ray[3]);
 void	free_copied_list(t_obj *list);
-void	neg(double new_tab[3], double origin_tab[3]);
 void	get_reflected_color(t_obj *list, t_obj *obj, int color[3]);
 void	get_refracted_color(t_obj *list, t_obj *obj, int color[3]);
 

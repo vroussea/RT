@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/10 17:21:14 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/29 17:25:52 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/29 18:00:29 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ void		del_all_list(t_obj *list)
 
 void		copy_elem(t_obj *new_elem, t_obj *obj, t_obj *list, double ray[3])
 {
-	double new_ray[3];
+	double	new_ray[3];
+	double	mem;
 
 	new_elem->next = NULL;
 	memcpy(new_elem, list, sizeof(t_obj));
@@ -56,6 +57,10 @@ void		copy_elem(t_obj *new_elem, t_obj *obj, t_obj *list, double ray[3])
 	new_elem->pos_pixel_base[0] = new_elem->pos_cam[0] + new_ray[0];
 	new_elem->pos_pixel_base[1] = new_elem->pos_cam[1] + new_ray[1];
 	new_elem->pos_pixel_base[2] = new_elem->pos_cam[2] + new_ray[2];
+	++(new_elem->nb_ref);
+	mem = new_elem->original_refraction;
+	new_elem->original_refraction = new_elem->new_refraction;
+	new_elem->new_refraction = mem;
 }
 
 t_obj		*copy_the_list(t_obj *list, t_obj *obj, double ray[3])

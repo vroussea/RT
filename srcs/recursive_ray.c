@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 14:06:25 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/29 17:30:05 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/29 18:01:05 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	calc_reflection_refraction(t_obj *list, t_obj *obj, int color_tab[3])
 {
 	int			new_color[3];
 
-	if (obj->reflection_id != 0)
+	if (obj->reflection_id != 0 && obj->nb_ref < 10)
 	{
 		get_reflected_color(list, obj, new_color);
 		color_tab[0] = color_tab[0] * (1 - obj->reflection_id) + \
@@ -26,7 +26,7 @@ void	calc_reflection_refraction(t_obj *list, t_obj *obj, int color_tab[3])
 		color_tab[2] = color_tab[2] * (1 - obj->reflection_id) + \
 						new_color[2] * obj->reflection_id;
 	}
-	if (obj->refraction_id != 0)
+	if (obj->refraction_id != 0 && obj->nb_ref < 10)
 	{
 		get_refracted_color(list, obj, new_color);
 		color_tab[0] = color_tab[0] * (1 - obj->refraction_id) + \

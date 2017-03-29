@@ -6,7 +6,7 @@
 /*   By: vroussea <vroussea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 17:37:00 by vroussea          #+#    #+#             */
-/*   Updated: 2017/03/29 17:42:23 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/29 17:58:22 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	init_obj_values(t_obj *obj)
 	obj->reflection_id = 0;
 	obj->refraction_id = 0;
 	obj->original_refraction = 1;
-	obj->new_refraction = 1;
+	obj->new_refraction = 1.5;
+	obj->nb_ref = 0;
 }
 
 void	init_functs_obj2(t_obj *obj)

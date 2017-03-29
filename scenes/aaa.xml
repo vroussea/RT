@@ -1,0 +1,25 @@
+<scene>
+	<cam_infos>
+		<cam>
+			<pos>600 0 50</pos>
+			<rotation>156 0 0</rotation>
+		</cam>
+		<spots>
+			<pos>500 0 600</pos>
+		</spots>
+	</cam_infos>
+	<objs>
+		<plane>
+			<pos>0 0 -20</pos>
+			<rotation>0 0 0</rotation>
+		</plane>
+		<sphere>
+			<reflection>100</reflection>
+			<size>50</size>
+			<pos>0 0 50</pos>
+		</sphere>
+		<sphere>
+			<pos>50 0 0</pos>
+		</sphere>
+	</objs>
+</scene>

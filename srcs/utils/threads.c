@@ -6,7 +6,7 @@
 /*   By: pfichepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 09:13:25 by pfichepo          #+#    #+#             */
-/*   Updated: 2017/03/29 17:30:38 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/29 20:50:08 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,13 @@ static int	threadthink(void *d)
 		xy[1] = 0;
 		while (xy[1] < ymax)
 		{
+			//if (xy[0] == 960)
+			//{
 			putpixel(data->image, xy[0], xy[1], \
 				(Uint32)calc_image(xy[0], xy[1], data->data, data->fogmap));
 			if (data->threadid == 1)
 				*(data->loading) = math_remapsimple(i++ * 4, ymax * xmax, 1);
+			//}
 			xy[1]++;
 		}
 		xy[0] += 4;

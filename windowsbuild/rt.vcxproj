@@ -112,6 +112,7 @@
     <ClCompile Include="..\srcs\parser\make_new_obj.c" />
     <ClCompile Include="..\srcs\parser\obj_infos.c" />
     <ClCompile Include="..\srcs\recursive_ray.c" />
+    <ClCompile Include="..\srcs\reflection_refraction.c" />
     <ClCompile Include="..\srcs\rtv1.c" />
     <ClCompile Include="..\srcs\maths.c" />
     <ClCompile Include="..\srcs\maths2.c" />

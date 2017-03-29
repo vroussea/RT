@@ -162,6 +162,9 @@
     <ClCompile Include="..\srcs\parser\init_obj_values.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\srcs\reflection_refraction.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\includes\libft.h">

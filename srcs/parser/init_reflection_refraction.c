@@ -16,10 +16,10 @@ int	init_reflection_refraction(double *ref_id, char *line, char *balise)
 {
 	if (init_one_value(ref_id, line, balise) == true)
 	{
-		if (*reflection_id < 0)
-			*reflection_id = 0;
-		if (*reflection_id > 100)
-			*reflection_id = 100;
+		if (*ref_id < 0)
+			*ref_id = 0;
+		if (*ref_id > 100)
+			*ref_id = 100;
 		return (true);
 	}
 	return (false);

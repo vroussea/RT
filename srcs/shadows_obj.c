@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 15:50:27 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/09 22:57:36 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/28 22:08:36 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ bool	shadow_sphere(t_obj *sphere, double point[3], int nb)
 	double	ans;
 
 	memcpy(point_sphere, point, sizeof(double) * 3);
-	get_new_pos(point_sphere, sphere->pos, NULL);
+	get_new_pos(point_sphere, sphere->pos, sphere->rotation);
 	vec[0] = (sphere->spot)[nb][0] - point_sphere[0];
 	vec[1] = (sphere->spot)[nb][1] - point_sphere[1];
 	vec[2] = (sphere->spot)[nb][2] - point_sphere[2];
@@ -58,7 +58,7 @@ bool	shadow_plane(t_obj *plane, double point[3], int nb)
 	double obj_point[3];
 
 	memcpy(obj_point, point, sizeof(double) * 3);
-	get_new_pos(obj_point, NULL, plane->rotation);
+	get_new_pos(obj_point, plane->pos, plane->rotation);
 	vec[0] = (plane->spot)[nb][0] - obj_point[0];
 	vec[1] = (plane->spot)[nb][1] - obj_point[1];
 	vec[2] = (plane->spot)[nb][2] - obj_point[2];

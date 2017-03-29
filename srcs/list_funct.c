@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/10 17:21:14 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/28 20:53:58 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/29 16:47:02 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ t_obj		*copy_the_list(t_obj *list, t_obj *obj, double ray[3])
 		new_elem->pos_cam[0] = obj->base_intersec_point[0] - list->pos[0];
 		new_elem->pos_cam[1] = obj->base_intersec_point[1] - list->pos[1];
 		new_elem->pos_cam[2] = obj->base_intersec_point[2] - list->pos[2];
+		make_rotation(new_elem->pos_cam, list->rotation);
 		memcpy(new_ray, ray, sizeof(double[3]));
 		make_rotation(new_ray, list->rotation);
 		new_elem->pos_pixel_base[0] = new_elem->pos_cam[0] + new_ray[0];

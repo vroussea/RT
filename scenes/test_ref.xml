@@ -9,14 +9,15 @@
 		</spots>
 	</cam_infos>
 	<objs>
-		<sphere>
-			<pos>0 0 50</pos>
-			<size>20</size>
-			<rotation>0 180 0</rotation>
+		<cone>
+			<pos>0 100 100</pos>
+			<angle>20</angle>
+			<rotation>90 0 0</rotation>
 			<procedural>
 			</procedural>
-		</sphere>
+		</cone>
 		<plane>
+			<reflection>50</reflection>
 		</plane>
 	</objs>
 </scene>

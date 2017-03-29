@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 17:16:53 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/22 16:13:07 by anonymous        ###   ########.fr       */
+/*   Updated: 2017/03/29 17:27:21 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ bool	init_surface(SDL_Surface **texture, char *line)
 {
 	char *buff;
 
-	
 	if ((*texture = IMG_Load(line)) == NULL)
 	{
 		buff = (char*)malloc(sizeof(char) * (23 + SDL_strlen(line) + 1));

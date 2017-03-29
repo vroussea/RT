@@ -6,13 +6,13 @@
 /*   By: pfichepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/23 09:36:57 by pfichepo          #+#    #+#             */
-/*   Updated: 2017/03/28 20:51:56 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/29 17:32:36 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <rtv1.h>
 
-void			finish_calc_lights(int color_tab[3], double luminosity, \
+void	finish_calc_lights(int color_tab[3], double luminosity, \
 					double specular)
 {
 	color_tab[0] = (int)fmin(color_tab[0] * luminosity + specular, 0xFF);
@@ -20,7 +20,7 @@ void			finish_calc_lights(int color_tab[3], double luminosity, \
 	color_tab[2] = (int)fmin(color_tab[2] * luminosity + specular, 0xFF);
 }
 
-void			calc_lights(t_obj *list, t_obj *nearest_obj, int xy[2], \
+void	calc_lights(t_obj *list, t_obj *nearest_obj, int xy[2], \
 					int color_tab[3])
 {
 	int		nb_spot;
@@ -43,7 +43,7 @@ void			calc_lights(t_obj *list, t_obj *nearest_obj, int xy[2], \
 		global_specular);
 }
 
-int				get_color_obj(t_obj *list, t_obj *nearest_obj, int xy[2])
+int		get_color_obj(t_obj *list, t_obj *nearest_obj, int xy[2])
 {
 	int		color_tab[3];
 
@@ -57,7 +57,7 @@ int				get_color_obj(t_obj *list, t_obj *nearest_obj, int xy[2])
 	return (color_tab[0] * 0x10000 + color_tab[1] * 0x100 + color_tab[2]);
 }
 
-void			get_color_tab(int color[3], t_obj *list)
+void	get_color_tab(int color[3], t_obj *list)
 {
 	int	i;
 	int	*color_tab;

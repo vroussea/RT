@@ -48,7 +48,8 @@ SRCS = 	gui/hook.c \
 		get_proc_color.c \
 		textures.c \
 		parser/init_ref.c \
-		recursive_ray.c
+		recursive_ray.c \
+		reflection_refraction.c
 
 
 SRCF = ./srcs/

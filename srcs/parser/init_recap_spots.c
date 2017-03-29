@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 16:23:30 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/19 16:56:08 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/29 17:27:49 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,14 +75,14 @@ void	init_recap_spots(t_obj *obj, t_cam *cam)
 		{
 			n = 0;
 			while ((cam->vec_down[(n + 1) % 3] * cam->vec_right[n] - \
-			 cam->vec_down[n] * cam->vec_right[(n + 1) % 3]) == 0 && n < 3)
+			cam->vec_down[n] * cam->vec_right[(n + 1) % 3]) == 0 && n < 3)
 				n++;
 			x_y[1] = nearbyint((cam->vec_right[n] * \
 			(plane.intersec_point[(n + 1) % 3] - \
 			cam->pos_pixel_base[(n + 1) % 3]) + cam->vec_right[(n + 1) % 3] * \
 			(cam->pos_pixel_base[n] - plane.intersec_point[n])) / \
 			(cam->vec_down[(n + 1) % 3] * cam->vec_right[n] - \
-			 cam->vec_down[n] * cam->vec_right[(n + 1) % 3]));
+			cam->vec_down[n] * cam->vec_right[(n + 1) % 3]));
 			n = 0;
 			while (nearbyint(cam->vec_right[n] * 100000) == 0)
 				n++;

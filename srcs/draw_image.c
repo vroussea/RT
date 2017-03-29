@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 17:15:59 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/25 16:27:14 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/29 17:38:36 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,11 +84,9 @@ int				calc_image(int x, int y, t_obj *begin_list, SDL_Surface *fogmap)
 		}
 		list = list->next;
 	}
+	if (nearest_obj == NULL && fogmap)
+		putpixel(fogmap, xy[0], xy[1], rgbafog(FOGO));
 	if (nearest_obj == NULL)
-	{
-		if (fogmap)
-			putpixel(fogmap, xy[0], xy[1], rgbafog(FOGO));
 		return (0x000000);
-	}
 	return (get_color_obj(begin_list, nearest_obj, xy));
 }

@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 16:03:12 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/25 16:27:44 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/29 17:31:32 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ void	get_vector_plane(double norm_vector[3], \
 	rotation_y(plane->base_norm_vector, -(plane->rotation[1]));
 	rotation_x(plane->base_norm_vector, -(plane->rotation[0]));
 	rotation_z(plane->base_norm_vector, -(plane->rotation[2]));
-
 }
 
 void	get_vector_cylinder(double norm_vector[3], \
@@ -78,7 +77,6 @@ void	get_vector_cylinder(double norm_vector[3], \
 	rotation_y(cylinder->base_norm_vector, -(cylinder->rotation[1]));
 	rotation_x(cylinder->base_norm_vector, -(cylinder->rotation[0]));
 	rotation_z(cylinder->base_norm_vector, -(cylinder->rotation[2]));
-
 }
 
 void	cross_product(double norm_vector[3], double vec1[3], double vec2[3])

@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/10 17:21:14 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/29 16:47:02 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/29 17:25:52 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,28 @@ void		del_all_list(t_obj *list)
 	}
 }
 
+void		copy_elem(t_obj *new_elem, t_obj *obj, t_obj *list, double ray[3])
+{
+	double new_ray[3];
+
+	new_elem->next = NULL;
+	memcpy(new_elem, list, sizeof(t_obj));
+	new_elem->pos_cam[0] = obj->base_intersec_point[0] - list->pos[0];
+	new_elem->pos_cam[1] = obj->base_intersec_point[1] - list->pos[1];
+	new_elem->pos_cam[2] = obj->base_intersec_point[2] - list->pos[2];
+	make_rotation(new_elem->pos_cam, list->rotation);
+	memcpy(new_ray, ray, sizeof(double[3]));
+	make_rotation(new_ray, list->rotation);
+	new_elem->pos_pixel_base[0] = new_elem->pos_cam[0] + new_ray[0];
+	new_elem->pos_pixel_base[1] = new_elem->pos_cam[1] + new_ray[1];
+	new_elem->pos_pixel_base[2] = new_elem->pos_cam[2] + new_ray[2];
+}
+
 t_obj		*copy_the_list(t_obj *list, t_obj *obj, double ray[3])
 {
 	t_obj	*new_list;
 	t_obj	*new_elem;
 	t_obj	*mem;
-	double	new_ray[3];
 
 	new_list = NULL;
 	mem = NULL;
@@ -61,17 +77,7 @@ t_obj		*copy_the_list(t_obj *list, t_obj *obj, double ray[3])
 		if (mem != NULL)
 			mem->next = new_elem;
 		mem = new_elem;
-		new_elem->next = NULL;
-		memcpy(new_elem, list, sizeof(t_obj));
-		new_elem->pos_cam[0] = obj->base_intersec_point[0] - list->pos[0];
-		new_elem->pos_cam[1] = obj->base_intersec_point[1] - list->pos[1];
-		new_elem->pos_cam[2] = obj->base_intersec_point[2] - list->pos[2];
-		make_rotation(new_elem->pos_cam, list->rotation);
-		memcpy(new_ray, ray, sizeof(double[3]));
-		make_rotation(new_ray, list->rotation);
-		new_elem->pos_pixel_base[0] = new_elem->pos_cam[0] + new_ray[0];
-		new_elem->pos_pixel_base[1] = new_elem->pos_cam[1] + new_ray[1];
-		new_elem->pos_pixel_base[2] = new_elem->pos_cam[2] + new_ray[2];
+		copy_elem(new_elem, obj, list, ray);
 		list = list->next;
 	}
 	return (new_list);

@@ -6,7 +6,7 @@
 /*   By: pfichepo <pfichepo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 11:09:54 by pfichepo          #+#    #+#             */
-/*   Updated: 2017/03/16 16:14:22 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/29 17:26:39 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ void			mainrender(t_envgui *env, char **argv)
 	{
 		draw_the_image(argv, env);
 		env->redraw = 0;
-		SDL_BlitSurface(env->fraysurface[env->aa], 0, env->raysurface[env->aa], 0);
+		SDL_BlitSurface(env->fraysurface[env->aa], 0, \
+			env->raysurface[env->aa], 0);
 		if (env->fog)
 			SDL_BlitSurface(target, NULL, env->raysurface[env->aa], NULL);
 	}
@@ -81,7 +82,8 @@ void			mainrender(t_envgui *env, char **argv)
 	{
 		calcaa(env);
 		env->aaupdated = 0;
-		SDL_BlitSurface(env->fraysurface[env->aa], 0, env->raysurface[env->aa], 0);
+		SDL_BlitSurface(env->fraysurface[env->aa], 0, \
+			env->raysurface[env->aa], 0);
 		if (env->fog)
 			SDL_BlitSurface(target, NULL, env->raysurface[env->aa], NULL);
 	}

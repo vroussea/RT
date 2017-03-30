@@ -66,26 +66,16 @@ static t_button	*retnext(t_button *button, t_envgui *env)
 
 void			mainrender(t_envgui *env, char **argv)
 {
-	SDL_Surface *target;
 
-	target = env->zraysurface[env->aa];
 	if (env->redraw)
 	{
 		draw_the_image(argv, env);
 		env->redraw = 0;
-		SDL_BlitSurface(env->fraysurface[env->aa], 0, \
-			env->raysurface[env->aa], 0);
-		if (env->fog)
-			SDL_BlitSurface(target, NULL, env->raysurface[env->aa], NULL);
 	}
 	if (env->aaupdated && env->aa == 1)
 	{
 		calcaa(env);
 		env->aaupdated = 0;
-		SDL_BlitSurface(env->fraysurface[env->aa], 0, \
-			env->raysurface[env->aa], 0);
-		if (env->fog)
-			SDL_BlitSurface(target, NULL, env->raysurface[env->aa], NULL);
 	}
 }
 

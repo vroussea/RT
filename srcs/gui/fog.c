@@ -61,18 +61,13 @@ static void		buttonfog(t_envgui *env)
 
 void			initfog(t_envgui *env)
 {
-	env->fraysurface = (SDL_Surface**)malloc(sizeof(SDL_Surface*) * 2);
 	env->zraysurface = (SDL_Surface**)malloc(sizeof(SDL_Surface*) * 2);
-	env->fraysurface[0] = SDL_CreateRGBSurfaceWithFormat(0, env->w, env->h \
-		- 10 - env->gui->bar->h, 32, SDL_PIXELFORMAT_RGBA32);
-	env->fraysurface[1] = SDL_CreateRGBSurfaceWithFormat(0, \
-		env->raysurface[0]->w \
-	* AALEVEL, env->raysurface[0]->h * AALEVEL, 32, SDL_PIXELFORMAT_RGBA32);
 	env->zraysurface[0] = SDL_CreateRGBSurfaceWithFormat(0, env->w, env->h \
 		- 10 - env->gui->bar->h, 32, SDL_PIXELFORMAT_RGBA32);
 	env->zraysurface[1] = SDL_CreateRGBSurfaceWithFormat(0, \
 		env->raysurface[0]->w \
 	* AALEVEL, env->raysurface[0]->h * AALEVEL, 32, SDL_PIXELFORMAT_RGBA32);
 	env->fog = 0;
+	env->flares = 1;
 	buttonfog(env);
 }

@@ -251,5 +251,5 @@ Uint32				texture_cylinder(t_obj *obj);
 Uint32				texture_plane(t_obj *obj);
 Uint32 				convert(Uint32 color);
 void 				convertsurface(SDL_Surface *sur);
-
+void 				ft_putstr(char *str);
 #endif

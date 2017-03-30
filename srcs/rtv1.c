@@ -65,7 +65,10 @@ int			main(int argc, char **argv)
 	SDL_Event		e;
 
 	if (argc != 2)
-		ft_error("Usage: ./rt <filename>\n", NULL);
+	{
+		ft_putstr("Usage: ./rt <filename>\n");
+		exit(-1);
+	}
 	checkread(argv[1]);
 	SDL_Init(SDL_INIT_EVENTS | SDL_INIT_TIMER);
 	TTF_Init();
@@ -73,7 +76,6 @@ int			main(int argc, char **argv)
 	env = initenv();
 	initbuttons(env);
 	startclock = SDL_GetTicks();
-	env->currentFPS = 0;
 	env->thread = SDL_CreateThread(threaddraw, "RenderingThread", (void*)env);
 	while (1)
 	{

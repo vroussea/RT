@@ -8,3 +8,4 @@ windowsbuild/rt.v12.suo
 *.o
 *.pdb
 windowsbuild/Debug/vc120.idb
+rt.exe

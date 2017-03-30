@@ -24,8 +24,8 @@ Uint32		texture_sphere(t_obj *obj)
 
 	p = PI + acos(obj->intersec_point[2] / obj->size);
 	t = PI + atan(obj->intersec_point[0] / obj->intersec_point[1]);
-	x = (int)((obj->texture->w * p * 1) / 2 * PI);
-	y = (int)((obj->texture->h * t * 1) / 2 * PI);
+	x = (int)((obj->texture->w * t * 1) / 2 * PI);
+	y = (int)((obj->texture->h * p * 1) / 2 * PI);
 	color = getpixel(obj->texture, \
 		abs(x % (int)obj->texture->w), abs(y % (int)obj->texture->h));
 	return (color);
@@ -52,12 +52,12 @@ Uint32		texture_plane(t_obj *obj)
 	int				x;
 	int				y;
 
-	x = ((int)(obj->intersec_point[0] * 16)) % obj->texture->w;
-	y = ((int)(obj->intersec_point[1] * 16)) % obj->texture->h;
+	x = ((int)(obj->intersec_point[1] * 16)) % obj->texture->h;
+	y = ((int)(obj->intersec_point[0] * 16)) % obj->texture->w;
 	if (x < 0)
-		x += obj->texture->w;
+		x += obj->texture->h;
 	if (y < 0)
-		y += obj->texture->h;
+		y += obj->texture->w;
 	color = getpixel(obj->texture, x, y);
 	return (color);
 }

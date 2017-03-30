@@ -29,6 +29,8 @@ t_button	*newbutton(char *def, char *press, SDL_Rect *pos)
 void		closewinfunc(t_envgui *env, t_button *self)
 {
 	self = (t_button*)self;
+	env->threaddone = 1;
+	SDL_WaitThread(env->thread, NULL);
 	SDL_DestroyRenderer(env->renderer);
 	SDL_DestroyWindow(env->win);
 	SDL_Quit();

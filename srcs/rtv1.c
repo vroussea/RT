@@ -76,6 +76,7 @@ int			main(int argc, char **argv)
 	env = initenv();
 	initbuttons(env);
 	startclock = SDL_GetTicks();
+	env->currentFPS = 0;
 	env->thread = SDL_CreateThread(threaddraw, "RenderingThread", (void*)env);
 	while (1)
 	{

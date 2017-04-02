@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 17:34:08 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/29 20:09:46 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/04/02 11:53:27 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static bool	checktext(char *line, t_obj *new_obj)
 
 int			check(char *line, t_obj *new_obj, int fd)
 {
-	if (strstr(line, "<pos>") != NULL /*&& new_obj->type != TYPE_PLANE*/ && \
+	if (strstr(line, "<pos>") != NULL && new_obj->type != TYPE_PLANE && \
 			init_3_values(new_obj->pos, line, "</pos>") == true)
 		return (true);
 	else if (strstr(line, "<size>") != NULL && \
@@ -71,9 +71,9 @@ int			check(char *line, t_obj *new_obj, int fd)
 	else if (strstr(line, "<angle>") != NULL && \
 			init_one_value(&(new_obj->angle), line, "</angle>") == true)
 		return (true);
-	/*else if (strstr(line, "<high>") != NULL && \
+	else if (strstr(line, "<high>") != NULL && \
 			init_one_value(&(new_obj->high), line, "</high>") == true)
-		return (true);*/
+		return (true);
 	else if (strstr(line, "<procedural>") != NULL && \
 			init_procedural_textures(new_obj, fd) == true)
 		return (true);
@@ -97,7 +97,7 @@ bool		check_procedural_texture(t_obj *obj, char *line)
 	return (false);
 }
 
-/*void		verif_plane_norm_vec(t_obj *plane)
+void		verif_plane_norm_vec(t_obj *plane)
 {
 	double	vec[3];
 	int		i;
@@ -116,4 +116,4 @@ bool		check_procedural_texture(t_obj *obj, char *line)
 		plane->norm_vec[2] = -1;
 		plane->high = -plane->high;
 	}
-}*/
+}

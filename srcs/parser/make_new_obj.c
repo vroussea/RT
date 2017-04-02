@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 16:16:23 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/29 21:41:08 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/04/02 11:54:46 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,4 +115,6 @@ void	finish_init_obj(t_obj *obj, t_cam *cam)
 	memcpy(obj->base_vec_right, cam->vec_right, sizeof(cam->vec_right));
 	memcpy(obj->base_vec_down, cam->vec_down, sizeof(cam->vec_down));
 	init_functs_obj(obj);
+	if (obj->type == TYPE_PLANE)
+		verif_plane_norm_vec(obj);
 }

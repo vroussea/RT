@@ -32,10 +32,5 @@
 			<size>60</size>
 			<rotation>90 0 0</rotation>
 		</cylinder>
-		<plane>
-			<rotation>0 0 0</rotation>
-			<color>255 255 255</color>
-			<pos>0 0 1000</pos>
-		</plane>
 	</objs>
 </scene>

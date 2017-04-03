@@ -55,8 +55,6 @@
 ** from recap_spots[n][3] to [5] : position of the spot in the space
 */
 
-
-
 typedef struct		s_pos
 {
 	int	x;
@@ -85,7 +83,6 @@ typedef struct		s_button
 	void			(*pressfunc)(void *, struct s_button *);
 	struct s_button	*next;
 }					t_button;
-
 
 typedef struct		s_gui
 {

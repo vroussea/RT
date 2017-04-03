@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <rt.h>
-#include <rt.h>
 
 static void		drawfps(t_envgui *env)
 {

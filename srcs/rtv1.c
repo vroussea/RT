@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <rt.h>
-#include <rt.h>
 #include <SDL_image.h>
 #if WIN32
 # pragma comment (lib, "sdl2.lib")

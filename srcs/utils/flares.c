@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <rt.h>
-#include <rt.h>
 #include <SDL_image.h>
 #include <SDL2_rotozoom.h>
 

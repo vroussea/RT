@@ -90,7 +90,7 @@ char			**ft_strsplit(const char *s, char c)
 	return (newtab);
 }
 
-void ft_putstr(char *str)
+void			ft_putstr(char *str)
 {
 	int i;
 

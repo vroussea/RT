@@ -51,12 +51,12 @@ void			draw_the_image(char **argv, t_envgui *env)
 	initthreads(data);
 	env->aaupdated = env->aa;
 	if (env->fog)
-		SDL_BlitSurface(env->zraysurface[env->aa], NULL, env->raysurface[env->aa], NULL);
+		SDL_BlitSurface(env->zraysurface[env->aa], NULL,\
+			env->raysurface[env->aa], NULL);
 	if (env->flares)
-		processflares(env->raysurface[env->aa], belst, env->flare, 1  + ((AALEVEL - 1) * env->aa));
-
+		processflares(env->raysurface[env->aa], belst,\
+			env->flare, 1 + ((AALEVEL - 1) * env->aa));
 	env->isloading = 0;
-
 	SDL_SetCursor(env->arrow);
 }
 
@@ -79,13 +79,11 @@ int				calc_image(int x, int y, t_obj *begin_list, SDL_Surface *fogmap)
 		{
 			nearest_point = mem;
 			nearest_obj = list;
-			if (fogmap)
-				putpixel(fogmap, xy[0], xy[1], rgbafog(mem));
+			putpixel(fogmap, x, y, rgbafog(mem));
 		}
 		list = list->next;
 	}
-	if (nearest_obj == NULL && fogmap)
-		putpixel(fogmap, xy[0], xy[1], rgbafog(FOGO));
+	putpixel(fogmap, x, y, rgbafog(FOGO));
 	if (nearest_obj == NULL)
 		return (0x000000);
 	return (get_color_obj(begin_list, nearest_obj, xy));

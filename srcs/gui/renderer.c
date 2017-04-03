@@ -66,7 +66,6 @@ static t_button	*retnext(t_button *button, t_envgui *env)
 
 void			mainrender(t_envgui *env, char **argv)
 {
-
 	if (env->redraw)
 	{
 		draw_the_image(argv, env);

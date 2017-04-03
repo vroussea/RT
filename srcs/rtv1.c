@@ -39,8 +39,7 @@ t_envgui	*initenv(void)
 	env->h = WIN_H;
 	env->freq = 60;
 	env->win = SDL_CreateWindow("rt", SDL_WINDOWPOS_CENTERED, \
-	SDL_WINDOWPOS_CENTERED, env->w, env->h, SDL_WINDOW_BORDERLESS | \
-		SDL_WINDOW_ALLOW_HIGHDPI | SDL_WINDOW_OPENGL);
+	SDL_WINDOWPOS_CENTERED, env->w, env->h, SDL_WINDOW_BORDERLESS);
 	env->surface = SDL_GetWindowSurface(env->win);
 	env->renderer = SDL_CreateSoftwareRenderer(env->surface);
 	SDL_SetRenderDrawColor(env->renderer, 0, 0, 0, 255);
@@ -55,6 +54,8 @@ t_envgui	*initenv(void)
 	env->aa = 0;
 	env->aaupdated = 1;
 	env->redraw = 1;
+	initbuttons(env);
+	env->currentFPS = 0;
 	return (env);
 }
 
@@ -74,9 +75,7 @@ int			main(int argc, char **argv)
 	TTF_Init();
 	IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG);
 	env = initenv();
-	initbuttons(env);
 	startclock = SDL_GetTicks();
-	env->currentFPS = 0;
 	env->thread = SDL_CreateThread(threaddraw, "RenderingThread", (void*)env);
 	while (1)
 	{

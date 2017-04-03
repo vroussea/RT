@@ -36,7 +36,7 @@
 # define PROC_TEXT_STRAIGHT_STRIPES 4
 # define PROC_TEXT_DIAGONAL_STRIPES 5
 # define G_LUM 0.1
-# define PI 3.1415926535
+# define PI 3.1415926535897932384626433832795
 typedef struct		s_envgui	t_envgui;
 typedef struct		s_obj		t_obj;
 

@@ -11,11 +11,11 @@
 /* ************************************************************************** */
 
 #include <rt.h>
-#include <rtv1.h>
+#include <rt.h>
 
 static void		drawfps(t_envgui *env)
 {
-	sprintf(env->gui->fpstext, "%i", env->currentFPS);
+	sprintf(env->gui->fpstext, "%i", env->currentfps);
 	env->gui->fpsfont = TTF_RenderText_Solid(env->gui->sans,\
 		env->gui->fpstext, env->gui->white);
 	SDL_BlitSurface(env->gui->fpsfont, NULL, env->surface, env->gui->fpsrect);
@@ -26,7 +26,7 @@ static void		drawfps(t_envgui *env)
 ** Routine est là pour check les fps et le déplacement de la window
 */
 
-void			routine(t_envgui *env, Uint32 deltaclock, Uint32 startclock)
+void			routine(t_envgui *env, Uint32 deltacock, Uint32 startcock)
 {
 	int				posx;
 	int				posy;
@@ -34,12 +34,12 @@ void			routine(t_envgui *env, Uint32 deltaclock, Uint32 startclock)
 	int				winy;
 	double			current;
 
-	current = (double)deltaclock / (double)1000;
+	current = (double)deltacock / (double)1000;
 	if (current < ((double)1 / (double)env->freq))
 		SDL_Delay((Uint32)((((double)1 / (double)env->freq) - current) * 1000));
-	if (deltaclock != 0)
-		env->currentFPS = (Uint32)(((double)1 / (SDL_GetTicks() - \
-	startclock) * 1000));
+	if (deltacock != 0)
+		env->currentfps = (Uint32)(((double)1 / (SDL_GetTicks() - \
+	startcock) * 1000));
 	if (env->drag)
 	{
 		SDL_GetGlobalMouseState(&posx, &posy);

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <rtv1.h>
+#include <rt.h>
 
 void	get_new_pos(double point[3], double pos_obj[3], double rotation[3])
 {

@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <rt.h>
-#include <rtv1.h>
+#include <rt.h>
 #include <time.h>
 
 int			threadsavepic(void *adr)
@@ -52,13 +52,10 @@ static int	threadthink(void *d)
 		xy[1] = 0;
 		while (xy[1] < ymax)
 		{
-			//if (xy[0] == 960)
-			//{
 			putpixel(data->image, xy[0], xy[1], \
 				(Uint32)calc_image(xy[0], xy[1], data->data, data->fogmap));
 			if (data->threadid == 1)
 				*(data->loading) = math_remapsimple(i++ * 4, ymax * xmax, 1);
-			//}
 			xy[1]++;
 		}
 		xy[0] += 4;

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <rtv1.h>
+#include <rt.h>
 
 bool		shadows(t_obj *list, int xy[2], t_obj *obj, int nb)
 {

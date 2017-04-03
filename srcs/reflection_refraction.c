@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <rtv1.h>
+#include <rt.h>
 
 void	reflection(double base_vec[3], double normal[3], \
 		double reflected_ray[3])

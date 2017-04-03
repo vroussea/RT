@@ -55,7 +55,7 @@ static void		buttonfog(t_envgui *env)
 		ft_error("Cannot Load button texture", NULL);
 	button->pressed = 0;
 	button->type = BUTTON_SPHERE;
-	button->pressfunc = ralo;
+	button->pressfunc = (void*)ralo;
 	stackbutton(env, button);
 }
 

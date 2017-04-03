@@ -12,7 +12,7 @@
 
 #include <libft.h>
 #include <stdlib.h>
-#include <rtv1.h>
+#include <rt.h>
 
 static size_t	count_words(char *s, char c)
 {

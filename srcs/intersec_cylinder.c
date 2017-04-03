@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <rtv1.h>
+#include <rt.h>
 
 void	get_vec_ray_cylinder(double vec_ray[3], t_obj *cylinder, int xy[2])
 {

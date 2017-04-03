@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <rtv1.h>
+#include <rt.h>
 
 static	void	get_vec_ray_cone(double vec_ray[3], t_obj *cone, int xy[2])
 {

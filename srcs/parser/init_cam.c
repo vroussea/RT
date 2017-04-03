@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <rtv1.h>
+#include <rt.h>
 
 static bool	init_cam_pos_rotation(int fd, t_cam *cam)
 {

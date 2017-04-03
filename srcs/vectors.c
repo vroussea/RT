@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <rtv1.h>
+#include <rt.h>
 
 void	get_vector_sphere(double norm_vector[3], \
 			double vec_light[3], t_obj *sphere, int nb)

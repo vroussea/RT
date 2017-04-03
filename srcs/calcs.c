@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <rtv1.h>
+#include <rt.h>
 
 void	finish_calc_lights(int color_tab[3], double luminosity, \
 					double specular)

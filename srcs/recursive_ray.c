@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <rtv1.h>
+#include <rt.h>
 
 void	calc_reflection_refraction(t_obj *list, t_obj *obj, int color_tab[3])
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <rtv1.h>
+#include <rt.h>
 
 double	get_specular(double reflected_ray[3], double vec_light[3])
 {

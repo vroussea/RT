@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <rtv1.h>
+#include <rt.h>
 #include <rt.h>
 #include <SDL_image.h>
 #if WIN32
@@ -55,7 +55,7 @@ t_envgui	*initenv(void)
 	env->aaupdated = 1;
 	env->redraw = 1;
 	initbuttons(env);
-	env->currentFPS = 0;
+	env->currentfps = 0;
 	return (env);
 }
 

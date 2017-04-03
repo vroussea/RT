@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <rtv1.h>
+#include <rt.h>
 
 bool	init_and_copy(double **list_spot, char *line, t_cam *cam)
 {

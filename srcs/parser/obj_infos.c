@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <rtv1.h>
+#include <rt.h>
 
 bool	get_objs_infos(int fd, t_obj *objs, t_cam *cam)
 {

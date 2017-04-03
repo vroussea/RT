@@ -14,19 +14,18 @@
 # define LIBFT_H
 # include <string.h>
 # include <stdlib.h>
-#if !WIN32
-# include <unistd.h>
-#endif
-#include <stdbool.h>
-#define BUFF_SIZE 1000
+# if !WIN32
+#  include <unistd.h>
+# endif
+# include <stdbool.h>
+# define BUFF_SIZE 1000
 
-typedef struct s_list t_list;
-typedef struct      s_list
+typedef struct	s_list
 {
-		void		*content;
-		size_t		content_size;
-		t_list		*next;
-}					t_list;
+	void			*content;
+	size_t			content_size;
+	struct s_list	*next;
+}				t_list;
 
 char			**ft_strsplit(char const *s, char c);
 int				get_next_line(const int fd, char **line);

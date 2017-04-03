@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <rtv1.h>
+#include <rt.h>
 #include <SDL_image.h>
 
 bool	init_tab_3(double tab[3], int color[3], char *line)

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <rtv1.h>
+#include <rt.h>
 
 static void		get_vec_ray_plane(double vec_ray[3], t_obj *plane, int xy[2])
 {

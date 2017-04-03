@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <sys/stat.h>
-#include <rtv1.h>
+#include <rt.h>
 
 #if defined(WIN32) || defined(WIN64)
 # define S_ISREG(m) (((m) & S_IFMT) == S_IFREG)

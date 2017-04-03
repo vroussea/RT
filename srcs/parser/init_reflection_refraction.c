@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <rtv1.h>
+#include <rt.h>
 
 int	init_reflection_refraction(double *ref_id, char *line, char *balise)
 {

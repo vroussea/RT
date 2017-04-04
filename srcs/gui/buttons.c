@@ -46,7 +46,7 @@ void		reducewinfunc(t_envgui *env, t_button *self)
 void		togglefpsfunc(t_envgui *env, t_button *self)
 {
 	self = (t_button*)self;
-	env->drawfps = !env->drawfps;
+	env->redraw = 1;
 }
 
 void		stackbutton(t_envgui *env, t_button *button)

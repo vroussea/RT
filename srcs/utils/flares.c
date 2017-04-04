@@ -80,7 +80,7 @@ void			processflares(SDL_Surface *t, t_obj *b, SDL_Surface *f, int a)
 		if (spotvisible(xy, b->recap_spots[i], b))
 		{
 			dist = getgoodsize(b->recap_spots[i], a);
-			tmp = scalesurface(f, f->w * (dist / 6.5), f->h * (dist / 6.5));
+			tmp = scalesurface(f, f->w * (dist / 6.5)*a, f->h * (dist / 6.5)*a);
 			rect.w = tmp->w;
 			rect.h = tmp->h;
 			rect.x = xy[0] - (tmp->w) / 2;

@@ -67,7 +67,7 @@ void			initfog(t_envgui *env)
 	env->zraysurface[1] = SDL_CreateRGBSurfaceWithFormat(0, \
 		env->raysurface[0]->w \
 	* AALEVEL, env->raysurface[0]->h * AALEVEL, 32, SDL_PIXELFORMAT_RGBA32);
-	env->fog = 0;
-	env->flares = 1;
+	env->fog = false;
+	env->flares = true;
 	buttonfog(env);
 }

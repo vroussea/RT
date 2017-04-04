@@ -112,8 +112,7 @@ typedef struct		s_envgui
 	int				drag;
 	int				dragx;
 	int				dragy;
-	double			time;
-	int				freq;
+	Uint8			freq;
 	t_gui			*gui;
 	Uint32			currentfps;
 	bool			isloading;
@@ -136,7 +135,7 @@ typedef struct		s_envgui
 
 typedef struct	s_obj
 {
-	int				type;
+	char			type;
 	double			pos[3];
 	double			size;
 	double			high;
@@ -150,8 +149,8 @@ typedef struct	s_obj
 	double			vec_right[3];
 	double			vec_down[3];
 	double			**spot;
-	Uint32			nb_spot;
-	Uint32			nb_spots_on_screen;
+	Uint8			nb_spot;
+	Uint8			nb_spots_on_screen;
 	double			**recap_spots;
 	int				color_rgb[3];
 	int				final_color[3];
@@ -168,10 +167,10 @@ typedef struct	s_obj
 	double			(*intersect)(int*, struct s_obj*);
 	void			(*vector)(double*, double*, struct s_obj*, int);
 	bool			(*shadow)(struct s_obj *, double *, int);
-	int				proc_text_type;
+	Uint8			proc_text_type;
 	bool			is_proc_texture;
 	bool			is_waves;
-	int				nb_ref;
+	Uint8			nb_ref;
 	double			reflection_id;
 	double			refraction_id;
 	double			original_refraction;

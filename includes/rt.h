@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 14:32:56 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/29 19:44:26 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/04/04 16:09:24 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -280,6 +280,10 @@ void				finish_init_obj(t_obj *obj, t_cam *cam);
 void				init_down_right(double vec_down[3], double vec_right[3], \
 						double rotation[3], int res[2]);
 void				init_functs_obj(t_obj *obj);
+void				init_sphere_functs(t_obj *obj);
+void				init_plane_functs(t_obj *obj);
+void				init_cone_functs(t_obj *obj);
+void				init_cylinder_functs(t_obj *obj);
 void				convert_to_hex(int tab[3]);
 void				verif_plane_norm_vec(t_obj *plane);
 bool				init_one_spot(t_cam *cam);

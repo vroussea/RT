@@ -12,7 +12,7 @@
 
 #include <rt.h>
 #include <SDL_image.h>
-#include <SDL2_rotozoom.h>
+#define CHEAT 0
 
 double			realdist(double dist)
 {
@@ -64,6 +64,31 @@ static double	getgoodsize(double *tab, int aa)
 	return (fact);
 }
 
+SDL_Surface *ScaleSurface(SDL_Surface *s, Uint16 w, Uint16 h)
+{
+	double fy;
+	double fx;
+
+	if(!s || !w || !h)
+		return 0;
+
+	SDL_Surface *ret;
+	ret = SDL_CreateRGBSurface(s->flags, w, h, s->format->BitsPerPixel,
+		s->format->Rmask, s->format->Gmask, s->format->Bmask, s->format->Amask);
+
+	fx = ((double)(w)  / (double)(s->w)),
+	fy = ((double)(h) / (double)(s->h));
+
+	for(Sint32 y = 0; y < s->h; y++)
+		for(Sint32 x = 0; x < s->w; x++)
+			for(Sint32 o_y = 0; o_y < fy; ++o_y)
+				for(Sint32 o_x = 0; o_x < fx; ++o_x)
+					putpixel(ret, (int)(fx * x) + o_x, 
+						(int)(fy * y) + o_y, getpixel(s, x, y));
+	return ret;
+}
+
+
 void			processflares(SDL_Surface *t, t_obj *b, SDL_Surface *f, int a)
 {
 	Uint32		i;
@@ -80,7 +105,8 @@ void			processflares(SDL_Surface *t, t_obj *b, SDL_Surface *f, int a)
 		if (spotvisible(xy, b->recap_spots[i], b))
 		{
 			dist = getgoodsize(b->recap_spots[i], a);
-			tmp = rotozoomSurface(f, (i * 49) % 360, (dist / 6.5) * a, 1);
+			//tmp = rotozoomSurface(f, (i * 49) % 360, (dist / 6.5) * a, 1);
+			tmp = ScaleSurface(f, f->w * (dist / 6.5),f->h * (dist / 6.5) );
 			rect.w = tmp->w;
 			rect.h = tmp->h;
 			rect.x = xy[0] - (tmp->w) / 2;

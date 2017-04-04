@@ -14,10 +14,7 @@
 
 double	radians(double degree)
 {
-	double rad;
-
-	rad = degree * (M_PI / 180.0);
-	return (rad);
+	return (degree * (M_PI / 180.0));
 }
 
 void	rotation_x(double vec[3], double degree)

@@ -16,6 +16,7 @@ SRCS = 	gui/hook.c \
 		utils/threads.c \
 		utils/flares.c \
 		utils/colors.c \
+		utils/scalesurfaces.c \
 		parser/get_infos.c \
 		parser/init_cam.c \
 		parser/check.c \
@@ -50,7 +51,6 @@ SRCS = 	gui/hook.c \
 		parser/init_ref.c \
 		recursive_ray.c \
 		reflection_refraction.c
-
 
 SRCF = ./srcs/
 OBJS = $(addprefix $(SRCF), $(SRCS:.c=.o))

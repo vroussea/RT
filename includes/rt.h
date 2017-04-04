@@ -46,7 +46,7 @@
 # define BUTTON_BOX 0
 # define BUTTON_SPHERE 1
 # define AALEVEL 2
-# define AANUM AALEVEL*AALEVEL
+# define AANUM (AALEVEL * AALEVEL)
 
 /*
 ** order of numbers for recap_spots in t_obj :
@@ -63,12 +63,22 @@ typedef struct		s_pos
 	int	h;
 }					t_pos;
 
-typedef struct		s_color
+typedef struct 		s_imgstruct
+{
+	int		y;
+	int		x;
+	int		o_y;
+	int		o_x;
+	double	fx;
+	double	fy;
+}					t_imgstruct;
+
+/*typedef struct		s_color
 {
 	Uint8	r;
 	Uint8	g;
 	Uint8	b;
-}					t_color;
+}					t_color;*/
 
 typedef struct		s_button
 {
@@ -353,4 +363,5 @@ Uint32				texture_plane(t_obj *obj);
 Uint32				convert(Uint32 color);
 void				convertsurface(SDL_Surface *sur);
 void				ft_putstr(char *str);
+SDL_Surface			*scalesurface(SDL_Surface *s, Uint16 w, Uint16 h);
 #endif

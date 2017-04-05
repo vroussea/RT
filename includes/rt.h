@@ -57,20 +57,20 @@
 
 typedef struct		s_pos
 {
-	int	x;
-	int	y;
-	int	w;
-	int	h;
+	uint16_t	x;
+	uint16_t	y;
+	uint16_t	w;
+	uint16_t	h;
 }					t_pos;
 
 typedef struct 		s_imgstruct
 {
-	int		y;
-	int		x;
-	int		o_y;
-	int		o_x;
-	double	fx;
-	double	fy;
+	uint16_t	y;
+	uint16_t	x;
+	uint16_t	o_y;
+	uint16_t	o_x;
+	double		fx;
+	double		fy;
 }					t_imgstruct;
 
 /*typedef struct		s_color
@@ -89,7 +89,7 @@ typedef struct		s_button
 	SDL_Rect		*pos;
 	bool			togglable;
 	bool			pressed;
-	int				type;
+	bool			type;
 	void			(*pressfunc)(void *, struct s_button *);
 	struct s_button	*next;
 }					t_button;
@@ -117,9 +117,9 @@ typedef struct		s_envgui
 	t_button		*buttons;
 	t_button		*currentbutton;
 	t_button		*lastpressed;
-	int				w;
-	int				h;
-	int				drag;
+	uint16_t		w;
+	uint16_t		h;
+	bool			drag;
 	int				dragx;
 	int				dragy;
 	Uint8			freq;

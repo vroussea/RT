@@ -23,5 +23,5 @@ void	updatepixel(t_envgui *env, int x, int y, Uint32 color)
 	v = math_remapsimple(nb, env->raysurface[env->aa]->h, 1);
 	env->isloading = (nb != env->w * env->h);
 	env->loadingvalue = v;
-	env->drag = 0;
+	env->drag = false;
 }

@@ -48,7 +48,7 @@ t_envgui	*initenv(void)
 	env->wait = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_WAIT);
 	env->isloading = 0;
 	env->loadingvalue = 0;
-	env->drag = 0;
+	env->drag = false;
 	env->drawfps = 1;
 	env->aa = 0;
 	env->aaupdated = 1;

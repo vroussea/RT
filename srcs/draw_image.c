@@ -82,10 +82,9 @@ int				calc_image(int x, int y, t_obj *begin_list, SDL_Surface *fogmap)
 		}
 		list = list->next;
 	}
-	putpixel(fogmap, x, y, rgbafog(FOGO));
 	if (nearest_obj == NULL && fogmap)
 		putpixel(fogmap, xy[0], xy[1], rgbafog(FOGO));
-	if (nearest_obj == NULL)	
+	if (nearest_obj == NULL)
 		 return (0x000000);
 	return (get_color_obj(begin_list, nearest_obj, xy));
 }

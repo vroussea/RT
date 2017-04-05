@@ -23,6 +23,8 @@ static int		key_press(SDL_Event *e, t_envgui *env)
 		SDL_Quit();
 		exit(0);
 	}
+	if (e->key.keysym.sym == SDLK_F5)
+		env->redraw = true;
 	return (0);
 }
 

@@ -12,10 +12,15 @@
 
 #include <rt.h>
 
-static void	startdrag(t_envgui *e, int press)
+static void	startdrag(t_envgui *e, int press, int y)
 {
-	e->drag = press;
-	SDL_GetGlobalMouseState(&e->dragx, &e->dragy);
+	if (e->drag && press == 0)
+		e->drag = 0;
+	if (y < 33)
+	{
+		e->drag = press;
+		SDL_GetGlobalMouseState(&e->dragx, &e->dragy);
+	}
 }
 
 void		mouse_press(SDL_Event *ev, int press, t_envgui *e)
@@ -43,6 +48,6 @@ void		mouse_press(SDL_Event *ev, int press, t_envgui *e)
 			button->pressed = 0;
 		}
 	}
-	else if (y < 33)
-		startdrag(e, press);
+	else 
+		startdrag(e, press, y);
 }

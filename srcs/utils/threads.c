@@ -31,7 +31,7 @@ static int	ret(t_threaddata *data)
 {
 	del_all_list(data->data);
 	free(data);
-	return (data->threadid);
+	return (0);
 }
 
 static int	threadthink(void *d)
@@ -78,4 +78,5 @@ void		initthreads(t_parserdata *data)
 	SDL_WaitThread(thread2, NULL);
 	SDL_WaitThread(thread3, NULL);
 	SDL_WaitThread(thread4, NULL);
+	free(data);
 }

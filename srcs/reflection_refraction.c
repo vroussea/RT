@@ -45,7 +45,7 @@ void	refraction(double base_vec[3], double normal[3], \
 	normalize_vec(normal);
 	d_product = -dot_product(base_vec, normal);
 	prod_refra = obj->original_refraction / obj->new_refraction;
-	d_product2 = sqrt(1 - pow(prod_refra, 2) * (1 - pow(d_product, 2)));
+	d_product2 = sqrt(fabs(1.0 - (prod_refra*prod_refra) * (1.0 - (d_product*d_product))));
 	i = 0;
 	while (i < 3)
 	{

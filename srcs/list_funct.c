@@ -71,6 +71,7 @@ t_obj		*copy_the_list(t_obj *list, t_obj *obj, double ray[3])
 
 	new_list = NULL;
 	mem = NULL;
+	new_list = NULL;
 	while (list != NULL)
 	{
 		if (mem != NULL)

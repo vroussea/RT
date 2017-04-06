@@ -33,6 +33,7 @@ SRCS = 	gui/hook.c \
 		rtv1.c \
 		maths.c \
 		maths2.c \
+		maths3.c \
 		list_funct.c \
 		draw_image.c \
 		calcs.c \

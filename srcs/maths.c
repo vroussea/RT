@@ -12,11 +12,6 @@
 
 #include <rt.h>
 
-double	radians(double degree)
-{
-	return (degree * (M_PI / 180.0));
-}
-
 void	rotation_x(double vec[3], double degree)
 {
 	double b;
@@ -67,4 +62,22 @@ void	make_rotation(double vec[3], double rotation[3])
 		if (rotation[1] != 0)
 			rotation_y(vec, rotation[1]);
 	}
+}
+
+void	rotation(double vect[3], double axe[3], double ang)
+{
+	double	tmp[3];
+
+	tmp[0] = vect[0];
+	tmp[1] = vect[1];
+	tmp[2] = vect[2];
+	vect[0] = axe[0] * (cos(ang) + (tmp[0] * tmp[0]) * (1 - cos(ang))) +
+		axe[1] * (tmp[0] * tmp[1] * (1 - cos(ang)) - tmp[2] * sin(ang)) +
+		axe[2] * (tmp[0] * tmp[2] * (1 - cos(ang)) + tmp[1] * sin(ang));
+	vect[1]= axe[0] * (tmp[1] * tmp[0] * (1 - cos(ang)) + tmp[2] * sin(ang)) +
+		axe[1] * (cos(ang) + (tmp[1] * tmp[1]) * (1 - cos(ang))) +
+		axe[2] * (tmp[1] * tmp[2] * (1 - cos(ang)) - tmp[0] * sin(ang));
+	vect[2] = axe[0] * (tmp[2] * tmp[0] * (1 - cos(ang)) - tmp[1] * sin(ang)) +
+		axe[1] * (tmp[2] * tmp[1] * (1 - cos(ang)) + tmp[0] * sin(ang)) +
+		axe[2] * (cos(ang) + (tmp[2] * tmp[2]) * (1 - cos(ang)));
 }

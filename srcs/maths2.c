@@ -12,6 +12,11 @@
 
 #include <rt.h>
 
+double	radians(double degree)
+{
+	return (degree * (M_PI / 180.0));
+}
+
 void	normalize_vec(double vec[3])
 {
 	double	norm;

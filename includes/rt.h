@@ -323,6 +323,7 @@ void				rotation_x(double vec[3], double degree);
 void				rotation_y(double vec[3], double degree);
 void				rotation_z(double vec[3], double degree);
 void				make_rotation(double vec[3], double rotation[3]);
+void				rotation(double vec[3], double axe[3], double ang);
 void				normalize_vec(double vec[3]);
 double				calc_2nd_degree_equation(double abc[3]);
 void				calc_intersec_point(t_obj *obj, double vec_ray[3]);
@@ -349,6 +350,7 @@ void				get_vector_cone(double norm_vec[3], double vec_light[3], \
 						t_obj *obj, int nb);
 void				cross_product(double norm_vector[3], double vec1[3], \
 						double vec2[3]);
+void				vect_prod(double u[3], double v[3], double orth[3]);
 void				initthreads(t_parserdata *data);
 bool				flarecheck(double **list, int max, int x, int y);
 void				proflr(SDL_Surface *t, t_obj *b, SDL_Surface *f, int a);

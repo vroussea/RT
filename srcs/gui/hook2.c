@@ -48,6 +48,6 @@ void		mouse_press(SDL_Event *ev, int press, t_envgui *e)
 			button->pressed = 0;
 		}
 	}
-	else 
+	else
 		startdrag(e, press, y);
 }

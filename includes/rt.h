@@ -63,7 +63,7 @@ typedef struct		s_pos
 	uint16_t	h;
 }					t_pos;
 
-typedef struct 		s_imgstruct
+typedef struct		s_imgstruct
 {
 	uint16_t	y;
 	uint16_t	x;
@@ -72,13 +72,6 @@ typedef struct 		s_imgstruct
 	double		fx;
 	double		fy;
 }					t_imgstruct;
-
-/*typedef struct		s_color
-{
-	Uint8	r;
-	Uint8	g;
-	Uint8	b;
-}					t_color;*/
 
 typedef struct		s_button
 {
@@ -303,7 +296,7 @@ void				get_refracted_color(t_obj *list, t_obj *obj, int color[3]);
 double				calc_one_spot_luminosity(t_obj *obj, int nb);
 double				calc_one_spot_spec(t_obj *obj, int nb);
 void				draw_the_image(char **argv, struct s_envgui *env);
-int					calc_image(int x, int y, t_obj *begin_list, SDL_Surface *fogmap);
+int					calc_image(int x, int y, t_obj *b, SDL_Surface *f);
 int					get_color_obj(t_obj *begin_list, t_obj *nearest_obj, \
 						int xy[2]);
 void				get_color_tab(int color[3], t_obj *list);
@@ -335,7 +328,7 @@ double				calc_2nd_degree_equation(double abc[3]);
 void				calc_intersec_point(t_obj *obj, double vec_ray[3]);
 double				dot_product(double vec1[3], double vec2[3]);
 void				reflection(double vec1[3], double norm[3], double ref[3]);
-void				refraction(double vec1[3], double norm[3], double ref[3], t_obj *obj);
+void				refraction(double v[3], double n[3], double r[3], t_obj *o);
 void				ft_error(char *str, char **tab);
 bool				shadows(t_obj *lst, int xy[2], \
 						t_obj *obj, int nb);
@@ -358,7 +351,7 @@ void				cross_product(double norm_vector[3], double vec1[3], \
 						double vec2[3]);
 void				initthreads(t_parserdata *data);
 bool				flarecheck(double **list, int max, int x, int y);
-void				processflares(SDL_Surface *target, t_obj *blist, SDL_Surface *flare, int aa);
+void				processflares(SDL_Surface *t, t_obj *b, SDL_Surface *f, int a);
 bool				init_surface(SDL_Surface **texture, char *line);
 void				texture(t_obj *obj, int color_tab[3]);
 Uint32				texture_sphere(t_obj *obj);

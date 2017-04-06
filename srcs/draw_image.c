@@ -30,10 +30,24 @@ t_threaddata	*mallocit(Uint8 id, t_envgui *env)
 	return (ret);
 }
 
+static void		overlay(t_envgui *env, char *argv)
+{
+	t_obj			*belst;
+
+	if (env->fog)
+		SDL_BlitSurface(env->zraysurface[env->aa], NULL,\
+			env->raysurface[env->aa], NULL);
+	if (env->flares)
+	{
+		get_infos(argv, &belst, env->aa);
+		processflares(env->raysurface[env->aa], belst,\
+			env->flare, 1 + ((AALEVEL - 1) * env->aa));
+	}
+}
+
 void			draw_the_image(char **argv, t_envgui *env)
 {
 	t_parserdata	*data;
-	t_obj			*belst;
 
 	SDL_SetCursor(env->wait);
 	data = (t_parserdata*)malloc(sizeof(t_parserdata));
@@ -48,18 +62,15 @@ void			draw_the_image(char **argv, t_envgui *env)
 	get_infos(argv[1], &(data->thread4->data), env->aa);
 	initthreads(data);
 	env->aaupdated = env->aa;
-	if (env->fog)
-		SDL_BlitSurface(env->zraysurface[env->aa], NULL,\
-			env->raysurface[env->aa], NULL);
-	if (env->flares)
-	{
-		get_infos(argv[1], &belst, env->aa);
-		processflares(env->raysurface[env->aa], belst,\
-			env->flare, 1 + ((AALEVEL - 1) * env->aa));
-	}
+	overlay(env, argv[1]);
 	env->isloading = 0;
 	SDL_SetCursor(env->arrow);
+}
 
+void			fuckthenorm(int *x, int *y, int *xy)
+{
+	xy[0] = x[0];
+	xy[1] = y[0];
 }
 
 int				calc_image(int x, int y, t_obj *begin_list, SDL_Surface *fogmap)
@@ -70,8 +81,7 @@ int				calc_image(int x, int y, t_obj *begin_list, SDL_Surface *fogmap)
 	t_obj	*list;
 	int		xy[2];
 
-	xy[0] = x;
-	xy[1] = y;
+	fuckthenorm(&x, &y, xy);
 	list = begin_list;
 	nearest_obj = NULL;
 	nearest_point = 2147483647;
@@ -88,6 +98,6 @@ int				calc_image(int x, int y, t_obj *begin_list, SDL_Surface *fogmap)
 	if (nearest_obj == NULL && fogmap)
 		putpixel(fogmap, xy[0], xy[1], rgbafog(FOGO));
 	if (nearest_obj == NULL)
-		 return (0x000000);
+		return (0x000000);
 	return (get_color_obj(begin_list, nearest_obj, xy));
 }

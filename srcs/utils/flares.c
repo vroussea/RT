@@ -64,7 +64,7 @@ static double	getgoodsize(double *tab, int aa)
 	return (fact);
 }
 
-void			processflares(SDL_Surface *t, t_obj *b, SDL_Surface *f, int a)
+void			proflr(SDL_Surface *t, t_obj *b, SDL_Surface *f, int a)
 {
 	Uint32		i;
 	int			xy[2];

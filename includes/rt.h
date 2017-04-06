@@ -136,7 +136,7 @@ typedef struct		s_envgui
 	bool			flares;
 }					t_envgui;
 
-typedef struct	s_obj
+typedef struct		s_obj
 {
 	char			type;
 	double			pos[3];
@@ -184,7 +184,7 @@ typedef struct	s_obj
 	Uint32			(*texturing)(struct s_obj *obj);
 	SDL_Surface		*texture;
 	struct s_obj	*next;
-}				t_obj;
+}					t_obj;
 
 typedef struct		s_cam
 {
@@ -287,7 +287,7 @@ bool				check_procedural_texture(t_obj *obj, char *line);
 int					*get_proc_color(t_obj *obj);
 void				free_spots(t_cam *cam);
 void				init_recap_spots(t_obj *obj, t_cam *cam);
-void				calc_reflection_refraction(t_obj *list, t_obj *obj, int color[3]);
+void				calc_reflection_refraction(t_obj *l, t_obj *o, int c[3]);
 bool				init_ref(double *ref, char *line, char *balise);
 t_obj				*copy_the_list(t_obj *list, t_obj *obj, double ray[3]);
 void				free_copied_list(t_obj *list);
@@ -351,7 +351,7 @@ void				cross_product(double norm_vector[3], double vec1[3], \
 						double vec2[3]);
 void				initthreads(t_parserdata *data);
 bool				flarecheck(double **list, int max, int x, int y);
-void				processflares(SDL_Surface *t, t_obj *b, SDL_Surface *f, int a);
+void				proflr(SDL_Surface *t, t_obj *b, SDL_Surface *f, int a);
 bool				init_surface(SDL_Surface **texture, char *line);
 void				texture(t_obj *obj, int color_tab[3]);
 Uint32				texture_sphere(t_obj *obj);

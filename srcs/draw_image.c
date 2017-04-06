@@ -40,7 +40,7 @@ static void		overlay(t_envgui *env, char *argv)
 	if (env->flares)
 	{
 		get_infos(argv, &belst, env->aa);
-		processflares(env->raysurface[env->aa], belst,\
+		proflr(env->raysurface[env->aa], belst,\
 			env->flare, 1 + ((AALEVEL - 1) * env->aa));
 	}
 }

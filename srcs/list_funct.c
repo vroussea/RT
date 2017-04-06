@@ -32,6 +32,7 @@ void		del_all_list(t_obj *list)
 	while (list != NULL)
 	{
 		mem = list->next;
+		SDL_FreeSurface(list->texture);
 		nb_spot = (int)(list->nb_spot);
 		while (--nb_spot >= 0)
 			free(list->spot[nb_spot]);

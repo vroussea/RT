@@ -90,4 +90,5 @@ void			processflares(SDL_Surface *t, t_obj *b, SDL_Surface *f, int a)
 		}
 		i++;
 	}
+	del_all_list(b);
 }

@@ -36,7 +36,6 @@ void			draw_the_image(char **argv, t_envgui *env)
 	t_obj			*belst;
 
 	SDL_SetCursor(env->wait);
-	get_infos(argv[1], &belst, env->aa);
 	data = (t_parserdata*)malloc(sizeof(t_parserdata));
 	data->thread1 = mallocit(1, env);
 	data->thread2 = mallocit(2, env);
@@ -53,10 +52,14 @@ void			draw_the_image(char **argv, t_envgui *env)
 		SDL_BlitSurface(env->zraysurface[env->aa], NULL,\
 			env->raysurface[env->aa], NULL);
 	if (env->flares)
+	{
+		get_infos(argv[1], &belst, env->aa);
 		processflares(env->raysurface[env->aa], belst,\
 			env->flare, 1 + ((AALEVEL - 1) * env->aa));
+	}
 	env->isloading = 0;
 	SDL_SetCursor(env->arrow);
+
 }
 
 int				calc_image(int x, int y, t_obj *begin_list, SDL_Surface *fogmap)

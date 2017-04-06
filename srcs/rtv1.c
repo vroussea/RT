@@ -17,7 +17,6 @@
 # pragma comment (lib, "sdl2main.lib")
 # pragma comment (lib, "SDL2_ttf.lib")
 # pragma comment (lib, "SDL2_image.lib")
-# pragma comment (lib, "SDL2_gfx.lib")
 #endif
 
 void		ft_error(char *str, char **tab)

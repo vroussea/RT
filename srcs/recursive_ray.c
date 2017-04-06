@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 14:06:25 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/29 18:01:05 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/04/06 12:32:05 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void	get_refracted_color(t_obj *list, t_obj *obj, int color_tab[3])
 	refraction(obj->base_vec_ray, obj->base_norm_vector, refracted_ray, obj);
 	new_list = copy_the_list(list, obj, refracted_ray);
 	color = calc_image(0, 0, new_list, NULL);
+	free_copied_list(new_list);
 	color_tab[2] = color % 0x100;
 	color /= 0x100;
 	color_tab[1] = color % 0x100;

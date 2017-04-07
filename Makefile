@@ -1,6 +1,6 @@
 NAME = rt
 CC = clang
-CFLAGS = -Ofast -march=native -Wall -Wextra -Werror -arch x86_64 -g -Wimplicit-function-declaration -I ./includes -I $(HOME)/.brew/Cellar/sdl2/2.0.5/include/SDL2 -I $(HOME)/.brew/Cellar/sdl2_ttf/2.0.14/include/SDL2 -I $(HOME)/.brew/Cellar/sdl2_image/2.0.1_2/include/SDL2
+CFLAGS = -Ofast -mmmx -m3dnow -msse -msse2 -march=native -Wall -Wextra -Werror -arch x86_64 -g -Wimplicit-function-declaration -I ./includes -I $(HOME)/.brew/Cellar/sdl2/2.0.5/include/SDL2 -I $(HOME)/.brew/Cellar/sdl2_ttf/2.0.14/include/SDL2 -I $(HOME)/.brew/Cellar/sdl2_image/2.0.1_2/include/SDL2
 SRCS = 	gui/hook.c \
 		gui/hook2.c \
 		gui/graphiclib.c \

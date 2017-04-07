@@ -165,15 +165,21 @@
     <ClCompile Include="..\srcs\reflection_refraction.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\srcs\libft3.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\srcs\utils\scalesurfaces.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\srcs\parser\init_obj_functs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\includes\libft.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\includes\rt.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\includes\rtv1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

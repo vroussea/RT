@@ -61,7 +61,7 @@ void	get_refracted_color(t_obj *list, t_obj *obj, int color_tab[3])
 	double	refracted_ray[3];
 	int		color;
 
-	refraction(obj->base_vec_ray, obj->base_norm_vector, refracted_ray, obj);
+	refraction(obj->base_vec_ray, obj->base_normal_not_normalized, refracted_ray, obj);
 	new_list = copy_the_list(list, obj, refracted_ray);
 	color = calc_image(0, 0, new_list, NULL);
 	free_copied_list(new_list);

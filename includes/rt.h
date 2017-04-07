@@ -165,6 +165,7 @@ typedef struct		s_obj
 	double			base_vec_right[3];
 	double			base_vec_ray[3];
 	double			base_intersec_point[3];
+	double			base_normal_not_normalized[3];
 	double			base_norm_vector[3];
 	double			(*intersect)(int*, struct s_obj*);
 	void			(*vector)(double*, double*, struct s_obj*, int);
@@ -349,6 +350,7 @@ void				get_vector_cone(double norm_vec[3], double vec_light[3], \
 						t_obj *obj, int nb);
 void				cross_product(double norm_vector[3], double vec1[3], \
 						double vec2[3]);
+double				clamp(double min, double max, double val);
 void				vect_prod(double u[3], double v[3], double orth[3]);
 void				initthreads(t_parserdata *data);
 bool				flarecheck(double **list, int max, int x, int y);

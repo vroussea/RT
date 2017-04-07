@@ -24,6 +24,9 @@ void	get_vector_sphere(double norm_vector[3], \
 		vec_light[i] = (sphere->spot)[nb][i] - sphere->intersec_point[i];
 		i++;
 	}
+	ft_memcpy(sphere->base_normal_not_normalized, norm_vector, sizeof(double[3]));
+	if (sphere->is_waves == true)
+		rotation_x(sphere->base_normal_not_normalized, 10.0 * cos(sphere->intersec_point[0]));
 	normalize_vec(norm_vector);
 	normalize_vec(vec_light);
 	if (sphere->is_waves == true)
@@ -32,6 +35,11 @@ void	get_vector_sphere(double norm_vector[3], \
 	rotation_y(sphere->base_norm_vector, -(sphere->rotation[1]));
 	rotation_x(sphere->base_norm_vector, -(sphere->rotation[0]));
 	rotation_z(sphere->base_norm_vector, -(sphere->rotation[2]));
+	rotation_y(sphere->base_normal_not_normalized, -(sphere->rotation[1]));
+	rotation_x(sphere->base_normal_not_normalized, -(sphere->rotation[0]));
+	rotation_z(sphere->base_normal_not_normalized, -(sphere->rotation[2]));
+	//printf("normal dot product : %f\nsqrt : %f\n", dot_product(sphere->base_norm_vector, sphere->base_norm_vector), sqrt(dot_product(sphere->base_norm_vector, sphere->base_norm_vector)));
+	//printf("normal not normalized dot product : %f\nsqrt : %f\n", dot_product(sphere->base_normal_not_normalized, sphere->base_normal_not_normalized), sqrt(dot_product(sphere->base_normal_not_normalized, sphere->base_normal_not_normalized)));
 }
 
 void	get_vector_plane(double norm_vector[3], \
@@ -46,6 +54,9 @@ void	get_vector_plane(double norm_vector[3], \
 		vec_light[i] = (plane->spot)[nb][i] - plane->intersec_point[i];
 		i++;
 	}
+	ft_memcpy(plane->base_normal_not_normalized, norm_vector, sizeof(double[3]));
+	if (plane->is_waves == true)
+		rotation_y(plane->base_normal_not_normalized, 2.0 * cos(plane->intersec_point[1]));
 	normalize_vec(norm_vector);
 	normalize_vec(vec_light);
 	if (plane->is_waves == true)
@@ -54,6 +65,9 @@ void	get_vector_plane(double norm_vector[3], \
 	rotation_y(plane->base_norm_vector, -(plane->rotation[1]));
 	rotation_x(plane->base_norm_vector, -(plane->rotation[0]));
 	rotation_z(plane->base_norm_vector, -(plane->rotation[2]));
+	rotation_y(plane->base_normal_not_normalized, -(plane->rotation[1]));
+	rotation_x(plane->base_normal_not_normalized, -(plane->rotation[0]));
+	rotation_z(plane->base_normal_not_normalized, -(plane->rotation[2]));
 }
 
 void	get_vector_cylinder(double norm_vector[3], \
@@ -69,6 +83,9 @@ void	get_vector_cylinder(double norm_vector[3], \
 		i++;
 	}
 	norm_vector[2] = 0;
+	ft_memcpy(cylinder->base_normal_not_normalized, norm_vector, sizeof(double[3]));
+	if (cylinder->is_waves == true)
+		rotation_z(cylinder->base_normal_not_normalized, 2.0 * cos(cylinder->intersec_point[2]));
 	normalize_vec(norm_vector);
 	normalize_vec(vec_light);
 	if (cylinder->is_waves == true)
@@ -77,6 +94,9 @@ void	get_vector_cylinder(double norm_vector[3], \
 	rotation_y(cylinder->base_norm_vector, -(cylinder->rotation[1]));
 	rotation_x(cylinder->base_norm_vector, -(cylinder->rotation[0]));
 	rotation_z(cylinder->base_norm_vector, -(cylinder->rotation[2]));
+	rotation_y(cylinder->base_normal_not_normalized, -(cylinder->rotation[1]));
+	rotation_x(cylinder->base_normal_not_normalized, -(cylinder->rotation[0]));
+	rotation_z(cylinder->base_normal_not_normalized, -(cylinder->rotation[2]));
 }
 
 void	cross_product(double norm_vector[3], double vec1[3], double vec2[3])
@@ -111,6 +131,9 @@ void	get_vector_cone(double norm_vector[3], double vec_light[3], \
 	vec2[2] = 0;
 	rotation_z(vec2, 90);
 	cross_product(norm_vector, vec1, vec2);
+	ft_memcpy(cone->base_normal_not_normalized, norm_vector, sizeof(double[3]));
+	if (cone->is_waves == true)
+		rotation_z(cone->base_normal_not_normalized, 1.5 * cos(cone->intersec_point[2]));
 	normalize_vec(norm_vector);
 	normalize_vec(vec_light);
 	if (cone->is_waves == true)
@@ -119,4 +142,7 @@ void	get_vector_cone(double norm_vector[3], double vec_light[3], \
 	rotation_y(cone->base_norm_vector, -(cone->rotation[1]));
 	rotation_x(cone->base_norm_vector, -(cone->rotation[0]));
 	rotation_z(cone->base_norm_vector, -(cone->rotation[2]));
+	rotation_y(cone->base_normal_not_normalized, -(cone->rotation[1]));
+	rotation_x(cone->base_normal_not_normalized, -(cone->rotation[0]));
+	rotation_z(cone->base_normal_not_normalized, -(cone->rotation[2]));
 }

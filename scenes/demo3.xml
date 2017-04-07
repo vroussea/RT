@@ -4,7 +4,7 @@
 		<resolution>1080 800</resolution>
 		<cam>
 			<pos>500 0 100</pos>
-			<rotation>0 0 10</rotation>
+			<rotation>-1 0 10</rotation>
 		</cam>
 		<spots>
 			<pos>100 -100 50</pos>
@@ -40,7 +40,12 @@
 		</plane>
 		<plane>
 			<high>-150</high>
-			<rotation>180 0 0</rotation>
+			<rotation>180 30 270</rotation>
+			<texture>res/cheekibreeki2.bmp</texture>
+		</plane>
+		<plane>
+			<high>-200</high>
+			<rotation>180 -10 270</rotation>
 			<texture>res/cheekibreeki.bmp</texture>
 		</plane>
 		<cylinder>

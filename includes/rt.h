@@ -38,7 +38,6 @@
 # define PI 3.1415926535897932384626433832795
 # define WIN_W 1920
 # define WIN_H 1080
-# define WIN_HCAM (WIN_H - 42)
 # include <SDL.h>
 # include <SDL_ttf.h>
 # include <time.h>

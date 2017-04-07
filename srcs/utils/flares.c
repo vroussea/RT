@@ -50,8 +50,8 @@ static double	getgoodsize(double *tab, int aa)
 	int		y;
 	double	fact;
 
-	x = 1920;
-	y = 1038;
+	x = WIN_W;
+	y = WIN_H - 42;
 	if (aa > 1)
 	{
 		x *= AALEVEL;

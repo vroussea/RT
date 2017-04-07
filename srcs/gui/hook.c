@@ -32,6 +32,7 @@ static void		calccursor(t_envgui *env, int x, int y)
 {
 	t_button	*found;
 	t_button	*button;
+	SDL_Cursor	*target;
 
 	found = NULL;
 	button = env->buttons;
@@ -46,9 +47,12 @@ static void		calccursor(t_envgui *env, int x, int y)
 	}
 	env->currentbutton = found;
 	if (found)
-		SDL_SetCursor(env->hand);
+		target = env->hand;
 	else
-		SDL_SetCursor(env->arrow);
+		target = env->arrow;
+	if (SDL_GetCursor() == target)
+		return ;
+	SDL_SetCursor(target);
 }
 
 static void		mouse_move(SDL_Event *e, t_envgui *env)

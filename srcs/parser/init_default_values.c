@@ -23,13 +23,13 @@ void	init_default_cam_values(t_cam *cam, int is_aa)
 	cam->vec_cam[1] = 0;
 	cam->vec_cam[2] = 0;
 	cam->res[0] = WIN_W + (WIN_W * is_aa * (AALEVEL - 1));
-	cam->res[1] = WIN_HCAM + (WIN_HCAM * is_aa * (AALEVEL - 1));
+	cam->res[1] = (WIN_H - 42) + ((WIN_H - 42) * is_aa * (AALEVEL - 1));
 	cam->vec_right[0] = 0;
 	cam->vec_right[1] = 100;
 	cam->vec_right[2] = 0;
 	cam->vec_down[0] = 0;
 	cam->vec_down[1] = 0;
-	cam->vec_down[2] = -100.0 * ((double)WIN_HCAM / (double)WIN_W);
+	cam->vec_down[2] = -100.0 * ((double)(WIN_H - 42) / (double)WIN_W);
 	i = -1;
 	while (++i < 3)
 	{

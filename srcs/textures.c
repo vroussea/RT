@@ -52,12 +52,12 @@ Uint32		texture_plane(t_obj *obj)
 	int				x;
 	int				y;
 
-	x = ((int)(obj->intersec_point[1] * 16)) % obj->texture->h;
-	y = ((int)(obj->intersec_point[0] * 16)) % obj->texture->w;
+	x = ((int)(obj->intersec_point[0] * 16)) % obj->texture->w;
+	y = ((int)(obj->intersec_point[1] * 16)) % obj->texture->h;
 	if (x < 0)
-		x += obj->texture->h;
+		x += obj->texture->w;
 	if (y < 0)
-		y += obj->texture->w;
+		y += obj->texture->h;
 	color = getpixel(obj->texture, x, y);
 	return (color);
 }

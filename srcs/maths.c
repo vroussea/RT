@@ -74,7 +74,7 @@ void	rotation(double vect[3], double axe[3], double ang)
 	vect[0] = axe[0] * (cos(ang) + (tmp[0] * tmp[0]) * (1 - cos(ang))) +
 		axe[1] * (tmp[0] * tmp[1] * (1 - cos(ang)) - tmp[2] * sin(ang)) +
 		axe[2] * (tmp[0] * tmp[2] * (1 - cos(ang)) + tmp[1] * sin(ang));
-	vect[1]= axe[0] * (tmp[1] * tmp[0] * (1 - cos(ang)) + tmp[2] * sin(ang)) +
+	vect[1] = axe[0] * (tmp[1] * tmp[0] * (1 - cos(ang)) + tmp[2] * sin(ang)) +
 		axe[1] * (cos(ang) + (tmp[1] * tmp[1]) * (1 - cos(ang))) +
 		axe[2] * (tmp[1] * tmp[2] * (1 - cos(ang)) - tmp[0] * sin(ang));
 	vect[2] = axe[0] * (tmp[2] * tmp[0] * (1 - cos(ang)) - tmp[1] * sin(ang)) +

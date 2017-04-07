@@ -33,7 +33,7 @@ bool	shadow_sphere(t_obj *sphere, double point[3], int nb)
 	double	delta;
 	double	ans;
 
-	memcpy(point_sphere, point, sizeof(double) * 3);
+	ft_memcpy(point_sphere, point, sizeof(double) * 3);
 	get_new_pos(point_sphere, sphere->pos, sphere->rotation);
 	vec[0] = (sphere->spot)[nb][0] - point_sphere[0];
 	vec[1] = (sphere->spot)[nb][1] - point_sphere[1];
@@ -57,7 +57,7 @@ bool	shadow_plane(t_obj *plane, double point[3], int nb)
 	double result;
 	double obj_point[3];
 
-	memcpy(obj_point, point, sizeof(double) * 3);
+	ft_memcpy(obj_point, point, sizeof(double) * 3);
 	get_new_pos(obj_point, plane->pos, plane->rotation);
 	vec[0] = (plane->spot)[nb][0] - obj_point[0];
 	vec[1] = (plane->spot)[nb][1] - obj_point[1];
@@ -82,7 +82,7 @@ bool	shadow_cylinder(t_obj *cylinder, double point[3], int nb)
 	double	obj_point[3];
 	double	delta;
 
-	memcpy(obj_point, point, sizeof(double) * 3);
+	ft_memcpy(obj_point, point, sizeof(double) * 3);
 	get_new_pos(obj_point, cylinder->pos, cylinder->rotation);
 	vec[0] = (cylinder->spot)[nb][0] - obj_point[0];
 	vec[1] = (cylinder->spot)[nb][1] - obj_point[1];
@@ -106,7 +106,7 @@ bool	shadow_cone(t_obj *cone, double point[3], int nb)
 	double	obj_point[3];
 	double	delta;
 
-	memcpy(obj_point, point, sizeof(double) * 3);
+	ft_memcpy(obj_point, point, sizeof(double) * 3);
 	get_new_pos(obj_point, cone->pos, cone->rotation);
 	vec[0] = (cone->spot)[nb][0] - obj_point[0];
 	vec[1] = (cone->spot)[nb][1] - obj_point[1];

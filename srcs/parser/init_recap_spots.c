@@ -36,8 +36,8 @@ void	remalloc_recap_spot(t_obj *obj, double xy[2], t_obj *plane)
 	}
 	if ((recap_spot[nb_spot] = (double *)malloc(sizeof(double) * 6)) == NULL)
 		ft_error("malloc", NULL);
-	memcpy(&(recap_spot[nb_spot][0]), xy, sizeof(double[2]));
-	memcpy(&(recap_spot[nb_spot][3]), plane->pos_pixel_base, \
+	ft_memcpy(&(recap_spot[nb_spot][0]), xy, sizeof(double[2]));
+	ft_memcpy(&(recap_spot[nb_spot][3]), plane->pos_pixel_base, \
 		sizeof(plane->pos_pixel_base));
 	distance = sqrt(pow(plane->pos_pixel_base[0] - plane->pos_cam[0], 2) + \
 		pow(plane->pos_pixel_base[1] - plane->pos_cam[1], 2) + \

@@ -43,7 +43,7 @@ bool	init_3_values(double value[3], char *line, char *pattern)
 {
 	if (init_tab_3(value, NULL, line) == true)
 		return (true);
-	if (strstr(line, pattern) == NULL)
+	if (ft_strstr(line, pattern) == NULL)
 		return (true);
 	return (false);
 }
@@ -58,7 +58,7 @@ bool	init_colors(int color[3], char *line)
 	if (init_tab_3(NULL, color, &(line[i])) == true)
 		return (true);
 	convert_to_hex(color);
-	if (strstr(line, "</color") == NULL)
+	if (ft_strstr(line, "</color") == NULL)
 		return (true);
 	return (false);
 }
@@ -71,7 +71,7 @@ bool	init_one_value(double *value, char *line, char *pattern)
 	while (ft_isdigit(line[i]) == 0 && line[i] != '-' && line[i] != '\0')
 		++i;
 	*value = (double)atoi(&(line[i]));
-	if (strstr(line, pattern) == NULL)
+	if (ft_strstr(line, pattern) == NULL)
 		return (true);
 	return (false);
 }
@@ -82,9 +82,9 @@ bool	init_surface(SDL_Surface **texture, char *line)
 
 	if ((*texture = IMG_Load(line)) == NULL)
 	{
-		buff = (char*)malloc(sizeof(char) * (23 + SDL_strlen(line) + 1));
+		buff = (char*)malloc(sizeof(char) * (23 + ft_strlen(line) + 1));
 		sprintf(buff, "Cannot load texture : %s\n", line);
-		write(1, buff, strlen(buff));
+		write(1, buff, ft_strlen(buff));
 		free(buff);
 		exit(-1);
 	}

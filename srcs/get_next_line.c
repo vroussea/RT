@@ -16,11 +16,11 @@ int				remalloc_the_line(char **line, int size)
 {
 	char *buff;
 
-	size = (int)strlen(*line) + size + 1;
+	size = (int)ft_strlen(*line) + size + 1;
 	if ((buff = (char *)malloc((size_t)size)) == NULL)
 		return (true);
-	memset(buff, 0, (size_t)size);
-	strcpy(buff, *line);
+	ft_memset(buff, 0, (size_t)size);
+	ft_strcpy(buff, *line);
 	free(*line);
 	*line = buff;
 	return (false);
@@ -55,7 +55,7 @@ int				ft_empty_the_buffer(char **line, char *buff, int i)
 		ft_strcpy(&(buff[0]), &(buff[j]));
 		return (1);
 	}
-	memset(buff, 0, BUFF_SIZE);
+	ft_memset(buff, 0, BUFF_SIZE);
 	return (0);
 }
 
@@ -93,7 +93,7 @@ int				get_next_line(const int fd, char **line)
 		if (ft_check(ret, line) != 2)
 			return (ft_check(ret, line));
 		if ((i = ft_empty_the_buffer(line, stat_buff, \
-						(int)strlen(*line))) != 0)
+						(int)ft_strlen(*line))) != 0)
 			return (i);
 	}
 }

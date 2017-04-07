@@ -17,19 +17,19 @@ bool	get_objs_infos(int fd, t_obj *objs, t_cam *cam)
 	int		ret_gnl;
 	char	*line;
 
-	while ((ret_gnl = get_next_line(fd, &line)) == 1 && strstr(line, \
+	while ((ret_gnl = get_next_line(fd, &line)) == 1 && ft_strstr(line, \
 		"</objs>") == NULL)
 	{
-		if (strstr(line, "<sphere>") != NULL && \
+		if (ft_strstr(line, "<sphere>") != NULL && \
 			init_sphere(fd, objs, cam) == true)
 			return (true);
-		else if (strstr(line, "<plane>") != NULL && \
+		else if (ft_strstr(line, "<plane>") != NULL && \
 			init_plane(fd, objs, cam) == true)
 			return (true);
-		else if (strstr(line, "<cylinder>") != NULL && \
+		else if (ft_strstr(line, "<cylinder>") != NULL && \
 			init_cylinder(fd, objs, cam) == true)
 			return (true);
-		else if (strstr(line, "<cone>") != NULL && \
+		else if (ft_strstr(line, "<cone>") != NULL && \
 			init_cone(fd, objs, cam) == true)
 			return (true);
 		free(line);
@@ -47,7 +47,7 @@ bool	init_sphere(int fd, t_obj *objs, t_cam *cam)
 	if ((new_obj = make_new_obj(objs, TYPE_SPHERE)) == NULL)
 		return (-1);
 	init_default_sphere_values(cam, new_obj);
-	while ((ret_gnl = get_next_line(fd, &line)) == 1 && strstr(line, \
+	while ((ret_gnl = get_next_line(fd, &line)) == 1 && ft_strstr(line, \
 		"</sphere>") == NULL)
 	{
 		if (check(line, new_obj, fd) == true)
@@ -68,7 +68,7 @@ bool	init_plane(int fd, t_obj *objs, t_cam *cam)
 	if ((new_obj = make_new_obj(objs, TYPE_PLANE)) == NULL)
 		return (-1);
 	init_default_plane_values(cam, new_obj);
-	while ((ret_gnl = get_next_line(fd, &line)) == 1 && strstr(line, \
+	while ((ret_gnl = get_next_line(fd, &line)) == 1 && ft_strstr(line, \
 		"</plane>") == NULL)
 	{
 		if (check(line, new_obj, fd) == true)
@@ -89,7 +89,7 @@ bool	init_cylinder(int fd, t_obj *objs, t_cam *cam)
 	if ((new_obj = make_new_obj(objs, TYPE_CYLINDER)) == NULL)
 		return (-1);
 	init_default_cylinder_values(cam, new_obj);
-	while ((ret_gnl = get_next_line(fd, &line)) == 1 && strstr(line, \
+	while ((ret_gnl = get_next_line(fd, &line)) == 1 && ft_strstr(line, \
 		"</cylinder>") == NULL)
 	{
 		if (check(line, new_obj, fd) == true)
@@ -110,7 +110,7 @@ bool	init_cone(int fd, t_obj *objs, t_cam *cam)
 	if ((new_obj = make_new_obj(objs, TYPE_CONE)) == NULL)
 		return (true);
 	init_default_cone_values(cam, new_obj);
-	while ((ret_gnl = get_next_line(fd, &line)) == 1 && strstr(line, \
+	while ((ret_gnl = get_next_line(fd, &line)) == 1 && ft_strstr(line, \
 		"</cone>") == NULL)
 	{
 		if (check(line, new_obj, fd) == true)

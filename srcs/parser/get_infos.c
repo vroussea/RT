@@ -32,19 +32,19 @@ static bool	init_scene(int fd, t_obj *objs, int is_aa)
 	char	*line;
 
 	while ((ret_gnl = get_next_line(fd, &line)) == 1 && \
-			strstr(line, "<cam_infos>") == NULL)
+			ft_strstr(line, "<cam_infos>") == NULL)
 		free(line);
 	free(line);
 	if (get_cam_infos(fd, &cam, is_aa) == true)
 		return (true);
 	while ((ret_gnl = get_next_line(fd, &line) == 1) && \
-			strstr(line, "<objs>") == NULL)
+			ft_strstr(line, "<objs>") == NULL)
 		free(line);
 	free(line);
 	if (get_objs_infos(fd, objs, &cam) == true)
 		return (true);
 	while ((ret_gnl = get_next_line(fd, &line) == 1) && \
-			strstr(line, "</scene>") == NULL)
+			ft_strstr(line, "</scene>") == NULL)
 		free(line);
 	free(line);
 	init_recap_spots(objs, &cam);
@@ -73,7 +73,7 @@ void		get_infos(char *file_name, t_obj **objs, int is_aa)
 	if ((fd = open(file_name, O_RDONLY)) == -1)
 		write_and_exit();
 	while ((ret_gnl = get_next_line(fd, &line)) == 1 && \
-			strstr(line, "<scene>") == NULL)
+			ft_strstr(line, "<scene>") == NULL)
 		free(line);
 	free(line);
 	if (ret_gnl == 0 || (ret_gnl == 1 && init_scene(fd, *objs, is_aa) == true))

@@ -31,5 +31,10 @@ char			**ft_strsplit(char const *s, char c);
 int				get_next_line(const int fd, char **line);
 bool			ft_isdigit(int c);
 char			*ft_strcpy(char *dst, const char *src);
+void			*ft_memcpy(void *dest, const void *src, size_t n);
+int				ft_strlen(char *str);
+void			*ft_memset(void *b, int c, size_t len);
+char			*ft_strncpy(char *s1, const char *s2, size_t n);
+char			*ft_strstr(const char *str, const char *to_find);
 
 #endif

@@ -47,6 +47,7 @@ SRCS = 	gui/hook.c \
 		shadows_obj.c \
 		libft.c \
 		libft2.c \
+		libft3.c \
 		get_next_line.c \
 		get_proc_color.c \
 		textures.c \

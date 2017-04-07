@@ -109,11 +109,11 @@ void	finish_init_obj(t_obj *obj, t_cam *cam)
 	make_rotation(obj->vec_right, obj->rotation);
 	make_rotation(obj->vec_down, obj->rotation);
 	init_spot(obj, cam);
-	memcpy(obj->base_pos_cam, cam->pos_cam, sizeof(cam->pos_cam));
-	memcpy(obj->base_pos_pixel_base, cam->pos_pixel_base, \
+	ft_memcpy(obj->base_pos_cam, cam->pos_cam, sizeof(cam->pos_cam));
+	ft_memcpy(obj->base_pos_pixel_base, cam->pos_pixel_base, \
 		sizeof(cam->pos_pixel_base));
-	memcpy(obj->base_vec_right, cam->vec_right, sizeof(cam->vec_right));
-	memcpy(obj->base_vec_down, cam->vec_down, sizeof(cam->vec_down));
+	ft_memcpy(obj->base_vec_right, cam->vec_right, sizeof(cam->vec_right));
+	ft_memcpy(obj->base_vec_down, cam->vec_down, sizeof(cam->vec_down));
 	init_functs_obj(obj);
 	if (obj->type == TYPE_PLANE)
 		verif_plane_norm_vec(obj);

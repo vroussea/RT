@@ -25,7 +25,7 @@ char	*ft_strnew(size_t size)
 
 	if ((ptr = (char *)malloc(size + 1)) != NULL)
 	{
-		memset(ptr, '\0', size);
+		ft_memset(ptr, '\0', size);
 		return (ptr);
 	}
 	return (NULL);
@@ -37,7 +37,7 @@ char	*strsub(char const *s, unsigned int start, size_t len)
 
 	if ((s2 = ft_strnew(len)) != NULL)
 	{
-		strncpy(s2, &(s[start]), len);
+		ft_strncpy(s2, &(s[start]), len);
 		return (s2);
 	}
 	return (NULL);
@@ -58,4 +58,19 @@ char	*ft_strcpy(char *dst, const char *src)
 	}
 	*pt_dst = '\0';
 	return (dst);
+}
+
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	size_t	i;
+
+	if (dest == src || n == 0)
+		return ((void *)dest);
+	i = 0;
+	while (i < n)
+	{
+		((char *)dest)[i] = ((char *)src)[i];
+		i++;
+	}
+	return (dest);
 }

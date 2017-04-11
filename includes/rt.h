@@ -165,7 +165,7 @@ typedef struct		s_obj
 	double			base_vec_right[3];
 	double			base_vec_ray[3];
 	double			base_intersec_point[3];
-	double			base_normal_not_normalized[3];
+	double			n_normalz[3];
 	double			base_norm_vector[3];
 	double			(*intersect)(int*, struct s_obj*);
 	void			(*vector)(double*, double*, struct s_obj*, int);

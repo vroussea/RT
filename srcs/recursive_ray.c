@@ -61,7 +61,12 @@ void	get_refracted_color(t_obj *list, t_obj *obj, int color_tab[3])
 	double	refracted_ray[3];
 	int		color;
 
-	refraction(obj->base_vec_ray, obj->base_normal_not_normalized, refracted_ray, obj);
+	refraction(obj->base_vec_ray, obj->n_normalz, refracted_ray, obj);
+	/*printf("%s\n", "PrintRay");
+	printf("%f %f %f \n", obj->n_normalz[0],obj->n_normalz[1],obj->n_normalz[2] );
+	printf("%f %f %f \n", obj->base_vec_ray[0],obj->base_vec_ray[1],obj->base_vec_ray[2] );
+	printf("%f %f %f \n", refracted_ray[0],refracted_ray[1],refracted_ray[2] );
+	printf("%s\n", "EndPrintRay");*/
 	new_list = copy_the_list(list, obj, refracted_ray);
 	color = calc_image(0, 0, new_list, NULL);
 	free_copied_list(new_list);

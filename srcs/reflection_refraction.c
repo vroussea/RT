@@ -61,54 +61,9 @@ void	refraction(double base_vec[3], double normal[3], \
 	}
 	angle = cos(c1 / (sqrt(dot_product(base_vec, base_vec) * dot_product(normal, normal))));
 	angle2 = asin(id1 / id2 * sin(angle));
-	//printf("%f %f\n", angle, angle2);
 	n = id1 / id2;
 	c2 = 1 - ((n * n) * (1 - (c1 * c1)));
-//	printf("%f | %f | %f | %f\n", c1, c2, angle, n);
-//	refracted_ray[0] = n * base_vec[0] + (n * c1 - c2 ) * normal[0];
- //  	refracted_ray[1] = n * base_vec[1] + (n * c1 - c2 ) * normal[1];
-   //	refracted_ray[2] = n * base_vec[2] + (n * c1 - c2 ) * normal[2];
-		refracted_ray[0] = n * (base_vec[0] + c1 * normal[0]) - normal[0] * cos(angle2);
-		refracted_ray[1] = n * (base_vec[1] + c1 * normal[1]) - normal[1] * cos(angle2);
-		refracted_ray[2] = n * (base_vec[2] + c1 * normal[2]) - normal[2] * cos(angle2);
-	/*if (c2 < 0)
-	{
-		refracted_ray[0] = 0;//n * base_vec[0] + n * c1 * normal[0];
-		refracted_ray[1] = 0;//n * base_vec[1] + n * c1 * normal[1];
-		refracted_ray[2] = 0;//n * base_vec[2] + n * c1 * normal[2];
-	}
-	else
-	{
-		c2 = sqrt(c2);
-		refracted_ray[0] = n * base_vec[0] + (n * c1 - c2) * normal[0];
-		refracted_ray[1] = n * base_vec[1] + (n * c1 - c2) * normal[1];
-		refracted_ray[2] = n * base_vec[2] + (n * c1 - c2) * normal[2];
-	}*/
-/*	double  original_angle;
-	double  new_angle;
-	double	orth[3];
-
-	original_angle = cos(dot_product(base_vec, normal) /
-       (sqrt(dot_product(base_vec, base_vec)) * sqrt(dot_product(normal, normal))));
-	new_angle = asin(obj->original_refraction / obj->new_refraction *
-                    sin(original_angle));
-//	if (sin(original_angle) > obj->original_refraction / obj->new_refraction)
-//		reflection(base_vec, normal, refracted_ray);
-//	else
-//	{
-		//printf("nrmal :\nx : %f\ny : %f\nz : %f\n", normal[0], normal[1], normal[2]);
-		//printf("vector dot product : %f\nsqrt : %f\n", dot_product(base_vec, base_vec), sqrt(dot_product(base_vec, base_vec)));
-		//printf("original angle : %f\nnew angle : %f\n", original_angle * 57, new_angle * 57);
-   		vect_prod(base_vec, normal, orth);
-   	//	refracted_ray[0] = -normal[0];
-  // 		refracted_ray[1] = -normal[1];
-//   		refracted_ray[2] = -normal[2];
-   		refracted_ray[0] = base_vec[0];
-   		refracted_ray[1] = base_vec[1];
-   		refracted_ray[2] = base_vec[2];
-   		rotation(refracted_ray, orth, -original_angle);
-   		rotation(refracted_ray, orth, new_angle);
-   		//printf("ray :\nx : %f\ny : %f\nz : %f\n", base_vec[0], base_vec[1], base_vec[2]);
-   		//printf("refr :\nx : %f\ny : %f\nz : %f\n", refracted_ray[0], refracted_ray[1], refracted_ray[2]);
-  // 	}*/
+	refracted_ray[0] = n * (base_vec[0] + c1 * normal[0]) - normal[0] * cos(angle2);
+	refracted_ray[1] = n * (base_vec[1] + c1 * normal[1]) - normal[1] * cos(angle2);
+	refracted_ray[2] = n * (base_vec[2] + c1 * normal[2]) - normal[2] * cos(angle2);
 }

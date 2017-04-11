@@ -75,10 +75,10 @@ static void		mouse_move(SDL_Event *e, t_envgui *env)
 		calccursor(env, e->motion.x, e->motion.y);
 }
 
-int				main_event(SDL_Event *e, t_envgui *env)
+void			main_event(SDL_Event *e, t_envgui *env)
 {
 	if (env->isloading)
-		return (0);
+		return ;
 	if (e->type == SDL_QUIT)
 	{
 		SDL_Quit();
@@ -92,5 +92,4 @@ int				main_event(SDL_Event *e, t_envgui *env)
 		mouse_press(e, 1, env);
 	if (e->type == SDL_MOUSEBUTTONUP)
 		mouse_press(e, 0, env);
-	return (0);
 }

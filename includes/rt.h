@@ -44,7 +44,7 @@
 # include <stdbool.h>
 # define BUTTON_BOX 0
 # define BUTTON_SPHERE 1
-# define AALEVEL 2
+# define AALEVEL 4
 # define AANUM (AALEVEL * AALEVEL)
 
 /*
@@ -220,7 +220,7 @@ typedef struct		s_parserdata
 Uint32				rgba(Uint32 r, Uint32 g, Uint32 b);
 void				putpixel(SDL_Surface *surface, int x, int y, Uint32 color);
 Uint32				getpixel(SDL_Surface *surface, int x, int y);
-int					main_event(SDL_Event *e, t_envgui *env);
+void				main_event(SDL_Event *e, t_envgui *env);
 void				main_loop(t_envgui *env);
 void				mainrender(t_envgui *env, char **argv);
 SDL_Rect			*newrect(int x, int y, int w, int h);
@@ -268,7 +268,7 @@ bool				init_plane(int fd, t_obj *objs, t_cam *cam);
 bool				init_cylinder(int fd, t_obj *objs, t_cam *cam);
 bool				init_cone(int fd, t_obj *objs, t_cam *cam);
 t_obj				*make_new_obj(t_obj *objs, int type);
-int					check(char *line, t_obj *new_obj, int fd);
+bool				check(char *line, t_obj *new_obj, int fd);
 void				finish_init_obj(t_obj *obj, t_cam *cam);
 void				init_down_right(double vec_down[3], double vec_right[3], \
 						double rotation[3], int res[2]);

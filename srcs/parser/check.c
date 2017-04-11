@@ -54,7 +54,7 @@ static bool	checktext(char *line, t_obj *new_obj)
 	return (false);
 }
 
-int			check(char *line, t_obj *new_obj, int fd)
+bool		check(char *line, t_obj *new_obj, int fd)
 {
 	if (ft_strstr(line, "<pos>") != NULL && new_obj->type != TYPE_PLANE && \
 			init_3_values(new_obj->pos, line, "</pos>") == true)

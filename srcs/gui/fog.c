@@ -70,4 +70,5 @@ void			initfog(t_envgui *env)
 	env->fog = false;
 	env->flares = true;
 	buttonfog(env);
+	buttonflares(env);
 }

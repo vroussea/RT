@@ -12,6 +12,7 @@ SRCS = 	gui/hook.c \
 		gui/colorutils.c \
 		gui/api.c \
 		gui/fog.c \
+		gui/flarebuttons.c \
 		utils/file.c \
 		utils/threads.c \
 		utils/flares.c \

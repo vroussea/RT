@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 16:16:23 by eduwer            #+#    #+#             */
-/*   Updated: 2017/04/02 11:54:46 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/04/12 18:06:40 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	init_spot(t_obj *obj, t_cam *cam)
 			obj->spot[nb_spot][i] -= obj->pos[i];
 			i++;
 		}
-		make_rotation(obj->spot[nb_spot], obj->rotation);
+		make_rotation(obj->spot[nb_spot], obj->rotation, 0);
 	}
 }
 
@@ -104,10 +104,10 @@ void	finish_init_obj(t_obj *obj, t_cam *cam)
 {
 	init_down_right(obj->vec_down, obj->vec_right, cam->rotation, cam->res);
 	init_cam_obj(cam, obj);
-	make_rotation(obj->pos_cam, obj->rotation);
-	make_rotation(obj->pos_pixel_base, obj->rotation);
-	make_rotation(obj->vec_right, obj->rotation);
-	make_rotation(obj->vec_down, obj->rotation);
+	make_rotation(obj->pos_cam, obj->rotation, 0);
+	make_rotation(obj->pos_pixel_base, obj->rotation, 0);
+	make_rotation(obj->vec_right, obj->rotation, 0);
+	make_rotation(obj->vec_down, obj->rotation, 0);
 	init_spot(obj, cam);
 	ft_memcpy(obj->base_pos_cam, cam->pos_cam, sizeof(cam->pos_cam));
 	ft_memcpy(obj->base_pos_pixel_base, cam->pos_pixel_base, \

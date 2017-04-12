@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 15:50:27 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/29 21:52:54 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/04/12 18:08:13 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	get_new_pos(double point[3], double pos_obj[3], double rotation[3])
 		point[i] -= pos_obj[i];
 		i++;
 	}
-	make_rotation(point, rotation);
+	make_rotation(point, rotation, 0);
 }
 
 bool	shadow_sphere(t_obj *sphere, double point[3], int nb)

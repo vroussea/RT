@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 18:59:08 by eduwer            #+#    #+#             */
-/*   Updated: 2017/02/16 16:31:27 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/04/12 17:54:46 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,28 @@ void	rotation_z(double vec[3], double degree)
 	vec[1] = a * (-sin(rad)) + b * cos(rad);
 }
 
-void	make_rotation(double vec[3], double rotation[3])
+void	make_rotation(double vec[3], double rotation[3], int rev)
 {
 	if (rotation != NULL)
 	{
-		if (rotation[2] != 0)
-			rotation_z(vec, rotation[2]);
-		if (rotation[0] != 0)
-			rotation_x(vec, rotation[0]);
-		if (rotation[1] != 0)
-			rotation_y(vec, rotation[1]);
+		if (rev == 1)
+		{
+			if (rotation[2] != 0)
+				rotation_z(vec, -rotation[2]);
+			if (rotation[0] != 0)
+				rotation_x(vec, -rotation[0]);
+			if (rotation[1] != 0)
+				rotation_y(vec, -rotation[1]);
+		}
+		else
+		{
+			if (rotation[2] != 0)
+				rotation_z(vec, rotation[2]);
+			if (rotation[0] != 0)
+				rotation_x(vec, rotation[0]);
+			if (rotation[1] != 0)
+				rotation_y(vec, rotation[1]);
+		}
 	}
 }
 

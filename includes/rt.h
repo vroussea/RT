@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 14:32:56 by eduwer            #+#    #+#             */
-/*   Updated: 2017/04/04 16:09:24 by gboudrie         ###   ########.fr       */
+/*   Updated: 2017/04/12 18:04:47 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -322,7 +322,7 @@ double				radians(double degree);
 void				rotation_x(double vec[3], double degree);
 void				rotation_y(double vec[3], double degree);
 void				rotation_z(double vec[3], double degree);
-void				make_rotation(double vec[3], double rotation[3]);
+void				make_rotation(double vec[3], double rotation[3], int rev);
 void				rotation(double vec[3], double axe[3], double ang);
 void				normalize_vec(double vec[3]);
 double				calc_2nd_degree_equation(double abc[3]);

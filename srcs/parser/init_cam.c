@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 17:32:14 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/18 17:19:58 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/04/12 18:05:56 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ void		init_down_right(double vec_down[3], double vec_right[3], \
 	vec_right[0] = 0;
 	vec_right[1] = 100;
 	vec_right[2] = 0;
-	make_rotation(vec_right, rotation);
+	make_rotation(vec_right, rotation, 0);
 	vec_down[0] = 0;
 	vec_down[1] = 0;
 	vec_down[2] = -100.0 / ((double)res[0] / (double)res[1]);
-	make_rotation(vec_down, rotation);
+	make_rotation(vec_down, rotation, 0);
 }
 
 static bool	finish_init_cam(t_cam *cam)
@@ -52,7 +52,7 @@ static bool	finish_init_cam(t_cam *cam)
 	int		i;
 
 	init_down_right(cam->vec_down, cam->vec_right, cam->rotation, cam->res);
-	make_rotation(cam->vec_cam, cam->rotation);
+	make_rotation(cam->vec_cam, cam->rotation, 0);
 	i = 0;
 	while (i < 3)
 	{

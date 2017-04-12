@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 16:03:12 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/29 17:31:32 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/04/12 17:58:18 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,8 @@ void	get_vector_sphere(double norm_vector[3], \
 	if (sphere->is_waves == true)
 		rotation_x(norm_vector, 10.0 * cos(sphere->intersec_point[0]));
 	ft_memcpy(sphere->base_norm_vector, norm_vector, sizeof(double[3]));
-	rotation_y(sphere->base_norm_vector, -(sphere->rotation[1]));
-	rotation_x(sphere->base_norm_vector, -(sphere->rotation[0]));
-	rotation_z(sphere->base_norm_vector, -(sphere->rotation[2]));
-	rotation_y(sphere->n_normalz, -(sphere->rotation[1]));
-	rotation_x(sphere->n_normalz, -(sphere->rotation[0]));
-	rotation_z(sphere->n_normalz, -(sphere->rotation[2]));
+	make_rotation(sphere->base_norm_vector, sphere->rotation, 1);
+	make_rotation(sphere->n_normalz, sphere->rotation, 1);
 }
 
 void	get_vector_plane(double norm_vector[3], \
@@ -60,12 +56,8 @@ void	get_vector_plane(double norm_vector[3], \
 	if (plane->is_waves == true)
 		rotation_y(norm_vector, 2.0 * cos(plane->intersec_point[1]));
 	ft_memcpy(plane->base_norm_vector, norm_vector, sizeof(double[3]));
-	rotation_y(plane->base_norm_vector, -(plane->rotation[1]));
-	rotation_x(plane->base_norm_vector, -(plane->rotation[0]));
-	rotation_z(plane->base_norm_vector, -(plane->rotation[2]));
-	rotation_y(plane->n_normalz, -(plane->rotation[1]));
-	rotation_x(plane->n_normalz, -(plane->rotation[0]));
-	rotation_z(plane->n_normalz, -(plane->rotation[2]));
+	make_rotation(plane->base_norm_vector, plane->rotation, 1);
+	make_rotation(plane->n_normalz, plane->rotation, 1);
 }
 
 void	get_vector_cylinder(double norm_vector[3], \
@@ -89,12 +81,8 @@ void	get_vector_cylinder(double norm_vector[3], \
 	if (cylinder->is_waves == true)
 		rotation_z(norm_vector, 2.0 * cos(cylinder->intersec_point[2]));
 	ft_memcpy(cylinder->base_norm_vector, norm_vector, sizeof(double[3]));
-	rotation_y(cylinder->base_norm_vector, -(cylinder->rotation[1]));
-	rotation_x(cylinder->base_norm_vector, -(cylinder->rotation[0]));
-	rotation_z(cylinder->base_norm_vector, -(cylinder->rotation[2]));
-	rotation_y(cylinder->n_normalz, -(cylinder->rotation[1]));
-	rotation_x(cylinder->n_normalz, -(cylinder->rotation[0]));
-	rotation_z(cylinder->n_normalz, -(cylinder->rotation[2]));
+	make_rotation(cylinder->base_norm_vector, cylinder->rotation, 1);
+	make_rotation(cylinder->n_normalz, cylinder->rotation, 1);
 }
 
 void	cross_product(double norm_vector[3], double vec1[3], double vec2[3])
@@ -137,10 +125,6 @@ void	get_vector_cone(double norm_vector[3], double vec_light[3], \
 	if (cone->is_waves == true)
 		rotation_z(norm_vector, 1.5 * cos(cone->intersec_point[2]));
 	ft_memcpy(cone->base_norm_vector, norm_vector, sizeof(double[3]));
-	rotation_y(cone->base_norm_vector, -(cone->rotation[1]));
-	rotation_x(cone->base_norm_vector, -(cone->rotation[0]));
-	rotation_z(cone->base_norm_vector, -(cone->rotation[2]));
-	rotation_y(cone->n_normalz, -(cone->rotation[1]));
-	rotation_x(cone->n_normalz, -(cone->rotation[0]));
-	rotation_z(cone->n_normalz, -(cone->rotation[2]));
+	make_rotation(cone->base_norm_vector, cone->rotation, 1);
+	make_rotation(cone->n_normalz, cone->rotation, 1);
 }

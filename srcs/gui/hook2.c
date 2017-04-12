@@ -44,6 +44,8 @@ static void infopixel(int x, int y, t_obj *begin_list)
 	t_obj	*nearest_obj;
 	t_obj	*list;
 	int		xy[2];
+	int i = 0;
+	int foundi = 0;
 
 	xy[0] = x;
 	xy[1] = y;
@@ -59,16 +61,20 @@ static void infopixel(int x, int y, t_obj *begin_list)
 		{
 			nearest_point = mem;
 			nearest_obj = list;
+			foundi = i;
 		}
 		list = list->next;
+		i++;
 	}
 	if (nearest_obj) // si on trouve un objet
 	{
 
 		if (nearest_obj->refraction_id == 0) 
-			printf("Found objet at %i:%i | Type is %s and dist is %f\n",x ,y, gettype(nearest_obj->type), nearest_point);
+			printf("Found objet at %i:%i with ID %i| Type is %s and dist is %f\n",x ,y,foundi, gettype(nearest_obj->type), nearest_point);
 		else // si l'objet trouvé est un objet qui refract, on fait rebondire le rayon
 		{
+			i = 0;
+			foundi = i;
 			t_obj	*new_list;
 			double	refracted_ray[3];
 			double		norm_vector[3];
@@ -93,11 +99,13 @@ static void infopixel(int x, int y, t_obj *begin_list)
 				{
 					nearest_point = mem;
 					nearest_obj = list;
+					foundi = i;
 				}
 				list = list->next;
+				i++;
 			}
 			if (nearest_obj)
-				printf("[REFRACT]Found objet at %i:%i | Type is %s and dist is %f\n",x ,y, gettype(nearest_obj->type), nearest_point);
+				printf("[REFRACT]Found objet at %i:%i with ID %i| Type is %s and dist is %f\n",x ,y,foundi, gettype(nearest_obj->type), nearest_point);
 			else
 				printf("[REFRACT]No object found at %i:%i inside refraction\n", x,y);
 

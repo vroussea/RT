@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 17:33:54 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/29 17:34:16 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/04/12 16:13:02 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,33 +37,28 @@ void	refraction(double base_vec[3], double normal[3], \
 		double refracted_ray[3], t_obj *obj)
 {
 	double	angle;
-	double	angle2;
 	double	n;
 	double	c1;
-	double	c2;
-	double	id1;
-	double	id2;
 
 	c1 = dot_product(base_vec, normal);
 	if (c1 < 0)
 	{
 		c1 = c1 * (-1.0);
-		id1 = obj->original_refraction;
-		id2 = obj->new_refraction;
+		n = obj->original_refraction / obj->new_refraction;
 	}
 	else
 	{
 		normal[0] = normal[0] * (-1.0);
 		normal[1] = normal[1] * (-1.0);
 		normal[2] = normal[2] * (-1.0);
-		id2 = obj->original_refraction;
-		id1 = obj->new_refraction;
+		n = obj->new_refraction / obj->original_refraction;
 	}
-	angle = cos(c1 / (sqrt(dot_product(base_vec, base_vec) * dot_product(normal, normal))));
-	angle2 = asin(id1 / id2 * sin(angle));
-	n = id1 / id2;
-	c2 = 1 - ((n * n) * (1 - (c1 * c1)));
-	refracted_ray[0] = n * (base_vec[0] + c1 * normal[0]) - normal[0] * cos(angle2);
-	refracted_ray[1] = n * (base_vec[1] + c1 * normal[1]) - normal[1] * cos(angle2);
-	refracted_ray[2] = n * (base_vec[2] + c1 * normal[2]) - normal[2] * cos(angle2);
+	angle = asin(n * sin(cos(c1 / (sqrt(dot_product(base_vec, base_vec) *
+										dot_product(normal, normal))))));
+	refracted_ray[0] = n * (base_vec[0] + c1 * normal[0]) -
+		normal[0] * cos(angle);
+	refracted_ray[1] = n * (base_vec[1] + c1 * normal[1]) -
+		normal[1] * cos(angle);
+	refracted_ray[2] = n * (base_vec[2] + c1 * normal[2]) -
+		normal[2] * cos(angle);
 }

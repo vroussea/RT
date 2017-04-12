@@ -6,7 +6,7 @@
 /*   By: pfichepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/07 10:32:58 by pfichepo          #+#    #+#             */
-/*   Updated: 2017/04/12 18:39:32 by gboudrie         ###   ########.fr       */
+/*   Updated: 2017/04/12 20:29:16 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ char	*ft_strstr(const char *str, const char *to_find)
 	return (NULL);
 }
 
-int			ft_atoi(const char *str)
+int		ft_atoi(const char *str)
 {
 	int		result;
 	int		sign;
@@ -92,7 +92,7 @@ int			ft_atoi(const char *str)
 	sign = 1;
 	result = 0;
 	while (str[i] && (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' ||
-					  str[i] == '\f' || str[i] == '\r' || str[i] == ' '))
+					str[i] == '\f' || str[i] == '\r' || str[i] == ' '))
 		i++;
 	if (str[i] == '+')
 		i++;

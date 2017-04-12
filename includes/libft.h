@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/05 13:47:08 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/03 18:36:05 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/04/12 18:24:00 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ int				ft_strlen(char *str);
 void			*ft_memset(void *b, int c, size_t len);
 char			*ft_strncpy(char *s1, const char *s2, size_t n);
 char			*ft_strstr(const char *str, const char *to_find);
+int				ft_atoi(const char *str);
 
 #endif

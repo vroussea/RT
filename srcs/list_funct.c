@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/10 17:21:14 by eduwer            #+#    #+#             */
-/*   Updated: 2017/04/12 18:07:24 by gboudrie         ###   ########.fr       */
+/*   Updated: 2017/04/12 18:18:22 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ void		copy_elem(t_obj *new_elem, t_obj *obj, t_obj *list, double ray[3])
 	double	mem;
 
 	new_elem->next = NULL;
-	memcpy(new_elem, list, sizeof(t_obj));
+	ft_memcpy(new_elem, list, sizeof(t_obj));
 	new_elem->pos_cam[0] = obj->base_intersec_point[0] - list->pos[0];
 	new_elem->pos_cam[1] = obj->base_intersec_point[1] - list->pos[1];
 	new_elem->pos_cam[2] = obj->base_intersec_point[2] - list->pos[2];
 	make_rotation(new_elem->pos_cam, list->rotation, 0);
-	memcpy(new_ray, ray, sizeof(double[3]));
+	ft_memcpy(new_ray, ray, sizeof(double[3]));
 	make_rotation(new_ray, list->rotation, 0);
 	new_elem->pos_pixel_base[0] = new_elem->pos_cam[0] + new_ray[0];
 	new_elem->pos_pixel_base[1] = new_elem->pos_cam[1] + new_ray[1];

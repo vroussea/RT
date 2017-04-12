@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 17:16:53 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/29 17:27:21 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/04/12 18:40:34 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ bool	init_tab_3(double tab[3], int color[3], char *line)
 	while (indice_tab < 3 && line[i] != '\0')
 	{
 		if (tab != NULL)
-			tab[indice_tab] = (double)atoi(&(line[i]));
+			tab[indice_tab] = (double)ft_atoi(&(line[i]));
 		else
-			color[indice_tab] = abs(atoi(&(line[i])));
+			color[indice_tab] = abs(ft_atoi(&(line[i])));
 		++indice_tab;
 		while (line[i] != '\0' && (ft_isdigit(line[i]) == 1 || line[i] == '-'))
 			++i;
@@ -70,7 +70,7 @@ bool	init_one_value(double *value, char *line, char *pattern)
 	i = 0;
 	while (ft_isdigit(line[i]) == 0 && line[i] != '-' && line[i] != '\0')
 		++i;
-	*value = (double)atoi(&(line[i]));
+	*value = (double)ft_atoi(&(line[i]));
 	if (ft_strstr(line, pattern) == NULL)
 		return (true);
 	return (false);

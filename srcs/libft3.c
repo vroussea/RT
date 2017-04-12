@@ -6,7 +6,7 @@
 /*   By: pfichepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/07 10:32:58 by pfichepo          #+#    #+#             */
-/*   Updated: 2017/04/07 10:33:00 by pfichepo         ###   ########.fr       */
+/*   Updated: 2017/04/12 18:39:32 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,32 @@ char	*ft_strstr(const char *str, const char *to_find)
 		i++;
 	}
 	return (NULL);
+}
+
+int			ft_atoi(const char *str)
+{
+	int		result;
+	int		sign;
+	int		i;
+
+	i = 0;
+	sign = 1;
+	result = 0;
+	while (str[i] && (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' ||
+					  str[i] == '\f' || str[i] == '\r' || str[i] == ' '))
+		i++;
+	if (str[i] == '+')
+		i++;
+	else if (str[i] == '-')
+	{
+		sign = sign * (-1);
+		i++;
+	}
+	while (ft_isdigit(str[i]))
+	{
+		result = result * 10;
+		result = result + (str[i] - '0');
+		i++;
+	}
+	return (result * sign);
 }

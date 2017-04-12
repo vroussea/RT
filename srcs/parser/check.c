@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 17:34:08 by eduwer            #+#    #+#             */
-/*   Updated: 2017/04/02 11:53:27 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/04/12 19:36:16 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,9 @@ static bool	checktext(char *line, t_obj *new_obj)
 		return (true);
 	if (ft_strstr(line, "<refraction>") != NULL && \
 		init_ref(&(new_obj->refraction_id), line, "</refraction>") == true)
+		return (true);
+	if (ft_strstr(line, "<texture_size>") != NULL &&						\
+		init_ref(&(new_obj->text_size), line, "</texture_size>") == true)
 		return (true);
 	return (false);
 }

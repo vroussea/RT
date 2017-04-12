@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 14:32:56 by eduwer            #+#    #+#             */
-/*   Updated: 2017/04/12 18:04:47 by gboudrie         ###   ########.fr       */
+/*   Updated: 2017/04/12 19:48:54 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,6 +183,7 @@ typedef struct		s_obj
 	double			decal_xyz[3];
 	Uint32			(*texturing)(struct s_obj *obj);
 	SDL_Surface		*texture;
+	double			text_size;
 	struct s_obj	*next;
 }					t_obj;
 

@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 17:28:27 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/29 20:11:39 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/04/12 19:37:26 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	init_default_sphere_values(t_cam *c, t_obj *o)
 	ft_memcpy(o->vec_down, c->vec_down, sizeof(c->vec_down));
 	o->spot = NULL;
 	o->texture = NULL;
+	o->text_size = 100;
 	o->is_proc_texture = false;
 	o->nb_spot = c->nb_spot;
 }
@@ -90,6 +91,7 @@ void	init_default_plane_values(t_cam *c, t_obj *o)
 	ft_memcpy(o->vec_down, c->vec_down, sizeof(c->vec_down));
 	o->spot = NULL;
 	o->texture = NULL;
+	o->text_size = 100;
 	o->is_proc_texture = false;
 	o->nb_spot = c->nb_spot;
 }
@@ -115,6 +117,7 @@ void	init_default_cylinder_values(t_cam *c, t_obj *o)
 	ft_memcpy(o->vec_down, c->vec_down, sizeof(c->vec_down));
 	o->spot = NULL;
 	o->texture = NULL;
+	o->text_size = 100;
 	o->is_proc_texture = false;
 	o->nb_spot = c->nb_spot;
 }
@@ -140,6 +143,7 @@ void	init_default_cone_values(t_cam *c, t_obj *o)
 	ft_memcpy(o->vec_down, c->vec_down, sizeof(c->vec_down));
 	o->spot = NULL;
 	o->texture = NULL;
+	o->text_size = 100;
 	o->is_proc_texture = false;
 	o->nb_spot = c->nb_spot;
 }

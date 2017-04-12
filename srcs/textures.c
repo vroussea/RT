@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 16:30:29 by gboudrie          #+#    #+#             */
-/*   Updated: 2017/03/24 20:42:38 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/04/12 16:52:47 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,15 @@ Uint32		texture_cylinder(t_obj *obj)
 	double			t;
 	double			z;
 	int				x;
+	int				y;
+	int	valeur;
 
+	valeur = 100;
 	t = PI + atan(obj->intersec_point[1] / obj->intersec_point[0]);
 	z = obj->intersec_point[2];
-	x = (int)((obj->texture->h * t * 1) / 2 * PI);
-	color = getpixel(obj->texture, \
-		abs(x % obj->texture->w), abs((int)z % (int)obj->texture->h));
+	y = abs((int)(z * valeur) % (int)obj->texture->h);
+	x = abs(((int)((obj->texture->h * t) / 2 * PI)) % obj->texture->w);
+	color = getpixel(obj->texture, obj->texture->w - x, obj->texture->h - y);
 	return (color);
 }
 

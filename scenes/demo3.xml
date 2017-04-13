@@ -4,7 +4,7 @@
 		<resolution>1080 800</resolution>
 		<cam>
 			<pos>500 0 100</pos>
-			<rotation>-1 0 10</rotation>
+			<rotation>-10 0 10</rotation>
 		</cam>
 		<spots>
 			<pos>100 -100 50</pos>

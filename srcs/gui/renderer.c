@@ -17,7 +17,7 @@ static void		drawfps(t_envgui *env)
 	sprintf(env->gui->fpstext, "%i", env->currentfps);
 	env->gui->fpsfont = TTF_RenderText_Solid(env->gui->sans,\
 		env->gui->fpstext, env->gui->white);
-	SDL_BlitSurface(env->gui->fpsfont, NULL, env->surface, env->gui->fpsrect);
+	MDR_BlitSurface(env->gui->fpsfont, env->surface, env->gui->fpsrect->x, env->gui->fpsrect->y );
 	SDL_FreeSurface(env->gui->fpsfont);
 }
 
@@ -57,9 +57,9 @@ void			routine(t_envgui *env, Uint32 deltacock, Uint32 startcock)
 static t_button	*retnext(t_button *button, t_envgui *env)
 {
 	if (button->pressed)
-		SDL_BlitSurface(button->press, NULL, env->surface, button->pos);
+		MDR_BlitSurface(button->press, env->surface, button->pos->x, button->pos->y);
 	else
-		SDL_BlitSurface(button->defaults, NULL, env->surface, button->pos);
+		MDR_BlitSurface(button->defaults, env->surface, button->pos->x, button->pos->y);
 	return (button->next);
 }
 
@@ -89,7 +89,7 @@ int				threaddraw(void *e)
 	{
 		startclock = SDL_GetTicks();
 		SDL_RenderClear(a->renderer);
-		SDL_BlitSurface(a->gui->bar, NULL, a->surface, NULL);
+		MDR_BlitSurface(a->gui->bar, a->surface, 0, 0);
 		button = a->buttons;
 		while (button)
 			button = retnext(button, a);

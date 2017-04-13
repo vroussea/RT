@@ -366,4 +366,5 @@ void				convertsurface(SDL_Surface *sur);
 void				ft_putstr(char *str);
 SDL_Surface			*scalesurface(SDL_Surface *s, Uint16 w, Uint16 h);
 void				buttonflares(t_envgui *env);
+void				MDR_BlitSurface(SDL_Surface *src, SDL_Surface *dst, int x, int y);
 #endif

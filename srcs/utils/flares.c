@@ -12,7 +12,6 @@
 
 #include <rt.h>
 #include <SDL_image.h>
-#define CHEAT 0
 
 double			realdist(double dist)
 {
@@ -85,7 +84,7 @@ void			proflr(SDL_Surface *t, t_obj *b, SDL_Surface *f, int a)
 			rect.h = tmp->h;
 			rect.x = xy[0] - (tmp->w) / 2;
 			rect.y = xy[1] - (tmp->h) / 2;
-			SDL_BlitSurface(tmp, NULL, t, &rect);
+			SDL_UpperBlit(tmp,  NULL, t, &rect);
 			SDL_FreeSurface(tmp);
 		}
 		i++;

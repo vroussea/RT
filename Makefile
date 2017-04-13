@@ -18,6 +18,7 @@ SRCS = 	gui/hook.c \
 		utils/flares.c \
 		utils/colors.c \
 		utils/scalesurfaces.c \
+		utils/blit.c \
 		parser/get_infos.c \
 		parser/init_cam.c \
 		parser/check.c \

@@ -35,7 +35,7 @@ static void		overlay(t_envgui *env, char *argv)
 	t_obj			*belst;
 
 	if (env->fog)
-		SDL_BlitSurface(env->zraysurface[env->aa], NULL,\
+		SDL_BlitSurface(env->zraysurface[env->aa], NULL, \
 			env->raysurface[env->aa], NULL);
 	if (env->flares)
 	{

@@ -6,16 +6,15 @@
 /*   By: pfichepo <pfichepo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 11:09:54 by pfichepo          #+#    #+#             */
-/*   Updated: 2017/03/16 16:14:22 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/29 17:26:39 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <rt.h>
-#include <rtv1.h>
 
 static void		drawfps(t_envgui *env)
 {
-	sprintf(env->gui->fpstext, "%i", env->currentFPS);
+	sprintf(env->gui->fpstext, "%i", env->currentfps);
 	env->gui->fpsfont = TTF_RenderText_Solid(env->gui->sans,\
 		env->gui->fpstext, env->gui->white);
 	SDL_BlitSurface(env->gui->fpsfont, NULL, env->surface, env->gui->fpsrect);
@@ -26,7 +25,7 @@ static void		drawfps(t_envgui *env)
 ** Routine est là pour check les fps et le déplacement de la window
 */
 
-void			routine(t_envgui *env, Uint32 deltaclock, Uint32 startclock)
+void			routine(t_envgui *env, Uint32 deltacock, Uint32 startcock)
 {
 	int				posx;
 	int				posy;
@@ -34,12 +33,12 @@ void			routine(t_envgui *env, Uint32 deltaclock, Uint32 startclock)
 	int				winy;
 	double			current;
 
-	current = (double)deltaclock / (double)1000;
+	current = (double)deltacock / (double)1000;
 	if (current < ((double)1 / (double)env->freq))
 		SDL_Delay((Uint32)((((double)1 / (double)env->freq) - current) * 1000));
-	if (deltaclock != 0)
-		env->currentFPS = (Uint32)(((double)1 / (SDL_GetTicks() - \
-	startclock) * 1000));
+	if (deltacock != 0)
+		env->currentfps = (Uint32)(((double)1 / (SDL_GetTicks() - \
+	startcock) * 1000));
 	if (env->drag)
 	{
 		SDL_GetGlobalMouseState(&posx, &posy);
@@ -66,24 +65,15 @@ static t_button	*retnext(t_button *button, t_envgui *env)
 
 void			mainrender(t_envgui *env, char **argv)
 {
-	SDL_Surface *target;
-
-	target = env->zraysurface[env->aa];
 	if (env->redraw)
 	{
 		draw_the_image(argv, env);
 		env->redraw = 0;
-		SDL_BlitSurface(env->fraysurface[env->aa], 0, env->raysurface[env->aa], 0);
-		if (env->fog)
-			SDL_BlitSurface(target, NULL, env->raysurface[env->aa], NULL);
 	}
 	if (env->aaupdated && env->aa == 1)
 	{
 		calcaa(env);
 		env->aaupdated = 0;
-		SDL_BlitSurface(env->fraysurface[env->aa], 0, env->raysurface[env->aa], 0);
-		if (env->fog)
-			SDL_BlitSurface(target, NULL, env->raysurface[env->aa], NULL);
 	}
 }
 

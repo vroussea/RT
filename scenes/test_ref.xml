@@ -1,0 +1,36 @@
+<scene>
+	<cam_infos>
+		<cam>
+			<pos>600 0 50</pos>
+			<rotation>0 0 0</rotation>
+		</cam>
+		<spots>
+			<pos>-100 100 50</pos>
+			<pos>650 0 500</pos>
+		</spots>
+	</cam_infos>
+	<objs>
+		<sphere>
+			<pos>50 -50 100</pos>
+			<size>60</size>
+			<reflection>100</reflection>
+			<waves/>
+		</sphere>
+		<sphere>
+			<pos>50 100 80</pos>
+			<procedural>
+				<type>diagonal stripes</type>
+			</procedural>
+			<size>50</size>
+		</sphere>
+		<plane>
+			<reflection>10</reflection>
+			<rotation>180 0 0</rotation>
+		</plane>
+		<cylinder>
+			<pos>700 0 100</pos>
+			<size>60</size>
+			<rotation>90 0 0</rotation>
+		</cylinder>
+	</objs>
+</scene>

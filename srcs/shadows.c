@@ -6,11 +6,11 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 15:15:05 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/17 15:12:37 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/29 21:53:04 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <rtv1.h>
+#include <rt.h>
 
 bool		shadows(t_obj *list, int xy[2], t_obj *obj, int nb)
 {

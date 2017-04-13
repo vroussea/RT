@@ -22,6 +22,8 @@ void		putpixel(SDL_Surface *surface, int x, int y, Uint32 color)
 	Uint8			*pixel;
 	unsigned int	sz;
 
+	if (!surface)
+		return ;
 	sz = sizeof(Uint32);
 	pixel = (Uint8*)surface->pixels;
 	pixel += ((Uint32)y * (Uint32)surface->pitch) + ((Uint32)x * sz);

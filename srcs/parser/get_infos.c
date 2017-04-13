@@ -6,43 +6,11 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 16:59:02 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/22 16:11:22 by anonymous        ###   ########.fr       */
+/*   Updated: 2017/03/29 17:40:38 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <rtv1.h>
-
-void		init_functs_obj(t_obj *obj)
-{
-	if (obj->type == TYPE_SPHERE)
-	{
-		obj->intersect = intersec_sphere;
-		obj->vector = get_vector_sphere;
-		obj->shadow = shadow_sphere;
-		obj->texturing = texture_sphere;
-	}
-	else if (obj->type == TYPE_PLANE)
-	{
-		obj->intersect = intersec_plane;
-		obj->vector = get_vector_plane;
-		obj->shadow = shadow_plane;
-		obj->texturing = texture_plane;
-	}
-	else if (obj->type == TYPE_CYLINDER)
-	{
-		obj->intersect = intersec_cylinder;
-		obj->vector = get_vector_cylinder;
-		obj->shadow = shadow_cylinder;
-		obj->texturing = texture_cylinder;
-	}
-	else if (obj->type == TYPE_CONE)
-	{
-		obj->intersect = intersec_cone;
-		obj->vector = get_vector_cone;
-		obj->shadow = shadow_cone;
-		obj->texturing = texture_cylinder;
-	}
-}
+#include <rt.h>
 
 void		free_spots(t_cam *cam)
 {
@@ -64,19 +32,19 @@ static bool	init_scene(int fd, t_obj *objs, int is_aa)
 	char	*line;
 
 	while ((ret_gnl = get_next_line(fd, &line)) == 1 && \
-			strstr(line, "<cam_infos>") == NULL)
+			ft_strstr(line, "<cam_infos>") == NULL)
 		free(line);
 	free(line);
 	if (get_cam_infos(fd, &cam, is_aa) == true)
 		return (true);
 	while ((ret_gnl = get_next_line(fd, &line) == 1) && \
-			strstr(line, "<objs>") == NULL)
+			ft_strstr(line, "<objs>") == NULL)
 		free(line);
 	free(line);
 	if (get_objs_infos(fd, objs, &cam) == true)
 		return (true);
 	while ((ret_gnl = get_next_line(fd, &line) == 1) && \
-			strstr(line, "</scene>") == NULL)
+			ft_strstr(line, "</scene>") == NULL)
 		free(line);
 	free(line);
 	init_recap_spots(objs, &cam);
@@ -105,7 +73,7 @@ void		get_infos(char *file_name, t_obj **objs, int is_aa)
 	if ((fd = open(file_name, O_RDONLY)) == -1)
 		write_and_exit();
 	while ((ret_gnl = get_next_line(fd, &line)) == 1 && \
-			strstr(line, "<scene>") == NULL)
+			ft_strstr(line, "<scene>") == NULL)
 		free(line);
 	free(line);
 	if (ret_gnl == 0 || (ret_gnl == 1 && init_scene(fd, *objs, is_aa) == true))

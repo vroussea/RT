@@ -55,24 +55,20 @@ static void		buttonfog(t_envgui *env)
 		ft_error("Cannot Load button texture", NULL);
 	button->pressed = 0;
 	button->type = BUTTON_SPHERE;
-	button->pressfunc = ralo;
+	button->pressfunc = (void*)ralo;
 	stackbutton(env, button);
 }
 
 void			initfog(t_envgui *env)
 {
-	env->fraysurface = (SDL_Surface**)malloc(sizeof(SDL_Surface*) * 2);
 	env->zraysurface = (SDL_Surface**)malloc(sizeof(SDL_Surface*) * 2);
-	env->fraysurface[0] = SDL_CreateRGBSurfaceWithFormat(0, env->w, env->h \
-		- 10 - env->gui->bar->h, 32, SDL_PIXELFORMAT_RGBA32);
-	env->fraysurface[1] = SDL_CreateRGBSurfaceWithFormat(0, \
-		env->raysurface[0]->w \
-	* AALEVEL, env->raysurface[0]->h * AALEVEL, 32, SDL_PIXELFORMAT_RGBA32);
 	env->zraysurface[0] = SDL_CreateRGBSurfaceWithFormat(0, env->w, env->h \
 		- 10 - env->gui->bar->h, 32, SDL_PIXELFORMAT_RGBA32);
 	env->zraysurface[1] = SDL_CreateRGBSurfaceWithFormat(0, \
 		env->raysurface[0]->w \
 	* AALEVEL, env->raysurface[0]->h * AALEVEL, 32, SDL_PIXELFORMAT_RGBA32);
-	env->fog = 0;
+	env->fog = false;
+	env->flares = true;
 	buttonfog(env);
+	buttonflares(env);
 }

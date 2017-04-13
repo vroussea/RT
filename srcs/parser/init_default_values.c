@@ -6,11 +6,11 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 17:28:27 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/22 16:12:54 by anonymous        ###   ########.fr       */
+/*   Updated: 2017/04/12 19:37:26 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <rtv1.h>
+#include <rt.h>
 
 void	init_default_cam_values(t_cam *cam, int is_aa)
 {
@@ -23,13 +23,13 @@ void	init_default_cam_values(t_cam *cam, int is_aa)
 	cam->vec_cam[1] = 0;
 	cam->vec_cam[2] = 0;
 	cam->res[0] = WIN_W + (WIN_W * is_aa * (AALEVEL - 1));
-	cam->res[1] = WIN_HCAM + (WIN_HCAM * is_aa * (AALEVEL - 1));
+	cam->res[1] = (WIN_H - 42) + ((WIN_H - 42) * is_aa * (AALEVEL - 1));
 	cam->vec_right[0] = 0;
 	cam->vec_right[1] = 100;
 	cam->vec_right[2] = 0;
 	cam->vec_down[0] = 0;
 	cam->vec_down[1] = 0;
-	cam->vec_down[2] = -100.0 * ((double)WIN_HCAM / (double)WIN_W);
+	cam->vec_down[2] = -100.0 * ((double)(WIN_H - 42) / (double)WIN_W);
 	i = -1;
 	while (++i < 3)
 	{
@@ -54,14 +54,15 @@ void	init_default_sphere_values(t_cam *c, t_obj *o)
 	o->color_rgb[2] = 0;
 	o->type = 0;
 	o->size = 10;
-	memcpy(o->pos_cam, c->pos_cam, sizeof(c->pos_cam));
-	memcpy(o->res, c->res, sizeof(c->res));
-	memcpy(o->pos_pixel_base, c->pos_pixel_base, \
+	ft_memcpy(o->pos_cam, c->pos_cam, sizeof(c->pos_cam));
+	ft_memcpy(o->res, c->res, sizeof(c->res));
+	ft_memcpy(o->pos_pixel_base, c->pos_pixel_base, \
 		sizeof(c->pos_pixel_base));
-	memcpy(o->vec_right, c->vec_right, sizeof(c->vec_right));
-	memcpy(o->vec_down, c->vec_down, sizeof(c->vec_down));
+	ft_memcpy(o->vec_right, c->vec_right, sizeof(c->vec_right));
+	ft_memcpy(o->vec_down, c->vec_down, sizeof(c->vec_down));
 	o->spot = NULL;
 	o->texture = NULL;
+	o->text_size = 100;
 	o->is_proc_texture = false;
 	o->nb_spot = c->nb_spot;
 }
@@ -82,14 +83,15 @@ void	init_default_plane_values(t_cam *c, t_obj *o)
 	o->color_rgb[2] = 255;
 	o->type = 1;
 	o->high = 0;
-	memcpy(o->pos_cam, c->pos_cam, sizeof(c->pos_cam));
-	memcpy(o->res, c->res, sizeof(c->res));
-	memcpy(o->pos_pixel_base, c->pos_pixel_base, \
+	ft_memcpy(o->pos_cam, c->pos_cam, sizeof(c->pos_cam));
+	ft_memcpy(o->res, c->res, sizeof(c->res));
+	ft_memcpy(o->pos_pixel_base, c->pos_pixel_base, \
 		sizeof(c->pos_pixel_base));
-	memcpy(o->vec_right, c->vec_right, sizeof(c->vec_right));
-	memcpy(o->vec_down, c->vec_down, sizeof(c->vec_down));
+	ft_memcpy(o->vec_right, c->vec_right, sizeof(c->vec_right));
+	ft_memcpy(o->vec_down, c->vec_down, sizeof(c->vec_down));
 	o->spot = NULL;
 	o->texture = NULL;
+	o->text_size = 100;
 	o->is_proc_texture = false;
 	o->nb_spot = c->nb_spot;
 }
@@ -107,14 +109,15 @@ void	init_default_cylinder_values(t_cam *c, t_obj *o)
 	o->color_rgb[2] = 0;
 	o->type = 2;
 	o->size = 5;
-	memcpy(o->pos_cam, c->pos_cam, sizeof(c->pos_cam));
-	memcpy(o->res, c->res, sizeof(c->res));
-	memcpy(o->pos_pixel_base, c->pos_pixel_base, \
+	ft_memcpy(o->pos_cam, c->pos_cam, sizeof(c->pos_cam));
+	ft_memcpy(o->res, c->res, sizeof(c->res));
+	ft_memcpy(o->pos_pixel_base, c->pos_pixel_base, \
 		sizeof(c->pos_pixel_base));
-	memcpy(o->vec_right, c->vec_right, sizeof(c->vec_right));
-	memcpy(o->vec_down, c->vec_down, sizeof(c->vec_down));
+	ft_memcpy(o->vec_right, c->vec_right, sizeof(c->vec_right));
+	ft_memcpy(o->vec_down, c->vec_down, sizeof(c->vec_down));
 	o->spot = NULL;
 	o->texture = NULL;
+	o->text_size = 100;
 	o->is_proc_texture = false;
 	o->nb_spot = c->nb_spot;
 }
@@ -132,14 +135,15 @@ void	init_default_cone_values(t_cam *c, t_obj *o)
 	o->color_rgb[2] = 0;
 	o->type = 3;
 	o->angle = 45;
-	memcpy(o->pos_cam, c->pos_cam, sizeof(c->pos_cam));
-	memcpy(o->res, c->res, sizeof(c->res));
-	memcpy(o->pos_pixel_base, c->pos_pixel_base, \
+	ft_memcpy(o->pos_cam, c->pos_cam, sizeof(c->pos_cam));
+	ft_memcpy(o->res, c->res, sizeof(c->res));
+	ft_memcpy(o->pos_pixel_base, c->pos_pixel_base, \
 		sizeof(c->pos_pixel_base));
-	memcpy(o->vec_right, c->vec_right, sizeof(c->vec_right));
-	memcpy(o->vec_down, c->vec_down, sizeof(c->vec_down));
+	ft_memcpy(o->vec_right, c->vec_right, sizeof(c->vec_right));
+	ft_memcpy(o->vec_down, c->vec_down, sizeof(c->vec_down));
 	o->spot = NULL;
 	o->texture = NULL;
+	o->text_size = 100;
 	o->is_proc_texture = false;
 	o->nb_spot = c->nb_spot;
 }

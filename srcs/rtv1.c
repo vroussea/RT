@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <rtv1.h>
 #include <rt.h>
 #include <SDL_image.h>
 #if WIN32
@@ -18,7 +17,6 @@
 # pragma comment (lib, "sdl2main.lib")
 # pragma comment (lib, "SDL2_ttf.lib")
 # pragma comment (lib, "SDL2_image.lib")
-# pragma comment (lib, "SDL2_gfx.lib")
 #endif
 
 void		ft_error(char *str, char **tab)
@@ -39,8 +37,7 @@ t_envgui	*initenv(void)
 	env->h = WIN_H;
 	env->freq = 60;
 	env->win = SDL_CreateWindow("rt", SDL_WINDOWPOS_CENTERED, \
-	SDL_WINDOWPOS_CENTERED, env->w, env->h, SDL_WINDOW_BORDERLESS | \
-		SDL_WINDOW_ALLOW_HIGHDPI | SDL_WINDOW_OPENGL);
+	SDL_WINDOWPOS_CENTERED, env->w, env->h, SDL_WINDOW_BORDERLESS);
 	env->surface = SDL_GetWindowSurface(env->win);
 	env->renderer = SDL_CreateSoftwareRenderer(env->surface);
 	SDL_SetRenderDrawColor(env->renderer, 0, 0, 0, 255);
@@ -50,11 +47,13 @@ t_envgui	*initenv(void)
 	env->wait = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_WAIT);
 	env->isloading = 0;
 	env->loadingvalue = 0;
-	env->drag = 0;
+	env->drag = false;
 	env->drawfps = 1;
 	env->aa = 0;
 	env->aaupdated = 1;
 	env->redraw = 1;
+	initbuttons(env);
+	env->currentfps = 0;
 	return (env);
 }
 
@@ -65,15 +64,16 @@ int			main(int argc, char **argv)
 	SDL_Event		e;
 
 	if (argc != 2)
-		ft_error("Usage: ./rt <filename>\n", NULL);
+	{
+		ft_putstr("Usage: ./rt <filename>\n");
+		exit(-1);
+	}
 	checkread(argv[1]);
 	SDL_Init(SDL_INIT_EVENTS | SDL_INIT_TIMER);
 	TTF_Init();
 	IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG);
 	env = initenv();
-	initbuttons(env);
 	startclock = SDL_GetTicks();
-	env->currentFPS = 0;
 	env->thread = SDL_CreateThread(threaddraw, "RenderingThread", (void*)env);
 	while (1)
 	{

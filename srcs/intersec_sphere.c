@@ -6,11 +6,11 @@
 /*   By: eduwer <eduwer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 15:31:59 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/08 19:55:45 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/24 18:57:32 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <rtv1.h>
+#include <rt.h>
 
 static void	get_vec_ray_sphere(double vec_ray[3], t_obj *sphere, int xy[2])
 {
@@ -23,6 +23,10 @@ static void	get_vec_ray_sphere(double vec_ray[3], t_obj *sphere, int xy[2])
 		vec_ray[i] += xy[0] * sphere->vec_right[i] + \
 			xy[1] * sphere->vec_down[i];
 		vec_ray[i] -= sphere->pos_cam[i];
+		sphere->base_vec_ray[i] = sphere->base_pos_pixel_base[i];
+		sphere->base_vec_ray[i] += xy[0] * sphere->base_vec_right[i] + \
+			xy[1] * sphere->base_vec_down[i];
+		sphere->base_vec_ray[i] -= sphere->base_pos_cam[i];
 		i++;
 	}
 }
@@ -50,9 +54,6 @@ double		intersec_sphere(int xy[2], t_obj *sphere)
 			pow(sphere->pos_cam[2], 2) - pow(sphere->size, 2);
 	sphere->distance = calc_2nd_degree_equation(abc);
 	if (sphere->distance != 2147483647)
-	{
-		calc_intersec_point(sphere->intersec_point, \
-			sphere->distance, vec_ray, sphere->pos_cam);
-	}
+		calc_intersec_point(sphere, vec_ray);
 	return (sphere->distance);
 }

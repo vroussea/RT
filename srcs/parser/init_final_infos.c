@@ -6,11 +6,11 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 17:16:53 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/22 16:13:07 by anonymous        ###   ########.fr       */
+/*   Updated: 2017/04/12 18:40:34 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <rtv1.h>
+#include <rt.h>
 #include <SDL_image.h>
 
 bool	init_tab_3(double tab[3], int color[3], char *line)
@@ -25,9 +25,9 @@ bool	init_tab_3(double tab[3], int color[3], char *line)
 	while (indice_tab < 3 && line[i] != '\0')
 	{
 		if (tab != NULL)
-			tab[indice_tab] = (double)atoi(&(line[i]));
+			tab[indice_tab] = (double)ft_atoi(&(line[i]));
 		else
-			color[indice_tab] = abs(atoi(&(line[i])));
+			color[indice_tab] = abs(ft_atoi(&(line[i])));
 		++indice_tab;
 		while (line[i] != '\0' && (ft_isdigit(line[i]) == 1 || line[i] == '-'))
 			++i;
@@ -43,7 +43,7 @@ bool	init_3_values(double value[3], char *line, char *pattern)
 {
 	if (init_tab_3(value, NULL, line) == true)
 		return (true);
-	if (strstr(line, pattern) == NULL)
+	if (ft_strstr(line, pattern) == NULL)
 		return (true);
 	return (false);
 }
@@ -58,7 +58,7 @@ bool	init_colors(int color[3], char *line)
 	if (init_tab_3(NULL, color, &(line[i])) == true)
 		return (true);
 	convert_to_hex(color);
-	if (strstr(line, "</color") == NULL)
+	if (ft_strstr(line, "</color") == NULL)
 		return (true);
 	return (false);
 }
@@ -70,8 +70,8 @@ bool	init_one_value(double *value, char *line, char *pattern)
 	i = 0;
 	while (ft_isdigit(line[i]) == 0 && line[i] != '-' && line[i] != '\0')
 		++i;
-	*value = (double)atoi(&(line[i]));
-	if (strstr(line, pattern) == NULL)
+	*value = (double)ft_atoi(&(line[i]));
+	if (ft_strstr(line, pattern) == NULL)
 		return (true);
 	return (false);
 }
@@ -80,12 +80,11 @@ bool	init_surface(SDL_Surface **texture, char *line)
 {
 	char *buff;
 
-	
 	if ((*texture = IMG_Load(line)) == NULL)
 	{
-		buff = (char*)malloc(sizeof(char) * (23 + SDL_strlen(line) + 1));
+		buff = (char*)malloc(sizeof(char) * (23 + ft_strlen(line) + 1));
 		sprintf(buff, "Cannot load texture : %s\n", line);
-		write(1, buff, strlen(buff));
+		write(1, buff, ft_strlen(buff));
 		free(buff);
 		exit(-1);
 	}

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <rtv1.h>
+#include <rt.h>
 
 bool	init_and_copy(double **list_spot, char *line, t_cam *cam)
 {
@@ -57,9 +57,9 @@ bool	init_spots(int fd, t_cam *cam)
 
 	list_spot = NULL;
 	while ((ret_gnl = get_next_line(fd, &line) == 1) && \
-			strstr(line, "</spots>") == NULL)
+			ft_strstr(line, "</spots>") == NULL)
 	{
-		if (strstr(line, "<pos>") != NULL)
+		if (ft_strstr(line, "<pos>") != NULL)
 		{
 			cam->nb_spot++;
 			if (init_and_copy(list_spot, line, cam) == true)

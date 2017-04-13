@@ -19,5 +19,11 @@
 			<rotation>90 0 0</rotation>
 			<color>255 255 255</color>
 		</plane>
+		<sphere>
+			<pos>90 -200 55</pos>
+			<size>50</size>
+			<color>0 255 0</color>
+			<reflection>50</reflection>
+		</sphere>
 	</objs>
 </scene>

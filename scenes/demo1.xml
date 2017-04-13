@@ -14,11 +14,14 @@
 			<size>20</size>
 			<color>255 0 0</color>
 			<texture>res/error.bmp</texture>
+			<reflection>100</reflection>
+			<pos>0 70 30</pos>
 		</sphere>
 		<sphere>
 			<size>10</size>
-			<pos>0 30 0</pos>
+			<pos>50 70 20</pos>
 			<color>0 255 0</color>
+			<refraction>50</refraction>
 		</sphere>
 		<sphere>
 			<size>15</size>

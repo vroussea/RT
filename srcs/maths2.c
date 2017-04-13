@@ -6,11 +6,16 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 16:32:01 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/06 18:04:59 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/29 17:33:44 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <rtv1.h>
+#include <rt.h>
+
+double	radians(double degree)
+{
+	return (degree * (M_PI / 180.0));
+}
 
 void	normalize_vec(double vec[3])
 {
@@ -47,21 +52,22 @@ double	calc_2nd_degree_equation(double abc[3])
 		if (ans > 0)
 			return (ans);
 		ans = (-abc[1] + sqrt(delta)) / (2 * abc[0]);
-		if (ans > 0)
+		if (ans > 0.01)
 			return (ans);
 	}
 	return (2147483647);
 }
 
-void	calc_intersec_point(double pos[3], double distance, double vec_ray[3], \
-			double origin[3])
+void	calc_intersec_point(t_obj *obj, double vec_ray[3])
 {
 	int	i;
 
 	i = 0;
 	while (i < 3)
 	{
-		pos[i] = origin[i] + vec_ray[i] * distance;
+		obj->intersec_point[i] = obj->pos_cam[i] + vec_ray[i] * obj->distance;
+		obj->base_intersec_point[i] = obj->base_pos_cam[i] + \
+			obj->base_vec_ray[i] * obj->distance;
 		i++;
 	}
 }
@@ -69,20 +75,4 @@ void	calc_intersec_point(double pos[3], double distance, double vec_ray[3], \
 double	dot_product(double vec1[3], double vec2[3])
 {
 	return (vec1[0] * vec2[0] + vec1[1] * vec2[1] + vec1[2] * vec2[2]);
-}
-
-void	reflexion(double base_vec[3], double normal[3], double reflected_ray[3])
-{
-	int		i;
-	double	d_product;
-
-	normalize_vec(base_vec);
-	normalize_vec(normal);
-	d_product = dot_product(base_vec, normal);
-	i = 0;
-	while (i < 3)
-	{
-		reflected_ray[i] = 2 * d_product * normal[i] - base_vec[i];
-		i++;
-	}
 }

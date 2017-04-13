@@ -12,7 +12,7 @@
 
 #include <libft.h>
 #include <stdlib.h>
-#include <rtv1.h>
+#include <rt.h>
 
 static size_t	count_words(char *s, char c)
 {
@@ -88,4 +88,16 @@ char			**ft_strsplit(const char *s, char c)
 		i++;
 	}
 	return (newtab);
+}
+
+void			ft_putstr(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		write(1, &(str[i]), 1);
+		i++;
+	}
 }

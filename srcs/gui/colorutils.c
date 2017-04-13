@@ -14,10 +14,10 @@
 
 static Uint32			avercolor(Uint32 *tbl)
 {
-	Uint32				r;
-	Uint32				g;
-	Uint32				b;
-	unsigned int		i;
+	unsigned long long	r;
+	unsigned long long	g;
+	unsigned long long	b;
+	unsigned long long	i;
 
 	i = 0;
 	r = 0;
@@ -30,7 +30,7 @@ static Uint32			avercolor(Uint32 *tbl)
 		b += (tbl[i] >> 0 & 255);
 		i++;
 	}
-	return (rgba((r / i), (g / i), (b / i)));
+	return (rgba((r / AANUM), (g / AANUM), (b / AANUM)));
 }
 
 static Uint32			getaapixel(t_envgui *env, int posx, int posy)

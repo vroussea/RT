@@ -6,12 +6,12 @@
 /*   By: pfichepo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 09:13:25 by pfichepo          #+#    #+#             */
-/*   Updated: 2017/03/16 16:32:14 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/03/29 20:50:08 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <rt.h>
-#include <rtv1.h>
+#include <rt.h>
 #include <time.h>
 
 int			threadsavepic(void *adr)
@@ -31,7 +31,7 @@ static int	ret(t_threaddata *data)
 {
 	del_all_list(data->data);
 	free(data);
-	return (data->threadid);
+	return (0);
 }
 
 static int	threadthink(void *d)
@@ -78,4 +78,5 @@ void		initthreads(t_parserdata *data)
 	SDL_WaitThread(thread2, NULL);
 	SDL_WaitThread(thread3, NULL);
 	SDL_WaitThread(thread4, NULL);
+	free(data);
 }

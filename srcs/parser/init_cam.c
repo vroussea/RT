@@ -6,11 +6,11 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/23 17:32:14 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/18 17:19:58 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/04/12 18:05:56 by gboudrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <rtv1.h>
+#include <rt.h>
 
 static bool	init_cam_pos_rotation(int fd, t_cam *cam)
 {
@@ -18,12 +18,12 @@ static bool	init_cam_pos_rotation(int fd, t_cam *cam)
 	char	*line;
 
 	while ((ret_gnl = get_next_line(fd, &line) == 1) && \
-			strstr(line, "</cam>") == NULL)
+			ft_strstr(line, "</cam>") == NULL)
 	{
-		if (strstr(line, "<pos>") != NULL && \
+		if (ft_strstr(line, "<pos>") != NULL && \
 				init_3_values(cam->pos_cam, line, "</pos>") == true)
 			return (true);
-		else if (strstr(line, "<rotation>") != NULL && \
+		else if (ft_strstr(line, "<rotation>") != NULL && \
 				init_3_values(cam->rotation, line, "</rotation>") == true)
 			return (true);
 		free(line);
@@ -40,11 +40,11 @@ void		init_down_right(double vec_down[3], double vec_right[3], \
 	vec_right[0] = 0;
 	vec_right[1] = 100;
 	vec_right[2] = 0;
-	make_rotation(vec_right, rotation);
+	make_rotation(vec_right, rotation, 0);
 	vec_down[0] = 0;
 	vec_down[1] = 0;
 	vec_down[2] = -100.0 / ((double)res[0] / (double)res[1]);
-	make_rotation(vec_down, rotation);
+	make_rotation(vec_down, rotation, 0);
 }
 
 static bool	finish_init_cam(t_cam *cam)
@@ -52,7 +52,7 @@ static bool	finish_init_cam(t_cam *cam)
 	int		i;
 
 	init_down_right(cam->vec_down, cam->vec_right, cam->rotation, cam->res);
-	make_rotation(cam->vec_cam, cam->rotation);
+	make_rotation(cam->vec_cam, cam->rotation, 0);
 	i = 0;
 	while (i < 3)
 	{
@@ -76,12 +76,12 @@ bool		get_cam_infos(int fd, t_cam *cam, int is_aa)
 	cam->spot = NULL;
 	init_default_cam_values(cam, is_aa);
 	while ((ret_gnl = get_next_line(fd, &line)) == 1 && \
-			strstr(line, "</cam_infos>") == NULL)
+			ft_strstr(line, "</cam_infos>") == NULL)
 	{
-		if (strstr(line, "<cam>") != NULL && \
+		if (ft_strstr(line, "<cam>") != NULL && \
 				init_cam_pos_rotation(fd, cam) == true)
 			return (true);
-		else if (strstr(line, "<spots>") != NULL && \
+		else if (ft_strstr(line, "<spots>") != NULL && \
 				init_spots(fd, cam) == true)
 			return (true);
 		free(line);

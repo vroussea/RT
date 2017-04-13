@@ -81,11 +81,8 @@
 		</cylinder>
 		<plane>
 			<high>220</high>
-			<procedural>
-			</procedural>
+			<texture>res/cheekibreeki.bmp</texture>
 		</plane>
-
-
 		<plane>
 			<rotation>20 0 0</rotation>
 			<high>0</high>
@@ -100,17 +97,16 @@
 			<angle>45</angle>
 			<pos>-30 20 120</pos>
 			<rotation>0 0 90</rotation>
-			<procedural>
-				<color2>255 0 0</color2>
-				<type>straight stripes</type>
-			</procedural>
+				<procedural>
+					<color2>255 0 0</color2>
+					<type>straight stripes</type>
+				</procedural>
 
 		</cone>
 		<sphere>
 			<pos>10 -150 0</pos>
 			<size>50</size>
-			<procedural>
-			</procedural>
+			<texture>res/cheekibreeki2.bmp</texture>
 		</sphere>
 		<sphere>
 			<pos>100 100 45</pos>

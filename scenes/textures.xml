@@ -19,6 +19,7 @@
 		</plane>
 		<sphere>
 			<pos>20 80 30</pos>
+			<refraction>20</refraction>
 			<size>50</size>
 			<rotation>50 0 0</rotation>
 			<procedural>
@@ -28,24 +29,5 @@
 				<color2>255 165 0</color2>
 			</procedural>
 		</sphere>
-		<cone>
-			<angle>30</angle>
-			<pos>0 -50 0</pos>
-			<rotation>0 0 120</rotation>
-			<procedural>
-				<type>diagonal stripes</type>
-			</procedural>
-		</cone>
-		<cylinder>
-			<rotation>90 0 -45</rotation>
-			<pos>20 0 -50</pos>
-			<procedural>
-				<type>cubes</type>
-				<color1>0 255 255</color1>
-				<color2>127 255 0</color2>
-			</procedural>
-			<size>20</size>
-			<waves/>
-		</cylinder>
 	</objs>
 </scene>

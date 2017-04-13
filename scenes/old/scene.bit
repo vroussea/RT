@@ -1,8 +1,0 @@
-res = 1080 800
-camera pos = 200 0 200 ; rotate = 0 35 0 
-spot = 50 100 200
-spot = 0 -130 500
-obj = sphere ; pos = 0 0 0 ; size = 20 ; color = AA 00 00
-obj = sphere ; pos = 0 30 0 ; size = 20 ; color = AA 00 00
-obj = cylinder ; pos = 0 15 0 ; rotation = 0 0 0 ; size = 10 ; color = FF 00 00
-obj = plane ; high = -10 ; rotation = 0 0 0 ; color = 70 70 70

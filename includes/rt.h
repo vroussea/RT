@@ -44,7 +44,7 @@
 # include <stdbool.h>
 # define BUTTON_BOX 0
 # define BUTTON_SPHERE 1
-# define AALEVEL 4
+# define AALEVEL 2
 # define AANUM (AALEVEL * AALEVEL)
 
 /*

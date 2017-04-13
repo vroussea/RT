@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 15:15:05 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/29 21:53:04 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/04/13 11:41:58 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ bool		shadows(t_obj *list, int xy[2], t_obj *obj, int nb)
 	int		i;
 	double	distance;
 
+	if (obj->nb_ref != 0)
+		return(true);
 	i = 0;
 	distance = obj->distance;
 	while (i < 3)

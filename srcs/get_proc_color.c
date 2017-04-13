@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 15:32:24 by eduwer            #+#    #+#             */
-/*   Updated: 2017/03/16 16:10:48 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/04/13 15:19:00 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ int		*get_proc_cube(t_obj *obj)
 	unsigned int	result;
 
 	i = nearbyint((obj->intersec_point[0] + \
-				obj->decal_xyz[0]) / 10);
+				obj->decal_xyz[0]) / (10 * obj->text_size));
 	i += nearbyint((obj->intersec_point[1] + \
-				obj->decal_xyz[1]) / 10);
+				obj->decal_xyz[1]) / (10 * obj->text_size));
 	i += nearbyint((obj->intersec_point[2] + \
-				obj->decal_xyz[2]) / 10);
+				obj->decal_xyz[2]) / (10 * obj->text_size));
 	result = ((unsigned int)i) % 2;
 	if (result == 0)
 		return (obj->color1);
@@ -37,15 +37,16 @@ int		*get_proc_stripes(t_obj *obj)
 	if (obj->proc_text_type == PROC_TEXT_STRAIGHT_STRIPES)
 	{
 		result = (int)(nearbyint((obj->intersec_point[1] + \
-					obj->decal_xyz[1]) / 10));
+					obj->decal_xyz[1]) / (10 * obj->text_size)));
 	}
 	else
 	{
 		i = ((obj->intersec_point[0] + \
-					obj->decal_xyz[0]) / 10);
+					obj->decal_xyz[0]) / (10 * obj->text_size));
 		i += ((obj->intersec_point[1] + \
-					obj->decal_xyz[1]) / 10) + ((obj->intersec_point[2] + \
-		obj->decal_xyz[2]) / 10);
+					obj->decal_xyz[1]) / (10 * obj->text_size)) + \
+			((obj->intersec_point[2] + \
+		obj->decal_xyz[2]) / (10 * obj->text_size));
 		result = (int)nearbyint(i);
 	}
 	result %= 2;
@@ -62,13 +63,13 @@ int		*get_proc_circle(t_obj *obj)
 	i = 0;
 	if (obj->proc_text_type != PROC_TEXT_CIRCLE_X)
 		i += pow(((obj->intersec_point[0] + \
-						obj->decal_xyz[0])) / 10, 2);
+						obj->decal_xyz[0])) / (10 * obj->text_size), 2);
 	if (obj->proc_text_type != PROC_TEXT_CIRCLE_Y)
 		i += pow(((obj->intersec_point[1] + \
-						obj->decal_xyz[1])) / 10, 2);
+						obj->decal_xyz[1])) / (10 * obj->text_size), 2);
 	if (obj->proc_text_type != PROC_TEXT_CIRCLE_Z)
 		i += pow(((fabs(obj->intersec_point[2] + \
-						obj->decal_xyz[2]))) / 10, 2);
+						obj->decal_xyz[2]))) / (10 * obj->text_size), 2);
 	result = (int)(nearbyint(sqrt(i))) % 2;
 	if (result == 0)
 		return (obj->color1);

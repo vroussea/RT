@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 16:30:29 by gboudrie          #+#    #+#             */
-/*   Updated: 2017/04/12 19:50:45 by gboudrie         ###   ########.fr       */
+/*   Updated: 2017/04/13 15:18:06 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ Uint32		texture_sphere(t_obj *obj)
 
 	p = PI + acos(obj->intersec_point[2] / obj->size);
 	t = PI + atan(obj->intersec_point[0] / obj->intersec_point[1]);
-	x = (int)((obj->texture->w * t * (obj->text_size / 100)) / 2 * PI);
-	y = (int)((obj->texture->h * p * (obj->text_size / 100)) / 2 * PI);
+	x = (int)((obj->texture->w * t * obj->text_size) / 2 * PI);
+	y = (int)((obj->texture->h * p * obj->text_size) / 2 * PI);
 	color = getpixel(obj->texture, \
 		abs(x % (int)obj->texture->w), abs(y % (int)obj->texture->h));
 	return (color);
@@ -53,9 +53,9 @@ Uint32		texture_plane(t_obj *obj)
 	int				x;
 	int				y;
 
-	x = ((int)(obj->intersec_point[0] / (obj->text_size / 100) * 15)) %
+	x = ((int)(obj->intersec_point[0] / obj->text_size * 15)) %
 		obj->texture->w;
-	y = ((int)(obj->intersec_point[1] / (obj->text_size / 100) * 15)) %
+	y = ((int)(obj->intersec_point[1] / obj->text_size * 15)) %
 		obj->texture->h;
 	if (x < 0)
 		x += obj->texture->w;

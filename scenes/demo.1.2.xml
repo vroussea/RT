@@ -2,8 +2,8 @@
 <scene>
 	<cam_infos>
 		<cam>
-			<pos>600 0 250</pos>
-			<rotation>0 15 0</rotation>
+			<pos>0 -150 90</pos>
+			<rotation>0 0 90</rotation>
 		</cam>
 		<spots>
 			<pos>700 400 400</pos>

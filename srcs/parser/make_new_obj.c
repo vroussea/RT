@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 16:16:23 by eduwer            #+#    #+#             */
-/*   Updated: 2017/04/12 18:06:40 by gboudrie         ###   ########.fr       */
+/*   Updated: 2017/04/13 15:17:42 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,4 +117,5 @@ void	finish_init_obj(t_obj *obj, t_cam *cam)
 	init_functs_obj(obj);
 	if (obj->type == TYPE_PLANE)
 		verif_plane_norm_vec(obj);
+	obj->text_size /= 100;
 }

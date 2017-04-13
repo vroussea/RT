@@ -93,7 +93,7 @@ int				threaddraw(void *e)
 		button = a->buttons;
 		while (button)
 			button = retnext(button, a);
-		SDL_LowerBlit(a->raysurface[0], a->rayrectin, a->surface, a->rayrect);
+		MDR_BlitSurface(a->raysurface[0],  a->surface, a->rayrect->x, a->rayrect->y );
 		if (a->isloading)
 			drawloadingbardiscrete(a);
 		if (a->drawfps && a->gui->sans)

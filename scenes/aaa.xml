@@ -2,7 +2,7 @@
 	<cam_infos>
 		<cam>
 			<pos>600 0 50</pos>
-			<rotation>0 0 0</rotation>
+			<rotation>180 0 0</rotation>
 		</cam>
 		<spots>
 			<pos>500 0 600</pos>
@@ -10,11 +10,11 @@
 	</cam_infos>
 	<objs>
 		<plane>
-			<pos>0 0 -20</pos>
+			<high>-50</high>
 			<rotation>0 0 0</rotation>
 		</plane>
 		<sphere>
-			<refraction>100</refraction>
+			<reflection>100</reflection>
 			<size>50</size>
 			<pos>0 0 50</pos>
 		</sphere>

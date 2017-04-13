@@ -20,7 +20,7 @@ bool		shadows(t_obj *list, int xy[2], t_obj *obj, int nb)
 	double	distance;
 
 	if (obj->nb_ref != 0)
-		return(true);
+		return (true);
 	i = 0;
 	distance = obj->distance;
 	while (i < 3)

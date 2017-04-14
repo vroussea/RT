@@ -6,7 +6,7 @@
 /*   By: eduwer <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 15:32:24 by eduwer            #+#    #+#             */
-/*   Updated: 2017/04/13 15:19:00 by eduwer           ###   ########.fr       */
+/*   Updated: 2017/04/13 15:43:27 by eduwer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		*get_proc_cube(t_obj *obj)
 				obj->decal_xyz[1]) / (10 * obj->text_size));
 	i += nearbyint((obj->intersec_point[2] + \
 				obj->decal_xyz[2]) / (10 * obj->text_size));
-	result = ((unsigned int)i) % 2;
+	result = ((unsigned int)(i * 0.5)) % 2;
 	if (result == 0)
 		return (obj->color1);
 	return (obj->color2);

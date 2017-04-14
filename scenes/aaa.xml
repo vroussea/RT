@@ -14,7 +14,7 @@
 			<rotation>0 0 0</rotation>
 		</plane>
 		<sphere>
-			<reflection>100</reflection>
+			<refraction>100</refraction>
 			<size>50</size>
 			<pos>0 0 50</pos>
 		</sphere>

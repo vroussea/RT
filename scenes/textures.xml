@@ -9,12 +9,12 @@
 	<objs>
 		<plane>
 			<procedural>
-				<type>cubes</type>
+				<type>circles_z</type>
 				<color1>0 0 0</color1>
 				<color2>255 255 255</color2>
 				<decal>0 0 0</decal>
 			</procedural>
-			<texture_size>100</texture_size>
+			<texture_size>150</texture_size>
 			<high>-50</high>
 			<rotation>0 90 0</rotation>
 		</plane>
@@ -28,7 +28,7 @@
 				<color1>255 0 0</color1>
 				<color2>255 165 0</color2>
 			</procedural>
-			<texture_size>10</texture_size>
+			<texture_size>100</texture_size>
 		</sphere>
 	</objs>
 </scene>

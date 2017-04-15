@@ -9,7 +9,7 @@
 	<objs>
 		<plane>
 			<procedural>
-				<type>circles_z</type>
+				<type>cubes</type>
 				<color1>0 0 0</color1>
 				<color2>255 255 255</color2>
 				<decal>0 0 0</decal>
@@ -17,6 +17,7 @@
 			<texture_size>150</texture_size>
 			<high>-50</high>
 			<rotation>0 90 0</rotation>
+			<waves/>
 		</plane>
 		<sphere>
 			<pos>20 80 30</pos>
@@ -29,6 +30,32 @@
 				<color2>255 165 0</color2>
 			</procedural>
 			<texture_size>100</texture_size>
+			<waves/>
 		</sphere>
+		<cone>
+			<rotation>0 0 90</rotation>
+			<pos>0 -50 20</pos>
+			<angle>30</angle>
+			<procedural>
+				<type>diagonal stripes</type>
+			</procedural>
+			<texture_size>50</texture_size>
+		</cone>
+		<cylinder>
+			<pos>0 0 -10</pos>
+			<rotation>90 0 0</rotation>
+			<texture_size>60</texture_size>
+			<procedural>
+				<type>circles_x</type>
+				<color2>255 255 0</color2>
+			</procedural>
+			<size>20</size>
+			<waves/>
+		</cylinder>
+		<plane>
+			<rotation>70 0 0</rotation>
+			<high>-100</high>
+			<reflection>100</reflection>
+		</plane>
 	</objs>
 </scene>

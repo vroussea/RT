@@ -48,6 +48,7 @@
 			<procedural>
 				<type>circles_x</type>
 				<color2>255 255 0</color2>
+				<decal>0 0 -50</decal>
 			</procedural>
 			<size>20</size>
 			<waves/>

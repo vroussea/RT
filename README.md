@@ -3,13 +3,7 @@ Preview :
 
 ![](https://puu.sh/u78ji/7d009c8f25.png)
 
-
-# Pour cloner que cette branche
-
-```Shell
-git clone -b beta --single-branch https://github.com/eloi-duwer/rtv1.git
-```
-
+Ce guide est outdated en passant.
 
 
 ## Install

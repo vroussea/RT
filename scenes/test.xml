@@ -10,9 +10,6 @@
 		</cam>
 		<spots>
 			<pos>200 0 0</pos>
-			<pos>100 100 200</pos>
-			<pos>100 -100 200</pos>
-			<pos>200 0 -50</pos>
 		</spots>
 	</cam_infos>
 	<objs>

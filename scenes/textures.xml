@@ -1,9 +1,7 @@
 <scene>
 	<cam_infos>
 		<spots>
-			<pos>200 200 200</pos>
 			<pos>400 0 0</pos>
-			<pos>200 -50 100</pos>
 		</spots>
 	</cam_infos>
 	<objs>
